@@ -18,7 +18,6 @@
       </sprites>
       <sprites name="walk">
         <sprite>sprites\playerWalk</sprite>
-        <sprite>sprites\spr_player_walk1</sprite>
       </sprites>
     </sprites>
     <sprite>sprites\spr_floor</sprite>
@@ -45,6 +44,7 @@
       <script>scripts\stateIdle.gml</script>
       <script>scripts\stateWalk.gml</script>
       <script>scripts\stateJump.gml</script>
+      <script>scripts\stateDrop.gml</script>
     </scripts>
     <scripts name="util">
       <script>scripts\onFloor.gml</script>
@@ -67,6 +67,9 @@
     <room>rooms\GUI</room>
     <room>rooms\testRoom</room>
   </rooms>
+  <constants number="1">
+    <constant name="customDeltaTime">(60 / room_speed) * (delta_time / ((1 / room_speed) * 1000000))</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>

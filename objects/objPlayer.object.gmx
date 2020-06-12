@@ -30,6 +30,7 @@ stateMachineInit();
 stateCreate("idle", stateIdle);
 stateCreate("walk", stateWalk);
 stateCreate("jump", stateJump);
+stateCreate("drop", stateDrop);
 
 </string>
           </argument>
@@ -57,8 +58,8 @@ stateCreate("jump", stateJump);
 grav               = 0.35;
 horizontalSpeed    = 0;
 verticalSpeed      = 0;
-maxHorizontalSpeed = 2;
-maxVerticalSpeed   = 4;
+maxHorizontalSpeed = 3;
+maxVerticalSpeed   = 8;
 acceleration       = 0.2;
 slideFactor        = 2;
 
@@ -95,8 +96,8 @@ downHeld  = false;
 leftHeld  = false;
 rightHeld = false;
 
-jumpHeld     = false;
-jumpReleased = false;
+jumpHeld    = false;
+jumpPressed = false;
 </string>
           </argument>
         </arguments>
@@ -177,6 +178,9 @@ leftHeld     = keyboard_check(ord('A'));
 rightHeld    = keyboard_check(ord('D'));
 leftPressed  = keyboard_check_pressed(ord('A'));
 rightPressed = keyboard_check_pressed(ord('D'));
+
+jumpHeld    = keyboard_check(vk_space);
+jumpPressed = keyboard_check_pressed(vk_space);
 
 // end game
 if (keyboard_check_pressed(vk_escape)) {

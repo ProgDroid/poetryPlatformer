@@ -1,11 +1,11 @@
+///stateDrop
+
 if (state_new) {
     sprite_index  = playerJump;
-    image_index   = 0;
-    verticalSpeed = -maxVerticalSpeed;
+    image_index   = 2;
 }
 
-verticalSpeed += grav * customDeltaTime;
-verticalSpeed = clamp(verticalSpeed, -maxVerticalSpeed, maxVerticalSpeed);
+verticalSpeed = min(verticalSpeed + grav, maxVerticalSpeed) * customDeltaTime;
 
 // collisions
 if (place_meeting(round(x), round(y) + verticalSpeed, objPlatforms) /*||
@@ -29,7 +29,7 @@ if ((rightHeld && !place_meeting(round(x) + 1, round(y), objPlatforms)) ||
     }
     
     if (-maxHorizontalSpeed < horizontalSpeed < maxHorizontalSpeed) {
-        horizontalSpeed += (rightHeld - leftHeld) * customDeltaTime;
+        horizontalSpeed += (rightHeld - leftHeld) * acceleration * customDeltaTime;
         horizontalSpeed = clamp(horizontalSpeed, -maxHorizontalSpeed, maxHorizontalSpeed);
     }
 }
@@ -56,6 +56,3 @@ if (verticalSpeed == 0 && place_meeting(round(x), round(y) + 1, objPlatforms)) {
     }
 }
 
-// if previous state is not jump or wall jump or any other jump
-// if jump pressed
-// jump state again
