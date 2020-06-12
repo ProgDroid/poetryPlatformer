@@ -222,7 +222,7 @@
     <option_freeze>false</option_freeze>
     <option_frequency>0</option_frequency>
     <option_frontimage>nil</option_frontimage>
-    <option_fullscreen>False</option_fullscreen>
+    <option_fullscreen>True</option_fullscreen>
     <option_gameguid>{75512C49-D3E5-4B6F-9AA3-EA26E3DA34F9}</option_gameguid>
     <option_gameid>628845248</option_gameid>
     <option_hasloadimage>false</option_hasloadimage>
@@ -457,9 +457,15 @@
     <option_textureGroup1_parent>&lt;none&gt;</option_textureGroup1_parent>
     <option_textureGroup1_scaled>0</option_textureGroup1_scaled>
     <option_textureGroup1_targets>9223372036854775807</option_textureGroup1_targets>
-    <option_textureGroup_count>2</option_textureGroup_count>
+    <option_textureGroup2_border>2</option_textureGroup2_border>
+    <option_textureGroup2_nocropping>0</option_textureGroup2_nocropping>
+    <option_textureGroup2_parent>&lt;none&gt;</option_textureGroup2_parent>
+    <option_textureGroup2_scaled>0</option_textureGroup2_scaled>
+    <option_textureGroup2_targets>9223372036854775807</option_textureGroup2_targets>
+    <option_textureGroup_count>3</option_textureGroup_count>
     <option_textureGroups0>Default</option_textureGroups0>
     <option_textureGroups1>player</option_textureGroups1>
+    <option_textureGroups2>controllers</option_textureGroups2>
     <option_tizen_app_id>http://yourdomain/projectGiger</option_tizen_app_id>
     <option_tizen_build_version>0</option_tizen_build_version>
     <option_tizen_display_name>projectGiger</option_tizen_display_name>
@@ -598,7 +604,7 @@
     <option_windows_steam_app_id>0</option_windows_steam_app_id>
     <option_windows_texture_page>4096</option_windows_texture_page>
     <option_windows_use_splash>0</option_windows_use_splash>
-    <option_windows_vertex_buffer_method2>1</option_windows_vertex_buffer_method2>
+    <option_windows_vertex_buffer_method2>0</option_windows_vertex_buffer_method2>
     <option_winphone_480_splash_image>Configs\Default\WinPhone\SplashScreenImage480.jpg</option_winphone_480_splash_image>
     <option_winphone_720_splash_image>Configs\Default\WinPhone\SplashScreenImage720.jpg</option_winphone_720_splash_image>
     <option_winphone_768_splash_image>Configs\Default\WinPhone\SplashScreenImage.jpg</option_winphone_768_splash_image>
