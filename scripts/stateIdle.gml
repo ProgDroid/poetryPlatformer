@@ -36,7 +36,7 @@ if (jumpCharge != 0 && jumpReleased &&
 */
 
 // regular jump
-if (upHeld && place_meeting(round(x), round(y) + 1, objPlatforms)) {
+if ((jumpPressed || jumpHeld) && place_meeting(round(x), round(y) + 1, objPlatforms)) {
     stateSwitch("jump");
 }
 

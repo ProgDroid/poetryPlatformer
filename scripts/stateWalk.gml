@@ -15,7 +15,7 @@ if (leftHeld || rightHeld) {
         image_xscale = -1;    
     }
 
-        // check for slide
+    // check for slide
     var accelerationTmp = acceleration;
     
     if ((horizontalSpeed < 0 && rightHeld) ||
@@ -26,14 +26,20 @@ if (leftHeld || rightHeld) {
     
     // accelerate
     if (-maxHorizontalSpeed < horizontalSpeed < maxHorizontalSpeed) {
-        horizontalSpeed += (rightHeld - leftHeld) * accelerationTmp;
+        horizontalSpeed += (rightHeld - leftHeld) * accelerationTmp * customDeltaTime;
         horizontalSpeed = clamp(horizontalSpeed, -maxHorizontalSpeed, maxHorizontalSpeed);
     }
 } else { // if not holding keys
     if (horizontalSpeed < 0) {
-        horizontalSpeed += acceleration;
+        horizontalSpeed += acceleration * customDeltaTime;
+        if (horizontalSpeed > 0) {
+            horizontalSpeed = 0;
+        }
     } else if (horizontalSpeed > 0) {
-        horizontalSpeed -= acceleration;
+        horizontalSpeed -= acceleration * customDeltaTime;
+        if (horizontalSpeed < 0) {
+            horizontalSpeed = 0;
+        }
     }
 }
 
@@ -64,7 +70,12 @@ if (horizontalSpeed == 0) {
 }
 
 // no floor
-if (!place_meeting(round(x) - 2, round(y) + 1, objPlatforms)) {
+if (!(jumpPressed || jumpHeld) && !place_meeting(round(x) - sign(horizontalSpeed), round(y) + 1, objPlatforms)) {
+    stateSwitch("drop");
+}
+
+// jump
+if ((jumpPressed || jumpHeld) && place_meeting(round(x) - sign(horizontalSpeed), round(y) + 1, objPlatforms)) {
     stateSwitch("jump");
 }
 
@@ -80,7 +91,7 @@ if (place_meeting(round(x) + horizontalSpeed, round(y), objPlatforms)) {
     horizontalSpeed = 0
     stateSwitch("idle");
 } else {
-    x += horizontalSpeed;
+    x += horizontalSpeed * customDeltaTime;
 }
 
 // dash
