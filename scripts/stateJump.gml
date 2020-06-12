@@ -49,7 +49,7 @@ if (horizontalSpeed != 0) {
 }
 
 if (verticalSpeed == 0 && place_meeting(round(x), round(y) + 1, objPlatforms)) {
-    if (rightHeld || leftHeld) {
+    if (horizontalSpeed != 0 || (leftHeld || rightHeld)) {
         stateSwitch("walk");
     } else {
         stateSwitch("idle");

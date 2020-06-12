@@ -68,7 +68,7 @@
     <room>rooms\testRoom</room>
   </rooms>
   <constants number="1">
-    <constant name="customDeltaTime">delta_time / ((1 / room_speed) * 1000000)</constant>
+    <constant name="customDeltaTime">(60 / room_speed) * (delta_time / ((1 / room_speed) * 1000000))</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
