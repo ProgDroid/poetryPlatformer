@@ -7,56 +7,66 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprites name="spr_player">
+    <sprites name="player">
       <sprites name="idle">
-        <sprite>sprites\spr_player_idle</sprite>
+        <sprite>sprites\playerIdle</sprite>
+        <sprite>sprites\playerIdleCalm</sprite>
+        <sprite>sprites\playerIdleChill</sprite>
       </sprites>
       <sprites name="jump">
-        <sprite>sprites\spr_player_jump</sprite>
+        <sprite>sprites\playerJump</sprite>
       </sprites>
       <sprites name="walk">
-        <sprite>sprites\spr_player_walk</sprite>
+        <sprite>sprites\playerWalk</sprite>
+        <sprite>sprites\spr_player_walk1</sprite>
       </sprites>
     </sprites>
     <sprite>sprites\spr_floor</sprite>
     <sprite>sprites\spr_wall</sprite>
+    <sprites name="controllers">
+      <sprite>sprites\spriteGUIController</sprite>
+      <sprite>sprites\spriteFpsController</sprite>
+    </sprites>
   </sprites>
-  <backgrounds name="background">
-    <background>background\bg_0</background>
-    <background>background\bg_1</background>
-  </backgrounds>
+  <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="FSMScripts">
-      <script>scripts\state_machine_init.gml</script>
-      <script>scripts\state_create.gml</script>
-      <script>scripts\state_cleanup.gml</script>
-      <script>scripts\state_execute.gml</script>
-      <script>scripts\state_init.gml</script>
-      <script>scripts\state_switch.gml</script>
-      <script>scripts\state_switch_previous.gml</script>
-      <script>scripts\state_update.gml</script>
+      <script>scripts\stateMachineInit.gml</script>
+      <script>scripts\stateCreate.gml</script>
+      <script>scripts\stateCleanup.gml</script>
+      <script>scripts\stateExecute.gml</script>
+      <script>scripts\stateInit.gml</script>
+      <script>scripts\stateSwitch.gml</script>
+      <script>scripts\stateSwitchPrevious.gml</script>
+      <script>scripts\stateUpdate.gml</script>
     </scripts>
     <scripts name="playerStates">
-      <script>scripts\state_idle.gml</script>
-      <script>scripts\state_walk.gml</script>
-      <script>scripts\state_jump.gml</script>
+      <script>scripts\stateIdle.gml</script>
+      <script>scripts\stateWalk.gml</script>
+      <script>scripts\stateJump.gml</script>
     </scripts>
     <scripts name="util">
       <script>scripts\onFloor.gml</script>
+      <script>scripts\hideController.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\esteban</font>
   </fonts>
   <objects name="objects">
-    <object>objects\obj_player1</object>
-    <object>objects\obj_player2</object>
-    <object>objects\obj_actor</object>
-    <object>objects\obj_floor</object>
-    <object>objects\obj_wall</object>
-    <object>objects\obj_arena</object>
+    <object>objects\objPlayer</object>
+    <object>objects\objCharacter</object>
+    <object>objects\objFloor</object>
+    <object>objects\objWall</object>
+    <object>objects\objPlatforms</object>
+    <object>objects\GUIController</object>
+    <object>objects\controller</object>
   </objects>
+  <rooms name="rooms">
+    <room>rooms\GUI</room>
+    <room>rooms\testRoom</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
