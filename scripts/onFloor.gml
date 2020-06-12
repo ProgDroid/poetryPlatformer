@@ -1,1 +1,1 @@
-place_meeting(round(x), round(y) + 1, obj_floor)
+place_meeting(round(x), round(y) + 1, objFloor)
