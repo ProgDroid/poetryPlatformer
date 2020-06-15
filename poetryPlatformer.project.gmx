@@ -20,8 +20,8 @@
         <sprite>sprites\playerWalk</sprite>
       </sprites>
     </sprites>
-    <sprite>sprites\spr_floor</sprite>
     <sprite>sprites\spr_wall</sprite>
+    <sprite>sprites\spr_floor</sprite>
     <sprites name="controllers">
       <sprite>sprites\spriteGUIController</sprite>
       <sprite>sprites\spriteFpsController</sprite>
