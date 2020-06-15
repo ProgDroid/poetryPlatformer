@@ -91,13 +91,28 @@ hp = 5;
             <string>///Controls
 
 //Moving
-upHeld    = false;
-downHeld  = false;
-leftHeld  = false;
-rightHeld = false;
+upHeld       = false;
+downHeld     = false;
+leftHeld     = false;
+rightHeld    = false;
 
-jumpHeld    = false;
-jumpPressed = false;
+jumpHeld     = false;
+jumpPressed  = false;
+
+playerStart  = false;
+
+gamepadConnected = 0;
+numberGamepads = gamepad_get_device_count();
+
+for (var i = 0; i &lt; numberGamepads; i++) {
+    if (gamepad_is_connected(i)) {
+        gamepadConnected = i;
+        break;
+    }
+}
+
+gamepad_set_axis_deadzone(gamepadConnected, 0.2);
+
 </string>
           </argument>
         </arguments>
@@ -171,21 +186,24 @@ event_inherited();
             <string>///Movement &amp; Inheritance
 event_inherited();
 
-// Moving
-upHeld       = keyboard_check(ord('W'));
-downHeld     = keyboard_check(ord('S'));
-leftHeld     = keyboard_check(ord('A'));
-rightHeld    = keyboard_check(ord('D'));
-leftPressed  = keyboard_check_pressed(ord('A'));
-rightPressed = keyboard_check_pressed(ord('D'));
+// Moving with keyboard
+upHeld       = keyboard_check(ord('W')) || (gamepad_axis_value(gamepadConnected, gp_axislv) &lt; 0);
+downHeld     = keyboard_check(ord('S')) || (gamepad_axis_value(gamepadConnected, gp_axislv) &gt; 0);
+leftHeld     = keyboard_check(ord('A')) || (gamepad_axis_value(gamepadConnected, gp_axislh) &lt; 0);
+rightHeld    = keyboard_check(ord('D')) || (gamepad_axis_value(gamepadConnected, gp_axislh) &gt; 0);
+leftPressed  = keyboard_check_pressed(ord('A')) || (gamepad_axis_value(gamepadConnected, gp_axislh) &lt; 0);
+rightPressed = keyboard_check_pressed(ord('D')) || (gamepad_axis_value(gamepadConnected, gp_axislh) &gt; 0);
 
-jumpHeld    = keyboard_check(vk_space);
-jumpPressed = keyboard_check_pressed(vk_space);
+jumpHeld     = keyboard_check(vk_space) || gamepad_button_check(gamepadConnected, gp_face1);
+jumpPressed  = keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(gamepadConnected, gp_face1);
+
+playerStart  = keyboard_check_pressed(vk_escape) || gamepad_button_check_pressed(gamepadConnected, gp_start);
 
 // end game
-if (keyboard_check_pressed(vk_escape)) {
+if (playerStart) {
     game_end();
 }
+
 </string>
           </argument>
         </arguments>
