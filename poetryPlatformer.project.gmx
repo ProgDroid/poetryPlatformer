@@ -26,6 +26,9 @@
       <sprite>sprites\spriteGUIController</sprite>
       <sprite>sprites\spriteFpsController</sprite>
     </sprites>
+    <sprites name="platforms">
+      <sprite>sprites\spriteThat</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -47,7 +50,6 @@
       <script>scripts\stateDrop.gml</script>
     </scripts>
     <scripts name="util">
-      <script>scripts\onFloor.gml</script>
       <script>scripts\hideController.gml</script>
     </scripts>
   </scripts>
@@ -60,8 +62,11 @@
     <object>objects\objFloor</object>
     <object>objects\objWall</object>
     <object>objects\objPlatforms</object>
+    <object>objects\objFloors</object>
+    <object>objects\objBottoms</object>
     <object>objects\GUIController</object>
     <object>objects\controller</object>
+    <object>objects\platformThat</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\GUI</room>

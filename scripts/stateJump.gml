@@ -1,3 +1,5 @@
+///stateJump
+
 if (state_new) {
     sprite_index  = playerJump;
     image_index   = 0;
@@ -5,13 +7,15 @@ if (state_new) {
 }
 
 verticalSpeed += grav * customDeltaTime;
-verticalSpeed = clamp(verticalSpeed, -maxVerticalSpeed, maxVerticalSpeed);
+verticalSpeed  = clamp(verticalSpeed, -maxVerticalSpeed, maxVerticalSpeed);
 
 // collisions
-if (place_meeting(round(x), round(y) + verticalSpeed, objPlatforms) /*||
-    place_meeting(round(x) + 1, round(y) + verticalSpeed, obj_wall)*/)
-{
-    while (!place_meeting(round(x), round(y) + sign(verticalSpeed), objPlatforms)) {
+instance = instance_place(round(x), round(y) + verticalSpeed, objBottoms);
+if (instance != noone &&
+    sign(verticalSpeed) == 1 &&
+    self.bbox_bottom < instance.bbox_top
+) {
+    while (!place_meeting(round(x), round(y) + sign(verticalSpeed), objBottoms)) {
         y += sign(verticalSpeed) * customDeltaTime;
     }
     
@@ -21,9 +25,8 @@ if (place_meeting(round(x), round(y) + verticalSpeed, objPlatforms) /*||
 }
 
 // air movement
-if ((rightHeld && !place_meeting(round(x) + 1, round(y), objPlatforms)) ||
-    (leftHeld && !place_meeting(round(x) - 1, round(y), objPlatforms)))
-{
+if ((rightHeld && !place_meeting(round(x) + 1, round(y), objFloors)) ||
+    (leftHeld && !place_meeting(round(x) - 1, round(y), objFloors))) {
     if (rightHeld - leftHeld != 0) {
         image_xscale = rightHeld - leftHeld;
     }
@@ -35,10 +38,10 @@ if ((rightHeld && !place_meeting(round(x) + 1, round(y), objPlatforms)) ||
 }
 
 if (horizontalSpeed != 0) {
-    if (place_meeting(round(x) + horizontalSpeed, round(y), objPlatforms)) {
+    if (place_meeting(round(x) + horizontalSpeed, round(y), objFloors)) {
 
         // approach wall
-        while (!place_meeting(round(x) + sign(horizontalSpeed), round(y), objPlatforms)) {
+        while (!place_meeting(round(x) + sign(horizontalSpeed), round(y), objFloors)) {
             x += sign(horizontalSpeed) * customDeltaTime;
         }
         // stop at wall
@@ -48,7 +51,7 @@ if (horizontalSpeed != 0) {
     }
 }
 
-if (verticalSpeed == 0 && place_meeting(round(x), round(y) + 1, objPlatforms)) {
+if (verticalSpeed == 0 && place_meeting(round(x), round(y) + 1, objBottoms)) {
     if (horizontalSpeed != 0 || (leftHeld || rightHeld)) {
         stateSwitch("walk");
     } else {
