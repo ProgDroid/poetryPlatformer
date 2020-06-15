@@ -1,4 +1,5 @@
 // Idle State
+
 if (state_new) {
     horizontalSpeed = 0;
     verticalSpeed   = 0;
@@ -8,10 +9,9 @@ if (state_new) {
 }
 
 // walk if not against wall
-if (((leftHeld && !place_meeting(round(x) - 1, round(y), objPlatforms)) ||
-    (rightHeld && !place_meeting(round(x) + 1, round(y), objPlatforms))) &&
-     !(leftHeld && rightHeld))
-{
+if ((leftHeld || rightHeld) &&
+    !(leftHeld && rightHeld)
+) {
     stateSwitch("walk");
 }
 
@@ -36,8 +36,13 @@ if (jumpCharge != 0 && jumpReleased &&
 */
 
 // regular jump
-if ((jumpPressed || jumpHeld) && place_meeting(round(x), round(y) + 1, objPlatforms)) {
+if ((jumpPressed || jumpHeld) && place_meeting(round(x), round(y) + 1, objBottoms)) {
     stateSwitch("jump");
+}
+
+// drop from platform
+if (downPressed && place_meeting(round(x), round(y) + 1, objPlatforms)) {
+    stateSwitch("drop");
 }
 
 // in case floor moves from under player

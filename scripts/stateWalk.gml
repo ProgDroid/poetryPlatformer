@@ -1,3 +1,5 @@
+///stateWalk
+
 if (state_new) {
     sprite_index = playerWalk;
     image_index = 0;
@@ -70,26 +72,38 @@ if (horizontalSpeed == 0) {
 }
 
 // no floor
-if (!(jumpPressed || jumpHeld) && !place_meeting(round(x) - sign(horizontalSpeed), round(y) + 1, objPlatforms)) {
+if (!(jumpPressed || jumpHeld) && !place_meeting(round(x) - sign(horizontalSpeed), round(y) + 1, objBottoms) ||
+    !(jumpPressed || jumpHeld) && !place_meeting(round(x), round(y) + 1, objBottoms)
+) {
     stateSwitch("drop");
 }
 
 // jump
-if ((jumpPressed || jumpHeld) && place_meeting(round(x) - sign(horizontalSpeed), round(y) + 1, objPlatforms)) {
+if ((jumpPressed || jumpHeld) && place_meeting(round(x) - sign(horizontalSpeed), round(y) + 1, objBottoms) ||
+    (jumpPressed || jumpHeld) && place_meeting(round(x), round(y) + 1, objBottoms)
+) {
     stateSwitch("jump");
 }
 
+// drop from platform
+if (downPressed && place_meeting(round(x), round(y) + 1, objPlatforms)) {
+    stateSwitch("drop");
+}
+
 // collisions
-if (place_meeting(round(x) + horizontalSpeed, round(y), objPlatforms)) {
-//    round(x);
-//    round(y);
+instance = instance_place(round(x) + (rightHeld - leftHeld) * horizontalSpeed, round(y), objFloors);
+if (place_meeting(round(x) + (rightHeld - leftHeld) * horizontalSpeed, round(y), objFloors)) {
     // approach wall
-    while (!place_meeting(round(x) + sign(horizontalSpeed), round(y), objPlatforms)) {
+    while (!place_meeting(round(x) + sign(horizontalSpeed), round(y), objFloors)) {
         x += sign(horizontalSpeed);
-    } // while
-    // stop at wall
-    horizontalSpeed = 0
-    stateSwitch("idle");
+    }
+    
+    if (self.bbox_bottom - 15 < instance.bbox_top) {
+        y += instance.bbox_top - bbox_bottom - 1;
+        x += 5;
+    } else {
+        horizontalSpeed = 0;
+    }
 } else {
     x += horizontalSpeed * customDeltaTime;
 }
