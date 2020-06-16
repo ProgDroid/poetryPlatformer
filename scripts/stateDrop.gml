@@ -3,7 +3,7 @@
 if (state_new) {
     sprite_index  = playerJump;
     image_index   = 2;
-    //image_speed   = 1 / (room_speed * 0.1);
+    image_speed   = 1 / (room_speed * 0.1);
     platformId    = instance_place(round(x), round(y) + 1, objPlatforms);
 }
 
@@ -59,5 +59,10 @@ if (verticalSpeed == 0 && place_meeting(round(x), round(y) + 1, objBottoms)) {
     } else {
         stateSwitch("idle");
     }
+}
+
+instance = instance_place(round(x), round(y), objCollectible);
+if (instance != noone) {
+    stateSwitch("inCollectionAnimation");
 }
 

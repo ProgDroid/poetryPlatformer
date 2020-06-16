@@ -3,7 +3,7 @@
 if (state_new) {
     sprite_index  = playerJump;
     image_index   = 0;
-    //image_speed   = 1 / (room_speed * 0.1);
+    image_speed   = 1 / (room_speed * 0.1);
     verticalSpeed = -maxVerticalSpeed;
 }
 
@@ -58,6 +58,11 @@ if (verticalSpeed == 0 && place_meeting(round(x), round(y) + 1, objBottoms)) {
     } else {
         stateSwitch("idle");
     }
+}
+
+instance = instance_place(round(x) + horizontalSpeed, round(y) + verticalSpeed, objCollectible);
+if (instance != noone) {
+    stateSwitch("drop");
 }
 
 // if previous state is not jump or wall jump or any other jump

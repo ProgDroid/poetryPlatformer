@@ -50,7 +50,7 @@
       <script>scripts\stateWalk.gml</script>
       <script>scripts\stateJump.gml</script>
       <script>scripts\stateDrop.gml</script>
-      <script>scripts\inCollectionAnimation.gml</script>
+      <script>scripts\stateInCollectionAnimation.gml</script>
     </scripts>
     <scripts name="util">
       <script>scripts\hideController.gml</script>

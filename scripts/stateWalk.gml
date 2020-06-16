@@ -3,7 +3,7 @@
 if (state_new) {
     sprite_index = playerWalk;
     image_index  = 0;
-    //image_speed  = 1 / (room_speed * 0.1);
+    image_speed  = 1 / (room_speed * 0.1);
 }
 
 // if holding directional key
@@ -107,6 +107,11 @@ if (place_meeting(round(x) + (rightHeld - leftHeld) * horizontalSpeed, round(y),
     }
 } else {
     x += horizontalSpeed * customDeltaTime;
+}
+
+instance = instance_place(round(x), round(y), objCollectible);
+if (instance != noone) {
+    stateSwitch("inCollectionAnimation");
 }
 
 // dash

@@ -35,6 +35,12 @@ if (jumpCharge != 0 && jumpReleased &&
 } // if
 */
 
+if (!(jumpPressed || jumpHeld) && !place_meeting(round(x) - sign(horizontalSpeed), round(y) + 1, objBottoms) ||
+    !(jumpPressed || jumpHeld) && !place_meeting(round(x), round(y) + 1, objBottoms)
+) {
+    stateSwitch("drop");
+}
+
 // regular jump
 if ((jumpPressed || jumpHeld) && place_meeting(round(x), round(y) + 1, objBottoms)) {
     stateSwitch("jump");
