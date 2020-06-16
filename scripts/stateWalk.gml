@@ -2,7 +2,8 @@
 
 if (state_new) {
     sprite_index = playerWalk;
-    image_index = 0;
+    image_index  = 0;
+    //image_speed  = 1 / (room_speed * 0.1);
 }
 
 // if holding directional key

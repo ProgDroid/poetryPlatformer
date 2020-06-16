@@ -24,10 +24,12 @@
     <sprite>sprites\spr_floor</sprite>
     <sprites name="controllers">
       <sprite>sprites\spriteGUIController</sprite>
-      <sprite>sprites\spriteFpsController</sprite>
     </sprites>
     <sprites name="platforms">
       <sprite>sprites\spriteThat</sprite>
+    </sprites>
+    <sprites name="collectibles">
+      <sprite>sprites\collectYokan</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
@@ -48,9 +50,13 @@
       <script>scripts\stateWalk.gml</script>
       <script>scripts\stateJump.gml</script>
       <script>scripts\stateDrop.gml</script>
+      <script>scripts\inCollectionAnimation.gml</script>
     </scripts>
     <scripts name="util">
       <script>scripts\hideController.gml</script>
+    </scripts>
+    <scripts name="collectibles">
+      <script>scripts\collectibleCollect.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -67,6 +73,8 @@
     <object>objects\GUIController</object>
     <object>objects\controller</object>
     <object>objects\platformThat</object>
+    <object>objects\objCollectYokan</object>
+    <object>objects\objCollectible</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\GUI</room>

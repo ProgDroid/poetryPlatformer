@@ -3,6 +3,7 @@
 if (state_new) {
     sprite_index  = playerJump;
     image_index   = 2;
+    //image_speed   = 1 / (room_speed * 0.1);
     platformId    = instance_place(round(x), round(y) + 1, objPlatforms);
 }
 
