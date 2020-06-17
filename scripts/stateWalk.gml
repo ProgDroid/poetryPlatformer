@@ -3,7 +3,25 @@
 if (state_new) {
     sprite_index = playerWalk;
     image_index  = 0;
-    image_speed  = 1 / (room_speed * 0.1);
+    image_speed  = IMAGESPEED;
+}
+
+instance = instance_place(round(x), round(y), objFloors);
+if (instance) {
+    pushPlayerOut();
+}
+
+// collisions
+instance = instance_place(round(x) + (rightHeld - leftHeld) * horizontalSpeed, round(y), objFloors);
+if (place_meeting(round(x) + (rightHeld - leftHeld) * horizontalSpeed, round(y), objFloors)) {
+    // approach wall
+    while (!place_meeting(round(x) + sign(horizontalSpeed), round(y), objFloors)) {
+        x += sign(horizontalSpeed);
+    }
+
+    horizontalSpeed = 0;
+} else {
+    x += horizontalSpeed * customDeltaTime;
 }
 
 // if holding directional key
@@ -89,24 +107,6 @@ if ((jumpPressed || jumpHeld) && place_meeting(round(x) - sign(horizontalSpeed),
 // drop from platform
 if (downPressed && place_meeting(round(x), round(y) + 1, objPlatforms)) {
     stateSwitch("drop");
-}
-
-// collisions
-instance = instance_place(round(x) + (rightHeld - leftHeld) * horizontalSpeed, round(y), objFloors);
-if (place_meeting(round(x) + (rightHeld - leftHeld) * horizontalSpeed, round(y), objFloors)) {
-    // approach wall
-    while (!place_meeting(round(x) + sign(horizontalSpeed), round(y), objFloors)) {
-        x += sign(horizontalSpeed);
-    }
-    
-    if (self.bbox_bottom - 15 < instance.bbox_top) {
-        y += instance.bbox_top - bbox_bottom - 1;
-        x += 5;
-    } else {
-        horizontalSpeed = 0;
-    }
-} else {
-    x += horizontalSpeed * customDeltaTime;
 }
 
 instance = instance_place(round(x), round(y), objCollectible);

@@ -3,8 +3,13 @@
 if (state_new) {
     sprite_index  = playerJump;
     image_index   = 2;
-    image_speed   = 1 / (room_speed * 0.1);
+    image_speed   = IMAGESPEED;
     platformId    = instance_place(round(x), round(y) + 1, objPlatforms);
+}
+
+instance = instance_place(round(x), round(y), objFloors);
+if (instance) {
+    pushPlayerOut();
 }
 
 verticalSpeed = min(verticalSpeed + grav, maxVerticalSpeed) * customDeltaTime;
@@ -26,7 +31,8 @@ if (instance != noone &&
 }
 
 // air movement
-if ((rightHeld && !place_meeting(round(x) + 1, round(y), objFloors)) ||
+if (!(leftHeld && rightHeld) &&
+    (rightHeld && !place_meeting(round(x) + 1, round(y), objFloors)) ||
     (leftHeld && !place_meeting(round(x) - 1, round(y), objFloors))
 ) {
     if (rightHeld - leftHeld != 0) {

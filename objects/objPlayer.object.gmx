@@ -165,8 +165,17 @@ event_inherited();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>view_xview[0] = 0;
-view_yview[0] = 0;
+            <string>view_xview[0]  = 0;
+view_yview[0]  = 0;
+view_wview[0]  = window_get_width();
+view_hview[0]  = window_get_height();
+view_object[0] = noone;
+
+flashController.active = true;
+
+with (objCollectibleLetter) {
+    getSuckedIn = true;
+}
 
 stateSwitchPrevious();
 

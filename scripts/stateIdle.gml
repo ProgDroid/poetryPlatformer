@@ -5,12 +5,18 @@ if (state_new) {
     verticalSpeed   = 0;
     sprite_index    = playerIdle;
     image_index     = 0;
-    image_speed     = 1 / (room_speed * 0.1);
+    image_speed     = IMAGESPEED;
+}
+
+instance = instance_place(round(x), round(y), objFloors);
+if (instance) {
+    pushPlayerOut();
 }
 
 // walk if not against wall
-if ((leftHeld || rightHeld) &&
-    !(leftHeld && rightHeld)
+if (!(leftHeld && rightHeld) &&
+    ((leftHeld && !place_meeting(round(x) - 1, round(y), objFloors)) ||
+     (rightHeld && !place_meeting(round(x) + 1, round(y), objFloors)))
 ) {
     stateSwitch("walk");
 }
