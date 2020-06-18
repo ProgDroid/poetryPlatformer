@@ -11,7 +11,10 @@ for (var i = 0; i < stringLength; i++) {
     }
 
     letterObject = instance_create(x - (spacing / 2) + (50 * i), y - 50, objCollectibleLetter);
-    letterObject.character  = char;
-    letterObject.zoomFactor = i;
+    letterObject.character   = char;
+    letterObject.startFrame  = (ord(char) - ord('a')) * 13;
+    letterObject.endFrame    = letterObject.startFrame + 12;
+    letterObject.zoomFactor  = (i + 1.5);
+    letterObject.image_index = letterObject.startFrame;
 }
 

@@ -65,8 +65,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>active = false;
-alpha  = 1;
+            <string>active     = false;
+alpha      = 1;
+dark       = false;
+darkFactor = 0.1;
 
 </string>
           </argument>
@@ -90,7 +92,11 @@ alpha  = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (active) {
+            <string>if (dark &amp;&amp; darkFactor &lt; 1.5) {
+    darkFactor += 0.01;
+}
+
+if (active) {
     alpha -= 0.01 * customDeltaTime;
     if (alpha &lt;= 0) {
         active = false;
@@ -120,7 +126,15 @@ alpha  = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (active) {
+            <string>if (dark) {
+    draw_set_blend_mode(bm_subtract);
+    var colour = darkFactor * 20;
+    draw_set_colour(make_colour_rgb(colour, colour, colour));
+    draw_rectangle(view_xview[0], view_yview[0], view_xview[0] + view_wview[0], view_yview[0] + view_hview[0], false);
+    draw_set_blend_mode(bm_normal);
+}
+
+if (active) {
     draw_set_colour(c_white);
     draw_set_alpha(alpha);
     draw_rectangle(view_xview[0], view_yview[0], view_xview[0] + view_wview[0], view_yview[0] + view_hview[0], false);

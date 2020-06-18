@@ -6,8 +6,11 @@ if (instance) {
 }
 
 if (state_new) {
-    alarm[0] = room_speed * 3 * customDeltaTime;
+    alarm[0] = room_speed * 3.75 * customDeltaTime;
+    alarm[1] = room_speed * 3 * customDeltaTime;
     image_speed = 0;
+
+    flashController.dark = true;
 }
 
 // increase value as alarm goes to 0
