@@ -72,9 +72,9 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_text(100, 32, "HP: " + string(objPlayer.hp));
 draw_text(100, 64, "State: " + objPlayer.state_name);
-draw_text(100, 96, string(fps));
-draw_text(100, 128, string(delta_time));
-draw_text(100, 160, string(objPlayer.verticalSpeed));
+draw_text(100, 96, "FPS: " + string(fps));
+draw_text(100, 128, "Delta Time: " + string(delta_time));
+draw_text(100, 160, "Collectibles: " + string(worldController.collectiblesFound));
 
 </string>
           </argument>

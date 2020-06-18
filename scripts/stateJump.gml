@@ -3,7 +3,13 @@
 if (state_new) {
     sprite_index  = playerJump;
     image_index   = 0;
+    image_speed   = IMAGESPEED;
     verticalSpeed = -maxVerticalSpeed;
+}
+
+instance = instance_place(round(x), round(y), objFloors);
+if (instance) {
+    pushPlayerOut();
 }
 
 verticalSpeed += grav * customDeltaTime;
@@ -25,7 +31,8 @@ if (instance != noone &&
 }
 
 // air movement
-if ((rightHeld && !place_meeting(round(x) + 1, round(y), objFloors)) ||
+if (!(leftHeld && rightHeld) &&
+    (rightHeld && !place_meeting(round(x) + 1, round(y), objFloors)) ||
     (leftHeld && !place_meeting(round(x) - 1, round(y), objFloors))) {
     if (rightHeld - leftHeld != 0) {
         image_xscale = rightHeld - leftHeld;
@@ -39,7 +46,6 @@ if ((rightHeld && !place_meeting(round(x) + 1, round(y), objFloors)) ||
 
 if (horizontalSpeed != 0) {
     if (place_meeting(round(x) + horizontalSpeed, round(y), objFloors)) {
-
         // approach wall
         while (!place_meeting(round(x) + sign(horizontalSpeed), round(y), objFloors)) {
             x += sign(horizontalSpeed) * customDeltaTime;
@@ -57,6 +63,11 @@ if (verticalSpeed == 0 && place_meeting(round(x), round(y) + 1, objBottoms)) {
     } else {
         stateSwitch("idle");
     }
+}
+
+instance = instance_place(round(x) + horizontalSpeed, round(y) + verticalSpeed, objCollectible);
+if (instance != noone) {
+    stateSwitch("drop");
 }
 
 // if previous state is not jump or wall jump or any other jump

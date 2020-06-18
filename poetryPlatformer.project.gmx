@@ -24,10 +24,15 @@
     <sprite>sprites\spr_floor</sprite>
     <sprites name="controllers">
       <sprite>sprites\spriteGUIController</sprite>
-      <sprite>sprites\spriteFpsController</sprite>
+      <sprite>sprites\spriteFlashController</sprite>
+      <sprite>sprites\spriteWorldController</sprite>
     </sprites>
     <sprites name="platforms">
       <sprite>sprites\spriteThat</sprite>
+    </sprites>
+    <sprites name="collectibles">
+      <sprite>sprites\collectYokan</sprite>
+      <sprite>sprites\letter</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
@@ -48,32 +53,52 @@
       <script>scripts\stateWalk.gml</script>
       <script>scripts\stateJump.gml</script>
       <script>scripts\stateDrop.gml</script>
+      <script>scripts\stateInCollectionAnimation.gml</script>
     </scripts>
     <scripts name="util">
       <script>scripts\hideController.gml</script>
+      <script>scripts\spawnLetters.gml</script>
+      <script>scripts\pushPlayerOut.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\esteban</font>
   </fonts>
   <objects name="objects">
-    <object>objects\objPlayer</object>
-    <object>objects\objCharacter</object>
-    <object>objects\objFloor</object>
-    <object>objects\objWall</object>
-    <object>objects\objPlatforms</object>
-    <object>objects\objFloors</object>
-    <object>objects\objBottoms</object>
-    <object>objects\GUIController</object>
-    <object>objects\controller</object>
-    <object>objects\platformThat</object>
+    <objects name="collectibles">
+      <object>objects\objCollectible</object>
+      <object>objects\objCollectYokan</object>
+      <object>objects\objCollectibleLetter</object>
+    </objects>
+    <objects name="controllers">
+      <object>objects\controller</object>
+      <object>objects\flashController</object>
+      <object>objects\GUIController</object>
+      <object>objects\worldController</object>
+    </objects>
+    <objects name="environments">
+      <object>objects\objBottoms</object>
+      <object>objects\objFloors</object>
+      <object>objects\objFloor</object>
+      <object>objects\objPlatforms</object>
+      <object>objects\platformThat</object>
+      <object>objects\objWall</object>
+    </objects>
+    <objects name="characters">
+      <object>objects\objCharacter</object>
+      <object>objects\objPlayer</object>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\WORLD</room>
     <room>rooms\GUI</room>
+    <room>rooms\FLASH</room>
     <room>rooms\testRoom</room>
   </rooms>
-  <constants number="1">
+  <constants number="3">
     <constant name="customDeltaTime">(60 / room_speed) * (delta_time / ((1 / room_speed) * 1000000))</constant>
+    <constant name="COLLECTIBLES">5</constant>
+    <constant name="IMAGESPEED">1 / (room_speed * 0.1)</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
