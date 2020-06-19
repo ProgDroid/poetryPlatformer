@@ -3,7 +3,7 @@
   <spriteName>spriteFlashController</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-100</depth>
+  <depth>-1000</depth>
   <persistent>-1</persistent>
   <parentName>controller</parentName>
   <maskName>&lt;undefined&gt;</maskName>
