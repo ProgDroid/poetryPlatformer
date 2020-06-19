@@ -3,7 +3,7 @@
   <spriteName>spriteGUIController</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1000</depth>
+  <depth>-100</depth>
   <persistent>-1</persistent>
   <parentName>controller</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -50,7 +50,7 @@
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -68,13 +68,17 @@
           <argument>
             <kind>1</kind>
             <string>///Draw Health, State
+var healthPercentage = (objPlayer.hp / 5) * 100;
+draw_healthbar(50, 20, 125, 30, healthPercentage, c_black, make_colour_rgb(120, 114, 111), make_colour_rgb(120, 114, 111), 0, true, true);
+draw_set_colour(c_black);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
-draw_text(100, 32, "HP: " + string(objPlayer.hp));
+//draw_text(100, 32, "HP: " + string(objPlayer.hp));
 draw_text(100, 64, "State: " + objPlayer.state_name);
 draw_text(100, 96, "FPS: " + string(fps));
 draw_text(100, 128, "Delta Time: " + string(delta_time));
 draw_text(100, 160, "Collectibles: " + string(worldController.collectiblesFound));
+draw_set_colour(c_white);
 
 </string>
           </argument>
