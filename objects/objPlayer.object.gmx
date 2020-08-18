@@ -63,7 +63,7 @@ horizontalSpeed    = 0;
 verticalSpeed      = 0;
 maxHorizontalSpeed = 3;
 maxVerticalSpeed   = 8;
-acceleration       = 0.2;
+acceleration       = 0.4;
 slideFactor        = 2;
 
 // for backdash
