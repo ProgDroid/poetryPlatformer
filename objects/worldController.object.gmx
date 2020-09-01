@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>event_inherited();
 
+global.timeFactor = 1;
+
 // COLLECTIBLES
 collectibles        = ds_map_create();
 collectiblesPhrases = ds_map_create();
@@ -51,6 +53,8 @@ for (var i = 0; i &lt; COLLECTIBLES; i++) {
 }
 
 collectiblesFound = 0;
+
+highlightedPlatform = noone;
 
 </string>
           </argument>

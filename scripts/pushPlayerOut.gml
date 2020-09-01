@@ -1,6 +1,6 @@
-///pushPlayerOut
+///pushPlayerOut(instance)
 
-if (abs(x - instance.bbox_left) < abs(x - instance.bbox_right)) {
+if (abs(x - argument[0].bbox_left) < abs(x - argument[0].bbox_right)) {
     xDir = 180;
 } else {
     xDir = 0;
@@ -9,7 +9,7 @@ if (abs(x - instance.bbox_left) < abs(x - instance.bbox_right)) {
 move_outside_all(xDir, 0);
 
 
-if (abs(y - instance.bbox_top) < abs(y - instance.bbox_bottom)) {
+if (abs(y - argument[0].bbox_top) < abs(y - argument[0].bbox_bottom)) {
     yDir = 90;
 } else {
     yDir = 270;

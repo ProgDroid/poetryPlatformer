@@ -1,27 +1,51 @@
 ///stateDrop
 
 if (state_new) {
-    sprite_index  = playerJump;
-    image_index   = 2;
-    image_speed   = IMAGESPEED;
-    platformId    = instance_place(round(x), round(y) + 1, objPlatforms);
+    state_new    = false;
+    sprite_index = playerJump;
+    image_index  = 2;
+    image_speed  = IMAGESPEED;
+    platformId   = instance_place(round(x), round(y) + 1, objPlatforms);
+    
+    if (verticalSpeed == -maxVerticalSpeed) {
+        image_index = 0;
+        platformId = noone;
+    }
 }
 
-instance = instance_place(round(x), round(y), objFloors);
-if (instance) {
-    pushPlayerOut();
+facingDir = rightHeld - leftHeld;
+
+var instance = instance_place(round(x), round(y), objFloors);
+if (instance != noone) {
+    pushPlayerOut(instance);
 }
 
-verticalSpeed = min(verticalSpeed + grav, maxVerticalSpeed) * customDeltaTime;
+instance = instance_place(round(x), round(y), objCollectible);
+if (instance != noone) {
+    stateSwitch("inCollectionAnimation");
+}
+
+verticalSpeed += grav * customDeltaTime;
+verticalSpeed  = clamp(verticalSpeed, -maxVerticalSpeed, maxVerticalSpeed);
+
+// air movement
+if (!(leftHeld && rightHeld) &&
+    ((rightHeld && !place_meeting(round(x) + 1, round(y), objFloors)) ||
+     (leftHeld && !place_meeting(round(x) - 1, round(y), objFloors)))
+) {
+    image_xscale = facingDir;
+    
+    horizontalMovement(acceleration);
+}
 
 // collisions
 instance = instance_place(round(x), round(y) + verticalSpeed, objBottoms);
 if (instance != noone &&
     instance != platformId &&
-    round(self.bbox_bottom) < instance.bbox_top)
+    round(id.bbox_bottom) < instance.bbox_top)
 {
     while (!place_meeting(round(x), round(y) + sign(verticalSpeed), objBottoms)) {
-        y += sign(verticalSpeed) * customDeltaTime;
+        y += sign(verticalSpeed);
     }
     
     verticalSpeed = 0;
@@ -30,27 +54,17 @@ if (instance != noone &&
     y += verticalSpeed * customDeltaTime;
 }
 
-// air movement
-if (!(leftHeld && rightHeld) &&
-    (rightHeld && !place_meeting(round(x) + 1, round(y), objFloors)) ||
-    (leftHeld && !place_meeting(round(x) - 1, round(y), objFloors))
-) {
-    if (rightHeld - leftHeld != 0) {
-        image_xscale = rightHeld - leftHeld;
-    }
-    
-    if (-maxHorizontalSpeed < horizontalSpeed < maxHorizontalSpeed) {
-        horizontalSpeed += (rightHeld - leftHeld) * acceleration * customDeltaTime;
-        horizontalSpeed = clamp(horizontalSpeed, -maxHorizontalSpeed, maxHorizontalSpeed);
-    }
-}
-
 if (horizontalSpeed != 0) {
     if (place_meeting(round(x) + horizontalSpeed, round(y), objFloors)) {
 
+        var oldHSpeed = abs(horizontalSpeed);
         // approach wall
         while (!place_meeting(round(x) + sign(horizontalSpeed), round(y), objFloors)) {
-            x += sign(horizontalSpeed) * customDeltaTime;
+            x += sign(horizontalSpeed);
+            oldHSpeed -= abs(sign(horizontalSpeed));
+            if (oldHSpeed < 0) {
+                break;
+            }
         }
         // stop at wall
         horizontalSpeed = 0
@@ -60,15 +74,15 @@ if (horizontalSpeed != 0) {
 }
 
 if (verticalSpeed == 0 && place_meeting(round(x), round(y) + 1, objBottoms)) {
+    instance = instance_place(round(x), round(y) + 1, objPlatforms);
+    if (instance != noone) {
+        worldController.highlightedPlatform = instance;
+    }
+
     if (horizontalSpeed != 0 || (leftHeld || rightHeld)) {
         stateSwitch("walk");
     } else {
         stateSwitch("idle");
     }
-}
-
-instance = instance_place(round(x), round(y), objCollectible);
-if (instance != noone) {
-    stateSwitch("inCollectionAnimation");
 }
 

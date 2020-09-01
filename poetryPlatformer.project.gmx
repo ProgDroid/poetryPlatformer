@@ -26,6 +26,7 @@
       <sprite>sprites\spriteGUIController</sprite>
       <sprite>sprites\spriteFlashController</sprite>
       <sprite>sprites\spriteWorldController</sprite>
+      <sprite>sprites\spriteTimestep</sprite>
     </sprites>
     <sprites name="platforms">
       <sprite>sprites\spriteThat</sprite>
@@ -40,6 +41,11 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <scripts name="collectibleStates">
+      <script>scripts\stateCollectibleAlive.gml</script>
+      <script>scripts\stateCollectibleDying.gml</script>
+      <script>scripts\stateCollectibleDead.gml</script>
+    </scripts>
     <scripts name="FSMScripts">
       <script>scripts\stateMachineInit.gml</script>
       <script>scripts\stateCreate.gml</script>
@@ -50,12 +56,30 @@
       <script>scripts\stateSwitchPrevious.gml</script>
       <script>scripts\stateUpdate.gml</script>
     </scripts>
+    <scripts name="letterStates">
+      <script>scripts\stateLetterAlive.gml</script>
+      <script>scripts\stateLetterSuckedIn.gml</script>
+      <script>scripts\stateLetterDead.gml</script>
+    </scripts>
     <scripts name="playerStates">
       <script>scripts\stateIdle.gml</script>
       <script>scripts\stateWalk.gml</script>
-      <script>scripts\stateJump.gml</script>
       <script>scripts\stateDrop.gml</script>
       <script>scripts\stateInCollectionAnimation.gml</script>
+    </scripts>
+    <scripts name="sharedFunctions">
+      <script>scripts\horizontalMovement.gml</script>
+    </scripts>
+    <scripts name="timestepScripts">
+      <script>scripts\_fixed_timestep_ev_create.gml</script>
+      <script>scripts\_fixed_timestep_ev_destroy.gml</script>
+      <script>scripts\_fixed_timestep_ev_step_end.gml</script>
+      <script>scripts\fixed_timestep_definitions.gml</script>
+      <script>scripts\fixed_timestep_register_script.gml</script>
+      <script>scripts\fixed_timestep_register_user_event.gml</script>
+      <script>scripts\fixed_timestep_set_target_fps.gml</script>
+      <script>scripts\fixed_timestep_unregister.gml</script>
+      <script>scripts\fixed_timestep_update.gml</script>
     </scripts>
     <scripts name="util">
       <script>scripts\hideController.gml</script>
@@ -77,6 +101,8 @@
       <object>objects\flashController</object>
       <object>objects\GUIController</object>
       <object>objects\worldController</object>
+      <object>objects\fixedTimestep</object>
+      <object>objects\fixedTimestepRoom</object>
     </objects>
     <objects name="environments">
       <object>objects\objBottoms</object>
@@ -95,12 +121,14 @@
     <room>rooms\WORLD</room>
     <room>rooms\GUI</room>
     <room>rooms\FLASH</room>
+    <room>rooms\TIMESTEP</room>
     <room>rooms\testRoom</room>
+    <room>rooms\room4</room>
   </rooms>
   <constants number="3">
-    <constant name="customDeltaTime">(60 / room_speed) * (delta_time / ((1 / room_speed) * 1000000))</constant>
+    <constant name="customDeltaTime">global.timeFactor * ((60 / global._ts_fps) * (delta_time / ((1 / room_speed) * 1000000)))</constant>
     <constant name="COLLECTIBLES">5</constant>
-    <constant name="IMAGESPEED">1 / (room_speed * 0.1)</constant>
+    <constant name="IMAGESPEED">global.timeFactor * (1 / (room_speed * 0.1))</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

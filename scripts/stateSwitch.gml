@@ -1,4 +1,4 @@
-///stateSwitch(state <script or name>,<push to stack?>)
+///stateSwitch(state <script or name>,<push to stack?>
 var _push = true;
 
 if(argument_count > 1) {

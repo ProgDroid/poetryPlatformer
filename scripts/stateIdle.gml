@@ -1,6 +1,7 @@
 // Idle State
 
 if (state_new) {
+    state_new       = false;
     horizontalSpeed = 0;
     verticalSpeed   = 0;
     sprite_index    = playerIdle;
@@ -8,9 +9,9 @@ if (state_new) {
     image_speed     = IMAGESPEED;
 }
 
-instance = instance_place(round(x), round(y), objFloors);
-if (instance) {
-    pushPlayerOut();
+var instance = instance_place(round(x), round(y), objFloors);
+if (instance != noone) {
+    pushPlayerOut(instance);
 }
 
 // walk if not against wall
@@ -21,53 +22,15 @@ if (!(leftHeld && rightHeld) &&
     stateSwitch("walk");
 }
 
-// charge the jump
-/*
-if (jumpHeld)
-{
-    if (jumpCharge < maxJumpCharge)
-    {
-        jumpCharge++;
-    } // if
-} // if
-*/
-
-// jump after charge
-/*
-if (jumpCharge != 0 && jumpReleased &&
-    place_meeting(round(x), round(y) + 1, obj_floor))
-{
-    state_switch("highJump"); // (REGULAR JUMP WITH STRENGTH???)
-} // if
-*/
-
-if (!(jumpPressed || jumpHeld) && !place_meeting(round(x) - sign(horizontalSpeed), round(y) + 1, objBottoms) ||
-    !(jumpPressed || jumpHeld) && !place_meeting(round(x), round(y) + 1, objBottoms)
+if ((!(jumpPressed || jumpHeld) && !place_meeting(round(x), round(y) + 1, objBottoms)) ||
+    (downPressed && place_meeting(round(x), round(y) + 1, objPlatforms))
 ) {
     stateSwitch("drop");
 }
 
 // regular jump
 if ((jumpPressed || jumpHeld) && place_meeting(round(x), round(y) + 1, objBottoms)) {
-    stateSwitch("jump");
-}
-
-// drop from platform
-if (downPressed && place_meeting(round(x), round(y) + 1, objPlatforms)) {
+    verticalSpeed = -maxVerticalSpeed;
     stateSwitch("drop");
 }
 
-// in case floor moves from under player
-/*if (!position_meeting(round(x), round(y) + 1, obj_floor)) ||
-    !position_meeting(round(x), round(y) + 1, obj_floor))
-{
-    state_switch("jump");
-} // if
-*/
-// backdash
-/*
-if (dashPressed && !position_meeting(round(x) - sign(facingDir), round(y), obj_wall))
-{
-    state_switch("backDash");
-} // if
-*/

@@ -8,7 +8,7 @@
   <parentName>controller</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="8" enumb="0">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -31,11 +31,12 @@ draw_healthbar(50, 20, 125, 30, healthPercentage, c_black, make_colour_rgb(120, 
 draw_set_colour(c_black);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
-//draw_text(100, 32, "HP: " + string(objPlayer.hp));
 draw_text(100, 64, "State: " + objPlayer.state_name);
 draw_text(100, 96, "FPS: " + string(fps));
 draw_text(100, 128, "Delta Time: " + string(delta_time));
 draw_text(100, 160, "Collectibles: " + string(worldController.collectiblesFound));
+draw_text(100, 192, "target fps: " + string(global._ts_fps));
+draw_text(100, 224, "time factor: " + string(global.timeFactor));
 draw_set_colour(c_white);
 
 </string>
