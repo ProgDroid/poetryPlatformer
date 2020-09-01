@@ -27,6 +27,7 @@
       <sprite>sprites\spriteFlashController</sprite>
       <sprite>sprites\spriteWorldController</sprite>
       <sprite>sprites\spriteTimestep</sprite>
+      <sprite>sprites\spriteNotifController</sprite>
     </sprites>
     <sprites name="platforms">
       <sprite>sprites\spriteThat</sprite>
@@ -86,6 +87,14 @@
       <script>scripts\spawnLetters.gml</script>
       <script>scripts\pushPlayerOut.gml</script>
     </scripts>
+    <scripts name="eventTriggering">
+      <script>scripts\eventRegister.gml</script>
+      <script>scripts\eventFire.gml</script>
+      <script>scripts\eventUnregister.gml</script>
+    </scripts>
+    <scripts name="eventScripts">
+      <script>scripts\collectibleFound.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\esteban</font>
@@ -103,6 +112,7 @@
       <object>objects\worldController</object>
       <object>objects\fixedTimestep</object>
       <object>objects\fixedTimestepRoom</object>
+      <object>objects\notificationController</object>
     </objects>
     <objects name="environments">
       <object>objects\objBottoms</object>
@@ -122,6 +132,7 @@
     <room>rooms\GUI</room>
     <room>rooms\FLASH</room>
     <room>rooms\TIMESTEP</room>
+    <room>rooms\EVENTLISTEN</room>
     <room>rooms\testRoom</room>
     <room>rooms\room4</room>
   </rooms>
