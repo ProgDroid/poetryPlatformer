@@ -1,5 +1,6 @@
 ///@description eventFire
 ///@arg event
+///@arg instance (optional)
 
 if (ds_map_exists(notificationController.events, argument[0])) {
     var listenerList = notificationController.events[? argument[0]];
@@ -21,7 +22,10 @@ if (ds_map_exists(notificationController.events, argument[0])) {
         }
         
         if (instance_exists(listener)) {
-            with(listener) script_execute(script, args);
+            if (argument_count == 1 || // broadcast to all
+                (argument_count == 2 && listener == argument[1])) { // only to specified instance
+                with(listener) script_execute(script, args);
+            }
         } else {
             eventUnregister(argument[0], listener);
         }
