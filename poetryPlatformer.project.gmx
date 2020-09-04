@@ -94,6 +94,8 @@
     </scripts>
     <scripts name="eventScripts">
       <script>scripts\collectibleFound.gml</script>
+      <script>scripts\platformLandedOn.gml</script>
+      <script>scripts\removePlatformHightlight.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">

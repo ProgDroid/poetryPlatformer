@@ -73,11 +73,9 @@ if (horizontalSpeed != 0) {
     }
 }
 
-if (verticalSpeed == 0 && place_meeting(round(x), round(y) + 1, objBottoms)) {
-    instance = instance_place(round(x), round(y) + 1, objPlatforms);
-    if (instance != noone) {
-        worldController.highlightedPlatform = instance;
-    }
+instance = instance_place(round(x), round(y) + 1, objBottoms);
+if (verticalSpeed == 0 && instance) {
+    eventFire(allEvents.landedon, instance);
 
     if (horizontalSpeed != 0 || (leftHeld || rightHeld)) {
         stateSwitch("walk");
