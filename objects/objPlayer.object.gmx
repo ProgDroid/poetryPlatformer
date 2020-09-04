@@ -242,11 +242,6 @@ if (playerStart) {
     game_end();
 }
 
-if (keyboard_check_pressed(vk_f1)) {
-    if (hp != 0) {
-        hp -= 1;
-    }
-}
 </string>
           </argument>
         </arguments>
