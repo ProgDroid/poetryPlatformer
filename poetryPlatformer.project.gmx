@@ -67,6 +67,7 @@
       <script>scripts\stateWalk.gml</script>
       <script>scripts\stateDrop.gml</script>
       <script>scripts\stateInCollectionAnimation.gml</script>
+      <script>scripts\stateRespawn.gml</script>
     </scripts>
     <scripts name="sharedFunctions">
       <script>scripts\horizontalMovement.gml</script>
