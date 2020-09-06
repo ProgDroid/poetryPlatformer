@@ -31,6 +31,7 @@ stateCreate("idle", stateIdle);
 stateCreate("walk", stateWalk);
 stateCreate("drop", stateDrop);
 stateCreate("inCollectionAnimation", stateInCollectionAnimation);
+stateCreate("respawn", stateRespawn);
 
 stateInit("idle");
 
