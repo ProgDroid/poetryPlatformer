@@ -18,6 +18,8 @@
       </sprites>
       <sprites name="walk">
         <sprite>sprites\playerWalk</sprite>
+        <sprite>sprites\playerWalkCalm</sprite>
+        <sprite>sprites\playerWalkChill</sprite>
       </sprites>
     </sprites>
     <sprite>sprites\spr_wall</sprite>

@@ -7,6 +7,12 @@ if (state_new) {
     sprite_index    = playerIdle;
     image_index     = 0;
     image_speed     = IMAGESPEED;
+    if (hp <= 3) {
+        sprite_index = playerIdleCalm;
+        if (hp == 1) {
+            sprite_index = playerIdleChill;
+        }
+    }
 }
 
 var instance = instance_place(round(x), round(y), objFloors);
