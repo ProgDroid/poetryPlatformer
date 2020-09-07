@@ -5,6 +5,12 @@ if (state_new) {
     sprite_index = playerWalk;
     image_index  = 0;
     image_speed  = IMAGESPEED;
+    if (hp <= 3) {
+        sprite_index = playerWalkCalm;
+        if (hp == 1) {
+            sprite_index = playerWalkChill;
+        }
+    }
 }
 
 facingDir = rightHeld - leftHeld;

@@ -71,6 +71,7 @@ draw_text(100, 128, "Delta Time: " + string(delta_time));
 draw_text(100, 160, "Collectibles: " + string(worldController.collectiblesFound));
 draw_text(100, 192, "target fps: " + string(global._ts_fps));
 draw_text(100, 224, "time factor: " + string(global.timeFactor));
+draw_text(100, 256, "sprite: " + sprite_get_name(objPlayer.sprite_index));
 draw_set_colour(c_white);
 
 animationIndex += (IMAGESPEED / objPlayer.maxHp) * objPlayer.hp;
