@@ -22,8 +22,17 @@ if (ds_map_exists(notificationController.events, argument[0])) {
         }
         
         if (instance_exists(listener)) {
-            if (argument_count == 1 || // broadcast to all
-                (argument_count == 2 && listener == argument[1])) { // only to specified instance
+            // if an id is specified, only run for object type that has matching id
+            // while running for every other object type (might regret this but
+            // better than supplying a list of ids and having to know everything that
+            // needs to be told which negates the purpose of the events system)
+            // won't work for multiple inheritance
+            if (argument_count == 1 ||
+                (argument_count == 2 &&
+                 (listener.object_index != argument[1].object_index &&
+                  object_get_parent(listener.object_index) != object_get_parent(argument[1].object_index)) ||
+                 (listener.object_index == argument[1].object_index && listener == argument[1]))
+            ) {
                 with(listener) script_execute(script, args);
             }
         } else {

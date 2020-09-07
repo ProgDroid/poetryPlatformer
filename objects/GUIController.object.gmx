@@ -73,7 +73,7 @@ draw_text(100, 192, "target fps: " + string(global._ts_fps));
 draw_text(100, 224, "time factor: " + string(global.timeFactor));
 draw_set_colour(c_white);
 
-animationIndex += (IMAGESPEED / 5) * objPlayer.hp;
+animationIndex += (IMAGESPEED / objPlayer.maxHp) * objPlayer.hp;
 
 </string>
           </argument>
