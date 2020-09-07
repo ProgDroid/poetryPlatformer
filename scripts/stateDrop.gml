@@ -85,14 +85,12 @@ if (verticalSpeed == 0 && instance) {
 }
 
 if (bbox_top > (view_yview[0] + view_hview[0] + 50)) {
-    hp -= 1;
+    takeDamage();
     
     if (id.hp > 0) {
         x = xstart;
         y = ystart;
         stateSwitch("respawn");
-    } else {
-        game_end();
     }
 }
 
