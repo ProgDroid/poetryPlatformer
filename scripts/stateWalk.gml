@@ -67,15 +67,19 @@ if (horizontalSpeed == 0) {
 
 // no floor
 if (!(jumpPressed || jumpHeld) && !place_meeting(round(x) - sign(horizontalSpeed), round(y) + 1, objBottoms) ||
-    !(jumpPressed || jumpHeld) && !place_meeting(round(x), round(y) + 1, objBottoms) ||
-    (downPressed && place_meeting(round(x), round(y) + 1, objPlatforms))
+    !(jumpPressed || jumpHeld) && !place_meeting(round(x), round(y) + 1, objBottoms)
 ) {
     stateSwitch("drop");
 }
 
+// manually drop from platform
+if ((downPressed || downHeld) && jumpPressed && place_meeting(round(x), round(y) + 1, objPlatforms)) {
+    stateSwitch("drop");
+}
+
 // jump
-if ((jumpPressed || jumpHeld) && place_meeting(round(x) - sign(horizontalSpeed), round(y) + 1, objBottoms) ||
-    (jumpPressed || jumpHeld) && place_meeting(round(x), round(y) + 1, objBottoms)
+if (!(downPressed || downHeld) && (jumpPressed || jumpHeld) && place_meeting(round(x) - sign(horizontalSpeed), round(y) + 1, objBottoms) ||
+    !(downPressed || downHeld) && (jumpPressed || jumpHeld) && place_meeting(round(x), round(y) + 1, objBottoms)
 ) {
     verticalSpeed = -maxVerticalSpeed;
     stateSwitch("drop");

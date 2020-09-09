@@ -22,20 +22,24 @@ if (instance != noone) {
 
 // walk if not against wall
 if (!(leftHeld && rightHeld) &&
-    ((leftHeld && !place_meeting(round(x) - 1, round(y), objFloors)) ||
+    ((leftHeld && !place_meeting(round(b) - 1, round(y), objFloors)) ||
      (rightHeld && !place_meeting(round(x) + 1, round(y), objFloors)))
 ) {
     stateSwitch("walk");
 }
 
-if ((!(jumpPressed || jumpHeld) && !place_meeting(round(x), round(y) + 1, objBottoms)) ||
-    (downPressed && place_meeting(round(x), round(y) + 1, objPlatforms))
-) {
+// platform ran away from under you
+if ((!(jumpPressed || jumpHeld) && !place_meeting(round(x), round(y) + 1, objBottoms))) {
+    stateSwitch("drop");
+}
+
+// manually drop from platform
+if ((downPressed || downHeld) && (jumpPressed || jumpHeld) && place_meeting(round(x), round(y) + 1, objPlatforms)) {
     stateSwitch("drop");
 }
 
 // regular jump
-if ((jumpPressed || jumpHeld) && place_meeting(round(x), round(y) + 1, objBottoms)) {
+if (!(downPressed || downHeld) && (jumpPressed || jumpHeld) && place_meeting(round(x), round(y) + 1, objBottoms)) {
     verticalSpeed = -maxVerticalSpeed;
     stateSwitch("drop");
 }
