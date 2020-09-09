@@ -99,6 +99,7 @@
       <script>scripts\pushPlayerOut.gml</script>
       <script>scripts\heal.gml</script>
       <script>scripts\takeDamage.gml</script>
+      <script>scripts\applyTimeFactor.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
