@@ -29,7 +29,7 @@ if (!(leftHeld && rightHeld) &&
 }
 
 // platform ran away from under you
-if ((!(jumpPressed || jumpHeld) && !place_meeting(round(x), round(y) + 1, objBottoms))) {
+if (!place_meeting(round(x), round(y) + 1, objBottoms)) {
     stateSwitch("drop");
 }
 
