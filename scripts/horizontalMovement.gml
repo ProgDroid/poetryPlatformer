@@ -7,9 +7,11 @@ if (leftHeld && rightHeld) {
 
 image_xscale = facingDir;
 
+var maxSpeed = maxHorizontalSpeed - (exp((maxHp - hp) / maxHp) - 1);
+
 // accelerate
-if (-maxHorizontalSpeed < horizontalSpeed < maxHorizontalSpeed) {
+if (-maxSpeed < horizontalSpeed < maxSpeed) {
     horizontalSpeed += (facingDir) * argument[0] * customDeltaTime;
-    horizontalSpeed = clamp(horizontalSpeed, -maxHorizontalSpeed, maxHorizontalSpeed);
+    horizontalSpeed = clamp(horizontalSpeed, -maxSpeed, maxSpeed);
 }
 

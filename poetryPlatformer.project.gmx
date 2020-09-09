@@ -49,6 +49,16 @@
       <script>scripts\stateCollectibleDying.gml</script>
       <script>scripts\stateCollectibleDead.gml</script>
     </scripts>
+    <scripts name="eventScripts">
+      <script>scripts\collectibleFound.gml</script>
+      <script>scripts\platformLandedOn.gml</script>
+      <script>scripts\removePlatformHightlight.gml</script>
+    </scripts>
+    <scripts name="eventTriggering">
+      <script>scripts\eventRegister.gml</script>
+      <script>scripts\eventFire.gml</script>
+      <script>scripts\eventUnregister.gml</script>
+    </scripts>
     <scripts name="FSMScripts">
       <script>scripts\stateMachineInit.gml</script>
       <script>scripts\stateCreate.gml</script>
@@ -71,9 +81,6 @@
       <script>scripts\stateInCollectionAnimation.gml</script>
       <script>scripts\stateRespawn.gml</script>
     </scripts>
-    <scripts name="sharedFunctions">
-      <script>scripts\horizontalMovement.gml</script>
-    </scripts>
     <scripts name="timestepScripts">
       <script>scripts\_fixed_timestep_ev_create.gml</script>
       <script>scripts\_fixed_timestep_ev_destroy.gml</script>
@@ -86,21 +93,12 @@
       <script>scripts\fixed_timestep_update.gml</script>
     </scripts>
     <scripts name="util">
+      <script>scripts\horizontalMovement.gml</script>
       <script>scripts\hideController.gml</script>
       <script>scripts\spawnLetters.gml</script>
       <script>scripts\pushPlayerOut.gml</script>
       <script>scripts\heal.gml</script>
       <script>scripts\takeDamage.gml</script>
-    </scripts>
-    <scripts name="eventTriggering">
-      <script>scripts\eventRegister.gml</script>
-      <script>scripts\eventFire.gml</script>
-      <script>scripts\eventUnregister.gml</script>
-    </scripts>
-    <scripts name="eventScripts">
-      <script>scripts\collectibleFound.gml</script>
-      <script>scripts\platformLandedOn.gml</script>
-      <script>scripts\removePlatformHightlight.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -143,10 +141,11 @@
     <room>rooms\testRoom</room>
     <room>rooms\room4</room>
   </rooms>
-  <constants number="3">
+  <constants number="4">
     <constant name="customDeltaTime">global.timeFactor * ((60 / global._ts_fps) * (delta_time / ((1 / room_speed) * 1000000)))</constant>
     <constant name="COLLECTIBLES">5</constant>
     <constant name="IMAGESPEED">global.timeFactor * (1 / (room_speed * 0.1))</constant>
+    <constant name="MAXHORIZONTALSPEED">3.75</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

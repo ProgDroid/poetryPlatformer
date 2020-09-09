@@ -76,6 +76,15 @@ if (horizontalSpeed != 0) {
 instance = instance_place(round(x), round(y) + 1, objBottoms);
 if (verticalSpeed == 0 && instance) {
     eventFire(allEvents.landedon, instance);
+    
+    if (hp <= 3) {
+        alarm[1] = room_speed * 0.5 * customDeltaTime;
+        image_speed = IMAGESPEED - 0.1;
+        maxHorizontalSpeed = MAXHORIZONTALSPEED - 0.66;
+        if (hp == 1) {
+            maxHorizontalSpeed = MAXHORIZONTALSPEED - 1;
+        }
+    }
 
     if (horizontalSpeed != 0 || (leftHeld || rightHeld)) {
         stateSwitch("walk");
