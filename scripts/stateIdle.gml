@@ -22,7 +22,7 @@ if (instance != noone) {
 
 // walk if not against wall
 if (!(leftHeld && rightHeld) &&
-    ((leftHeld && !place_meeting(round(b) - 1, round(y), objFloors)) ||
+    ((leftHeld && !place_meeting(round(x) - 1, round(y), objFloors)) ||
      (rightHeld && !place_meeting(round(x) + 1, round(y), objFloors)))
 ) {
     stateSwitch("walk");
