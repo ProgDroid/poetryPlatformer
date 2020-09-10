@@ -5,11 +5,9 @@ if (state_new) {
     sprite_index = playerJump;
     image_index  = 2;
     image_speed  = IMAGESPEED;
-    platformId   = instance_place(round(x), round(y) + 1, objPlatforms);
     
     if (verticalSpeed == -maxVerticalSpeed) {
         image_index = 0;
-        platformId = noone;
     }
 }
 
@@ -48,7 +46,6 @@ if (!(leftHeld && rightHeld) &&
 // collisions
 instance = instance_place(round(x), round(y) + verticalSpeed, objBottoms);
 if (instance != noone &&
-    //instance != platformId &&
     round(id.bbox_bottom) < instance.bbox_top)
 {
     while (!place_meeting(round(x), round(y) + sign(verticalSpeed), objBottoms)) {
