@@ -21,6 +21,7 @@
         <sprite>sprites\playerWalkCalm</sprite>
         <sprite>sprites\playerWalkChill</sprite>
       </sprites>
+      <sprite>sprites\playerDead</sprite>
     </sprites>
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_floor</sprite>
@@ -30,6 +31,7 @@
       <sprite>sprites\spriteWorldController</sprite>
       <sprite>sprites\spriteTimestep</sprite>
       <sprite>sprites\spriteNotifController</sprite>
+      <sprite>sprites\spritePostProcessController</sprite>
     </sprites>
     <sprites name="platforms">
       <sprite>sprites\spriteThat</sprite>
@@ -53,6 +55,7 @@
       <script>scripts\collectibleFound.gml</script>
       <script>scripts\platformLandedOn.gml</script>
       <script>scripts\removePlatformHightlight.gml</script>
+      <script>scripts\processDeath.gml</script>
     </scripts>
     <scripts name="eventTriggering">
       <script>scripts\eventRegister.gml</script>
@@ -80,6 +83,8 @@
       <script>scripts\stateDrop.gml</script>
       <script>scripts\stateInCollectionAnimation.gml</script>
       <script>scripts\stateRespawn.gml</script>
+      <script>scripts\stateGameOver.gml</script>
+      <script>scripts\stateNewGame.gml</script>
     </scripts>
     <scripts name="timestepScripts">
       <script>scripts\_fixed_timestep_ev_create.gml</script>
@@ -100,8 +105,13 @@
       <script>scripts\heal.gml</script>
       <script>scripts\takeDamage.gml</script>
       <script>scripts\applyTimeFactor.gml</script>
+      <script>scripts\gameOverScreen.gml</script>
+      <script>scripts\gameRestart.gml</script>
     </scripts>
   </scripts>
+  <shaders name="shaders">
+    <shader type="GLSLES">shaders\gaussianBlur.shader</shader>
+  </shaders>
   <fonts name="fonts">
     <font>fonts\esteban</font>
   </fonts>
@@ -119,6 +129,7 @@
       <object>objects\fixedTimestep</object>
       <object>objects\fixedTimestepRoom</object>
       <object>objects\notificationController</object>
+      <object>objects\postProcessingController</object>
     </objects>
     <objects name="environments">
       <object>objects\objBottoms</object>
@@ -139,13 +150,15 @@
     <room>rooms\FLASH</room>
     <room>rooms\TIMESTEP</room>
     <room>rooms\EVENTLISTEN</room>
+    <room>rooms\POSTPROCESSING</room>
     <room>rooms\testRoom</room>
     <room>rooms\room4</room>
   </rooms>
-  <constants number="4">
+  <constants number="5">
     <constant name="customDeltaTime">global.timeFactor * ((60 / global._ts_fps) * (delta_time / ((1 / room_speed) * 1000000)))</constant>
     <constant name="COLLECTIBLES">5</constant>
     <constant name="IMAGESPEED">global.timeFactor * (1 / (room_speed * 0.1))</constant>
+    <constant name="IMAGESPEEDNOTIME">(1 / (room_speed * 0.1))</constant>
     <constant name="MAXHORIZONTALSPEED">3.75</constant>
   </constants>
   <help>

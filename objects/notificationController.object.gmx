@@ -33,6 +33,7 @@ enum allEvents {
     collectiblefound,
     landedon,
     removehighlight,
+    playerfell,
 }
 
 </string>

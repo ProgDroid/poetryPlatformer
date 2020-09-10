@@ -32,8 +32,10 @@ stateCreate("walk", stateWalk);
 stateCreate("drop", stateDrop);
 stateCreate("inCollectionAnimation", stateInCollectionAnimation);
 stateCreate("respawn", stateRespawn);
+stateCreate("gameOver", stateGameOver);
+stateCreate("newGame", stateNewGame);
 
-stateInit("idle");
+stateInit("newGame");
 
 </string>
           </argument>
@@ -166,6 +168,7 @@ gamepad_set_axis_deadzone(gamepadConnected, 0.2);
             <kind>1</kind>
             <string>///Register as observer
 eventRegister(allEvents.collectiblefound, id, heal);
+eventRegister(allEvents.playerfell, id, processDeath);
 
 </string>
           </argument>
@@ -191,6 +194,53 @@ eventRegister(allEvents.collectiblefound, id, heal);
             <kind>1</kind>
             <string>///Inheritance
 event_inherited();
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Cleanup Fixed Timestep
+fixed_timestep_unregister(id);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Cleanup Events
+eventUnregister(allEvents.collectiblefound, id);
+eventUnregister(allEvents.playerfell, id);
 </string>
           </argument>
         </arguments>
@@ -311,32 +361,6 @@ if (keyboard_check_pressed(vk_f1)) {
           </argument>
         </arguments>
       </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Check HP
-
-if (hp &lt;= 0) {
-    game_end();
-}
-
-</string>
-          </argument>
-        </arguments>
-      </action>
     </event>
     <event eventtype="8" enumb="0">
       <action>
@@ -355,7 +379,7 @@ if (hp &lt;= 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Draw Self
+            <string>///Draw Sprite
 
 draw_sprite_ext(
     sprite_index,image_index,
