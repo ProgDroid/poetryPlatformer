@@ -29,6 +29,11 @@
 
 name = "yokan";
 
+if (worldController.collectibles[? name] == true) {
+    worldController.collectibles[? name] = false;
+    worldController.collectiblesFound -= 1;
+}
+
 eventRegister(allEvents.collectiblefound, id, collectibleFound);
 
 </string>

@@ -31,6 +31,11 @@ while(global._ts_accumulator>=_dt_max) {
 
     repeat(global._ts_items_size) {
         var _item = _items[| _i];
+        
+        if (typeof(_item) == "undefined") {
+            ++_i;
+            continue;
+        }
 
         if(_item[EFixedTimestep_Item.UserEvent] != -1) {
             with _item[EFixedTimestep_Item.ID] event_user(_item[EFixedTimestep_Item.UserEvent]);
