@@ -74,6 +74,7 @@ if (!(jumpPressed || jumpHeld) && !place_meeting(round(x) - sign(horizontalSpeed
 
 // manually drop from platform
 if ((downPressed || downHeld) && jumpPressed && place_meeting(round(x), round(y) + 1, objPlatforms)) {
+    y += 1;
     stateSwitch("drop");
 }
 

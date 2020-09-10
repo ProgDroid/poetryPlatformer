@@ -5,11 +5,9 @@ if (state_new) {
     sprite_index = playerJump;
     image_index  = 2;
     image_speed  = IMAGESPEED;
-    platformId   = instance_place(round(x), round(y) + 1, objPlatforms);
     
     if (verticalSpeed == -maxVerticalSpeed) {
         image_index = 0;
-        platformId = noone;
     }
 }
 
@@ -23,6 +21,13 @@ if (instance != noone) {
 instance = instance_place(round(x), round(y), objCollectible);
 if (instance != noone) {
     stateSwitch("inCollectionAnimation");
+}
+
+instance = instance_place(round(x), round(y) + 1, objFloors);
+if (state_timer <= coyoteTime && jumpPressed && verticalSpeed >= 0) {
+    y -= state_timer div 2;
+    verticalSpeed = -maxVerticalSpeed;
+    stateSwitch("drop");
 }
 
 verticalSpeed += grav * customDeltaTime;
@@ -41,7 +46,6 @@ if (!(leftHeld && rightHeld) &&
 // collisions
 instance = instance_place(round(x), round(y) + verticalSpeed, objBottoms);
 if (instance != noone &&
-    instance != platformId &&
     round(id.bbox_bottom) < instance.bbox_top)
 {
     while (!place_meeting(round(x), round(y) + sign(verticalSpeed), objBottoms)) {
