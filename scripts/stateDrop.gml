@@ -25,6 +25,13 @@ if (instance != noone) {
     stateSwitch("inCollectionAnimation");
 }
 
+instance = instance_place(round(x), round(y) + 1, objFloors);
+if (state_timer <= coyoteTime && jumpPressed && verticalSpeed >= 0) {
+    y -= state_timer div 2;
+    verticalSpeed = -maxVerticalSpeed;
+    stateSwitch("drop");
+}
+
 verticalSpeed += grav * customDeltaTime;
 verticalSpeed  = clamp(verticalSpeed, -maxVerticalSpeed, maxVerticalSpeed);
 
@@ -41,7 +48,7 @@ if (!(leftHeld && rightHeld) &&
 // collisions
 instance = instance_place(round(x), round(y) + verticalSpeed, objBottoms);
 if (instance != noone &&
-    instance != platformId &&
+    //instance != platformId &&
     round(id.bbox_bottom) < instance.bbox_top)
 {
     while (!place_meeting(round(x), round(y) + sign(verticalSpeed), objBottoms)) {

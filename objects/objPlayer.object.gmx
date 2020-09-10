@@ -91,6 +91,7 @@ maxHorizontalSpeed = MAXHORIZONTALSPEED;
 maxVerticalSpeed   = 8;
 acceleration       = 0.5;
 slideFactor        = 2;
+coyoteTime         = 7;
 
 // for backdash
 facingDir = 0;
