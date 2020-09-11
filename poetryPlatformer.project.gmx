@@ -51,6 +51,12 @@
       <script>scripts\stateCollectibleDying.gml</script>
       <script>scripts\stateCollectibleDead.gml</script>
     </scripts>
+    <scripts name="collisionScripts">
+      <script>scripts\horizontalCollisions.gml</script>
+      <script>scripts\verticalCollisions.gml</script>
+      <script>scripts\isAgainstWall.gml</script>
+      <script>scripts\isOnFloor.gml</script>
+    </scripts>
     <scripts name="eventScripts">
       <script>scripts\collectibleFound.gml</script>
       <script>scripts\platformLandedOn.gml</script>

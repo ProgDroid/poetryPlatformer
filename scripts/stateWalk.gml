@@ -15,14 +15,7 @@ if (state_new) {
 
 facingDir = rightHeld - leftHeld;
 
-// push out
-var instance = instance_place(round(x), round(y), objFloors);
-if (instance != noone) {
-    pushPlayerOut(instance);
-}
-
-instance = instance_place(round(x), round(y), objCollectible);
-if (instance != noone) {
+if (place_meeting(x, y, objCollectible)) {
     stateSwitch("inCollectionAnimation");
 }
 
@@ -47,18 +40,7 @@ if (leftHeld || rightHeld) {
 }
 
 // collisions
-instance = instance_place(round(x) + (rightHeld - leftHeld) * horizontalSpeed, round(y), objFloors);
-
-if (place_meeting(round(x) + (rightHeld - leftHeld) * horizontalSpeed, round(y), objFloors)) {
-    // approach wall
-    while (!place_meeting(round(x) + sign(horizontalSpeed), round(y), objFloors)) {
-        x += sign(horizontalSpeed);
-    }
-
-    horizontalSpeed = 0;
-} else {
-    x += horizontalSpeed * customDeltaTime;
-}
+horizontalCollisions();
 
 // if stopped, idle
 if (horizontalSpeed == 0) {
@@ -67,20 +49,20 @@ if (horizontalSpeed == 0) {
 
 // no floor
 if (!(jumpPressed || jumpHeld) && !place_meeting(round(x) - sign(horizontalSpeed), round(y) + 1, objBottoms) ||
-    !(jumpPressed || jumpHeld) && !place_meeting(round(x), round(y) + 1, objBottoms)
+    !(jumpPressed || jumpHeld) && !isOnFloor()
 ) {
     stateSwitch("drop");
 }
 
 // manually drop from platform
-if ((downPressed || downHeld) && jumpPressed && place_meeting(round(x), round(y) + 1, objPlatforms)) {
+if ((downPressed || downHeld) && jumpPressed && isOnFloor(objPlatforms)) {
     y += 1;
     stateSwitch("drop");
 }
 
 // jump
 if (!(downPressed || downHeld) && (jumpPressed || jumpHeld) && place_meeting(round(x) - sign(horizontalSpeed), round(y) + 1, objBottoms) ||
-    !(downPressed || downHeld) && (jumpPressed || jumpHeld) && place_meeting(round(x), round(y) + 1, objBottoms)
+    !(downPressed || downHeld) && (jumpPressed || jumpHeld) && isOnFloor()
 ) {
     verticalSpeed = -maxVerticalSpeed;
     stateSwitch("drop");

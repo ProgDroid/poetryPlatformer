@@ -1,10 +1,5 @@
 ///stateInCollectionAnimation
 
-var instance = instance_place(round(x), round(y), objFloors);
-if (instance) {
-    pushPlayerOut(instance);
-}
-
 if (state_new) {
     state_new   = false;
     alarm[0]    = room_speed * 3.75 * customDeltaTime;
