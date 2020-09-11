@@ -13,7 +13,7 @@ if (state_new) {
 
 facingDir = rightHeld - leftHeld;
 
-if (place_meeting(round(x), round(y), objCollectible)) {
+if (place_meeting(x, y, objCollectible)) {
     stateSwitch("inCollectionAnimation");
 }
 
