@@ -37,7 +37,6 @@ stateCreate("newGame", stateNewGame);
 
 stateInit("newGame");
 
-show_debug_overlay(true);
 </string>
           </argument>
         </arguments>
