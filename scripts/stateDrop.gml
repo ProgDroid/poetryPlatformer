@@ -13,17 +13,11 @@ if (state_new) {
 
 facingDir = rightHeld - leftHeld;
 
-var instance = instance_place(round(x), round(y), objFloors);
-if (instance != noone) {
-    pushPlayerOut(instance);
-}
-
-instance = instance_place(round(x), round(y), objCollectible);
-if (instance != noone) {
+if (place_meeting(round(x), round(y), objCollectible)) {
     stateSwitch("inCollectionAnimation");
 }
 
-instance = instance_place(round(x), round(y) + 1, objFloors);
+// maybe add check for horizontalSpeed not being 0
 if (state_timer <= coyoteTime && jumpPressed && verticalSpeed >= 0) {
     y -= state_timer div 2;
     verticalSpeed = -maxVerticalSpeed;
@@ -35,8 +29,7 @@ verticalSpeed  = clamp(verticalSpeed, -maxVerticalSpeed, maxVerticalSpeed);
 
 // air movement
 if (!(leftHeld && rightHeld) &&
-    ((rightHeld && !place_meeting(round(x) + 1, round(y), objFloors)) ||
-     (leftHeld && !place_meeting(round(x) - 1, round(y), objFloors)))
+    ((leftHeld || rightHeld) && !isAgainstWall(rightHeld - leftHeld))
 ) {
     image_xscale = facingDir;
     
@@ -44,40 +37,13 @@ if (!(leftHeld && rightHeld) &&
 }
 
 // collisions
-instance = instance_place(round(x), round(y) + verticalSpeed, objBottoms);
-if (instance != noone &&
-    round(id.bbox_bottom) < instance.bbox_top)
-{
-    while (!place_meeting(round(x), round(y) + sign(verticalSpeed), objBottoms)) {
-        y += sign(verticalSpeed);
-    }
-    
-    verticalSpeed = 0;
-    y += instance.bbox_top - bbox_bottom - 1;
-} else {
-    y += verticalSpeed * customDeltaTime;
-}
+verticalCollisions();
 
 if (horizontalSpeed != 0) {
-    if (place_meeting(round(x) + horizontalSpeed, round(y), objFloors)) {
-
-        var oldHSpeed = abs(horizontalSpeed);
-        // approach wall
-        while (!place_meeting(round(x) + sign(horizontalSpeed), round(y), objFloors)) {
-            x += sign(horizontalSpeed);
-            oldHSpeed -= abs(sign(horizontalSpeed));
-            if (oldHSpeed < 0) {
-                break;
-            }
-        }
-        // stop at wall
-        horizontalSpeed = 0
-    } else {
-        x += horizontalSpeed * customDeltaTime;
-    }
+    horizontalCollisions();
 }
 
-instance = instance_place(round(x), round(y) + 1, objBottoms);
+var instance = instance_place(round(x), round(y) + 1, objBottoms);
 if (verticalSpeed == 0 && instance) {
     eventFire(allEvents.landedon, instance);
     

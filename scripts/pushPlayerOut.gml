@@ -1,4 +1,5 @@
 ///pushPlayerOut(instance)
+/// Currently deprecated but could still be useful
 
 if (abs(x - argument[0].bbox_left) < abs(x - argument[0].bbox_right)) {
     xDir = 180;

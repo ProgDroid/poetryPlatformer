@@ -15,32 +15,26 @@ if (state_new) {
     }
 }
 
-var instance = instance_place(round(x), round(y), objFloors);
-if (instance != noone) {
-    pushPlayerOut(instance);
-}
-
 // walk if not against wall
 if (!(leftHeld && rightHeld) &&
-    ((leftHeld && !place_meeting(round(x) - 1, round(y), objFloors)) ||
-     (rightHeld && !place_meeting(round(x) + 1, round(y), objFloors)))
+    ((leftHeld || rightHeld) && !isAgainstWall(rightHeld - leftHeld))
 ) {
     stateSwitch("walk");
 }
 
 // platform ran away from under you
-if (!place_meeting(round(x), round(y) + 1, objBottoms)) {
+if (!isOnFloor()) {
     stateSwitch("drop");
 }
 
 // manually drop from platform
-if ((downPressed || downHeld) && (jumpPressed || jumpHeld) && place_meeting(round(x), round(y) + 1, objPlatforms)) {
+if ((downPressed || downHeld) && (jumpPressed || jumpHeld) && isOnFloor(objPlatforms)) {
     y += 1;
     stateSwitch("drop");
 }
 
 // regular jump
-if (!(downPressed || downHeld) && (jumpPressed || jumpHeld) && place_meeting(round(x), round(y) + 1, objBottoms)) {
+if (!(downPressed || downHeld) && (jumpPressed || jumpHeld) && isOnFloor()) {
     verticalSpeed = -maxVerticalSpeed;
     stateSwitch("drop");
 }
