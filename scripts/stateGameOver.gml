@@ -10,7 +10,7 @@ if (state_new) {
     depth        = -101;
 }
 
-if (image_index >= 25) {
+if (floor(image_index) == 24) {
     image_index = 25;
     image_speed = 0;
 }
