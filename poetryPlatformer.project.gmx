@@ -57,6 +57,9 @@
       <script>scripts\isAgainstWall.gml</script>
       <script>scripts\isOnFloor.gml</script>
     </scripts>
+    <scripts name="devTools">
+      <script>scripts\toggleDevConsole.gml</script>
+    </scripts>
     <scripts name="eventScripts">
       <script>scripts\collectibleFound.gml</script>
       <script>scripts\platformLandedOn.gml</script>
