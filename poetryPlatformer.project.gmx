@@ -61,6 +61,7 @@
     </scripts>
     <scripts name="devTools">
       <script>scripts\toggleDevConsole.gml</script>
+      <script>scripts\addConsoleMessage.gml</script>
     </scripts>
     <scripts name="eventScripts">
       <script>scripts\collectibleFound.gml</script>

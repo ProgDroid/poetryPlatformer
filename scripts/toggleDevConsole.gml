@@ -1,17 +1,20 @@
 ///@description Toggle dev console
 
-devConsole = !devConsole;
+devModeController.devConsole = !devModeController.devConsole;
 
-if (devConsole) {
+if (devModeController.devConsole) {
     postProcessingController.blur = true;
-    previousTimeFactor = global.timeFactor;
+
+    devModeController.previousTimeFactor = global.timeFactor;
     applyTimeFactor(0);
-    show_debug_message("devConsole on");
+    
+    addConsoleMessage("warning", "hello");
+
     exit;
 }
 
 postProcessingController.blur = false;
 application_surface_draw_enable(true);
-applyTimeFactor(previousTimeFactor);
-show_debug_message("devConsole off");
+
+applyTimeFactor(devModeController.previousTimeFactor);
 

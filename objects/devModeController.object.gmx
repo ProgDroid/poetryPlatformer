@@ -27,10 +27,60 @@
             <kind>1</kind>
             <string>event_inherited();
 
-devConsole = false;
+devConsole         = false;
 previousTimeFactor = global.timeFactor;
 
-healthbarPosition = display_get_gui_width() * 0.025;
+devTextPosition    = display_get_gui_width() * 0.025 * 0.5;
+
+enum consoleCommands {
+    type,
+    str,
+}
+
+rectangleX2    = display_get_gui_width() - 1;
+rectangleY2    = display_get_gui_height() * 0.25;
+
+history        = ds_list_create();
+historySize    = 0;
+maxHistorySize = 1000;
+
+var intro;
+intro[consoleCommands.type] = "welcome";
+intro[consoleCommands.str]  = "===== HELLO DEV =====";
+
+ds_list_add(history, intro);
+historySize += 1;
+
+var intro1;
+intro1[consoleCommands.type] = "welcome";
+intro1[consoleCommands.str]  = "Type help if you forgot how to use this or you're new (somehow)";
+
+ds_list_add(history, intro1);
+historySize += 1;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>ds_list_destroy(history);
 
 </string>
           </argument>
@@ -86,13 +136,13 @@ if (!devConsole) {
     draw_set_colour(c_black);
     draw_set_halign(fa_left);
     draw_set_valign(fa_middle);
-    draw_text(healthbarPosition, 64, "State: " + objPlayer.state_name);
-    draw_text(healthbarPosition, 96, "FPS: " + string(fps));
-    draw_text(healthbarPosition, 128, "Delta Time: " + string(delta_time));
-    draw_text(healthbarPosition, 160, "Collectibles: " + string(worldController.collectiblesFound));
-    draw_text(healthbarPosition, 192, "target fps: " + string(global._ts_fps));
-    draw_text(healthbarPosition, 224, "time factor: " + string(global.timeFactor));
-    draw_text(healthbarPosition, 256, "sprite: " + sprite_get_name(objPlayer.sprite_index));
+    draw_text(devTextPosition, 64, "State: " + objPlayer.state_name);
+    draw_text(devTextPosition, 96, "FPS: " + string(fps));
+    draw_text(devTextPosition, 128, "Delta Time: " + string(delta_time));
+    draw_text(devTextPosition, 160, "Collectibles: " + string(worldController.collectiblesFound));
+    draw_text(devTextPosition, 192, "target fps: " + string(global._ts_fps));
+    draw_text(devTextPosition, 224, "time factor: " + string(global.timeFactor));
+    draw_text(devTextPosition, 256, "sprite: " + sprite_get_name(objPlayer.sprite_index));
     draw_set_colour(c_white);
 }
 
@@ -117,15 +167,30 @@ if (!devConsole) {
           <argument>
             <kind>1</kind>
             <string>///Draw dev console
+
+// Draw warnings in red
+
 if (devConsole) 
 {
     draw_set_colour(c_black);
     draw_set_alpha(0.5);
-    draw_rectangle(0, 0, display_get_gui_width() - 1, display_get_gui_height() * 0.25, false);
+    draw_rectangle(0, 0, rectangleX2, rectangleY2, false);
     draw_set_alpha(1);
-    draw_rectangle(0, 0, display_get_gui_width() - 1, display_get_gui_height() * 0.25, true);
+    draw_rectangle(0, 0, rectangleX2, rectangleY2, true);
     draw_set_colour(c_white);
+    
+    draw_set_font(-1);
+    draw_set_halign(fa_left);
+    draw_set_valign(fa_bottom);
+
+    var loops = min(historySize, 5);
+    for (var i = 0; i &lt; loops; i++) {
+        var line = history[| historySize - 1 - i];
+        draw_text(devTextPosition, rectangleY2 * 0.8 * (0.2 * (5 - i)), line[consoleCommands.str]);
+    }    
+    draw_text(devTextPosition, rectangleY2 * 0.8 * 1.2, "&gt; ");
 }
+
 </string>
           </argument>
         </arguments>
