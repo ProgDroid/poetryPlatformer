@@ -26,12 +26,14 @@
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_floor</sprite>
     <sprites name="controllers">
+      <sprite>sprites\spriteDevModeController</sprite>
       <sprite>sprites\spriteGUIController</sprite>
       <sprite>sprites\spriteFlashController</sprite>
       <sprite>sprites\spriteWorldController</sprite>
       <sprite>sprites\spriteTimestep</sprite>
       <sprite>sprites\spriteNotifController</sprite>
       <sprite>sprites\spritePostProcessController</sprite>
+      <sprite>sprites\spriteCheatChecker</sprite>
     </sprites>
     <sprites name="platforms">
       <sprite>sprites\spriteThat</sprite>
@@ -139,6 +141,8 @@
       <object>objects\fixedTimestepRoom</object>
       <object>objects\notificationController</object>
       <object>objects\postProcessingController</object>
+      <object>objects\devModeController</object>
+      <object>objects\cheatChecker</object>
     </objects>
     <objects name="environments">
       <object>objects\objBottoms</object>
@@ -154,17 +158,19 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\TIMESTEP</room>
+    <room>rooms\POSTPROCESSING</room>
+    <room>rooms\CHEATCHECK</room>
     <room>rooms\WORLD</room>
     <room>rooms\GUI</room>
     <room>rooms\FLASH</room>
-    <room>rooms\TIMESTEP</room>
     <room>rooms\EVENTLISTEN</room>
-    <room>rooms\POSTPROCESSING</room>
     <room>rooms\testRoom</room>
     <room>rooms\room4</room>
   </rooms>
-  <constants number="5">
+  <constants number="6">
     <constant name="customDeltaTime">global.timeFactor * ((60 / global._ts_fps) * (delta_time / ((1 / room_speed) * 1000000)))</constant>
+    <constant name="customDeltaTimeNoTimeFactor">((60 / global._ts_fps) * (delta_time / ((1 / room_speed) * 1000000)))</constant>
     <constant name="COLLECTIBLES">5</constant>
     <constant name="IMAGESPEED">global.timeFactor * (1 / (room_speed * 0.1))</constant>
     <constant name="IMAGESPEEDNOTIME">(1 / (room_speed * 0.1))</constant>

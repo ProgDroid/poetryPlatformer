@@ -5,7 +5,9 @@ if (leftHeld && rightHeld) {
     exit;
 }
 
-image_xscale = facingDir;
+if (image_speed != 0) {
+    image_xscale = facingDir;
+}
 
 var maxSpeed = maxHorizontalSpeed - (exp((maxHp - hp) / maxHp) - 1) * 0.5;
 

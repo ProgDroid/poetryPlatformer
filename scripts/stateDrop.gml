@@ -31,7 +31,9 @@ verticalSpeed  = clamp(verticalSpeed, -maxVerticalSpeed, maxVerticalSpeed);
 if (!(leftHeld && rightHeld) &&
     ((leftHeld || rightHeld) && !isAgainstWall(rightHeld - leftHeld))
 ) {
-    image_xscale = facingDir;
+    if (image_speed != 0) {
+        image_xscale = facingDir;
+    }
     
     horizontalMovement(acceleration);
 }
