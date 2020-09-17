@@ -1,10 +1,5 @@
 ///horizontalMovement(float acceleration)
 
-if (leftHeld && rightHeld) {
-    stateSwitch("idle");
-    exit;
-}
-
 if (image_speed != 0) {
     image_xscale = facingDir;
 }

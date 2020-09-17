@@ -343,21 +343,6 @@ if (playerStart) {
     game_end();
 }
 
-if (keyboard_check_pressed(vk_f1)) {
-    var newTime = 1;
-    if (global.timeFactor == 1) {
-        newTime = 1.5;
-    } else if (global.timeFactor == 1.5) {
-        newTime = 2;
-    } else if (global.timeFactor == 2) {
-        newTime = 0.5;
-    } else if (global.timeFactor == 0.5) {
-        newTime = 1;
-    }
-
-    applyTimeFactor(newTime);
-}
-
 </string>
           </argument>
         </arguments>

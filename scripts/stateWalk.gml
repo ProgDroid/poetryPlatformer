@@ -20,7 +20,7 @@ if (place_meeting(x, y, objCollectible)) {
 }
 
 // if holding directional key
-if (leftHeld || rightHeld) {
+if (leftHeld ^^ rightHeld) {
     // check for slide
     var accelerationTmp = acceleration;
     
@@ -48,8 +48,9 @@ if (horizontalSpeed == 0) {
 }
 
 // no floor
-if (!(jumpPressed || jumpHeld) && !place_meeting(round(x) - sign(horizontalSpeed), round(y) + 1, objBottoms) ||
-    !(jumpPressed || jumpHeld) && !isOnFloor()
+if (!(jumpPressed || jumpHeld) &&
+    (!place_meeting(round(x) - sign(horizontalSpeed), round(y) + 1, objBottoms) ||
+     !isOnFloor())
 ) {
     stateSwitch("drop");
 }
@@ -61,8 +62,10 @@ if ((downPressed || downHeld) && jumpPressed && isOnFloor(objPlatforms)) {
 }
 
 // jump
-if (!(downPressed || downHeld) && (jumpPressed || jumpHeld) && place_meeting(round(x) - sign(horizontalSpeed), round(y) + 1, objBottoms) ||
-    !(downPressed || downHeld) && (jumpPressed || jumpHeld) && isOnFloor()
+if (!(downPressed || downHeld) &&
+    (jumpPressed || jumpHeld) &&
+    (place_meeting(round(x) - sign(horizontalSpeed), round(y) + 1, objBottoms) ||
+     isOnFloor())
 ) {
     verticalSpeed = -maxVerticalSpeed;
     stateSwitch("drop");

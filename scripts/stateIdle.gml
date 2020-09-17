@@ -16,8 +16,7 @@ if (state_new) {
 }
 
 // walk if not against wall
-if (!(leftHeld && rightHeld) &&
-    ((leftHeld || rightHeld) && !isAgainstWall(rightHeld - leftHeld))
+if (((leftHeld ^^ rightHeld) && !isAgainstWall(rightHeld - leftHeld))
 ) {
     stateSwitch("walk");
 }

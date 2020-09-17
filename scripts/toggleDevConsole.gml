@@ -7,8 +7,6 @@ if (devModeController.devConsole) {
 
     devModeController.previousTimeFactor = global.timeFactor;
     applyTimeFactor(0);
-    
-    addConsoleMessage("warning", "hello");
 
     exit;
 }

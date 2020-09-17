@@ -28,8 +28,7 @@ verticalSpeed += grav * customDeltaTime;
 verticalSpeed  = clamp(verticalSpeed, -maxVerticalSpeed, maxVerticalSpeed);
 
 // air movement
-if (!(leftHeld && rightHeld) &&
-    ((leftHeld || rightHeld) && !isAgainstWall(rightHeld - leftHeld))
+if (((leftHeld ^^ rightHeld) && !isAgainstWall(rightHeld - leftHeld))
 ) {
     if (image_speed != 0) {
         image_xscale = facingDir;
@@ -58,7 +57,7 @@ if (verticalSpeed == 0 && instance) {
         }
     }
 
-    if (horizontalSpeed != 0 || (leftHeld || rightHeld)) {
+    if (horizontalSpeed != 0 || (leftHeld ^^ rightHeld)) {
         stateSwitch("walk");
     } else {
         stateSwitch("idle");

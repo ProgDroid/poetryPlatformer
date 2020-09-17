@@ -54,8 +54,6 @@ for (var i = 0; i &lt; COLLECTIBLES; i++) {
 
 collectiblesFound = 0;
 
-highlightedPlatform = noone;
-
 </string>
           </argument>
         </arguments>
