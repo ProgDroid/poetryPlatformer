@@ -289,6 +289,10 @@ if (devConsole)
         }
 
         draw_text(devTextPosition, rectangleY2 * 0.8 * (0.2 * (5 - i)), line[consoleCommands.str]);
+
+        if (line[consoleCommands.type] == "warning") {
+            draw_set_colour(c_white);
+        }
     }    
     draw_text(devTextPosition, rectangleY2 * 0.8 * 1.2, "&gt; " + consoleCommand + cursor);
 }
