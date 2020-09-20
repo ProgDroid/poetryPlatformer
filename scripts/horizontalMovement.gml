@@ -1,11 +1,8 @@
 ///horizontalMovement(float acceleration)
 
-if (leftHeld && rightHeld) {
-    stateSwitch("idle");
-    exit;
+if (image_speed != 0) {
+    image_xscale = facingDir;
 }
-
-image_xscale = facingDir;
 
 var maxSpeed = maxHorizontalSpeed - (exp((maxHp - hp) / maxHp) - 1) * 0.5;
 

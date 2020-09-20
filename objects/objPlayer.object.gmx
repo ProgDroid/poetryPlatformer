@@ -325,37 +325,24 @@ stateSwitchPrevious();
             <string>///Movement
 
 // Moving with keyboard
-upHeld       = keyboard_check(ord('W')) || (gamepad_axis_value(gamepadConnected, gp_axislv) &lt; 0);
-downHeld     = keyboard_check(ord('S')) || (gamepad_axis_value(gamepadConnected, gp_axislv) &gt; 0);
-leftHeld     = keyboard_check(ord('A')) || (gamepad_axis_value(gamepadConnected, gp_axislh) &lt; 0);
-rightHeld    = keyboard_check(ord('D')) || (gamepad_axis_value(gamepadConnected, gp_axislh) &gt; 0);
-downPressed  = keyboard_check_pressed(ord('S')) || (gamepad_axis_value(gamepadConnected, gp_axislv) &gt; 0);
-leftPressed  = keyboard_check_pressed(ord('A')) || (gamepad_axis_value(gamepadConnected, gp_axislh) &lt; 0);
-rightPressed = keyboard_check_pressed(ord('D')) || (gamepad_axis_value(gamepadConnected, gp_axislh) &gt; 0);
-
-jumpHeld     = keyboard_check(vk_space) || gamepad_button_check(gamepadConnected, gp_face1);
-jumpPressed  = keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(gamepadConnected, gp_face1);
-
-playerStart  = keyboard_check_pressed(vk_escape) || gamepad_button_check_pressed(gamepadConnected, gp_start);
+if (global.timeFactor != 0) {
+    upHeld       = keyboard_check(ord('W')) || (gamepad_axis_value(gamepadConnected, gp_axislv) &lt; 0);
+    downHeld     = keyboard_check(ord('S')) || (gamepad_axis_value(gamepadConnected, gp_axislv) &gt; 0);
+    leftHeld     = keyboard_check(ord('A')) || (gamepad_axis_value(gamepadConnected, gp_axislh) &lt; 0);
+    rightHeld    = keyboard_check(ord('D')) || (gamepad_axis_value(gamepadConnected, gp_axislh) &gt; 0);
+    downPressed  = keyboard_check_pressed(ord('S')) || (gamepad_axis_value(gamepadConnected, gp_axislv) &gt; 0);
+    leftPressed  = keyboard_check_pressed(ord('A')) || (gamepad_axis_value(gamepadConnected, gp_axislh) &lt; 0);
+    rightPressed = keyboard_check_pressed(ord('D')) || (gamepad_axis_value(gamepadConnected, gp_axislh) &gt; 0);
+    
+    jumpHeld     = keyboard_check(vk_space) || gamepad_button_check(gamepadConnected, gp_face1);
+    jumpPressed  = keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(gamepadConnected, gp_face1);
+    
+    playerStart  = keyboard_check_pressed(vk_escape) || gamepad_button_check_pressed(gamepadConnected, gp_start);
+}
 
 // end game
 if (playerStart) {
     game_end();
-}
-
-if (keyboard_check_pressed(vk_f1)) {
-    var newTime = 1;
-    if (global.timeFactor == 1) {
-        newTime = 1.5;
-    } else if (global.timeFactor == 1.5) {
-        newTime = 2;
-    } else if (global.timeFactor == 2) {
-        newTime = 0.5;
-    } else if (global.timeFactor == 0.5) {
-        newTime = 1;
-    }
-
-    applyTimeFactor(newTime);
 }
 
 </string>

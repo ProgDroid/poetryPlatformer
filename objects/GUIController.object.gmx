@@ -69,18 +69,6 @@ if (!gameOver) {
     }
     
     animationIndex += (IMAGESPEED / objPlayer.maxHp) * objPlayer.hp;
-
-    draw_set_colour(c_black);
-    draw_set_halign(fa_left);
-    draw_set_valign(fa_middle);
-    draw_text(healthbarPosition, 64, "State: " + objPlayer.state_name);
-    draw_text(healthbarPosition, 96, "FPS: " + string(fps));
-    draw_text(healthbarPosition, 128, "Delta Time: " + string(delta_time));
-    draw_text(healthbarPosition, 160, "Collectibles: " + string(worldController.collectiblesFound));
-    draw_text(healthbarPosition, 192, "target fps: " + string(global._ts_fps));
-    draw_text(healthbarPosition, 224, "time factor: " + string(global.timeFactor));
-    draw_text(healthbarPosition, 256, "sprite: " + sprite_get_name(objPlayer.sprite_index));
-    draw_set_colour(c_white);
 }
 
 </string>

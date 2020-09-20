@@ -95,7 +95,7 @@ application_surface_draw_enable(true);
             <string>if (blur) {
     application_surface_draw_enable(false);
 
-    var surfaceScale = 1/2;
+    var surfaceScale = 0.5;
     
     var guiWidth  = display_get_gui_width();
     var guiHeight = display_get_gui_height();
