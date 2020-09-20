@@ -7,6 +7,11 @@ if (devModeController.devConsole) {
 
     devModeController.previousTimeFactor = global.timeFactor;
     applyTimeFactor(0);
+    
+    keyboard_lastchar = "";
+    
+    devModeController.cursor = "_";
+    devModeController.alarm[0] = room_speed * 0.5 * customDeltaTimeNoTimeFactor;
 
     exit;
 }

@@ -20,5 +20,9 @@ if (devModeController.historySize == devModeController.maxHistorySize) {
 ds_list_add(devModeController.history, message);
 devModeController.historySize += 1;
 
+if (argument[0] == "command") {
+    processCommand(argument[1]);
+}
+
 show_debug_message(message[consoleCommands.str]);
 

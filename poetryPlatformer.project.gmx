@@ -62,6 +62,7 @@
     <scripts name="devTools">
       <script>scripts\toggleDevConsole.gml</script>
       <script>scripts\addConsoleMessage.gml</script>
+      <script>scripts\processCommand.gml</script>
     </scripts>
     <scripts name="eventScripts">
       <script>scripts\collectibleFound.gml</script>
