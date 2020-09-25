@@ -16,7 +16,7 @@ if (argument[0] == "help") {
     commands += ", dark";
     commands += ", blur";
     commands += ", die";
-    commands += ", spawn <object name>";
+    commands += ", spawn objectName <x> <y>";
     addConsoleMessage("info", "Available commands are: " + commands);
 }
 
@@ -75,8 +75,6 @@ if (string_pos("spawn", argument[0]) != 0) {
         var positions = string_delete(arguments, 1, string_length(objectName) + 1);
         var xPos      = string_copy(positions, 1, string_pos(" ", positions));
         var yPos      = string_delete(positions, 1, string_length(xPos));
-        
-        show_debug_message(yPos);
 
         instance_create(real(xPos), real(yPos), asset_get_index(objectName));
     } else {
