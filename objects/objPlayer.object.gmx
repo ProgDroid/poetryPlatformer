@@ -325,7 +325,7 @@ stateSwitchPrevious();
             <string>///Movement
 
 // Moving with keyboard
-if (global.timeFactor != 0) {
+if (!instance_exists(devModeController) || !(devModeController.devConsole)) {
     upHeld       = keyboard_check(ord('W')) || (gamepad_axis_value(gamepadConnected, gp_axislv) &lt; 0);
     downHeld     = keyboard_check(ord('S')) || (gamepad_axis_value(gamepadConnected, gp_axislv) &gt; 0);
     leftHeld     = keyboard_check(ord('A')) || (gamepad_axis_value(gamepadConnected, gp_axislh) &lt; 0);
@@ -336,9 +336,9 @@ if (global.timeFactor != 0) {
     
     jumpHeld     = keyboard_check(vk_space) || gamepad_button_check(gamepadConnected, gp_face1);
     jumpPressed  = keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(gamepadConnected, gp_face1);
-    
-    playerStart  = keyboard_check_pressed(vk_escape) || gamepad_button_check_pressed(gamepadConnected, gp_start);
 }
+
+playerStart  = keyboard_check_pressed(vk_escape) || gamepad_button_check_pressed(gamepadConnected, gp_start);
 
 // end game
 if (playerStart) {

@@ -15,6 +15,7 @@ if (argument[0] == "help") {
     commands += ", flash";
     commands += ", dark";
     commands += ", blur";
+    commands += ", die";
     addConsoleMessage("info", "Available commands are: " + commands);
 }
 
@@ -38,5 +39,11 @@ if (argument[0] == "dark") {
 if (argument[0] == "blur") {
     toggleDevConsole();
     postProcessingController.blur = true;
+}
+
+if (argument[0] == "die") {
+    toggleDevConsole();
+    objPlayer.hp = 1;
+    eventFire(allEvents.playerfell);
 }
 
