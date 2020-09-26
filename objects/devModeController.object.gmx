@@ -27,10 +27,10 @@
             <kind>1</kind>
             <string>event_inherited();
 
-devConsole         = false;
-previousTimeFactor = global.timeFactor;
+devConsole = false;
+timeFactorController.previousTimeFactor = timeFactorController.timeFactor;
 
-devTextPosition    = display_get_gui_width() * 0.025 * 0.5;
+devTextPosition = display_get_gui_width() * 0.025 * 0.5;
 
 enum consoleCommands {
     type,
@@ -149,13 +149,13 @@ if (keyboard_check_pressed(223)) { // pressed `
 
 if (keyboard_check_pressed(vk_f1)) {
     var newTime = 1;
-    if (global.timeFactor == 1) {
+    if (timeFactorController.timeFactor == 1) {
         newTime = 1.5;
-    } else if (global.timeFactor == 1.5) {
+    } else if (timeFactorController.timeFactor == 1.5) {
         newTime = 2;
-    } else if (global.timeFactor == 2) {
+    } else if (timeFactorController.timeFactor == 2) {
         newTime = 0.5;
-    } else if (global.timeFactor == 0.5) {
+    } else if (timeFactorController.timeFactor == 0.5) {
         newTime = 1;
     }
 
@@ -238,7 +238,7 @@ if (!devConsole) {
     draw_text(devTextPosition, 128, "Delta Time: " + string(delta_time));
     draw_text(devTextPosition, 160, "Collectibles: " + string(worldController.collectiblesFound));
     draw_text(devTextPosition, 192, "target fps: " + string(global._ts_fps));
-    draw_text(devTextPosition, 224, "time factor: " + string(global.timeFactor));
+    draw_text(devTextPosition, 224, "time factor: " + string(timeFactorController.timeFactor));
     draw_text(devTextPosition, 256, "sprite: " + sprite_get_name(objPlayer.sprite_index));
     draw_set_colour(c_white);
 }

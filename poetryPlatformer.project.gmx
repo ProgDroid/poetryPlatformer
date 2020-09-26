@@ -42,6 +42,7 @@
       <sprite>sprites\collectYokan</sprite>
       <sprite>sprites\letter</sprite>
     </sprites>
+    <sprite>sprites\spriteTimeFactorController</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\backgroundPaper</background>
@@ -145,6 +146,7 @@
       <object>objects\postProcessingController</object>
       <object>objects\devModeController</object>
       <object>objects\cheatChecker</object>
+      <object>objects\timeFactorController</object>
     </objects>
     <objects name="environments">
       <object>objects\objBottoms</object>
@@ -163,6 +165,7 @@
     <room>rooms\TIMESTEP</room>
     <room>rooms\POSTPROCESSING</room>
     <room>rooms\CHEATCHECK</room>
+    <room>rooms\TIMEFACTOR</room>
     <room>rooms\WORLD</room>
     <room>rooms\GUI</room>
     <room>rooms\FLASH</room>
@@ -171,10 +174,10 @@
     <room>rooms\room4</room>
   </rooms>
   <constants number="6">
-    <constant name="customDeltaTime">global.timeFactor * ((60 / global._ts_fps) * (delta_time / ((1 / room_speed) * 1000000)))</constant>
+    <constant name="customDeltaTime">timeFactorController.timeFactor * ((60 / global._ts_fps) * (delta_time / ((1 / room_speed) * 1000000)))</constant>
     <constant name="customDeltaTimeNoTimeFactor">((60 / global._ts_fps) * (delta_time / ((1 / room_speed) * 1000000)))</constant>
     <constant name="COLLECTIBLES">5</constant>
-    <constant name="IMAGESPEED">global.timeFactor * (1 / (room_speed * 0.1))</constant>
+    <constant name="IMAGESPEED">timeFactorController.timeFactor * (1 / (room_speed * 0.1))</constant>
     <constant name="IMAGESPEEDNOTIME">(1 / (room_speed * 0.1))</constant>
     <constant name="MAXHORIZONTALSPEED">3.75</constant>
   </constants>
