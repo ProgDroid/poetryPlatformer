@@ -30,11 +30,22 @@ verticalSpeed  = clamp(verticalSpeed, -maxVerticalSpeed, maxVerticalSpeed);
 // air movement
 if (((leftHeld ^^ rightHeld) && !isAgainstWall(rightHeld - leftHeld))
 ) {
-    if (image_speed != 0) {
-        image_xscale = facingDir;
+    var accelerationTmp = acceleration;
+    
+    if (horizontalSpeed != 0 &&
+        sign(horizontalSpeed) != facingDir
+    ) {
+        accelerationTmp *= airFrictionFactor;
     }
     
-    horizontalMovement(acceleration);
+    horizontalMovement(accelerationTmp);
+} else { // if not holding keys
+    var speedSign    = sign(horizontalSpeed);
+    horizontalSpeed -= speedSign * airDeceleration * customDeltaTime;
+    
+    if (sign(horizontalSpeed) != speedSign) {
+        horizontalSpeed = 0;
+    }
 }
 
 // collisions

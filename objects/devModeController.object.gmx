@@ -240,6 +240,8 @@ if (!devConsole) {
     draw_text(devTextPosition, 192, "target fps: " + string(global._ts_fps));
     draw_text(devTextPosition, 224, "time factor: " + string(timeFactorController.timeFactor));
     draw_text(devTextPosition, 256, "sprite: " + sprite_get_name(objPlayer.sprite_index));
+    draw_text(devTextPosition, 288, "horizontal speed: " + string(objPlayer.horizontalSpeed));
+    draw_text(devTextPosition, 320, "facing direction: " + string(objPlayer.facingDir));
     draw_set_colour(c_white);
 }
 
