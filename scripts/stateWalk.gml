@@ -32,9 +32,10 @@ if (leftHeld ^^ rightHeld) {
 
     horizontalMovement(accelerationTmp);
 } else { // if not holding keys
-    horizontalSpeed += (rightHeld - leftHeld) * acceleration * customDeltaTime;
+    var speedSign    = sign(horizontalSpeed);
+    horizontalSpeed -= speedSign * deceleration * customDeltaTime;
     
-    if (sign(horizontalSpeed) != facingDir) {
+    if (sign(horizontalSpeed) != speedSign) {
         horizontalSpeed = 0;
     }
 }
