@@ -141,6 +141,49 @@ if (devConsole) {
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Dev Console Typing
+
+if (devConsole) {
+    if (keyboard_check_pressed(vk_anykey)) {
+        if (keyboard_lastkey == vk_backspace) {
+            consoleCommand = string_delete(consoleCommand, string_length(consoleCommand), 1);
+        } else if (keyboard_check(vk_control) &amp;&amp; keyboard_check_pressed(ord('C'))) {
+            consoleCommand = "";
+        } else if (keyboard_check(vk_control) &amp;&amp; keyboard_check_pressed(ord('D'))) {
+            consoleCommand = "";
+            toggleDevConsole();
+        } else if (keyboard_lastkey == vk_enter) {
+            addConsoleMessage("command", consoleCommand);
+            consoleCommand = "";
+        } else if (string_length(consoleCommand) &lt; consoleCommandMaxSize &amp;&amp;
+                   (string_lower(chr(keyboard_lastkey)) == keyboard_lastchar ||
+                    chr(keyboard_lastkey) == keyboard_lastchar)
+        ) {
+            consoleCommand += keyboard_lastchar;
+        }
+    }
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Keyboard Controls
 
 if (keyboard_check_pressed(223)) { // pressed `
@@ -182,26 +225,13 @@ if (keyboard_check_pressed(vk_f1)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Dev Console Typing
+            <string>///Check player inclination
 
-if (devConsole) {
-    if (keyboard_check_pressed(vk_anykey)) {
-        if (keyboard_lastkey == vk_backspace) {
-            consoleCommand = string_delete(consoleCommand, string_length(consoleCommand), 1);
-        } else if (keyboard_check(vk_control) &amp;&amp; keyboard_check_pressed(ord('C'))) {
-            consoleCommand = "";
-        } else if (keyboard_check(vk_control) &amp;&amp; keyboard_check_pressed(ord('D'))) {
-            consoleCommand = "";
-            toggleDevConsole();
-        } else if (keyboard_lastkey == vk_enter) {
-            addConsoleMessage("command", consoleCommand);
-            consoleCommand = "";
-        } else if (string_length(consoleCommand) &lt; consoleCommandMaxSize &amp;&amp;
-                   (string_lower(chr(keyboard_lastkey)) == keyboard_lastchar ||
-                    chr(keyboard_lastkey) == keyboard_lastchar)
-        ) {
-            consoleCommand += keyboard_lastchar;
-        }
+with(objPlayer) {
+    if (isOnFloor(objPlatforms)) {
+        var instance = collision_line(bbox_left, bbox_bottom + 1, bbox_right, bbox_bottom + 1, objPlatforms, true, true);
+    
+        floorAngle = instance.image_angle;
     }
 }
 
@@ -243,6 +273,20 @@ if (!devConsole) {
     draw_text(devTextPosition, 288, "horizontal speed: " + string(objPlayer.horizontalSpeed));
     draw_text(devTextPosition, 320, "facing direction: " + string(objPlayer.facingDir));
     draw_set_colour(c_white);
+}
+
+with(objPlatforms) {
+    draw_line_colour(
+        x + offsetSide * dcos(image_angle + 180) + offsetTop * dcos(image_angle + 90),
+        y + offsetSide * -dsin(image_angle + 180) + offsetTop * -dsin(image_angle + 90),
+        x + offsetSide * dcos(image_angle) + offsetTop * dcos(image_angle + 90),
+        y + offsetSide * -dsin(image_angle) + offsetTop * -dsin(image_angle + 90),
+        c_blue, c_blue
+    );
+}
+
+with(objPlayer) {
+    draw_line_colour(x + lengthdir_x(30, floorAngle + 180), y + lengthdir_y(30, floorAngle + 180), x + lengthdir_x(30, floorAngle), y + lengthdir_y(30, floorAngle), c_red, c_red);
 }
 
 </string>

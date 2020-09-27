@@ -59,6 +59,7 @@ if (!(jumpPressed || jumpHeld) &&
 // manually drop from platform
 if ((downPressed || downHeld) && jumpPressed && isOnFloor(objPlatforms)) {
     y += 1;
+    noCollision = true;
     stateSwitch("drop");
 }
 

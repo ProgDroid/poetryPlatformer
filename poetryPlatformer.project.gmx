@@ -26,6 +26,7 @@
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_floor</sprite>
     <sprites name="controllers">
+      <sprite>sprites\spriteTimeFactorController</sprite>
       <sprite>sprites\spriteDevModeController</sprite>
       <sprite>sprites\spriteGUIController</sprite>
       <sprite>sprites\spriteFlashController</sprite>
@@ -42,7 +43,6 @@
       <sprite>sprites\collectYokan</sprite>
       <sprite>sprites\letter</sprite>
     </sprites>
-    <sprite>sprites\spriteTimeFactorController</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\backgroundPaper</background>
@@ -121,6 +121,7 @@
       <script>scripts\applyTimeFactor.gml</script>
       <script>scripts\gameOverScreen.gml</script>
       <script>scripts\gameRestart.gml</script>
+      <script>scripts\lines_intersect.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">

@@ -28,6 +28,19 @@
             <string>image_index = 0;
 image_speed = 0;
 
+var oldImageAngle = image_angle;
+
+image_angle = 0;
+offsetTop   = y - bbox_top;
+offsetSide  = x - bbox_left;
+image_angle = oldImageAngle;
+
+lineX1 = x + offsetSide * dcos(image_angle + 180) + offsetTop * dcos(image_angle + 90);
+lineY1 = y + offsetSide * -dsin(image_angle + 180) + offsetTop * -dsin(image_angle + 90);
+lineX2 = x + offsetSide * dcos(image_angle) + offsetTop * dcos(image_angle + 90);
+lineY2 = y + offsetSide * -dsin(image_angle) + offsetTop * -dsin(image_angle + 90);
+lineC  = lineY1 + dtan(image_angle) * lineX1;
+
 eventRegister(allEvents.landedon, id, platformLandedOn);
 
 </string>

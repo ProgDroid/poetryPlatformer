@@ -1,8 +1,5 @@
 ///@description Horizontal collisions
 
-offsetLeft   = bbox_left - x;
-offsetRight  = bbox_right - x;
-
 x += horizontalSpeed * customDeltaTime;
 
 if (place_meeting(x, y, objFloors)) {
