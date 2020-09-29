@@ -159,8 +159,7 @@
       <object>objects\objPlatforms</object>
       <object>objects\platformThat</object>
       <object>objects\objWall</object>
-      <object>objects\objCollision</object>
-      <objects name="platformsLetters">
+      <objects name="letterPlatforms">
         <object>objects\objPlatformA</object>
       </objects>
     </objects>

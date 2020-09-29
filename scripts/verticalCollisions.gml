@@ -35,8 +35,6 @@ if (place_meeting(x, y, objFloors)) {
         var previousY = y;
         var count     = 0;
         while ((!isOnFloor(objPlatforms) || !isSlidingOff(objPlatforms))) {
-            show_debug_message("isOnFloor: " + string(isOnFloor(objPlatforms)));
-            show_debug_message("isSlidingOff: " + string(isSlidingOff(objPlatforms)));
             y += 0.01;
             count += 1;
             if (count > 100) {
