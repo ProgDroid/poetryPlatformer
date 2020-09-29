@@ -55,10 +55,7 @@ if (horizontalSpeed != 0) {
     horizontalCollisions();
 }
 
-var instance = instance_place(round(x), round(y) + 1, objBottoms);
-if (verticalSpeed == 0 && instance) {
-    eventFire(allEvents.landedon, instance);
-    
+if (verticalSpeed == 0) {
     if (hp <= 3) {
         alarm[1] = room_speed * 0.5 * customDeltaTime;
         image_speed = IMAGESPEED - 0.1;

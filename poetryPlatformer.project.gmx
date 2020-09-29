@@ -38,6 +38,7 @@
     </sprites>
     <sprites name="platforms">
       <sprite>sprites\spriteThat</sprite>
+      <sprite>sprites\platformA</sprite>
     </sprites>
     <sprites name="collectibles">
       <sprite>sprites\collectYokan</sprite>
@@ -59,6 +60,7 @@
       <script>scripts\verticalCollisions.gml</script>
       <script>scripts\isAgainstWall.gml</script>
       <script>scripts\isOnFloor.gml</script>
+      <script>scripts\isSlidingOff.gml</script>
     </scripts>
     <scripts name="devTools">
       <script>scripts\toggleDevConsole.gml</script>
@@ -122,6 +124,7 @@
       <script>scripts\gameOverScreen.gml</script>
       <script>scripts\gameRestart.gml</script>
       <script>scripts\lines_intersect.gml</script>
+      <script>scripts\collision_line_first.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -156,6 +159,10 @@
       <object>objects\objPlatforms</object>
       <object>objects\platformThat</object>
       <object>objects\objWall</object>
+      <object>objects\objCollision</object>
+      <objects name="platformsLetters">
+        <object>objects\objPlatformA</object>
+      </objects>
     </objects>
     <objects name="characters">
       <object>objects\objCharacter</object>

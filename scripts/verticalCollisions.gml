@@ -2,6 +2,10 @@
 
 var originalBboxBottom = bbox_bottom;
 
+var oldY = y;
+
+var oldInstance = collision_line(bbox_left, bbox_bottom + 1, bbox_right, bbox_bottom + 1, objPlatforms, true, true);
+
 y += verticalSpeed * customDeltaTime;
 
 var instance = collision_line(bbox_left, bbox_bottom + 1, bbox_right, bbox_bottom + 1, objPlatforms, true, true);
@@ -19,17 +23,27 @@ if (place_meeting(x, y, objFloors)) {
         y = wall.bbox_top - 1 - offsetBottom;
         verticalSpeed = 0;
     }
-} else if (instance != noone) {
-    var lineIntersect = lines_intersect(
-        x, y, x, bbox_bottom + 1, // from player centre to right below
-        instance.lineX1, instance.lineY1, instance.lineX2, instance.lineY2, // platform top line
-        false
-    );
-    
-    if (verticalSpeed > 0 && 0 < lineIntersect && lineIntersect <= 1) {
-        y = -dtan(instance.image_angle) * x + instance.lineC - offsetBottom;
-        
-        verticalSpeed = 0;
+} else if (instance != noone && (oldInstance == noone || oldInstance != instance)) {
+    if (verticalSpeed > 0) {
+        move_outside_all(90, min(offsetBottom, (abs(bbox_bottom - originalBboxBottom))));
+        if (y >= oldY) {
+            verticalSpeed = 0;
+            eventFire(allEvents.landedon, instance);
+        } else {
+            y = oldY;
+        }
+        var previousY = y;
+        var count     = 0;
+        while ((!isOnFloor(objPlatforms) || !isSlidingOff(objPlatforms))) {
+            show_debug_message("isOnFloor: " + string(isOnFloor(objPlatforms)));
+            show_debug_message("isSlidingOff: " + string(isSlidingOff(objPlatforms)));
+            y += 0.01;
+            count += 1;
+            if (count > 100) {
+                y = previousY;
+                break;
+            }
+        }
     }
 }
 

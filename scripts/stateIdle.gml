@@ -22,7 +22,7 @@ if (((leftHeld ^^ rightHeld) && !isAgainstWall(rightHeld - leftHeld))
 }
 
 // platform ran away from under you
-if (!isOnFloor()) {
+if (!isOnFloor() && !isSlidingOff(objPlatforms)) {
     stateSwitch("drop");
 }
 
@@ -34,7 +34,7 @@ if ((downPressed || downHeld) && (jumpPressed || jumpHeld) && isOnFloor(objPlatf
 }
 
 // regular jump
-if (!(downPressed || downHeld) && (jumpPressed || jumpHeld) && isOnFloor()) {
+if (!(downPressed || downHeld) && (jumpPressed || jumpHeld) && (isOnFloor() || isSlidingOff(objPlatforms))) {
     verticalSpeed = -maxVerticalSpeed;
     stateSwitch("drop");
 }

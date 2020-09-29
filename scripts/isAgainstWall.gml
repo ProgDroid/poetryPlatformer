@@ -5,22 +5,13 @@ if (argument_count < 1) {
     addConsoleMessage("warning", "Bad argument count on isAgainstWall: " + string(argument_count));
 }
 
-var instance = instance_place(x + argument[0], y, objFloors);
-
-if (instance != noone) {
-    var bboxSelf     = 0;
-    var bboxInstance = 0;
-    
-    if (facingDir == -1) {
-        bboxSelf     = bbox_left;
-        bboxInstance = instance.bbox_right;
-    } else if (facingDir == 1) {
-        bboxSelf     = bbox_right;
-        bboxInstance = instance.bbox_left;
-    }
-    
-    return bboxSelf + facingDir == bboxInstance;
+if (argument[0] > 0) {
+    var instance    = collision_line(bbox_right + 1, bbox_top + 4, bbox_right + 1, bbox_bottom - 4, objPlatforms, true, true);
+    var oldInstance = collision_line(bbox_right, bbox_top + 4, bbox_right, bbox_bottom - 4, objPlatforms, true, true);
+} else if (argument[0] < 0) {
+    var instance    = collision_line(bbox_left - 1, bbox_top + 4, bbox_left - 1, bbox_bottom - 4, objPlatforms, true, true);
+    var oldInstance = collision_line(bbox_left, bbox_top + 4, bbox_left, bbox_bottom - 4, objPlatforms, true, true);
 }
 
-return false;
+return instance != noone && instance == noone;
 

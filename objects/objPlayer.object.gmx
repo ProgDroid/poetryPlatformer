@@ -110,6 +110,8 @@ noCollision = false;
 
 floorAngle = 0;
 
+sweepAngleCheck = 85;
+
 </string>
           </argument>
         </arguments>

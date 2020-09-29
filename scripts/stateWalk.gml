@@ -49,11 +49,12 @@ if (horizontalSpeed == 0) {
 }
 
 // no floor
-if (!(jumpPressed || jumpHeld) &&
-    (!place_meeting(round(x) - sign(horizontalSpeed), round(y) + 1, objBottoms) ||
-     !isOnFloor())
-) {
-    stateSwitch("drop");
+if (!(jumpPressed || jumpHeld)) {
+    if (!isOnFloor() && !isSlidingOff(objPlatforms)) {
+        stateSwitch("drop");
+    } else if (!isOnFloor() && isSlidingOff(objPlatforms)) {
+        // do nothing for now
+    }
 }
 
 // manually drop from platform
@@ -66,8 +67,7 @@ if ((downPressed || downHeld) && jumpPressed && isOnFloor(objPlatforms)) {
 // jump
 if (!(downPressed || downHeld) &&
     (jumpPressed || jumpHeld) &&
-    (place_meeting(round(x) - sign(horizontalSpeed), round(y) + 1, objBottoms) ||
-     isOnFloor())
+    (isOnFloor() || isSlidingOff(objPlatforms))
 ) {
     verticalSpeed = -maxVerticalSpeed;
     stateSwitch("drop");
