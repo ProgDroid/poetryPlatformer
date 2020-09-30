@@ -5,8 +5,8 @@ if (state_new) {
     image_speed  = 0;
     x            = xstart;
     y            = ystart;
-    image_xscale = 1;
-    image_yscale = 1;
+    image_xscale = 1 * 0.6;
+    image_yscale = 1 * 0.6;
     depth        = -10;
 }
 

@@ -58,11 +58,11 @@ fontScaling       = 0.1 * display_get_gui_height() / 203;
             <kind>1</kind>
             <string>///Draw Health, State
 
-if (!gameOver) {
+if (!gameOver &amp;&amp; instance_exists(objPlayer)) {
     if (animationIndex &gt;= 13) {
         animationIndex = 0;
     }
-    
+
     for (var i = 0; i &lt; objPlayer.hp; i++) {
         char = string_char_at("alive", i + 1);
         draw_sprite_ext(letter, (ord(char) - ord('a')) * 13 + animationIndex, healthbarPosition + i * 15, 25, 0.5, 0.5, 0, c_white, 1);

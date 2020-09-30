@@ -58,6 +58,7 @@
     <scripts name="collisionScripts">
       <script>scripts\horizontalCollisions.gml</script>
       <script>scripts\verticalCollisions.gml</script>
+      <script>scripts\isAgainstWallAir.gml</script>
       <script>scripts\isAgainstWall.gml</script>
       <script>scripts\isOnFloor.gml</script>
       <script>scripts\isSlidingOff.gml</script>
@@ -125,6 +126,7 @@
       <script>scripts\gameRestart.gml</script>
       <script>scripts\lines_intersect.gml</script>
       <script>scripts\collision_line_first.gml</script>
+      <script>scripts\animations.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">

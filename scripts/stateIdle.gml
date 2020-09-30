@@ -6,7 +6,7 @@ if (state_new) {
     verticalSpeed   = 0;
     sprite_index    = playerIdle;
     image_index     = 0;
-    image_speed     = IMAGESPEED;
+
     if (hp <= 3) {
         sprite_index = playerIdleCalm;
         if (hp == 1) {
@@ -14,6 +14,8 @@ if (state_new) {
         }
     }
 }
+
+animations();
 
 // walk if not against wall
 if (((leftHeld ^^ rightHeld) && !isAgainstWall(rightHeld - leftHeld))
@@ -27,11 +29,11 @@ if (!isOnFloor() && !isSlidingOff(objPlatforms)) {
 }
 
 // manually drop from platform
-if ((downPressed || downHeld) && (jumpPressed || jumpHeld) && isOnFloor(objPlatforms)) {
-    y += 1;
-    noCollision = true;
-    stateSwitch("drop");
-}
+//if ((downPressed || downHeld) && (jumpPressed || jumpHeld) && isOnFloor(objPlatforms)) {
+//    y += 1;
+//    noCollision = true;
+//    stateSwitch("drop");
+//}
 
 // regular jump
 if (!(downPressed || downHeld) && (jumpPressed || jumpHeld) && (isOnFloor() || isSlidingOff(objPlatforms))) {

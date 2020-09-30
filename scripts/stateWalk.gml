@@ -4,7 +4,7 @@ if (state_new) {
     state_new    = false;
     sprite_index = playerWalk;
     image_index  = 0;
-    image_speed  = IMAGESPEED;
+
     if (hp <= 3) {
         sprite_index = playerWalkCalm;
         if (hp == 1) {
@@ -13,6 +13,8 @@ if (state_new) {
     }
 }
 
+animations();
+
 facingDir = rightHeld - leftHeld;
 
 if (place_meeting(x, y, objCollectible)) {
@@ -20,7 +22,7 @@ if (place_meeting(x, y, objCollectible)) {
 }
 
 // if holding directional key
-if (leftHeld ^^ rightHeld) {
+if (leftHeld ^^ rightHeld && !isAgainstWall(rightHeld - leftHeld)) {
     // check for slide
     var accelerationTmp = acceleration;
     
@@ -31,13 +33,16 @@ if (leftHeld ^^ rightHeld) {
     }
 
     horizontalMovement(accelerationTmp);
-} else { // if not holding keys
+} else if (!isAgainstWall(sign(horizontalSpeed))){ // if not holding keys
     var speedSign    = sign(horizontalSpeed);
     horizontalSpeed -= speedSign * deceleration * customDeltaTime;
     
     if (sign(horizontalSpeed) != speedSign) {
         horizontalSpeed = 0;
     }
+} else if (isAgainstWall(rightHeld - leftHeld)) {
+    // push
+    show_debug_message("pushing");
 }
 
 // collisions
@@ -58,11 +63,11 @@ if (!(jumpPressed || jumpHeld)) {
 }
 
 // manually drop from platform
-if ((downPressed || downHeld) && jumpPressed && isOnFloor(objPlatforms)) {
-    y += 1;
-    noCollision = true;
-    stateSwitch("drop");
-}
+//if ((downPressed || downHeld) && jumpPressed && isOnFloor(objPlatforms)) {
+//    y += 1;
+//    noCollision = true;
+//    stateSwitch("drop");
+//}
 
 // jump
 if (!(downPressed || downHeld) &&

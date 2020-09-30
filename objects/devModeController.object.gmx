@@ -232,7 +232,7 @@ if (keyboard_check_pressed(vk_f2)) {
           <argument>
             <kind>1</kind>
             <string>///Draw debug info
-if (!devConsole) {
+if (!devConsole &amp;&amp; instance_exists(objPlayer)) {
     draw_set_font(-1);
     draw_set_colour(c_black);
     draw_set_halign(fa_left);
@@ -246,21 +246,9 @@ if (!devConsole) {
     draw_text(devTextPosition, 256, "sprite: " + sprite_get_name(objPlayer.sprite_index));
     draw_text(devTextPosition, 288, "horizontal speed: " + string(objPlayer.horizontalSpeed));
     draw_text(devTextPosition, 320, "facing direction: " + string(objPlayer.facingDir));
+    draw_text(devTextPosition, 352, "drawing scale X: " + string(objPlayer.drawingScaleX));
+    draw_text(devTextPosition, 384, "drawing scale Y: " + string(objPlayer.drawingScaleY));
     draw_set_colour(c_white);
-}
-
-with(objPlatforms) {
-    draw_line_colour(
-        x + offsetSide * dcos(image_angle + 180) + offsetTop * dcos(image_angle + 90),
-        y + offsetSide * -dsin(image_angle + 180) + offsetTop * -dsin(image_angle + 90),
-        x + offsetSide * dcos(image_angle) + offsetTop * dcos(image_angle + 90),
-        y + offsetSide * -dsin(image_angle) + offsetTop * -dsin(image_angle + 90),
-        c_blue, c_blue
-    );
-}
-
-with(objPlayer) {
-    draw_line_colour(x + lengthdir_x(30, floorAngle + 180), y + lengthdir_y(30, floorAngle + 180), x + lengthdir_x(30, floorAngle), y + lengthdir_y(30, floorAngle), c_red, c_red);
 }
 
 </string>

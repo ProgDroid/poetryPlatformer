@@ -11,6 +11,8 @@ if (argument[0] > 0) {
 } else if (argument[0] < 0) {
     var instance    = collision_line(bbox_left - 1, bbox_top + 4, bbox_left - 1, bbox_bottom - 4, objPlatforms, true, true);
     var oldInstance = collision_line(bbox_left, bbox_top + 4, bbox_left, bbox_bottom - 4, objPlatforms, true, true);
+} else if (argument[0] == 0) {
+    return false;
 }
 
 return instance != noone && instance == noone;

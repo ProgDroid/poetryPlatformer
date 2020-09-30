@@ -96,21 +96,25 @@ airFrictionFactor  = 3;
 airDeceleration    = 0.04;
 coyoteTime         = 7;
 
-// for backdash
 facingDir = 0;
 
 maxHp = 5;
 hp    = maxHp;
 
-offsetBottom = bbox_bottom - y;
-offsetLeft   = bbox_left - x;
-offsetRight  = bbox_right - x;
+offsetTop     = bbox_top - y;
+offsetBottom  = bbox_bottom - y;
+offsetLeft    = bbox_left - x;
+offsetRight   = bbox_right - x;
 
-noCollision = false;
+//noCollision = false;
 
-floorAngle = 0;
+sweepAngleCheck = 80;
 
-sweepAngleCheck = 85;
+image_xscale  = 0.6;
+image_yscale  = 0.6;
+
+drawingScaleX = 1;
+drawingScaleY = 1;
 
 </string>
           </argument>
@@ -382,14 +386,16 @@ if (playerStart) {
             <kind>1</kind>
             <string>///Draw Sprite
 
+texture_set_interpolation(true);
 draw_sprite_ext(
     sprite_index,image_index,
     lerp(xprevious,x,global._ts_render_alpha),
-    lerp(yprevious,y,global._ts_render_alpha),
-    image_xscale,image_yscale,
+    lerp(yprevious,y + (1-drawingScaleY) * 20,global._ts_render_alpha),
+    image_xscale * drawingScaleX,image_yscale * drawingScaleY,
     image_angle,image_blend,
     image_alpha
 );
+texture_set_interpolation(false);
 
 </string>
           </argument>

@@ -23,6 +23,8 @@
     sx = dx - ox;
     sy = dy - oy;
     inst[0] = collision_line(ox,oy,dx,dy,object,prec,notme);
+    inst[1] = noone;
+    inst[2] = noone;
     if (inst[0] != noone) {
         while ((abs(sx) >= 1) || (abs(sy) >= 1)) {
             sx /= 2;

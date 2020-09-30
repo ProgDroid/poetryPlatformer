@@ -6,14 +6,6 @@ var originalBboxRight = bbox_right;
 var oldX = x;
 var oldY = y;
 
-var oldInstance = noone;
-
-if (horizontalSpeed > 0) {
-    oldInstance = collision_line(bbox_right + 1, bbox_top, bbox_right + 1, bbox_bottom, objPlatforms, true, true);
-} else if (horizontalSpeed < 0) {
-    oldInstance = collision_line(bbox_left - 1, bbox_top, bbox_left - 1, bbox_bottom, objPlatforms, true, true);
-}
-
 x += horizontalSpeed * customDeltaTime;
 
 if (state_name == "walk" && !isOnFloor(objPlatforms)) {
@@ -61,29 +53,31 @@ if (state_name == "walk" && !isOnFloor(objPlatforms)) {
 var instance = noone;
 
 if (horizontalSpeed > 0) {
-    instance = collision_line(bbox_right + 1, bbox_top + 4, bbox_right + 1, bbox_bottom - 4, objPlatforms, true, true);
+    instance = collision_line(bbox_right + 1, bbox_top, bbox_right + 1, y, objPlatforms, true, true);
 } else if (horizontalSpeed < 0) {
-    instance = collision_line(bbox_left - 1, bbox_top + 4, bbox_left - 1, bbox_bottom - 4, objPlatforms, true, true);
+    instance = collision_line(bbox_left - 1, bbox_top, bbox_left - 1, y, objPlatforms, true, true);
 }
 
-if (noCollision && instance != noone) {
-    exit;
-} else if (noCollision && instance == noone) {
-    noCollision = false;
-}
+//if (noCollision && instance != noone) {
+//    exit;
+//} else if (noCollision && instance == noone) {
+//    noCollision = false;
+//}
 
-if (instance != noone && (oldInstance == noone || oldInstance != instance)) {
+if (instance != noone) {
     if (horizontalSpeed > 0) {
         move_outside_all(180, min(offsetRight, (abs(bbox_right - originalBboxRight))));
         if (x < oldX) {
             x = oldX;
-            exit;
+            //push? or wall slide
+            //exit;
         }
     } else if (horizontalSpeed < 0) {
-        move_outside_all(0, min(offsetLeft, (abs(bbox_left - originalBboxLeft))));
+        move_outside_all(0, min(abs(offsetLeft), (abs(bbox_left - originalBboxLeft))));
         if (x > oldX) {
             x = oldX;
-            exit;
+            //push? or wall slide
+            //exit;
         }
     }
     
