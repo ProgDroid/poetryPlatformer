@@ -56,6 +56,10 @@
     <instance objName="objPlayer" x="320" y="736" name="inst_72364FDE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objPlatformA" x="224" y="1056" name="inst_24E63232" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objPlatformA" x="640" y="1024" name="inst_05C17C6D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objCollectible" x="800" y="480" name="inst_34CC6442" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objPlatformA" x="992" y="1024" name="inst_4A0FB04F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objPlatformA" x="1376" y="1024" name="inst_49E71C8D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objPlatformA" x="1760" y="1024" name="inst_D5248DFF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

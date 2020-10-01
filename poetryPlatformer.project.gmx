@@ -35,6 +35,7 @@
       <sprite>sprites\spriteNotifController</sprite>
       <sprite>sprites\spritePostProcessController</sprite>
       <sprite>sprites\spriteCheatChecker</sprite>
+      <sprite>sprites\spriteShadowController</sprite>
     </sprites>
     <sprites name="platforms">
       <sprite>sprites\spriteThat</sprite>
@@ -153,6 +154,7 @@
       <object>objects\devModeController</object>
       <object>objects\cheatChecker</object>
       <object>objects\timeFactorController</object>
+      <object>objects\shadowController</object>
     </objects>
     <objects name="environments">
       <object>objects\objBottoms</object>
@@ -179,6 +181,7 @@
     <room>rooms\GUI</room>
     <room>rooms\FLASH</room>
     <room>rooms\EVENTLISTEN</room>
+    <room>rooms\SHADOW</room>
     <room>rooms\testRoom</room>
     <room>rooms\room4</room>
   </rooms>
