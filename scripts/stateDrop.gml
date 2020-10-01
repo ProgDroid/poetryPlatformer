@@ -59,7 +59,7 @@ if (horizontalSpeed != 0) {
     horizontalCollisions();
 }
 
-if (verticalSpeed == 0 && (isOnFloor(objPlatforms) || isSlidingOff(objPlatforms))) {
+if (verticalSpeed == 0 && (isOnFloor() || isSlidingOff())) {
     if (hp <= 3) {
         alarm[1] = room_speed * 0.5 * customDeltaTime;
         image_speed = IMAGESPEED - 0.1;

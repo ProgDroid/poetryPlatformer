@@ -23,8 +23,6 @@
       </sprites>
       <sprite>sprites\playerDead</sprite>
     </sprites>
-    <sprite>sprites\spr_wall</sprite>
-    <sprite>sprites\spr_floor</sprite>
     <sprites name="controllers">
       <sprite>sprites\spriteTimeFactorController</sprite>
       <sprite>sprites\spriteDevModeController</sprite>
@@ -38,7 +36,6 @@
       <sprite>sprites\spriteShadowController</sprite>
     </sprites>
     <sprites name="platforms">
-      <sprite>sprites\spriteThat</sprite>
       <sprite>sprites\platformA</sprite>
     </sprites>
     <sprites name="collectibles">
@@ -157,12 +154,7 @@
       <object>objects\shadowController</object>
     </objects>
     <objects name="environments">
-      <object>objects\objBottoms</object>
-      <object>objects\objFloors</object>
-      <object>objects\objFloor</object>
       <object>objects\objPlatforms</object>
-      <object>objects\platformThat</object>
-      <object>objects\objWall</object>
       <objects name="letterPlatforms">
         <object>objects\objPlatformA</object>
       </objects>

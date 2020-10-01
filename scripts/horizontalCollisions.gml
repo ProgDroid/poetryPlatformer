@@ -8,7 +8,7 @@ var oldY = y;
 
 x += horizontalSpeed * customDeltaTime;
 
-if (state_name == "walk" && !isOnFloor(objPlatforms)) {
+if (state_name == "walk" && !isOnFloor()) {
     var previousY = y;
     var previousX = x;
 
@@ -16,10 +16,10 @@ if (state_name == "walk" && !isOnFloor(objPlatforms)) {
     var maxSpeed  = maxHorizontalSpeed - (exp((maxHp - hp) / maxHp) - 1) * 0.5;
     var tmpSpeed  = horizontalSpeed;
 
-    while(!isOnFloor(objPlatforms)) {
+    while(!isOnFloor()) {
         x = oldX + lengthdir_x(horizontalSpeed * customDeltaTime, angle);
         y = oldY + lengthdir_y(horizontalSpeed * customDeltaTime, angle);
-        if (!isOnFloor(objPlatforms)) {
+        if (!isOnFloor()) {
             x = oldX + lengthdir_x(maxSpeed * sign(horizontalSpeed) * customDeltaTime, angle);
             y = oldY + lengthdir_y(maxSpeed * sign(horizontalSpeed) * customDeltaTime, angle);
         }
@@ -33,10 +33,10 @@ if (state_name == "walk" && !isOnFloor(objPlatforms)) {
 
     angle = -1;
     if (x == previousX && y == previousY) {
-        while(!isOnFloor(objPlatforms)) {
+        while(!isOnFloor()) {
             x = oldX + lengthdir_x(horizontalSpeed * customDeltaTime, angle);
             y = oldY + lengthdir_y(horizontalSpeed * customDeltaTime, angle);
-            if (!isOnFloor(objPlatforms)) {
+            if (!isOnFloor()) {
                 x = oldX + lengthdir_x(maxSpeed * sign(horizontalSpeed) * customDeltaTime, angle);
                 y = oldY + lengthdir_y(maxSpeed * sign(horizontalSpeed) * customDeltaTime, angle);
             }

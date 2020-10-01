@@ -44,7 +44,7 @@ if (instance != noone ^^ instanceAbove != noone) {
         drawingScaleY = 0.8;
         image_speed   = 0;
         
-        if (!isOnFloor(objPlatforms) || !isSlidingOff(objPlatforms)) {
+        if (!isOnFloor() || !isSlidingOff()) {
             var toMove      = collision_line_first(x, y, x, bbox_bottom + offsetBottom, objPlatforms, true, true);
 
             if (toMove[0] != noone) {
