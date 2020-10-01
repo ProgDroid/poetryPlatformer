@@ -226,6 +226,10 @@
       <object>objects\objPlatforms</object>
       <objects name="letterPlatforms">
         <object>objects\objPlatformA</object>
+        <object>objects\objPlatformF</object>
+        <object>objects\objPlatformC</object>
+        <object>objects\objPlatformK</object>
+        <object>objects\objPlatformU</object>
       </objects>
     </objects>
     <objects name="characters">
@@ -244,6 +248,7 @@
     <room>rooms\EVENTLISTEN</room>
     <room>rooms\SHADOW</room>
     <room>rooms\testRoom</room>
+    <room>rooms\room11</room>
     <room>rooms\room4</room>
   </rooms>
   <constants number="6">
