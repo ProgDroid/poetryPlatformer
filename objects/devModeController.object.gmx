@@ -209,6 +209,29 @@ if (keyboard_check_pressed(vk_f2)) {
     room_goto_next();
 }
 
+var moveSpeed = 10;
+
+if (keyboard_check(vk_shift)) {
+    moveSpeed = 100;
+}
+
+if (keyboard_check(vk_up) &amp;&amp; view_yview[0] &gt; 0) {
+    view_yview[0] -= moveSpeed;
+}
+
+if (keyboard_check(vk_down) &amp;&amp; view_yview[0] &lt; room_height - view_hview[0]) {
+    view_yview[0] += moveSpeed;
+}
+
+if (keyboard_check(vk_left) &amp;&amp; view_xview[0] &gt; 0) {
+    view_xview[0] -= moveSpeed;
+}
+
+if (keyboard_check(vk_right) &amp;&amp; view_xview[0] &lt; room_width - view_wview[0]) {
+    view_xview[0] += moveSpeed;
+}
+
+
 </string>
           </argument>
         </arguments>

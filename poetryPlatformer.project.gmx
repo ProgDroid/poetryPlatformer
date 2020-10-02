@@ -3,7 +3,27 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="1" name="datafiles"/>
+  <datafiles number="2" name="datafiles">
+    <datafiles number="2" name="levels">
+      <datafile>
+        <name>thatSweetButterfly.txt</name>
+        <exists>-1</exists>
+        <size>947</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>thatSweetButterfly.txt</filename>
+      </datafile>
+    </datafiles>
+  </datafiles>
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
@@ -24,16 +44,17 @@
       <sprite>sprites\playerDead</sprite>
     </sprites>
     <sprites name="controllers">
-      <sprite>sprites\spriteTimeFactorController</sprite>
-      <sprite>sprites\spriteDevModeController</sprite>
-      <sprite>sprites\spriteGUIController</sprite>
-      <sprite>sprites\spriteFlashController</sprite>
-      <sprite>sprites\spriteWorldController</sprite>
-      <sprite>sprites\spriteTimestep</sprite>
-      <sprite>sprites\spriteNotifController</sprite>
-      <sprite>sprites\spritePostProcessController</sprite>
       <sprite>sprites\spriteCheatChecker</sprite>
+      <sprite>sprites\spriteDevModeController</sprite>
+      <sprite>sprites\spriteFlashController</sprite>
+      <sprite>sprites\spriteGUIController</sprite>
+      <sprite>sprites\spriteNotifController</sprite>
+      <sprite>sprites\spritePlatformController</sprite>
+      <sprite>sprites\spritePostProcessController</sprite>
       <sprite>sprites\spriteShadowController</sprite>
+      <sprite>sprites\spriteTimeFactorController</sprite>
+      <sprite>sprites\spriteTimestep</sprite>
+      <sprite>sprites\spriteWorldController</sprite>
     </sprites>
     <sprites name="platforms">
       <sprite>sprites\platformA</sprite>
@@ -161,6 +182,9 @@
       <script>scripts\stateLetterSuckedIn.gml</script>
       <script>scripts\stateLetterDead.gml</script>
     </scripts>
+    <scripts name="levelScripts">
+      <script>scripts\createLevel.gml</script>
+    </scripts>
     <scripts name="playerStates">
       <script>scripts\stateIdle.gml</script>
       <script>scripts\stateWalk.gml</script>
@@ -194,6 +218,7 @@
       <script>scripts\lines_intersect.gml</script>
       <script>scripts\collision_line_first.gml</script>
       <script>scripts\animations.gml</script>
+      <script>scripts\nextPower2.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -221,15 +246,64 @@
       <object>objects\cheatChecker</object>
       <object>objects\timeFactorController</object>
       <object>objects\shadowController</object>
+      <object>objects\platformController</object>
     </objects>
     <objects name="environments">
       <object>objects\objPlatforms</object>
       <objects name="letterPlatforms">
         <object>objects\objPlatformA</object>
-        <object>objects\objPlatformF</object>
+        <object>objects\objPlatformAmpersand</object>
+        <object>objects\objPlatformAsterisk</object>
+        <object>objects\objPlatformB</object>
+        <object>objects\objPlatformBulletPoint</object>
         <object>objects\objPlatformC</object>
+        <object>objects\objPlatformColon</object>
+        <object>objects\objPlatformComma</object>
+        <object>objects\objPlatformD</object>
+        <object>objects\objPlatformDotAccent</object>
+        <object>objects\objPlatformE</object>
+        <object>objects\objPlatformEight</object>
+        <object>objects\objPlatformExclamation</object>
+        <object>objects\objPlatformF</object>
+        <object>objects\objPlatformFive</object>
+        <object>objects\objPlatformFour</object>
+        <object>objects\objPlatformG</object>
+        <object>objects\objPlatformH</object>
+        <object>objects\objPlatformHyphen</object>
+        <object>objects\objPlatformI</object>
+        <object>objects\objPlatformIDotless</object>
+        <object>objects\objPlatformJ</object>
         <object>objects\objPlatformK</object>
+        <object>objects\objPlatformL</object>
+        <object>objects\objPlatformM</object>
+        <object>objects\objPlatformN</object>
+        <object>objects\objPlatformNine</object>
+        <object>objects\objPlatformO</object>
+        <object>objects\objPlatformOne</object>
+        <object>objects\objPlatformP</object>
+        <object>objects\objPlatformParenthesisLeft</object>
+        <object>objects\objPlatformParenthesisRight</object>
+        <object>objects\objPlatformPeriod</object>
+        <object>objects\objPlatformQ</object>
+        <object>objects\objPlatformQuestion</object>
+        <object>objects\objPlatformQuote</object>
+        <object>objects\objPlatformQuoteDouble</object>
+        <object>objects\objPlatformR</object>
+        <object>objects\objPlatformSemiColon</object>
+        <object>objects\objPlatformSeven</object>
+        <object>objects\objPlatformSix</object>
+        <object>objects\objPlatformSlash</object>
+        <object>objects\objPlatformSLetter</object>
+        <object>objects\objPlatformT</object>
+        <object>objects\objPlatformThree</object>
+        <object>objects\objPlatformTwo</object>
         <object>objects\objPlatformU</object>
+        <object>objects\objPlatformV</object>
+        <object>objects\objPlatformW</object>
+        <object>objects\objPlatformX</object>
+        <object>objects\objPlatformY</object>
+        <object>objects\objPlatformZ</object>
+        <object>objects\objPlatformZero</object>
       </objects>
     </objects>
     <objects name="characters">
@@ -242,6 +316,7 @@
     <room>rooms\POSTPROCESSING</room>
     <room>rooms\CHEATCHECK</room>
     <room>rooms\TIMEFACTOR</room>
+    <room>rooms\PLATFORMMAP</room>
     <room>rooms\WORLD</room>
     <room>rooms\GUI</room>
     <room>rooms\FLASH</room>
@@ -251,7 +326,8 @@
     <room>rooms\room11</room>
     <room>rooms\room4</room>
   </rooms>
-  <constants number="6">
+  <constants number="7">
+    <constant name="PLATFORMSCALE">0.7</constant>
     <constant name="customDeltaTime">timeFactorController.timeFactor * ((60 / global._ts_fps) * (delta_time / ((1 / room_speed) * 1000000)))</constant>
     <constant name="customDeltaTimeNoTimeFactor">((60 / global._ts_fps) * (delta_time / ((1 / room_speed) * 1000000)))</constant>
     <constant name="COLLECTIBLES">5</constant>

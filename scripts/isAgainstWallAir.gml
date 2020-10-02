@@ -3,6 +3,7 @@
 
 if (argument_count < 1) {
     addConsoleMessage("warning", "Bad argument count on isAgainstWall: " + string(argument_count));
+    exit;
 }
 
 if (argument[0] > 0) {

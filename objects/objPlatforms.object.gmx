@@ -40,6 +40,9 @@ eventRegister(allEvents.landedon, id, platformLandedOn);
 drawShadow  = false;
 shadowAlpha = 0;
 
+image_xscale = PLATFORMSCALE;
+image_yscale = PLATFORMSCALE;
+
 </string>
           </argument>
         </arguments>
