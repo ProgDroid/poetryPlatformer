@@ -93,6 +93,7 @@ application_surface_draw_enable(true);
           <argument>
             <kind>1</kind>
             <string>if (blur) {
+    texture_set_interpolation(true);
     application_surface_draw_enable(false);
 
     var surfaceScale = 0.5;
@@ -128,6 +129,7 @@ application_surface_draw_enable(true);
     shader_reset();
     
     draw_surface_stretched(surfacePing, 0, 0, guiWidth, guiHeight);
+    texture_set_interpolation(false);
 }
 
 </string>

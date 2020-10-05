@@ -3,6 +3,7 @@
 
 if (argument_count != 1) {
     addConsoleMessage("warning", "Bad argument count on processCommand: " + string(argument_count) + " (oh the irony!)");
+    exit;
 }
 
 if (argument[0] == "" || string_replace_all(argument[0], ' ', '') == "") {
@@ -17,6 +18,8 @@ if (argument[0] == "help") {
     commands += ", blur";
     commands += ", die";
     commands += ", spawn objectName <x> <y>";
+    commands += ", createLevel <levelName>";
+    commands += ", exit";
     addConsoleMessage("info", "Available commands are: " + commands);
 }
 
@@ -80,5 +83,20 @@ if (string_pos("spawn", argument[0]) != 0) {
     } else {
         instance_create(random(view_wview[0]), random(view_hview[0]), asset_get_index(objectName));
     }
+}
+
+if (string_pos("createLevel", argument[0]) != 0) {
+    if (string_replace_all(argument[0], ' ', '') == "createLevel") {
+        addConsoleMessage("warning", "Please supply a level to create");
+        exit;
+    }
+
+    var arguments = string_delete(argument[0], 1, 12);
+    
+    createLevel(arguments);
+}
+
+if (argument[0] == "exit") {
+    game_end();
 }
 

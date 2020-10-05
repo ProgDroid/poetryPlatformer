@@ -4,12 +4,16 @@ if (state_new) {
     state_new    = false;
     sprite_index = playerJump;
     image_index  = 2;
-    image_speed  = IMAGESPEED;
     
     if (verticalSpeed == -maxVerticalSpeed) {
         image_index = 0;
+        drawingScaleX = 0.85;
+        drawingScaleY = 1.25;
+        image_speed   = 0;
     }
 }
+
+animations();
 
 facingDir = rightHeld - leftHeld;
 
@@ -28,7 +32,7 @@ verticalSpeed += grav * customDeltaTime;
 verticalSpeed  = clamp(verticalSpeed, -maxVerticalSpeed, maxVerticalSpeed);
 
 // air movement
-if (((leftHeld ^^ rightHeld) && !isAgainstWall(rightHeld - leftHeld))
+if (((leftHeld ^^ rightHeld) && !isAgainstWallAir(rightHeld - leftHeld))
 ) {
     var accelerationTmp = acceleration;
     
@@ -55,10 +59,7 @@ if (horizontalSpeed != 0) {
     horizontalCollisions();
 }
 
-var instance = instance_place(round(x), round(y) + 1, objBottoms);
-if (verticalSpeed == 0 && instance) {
-    eventFire(allEvents.landedon, instance);
-    
+if (verticalSpeed == 0 && (isOnFloor() || isSlidingOff())) {
     if (hp <= 3) {
         alarm[1] = room_speed * 0.5 * customDeltaTime;
         image_speed = IMAGESPEED - 0.1;

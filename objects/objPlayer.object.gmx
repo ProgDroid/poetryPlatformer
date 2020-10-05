@@ -96,11 +96,25 @@ airFrictionFactor  = 3;
 airDeceleration    = 0.04;
 coyoteTime         = 7;
 
-// for backdash
 facingDir = 0;
 
 maxHp = 5;
 hp    = maxHp;
+
+offsetTop     = bbox_top - y;
+offsetBottom  = bbox_bottom - y;
+offsetLeft    = bbox_left - x;
+offsetRight   = bbox_right - x;
+
+//noCollision = false;
+
+sweepAngleCheck = 80;
+
+image_xscale  = PLAYERSCALE;
+image_yscale  = PLAYERSCALE;
+
+drawingScaleX = 1;
+drawingScaleY = 1;
 
 </string>
           </argument>
@@ -372,14 +386,37 @@ if (playerStart) {
             <kind>1</kind>
             <string>///Draw Sprite
 
+texture_set_interpolation(true);
+
+if (surface_exists(shadowController.surfaceShadows)) {
+    surface_set_target(shadowController.surfaceShadows);
+    
+    var angle = point_direction(room_width / 2, 0, x, y);
+
+    draw_set_colour(c_black);
+    draw_sprite_ext(
+        sprite_index, image_index,
+        lerp(xprevious,x + lengthdir_x(8, angle), global._ts_render_alpha),
+        lerp(yprevious,y + (1-drawingScaleY) * 20 + lengthdir_y(4, angle), global._ts_render_alpha),
+        image_xscale * drawingScaleX * 0.9, image_yscale * drawingScaleY * 0.9,
+        image_angle, image_blend,
+        image_alpha
+    );
+    draw_set_colour(c_white);
+    
+    surface_reset_target();
+}
+
 draw_sprite_ext(
     sprite_index,image_index,
     lerp(xprevious,x,global._ts_render_alpha),
-    lerp(yprevious,y,global._ts_render_alpha),
-    image_xscale,image_yscale,
+    lerp(yprevious,y + (1-drawingScaleY) * 20,global._ts_render_alpha),
+    image_xscale * drawingScaleX,image_yscale * drawingScaleY,
     image_angle,image_blend,
     image_alpha
 );
+
+texture_set_interpolation(false);
 
 </string>
           </argument>

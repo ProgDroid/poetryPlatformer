@@ -1,17 +1,8 @@
 ///@description check if it's on floor
-///@args type of object (optional)
 
-var object = objBottoms;
+var rightAboveInstance = collision_line(x, y, x, bbox_bottom, objPlatforms, true, true);
 
-if (argument_count == 1) {
-    object = argument[0];
-}
+var instance           = collision_line(x, y, x, bbox_bottom + offsetBottom / 4 + 1, objPlatforms, true, true);
 
-var instance = instance_place(x, y + 1, object);
-
-if (instance != noone) {
-    return bbox_bottom + 1 == instance.bbox_top;
-}
-
-return false;
+return instance != noone && rightAboveInstance == noone;
 

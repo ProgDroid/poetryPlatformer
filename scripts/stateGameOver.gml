@@ -5,8 +5,8 @@ if (state_new) {
     image_speed  = IMAGESPEEDNOTIME;
     x            = view_wview[0] / 2;
     y            = view_hview[0] / 2 + 69;
-    image_xscale = 2;
-    image_yscale = 2;
+    image_xscale = 2 * PLAYERSCALE;
+    image_yscale = 2 * PLAYERSCALE;
     depth        = -101;
 }
 
