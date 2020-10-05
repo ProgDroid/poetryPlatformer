@@ -1,10 +1,12 @@
 ///@description Highlight platform landed on
 
-if (image_index != 1) {
+if (!drawShadow) {
     eventFire(allEvents.removehighlight);
-
-    drawShadow = 1;
-
-    eventRegister(allEvents.removehighlight, id, removePlatformHightlight);
 }
+
+eventRegister(allEvents.removehighlight, id, removePlatformHighlight);
+
+drawShadow = true;
+
+propagateShadowEffect(shadowfx.add);
 

@@ -52,19 +52,27 @@ room_instance_add(levelRoom, 32, 32, fixedTimestepRoom);
 
 var positionX;
 
+var listIndex = -1;
+
+platformController.wordIndex = array_create(0);
+
 for (var i = 0; i < array_length_1d(lines); i++) {
-    positionX = 0;
+    positionX  = 0;
+    listIndex += 1;
 
     for (var j = 1; j <= string_length(lines[i]) - 1; j++) {
         var char = string_upper(string_char_at(lines[i], j));
         
         if (char == " " || char == "") {
             positionX += 350 / 2;
+
+            listIndex += 1;
+
             continue;
         }
-        
+
         var object = platformController.platformMap[? char];
-        
+
         if (!is_real(object)) {
             continue;
         }
@@ -73,7 +81,8 @@ for (var i = 0; i < array_length_1d(lines); i++) {
         var instanceY = (((height - 400) / array_length_1d(lines)) * i) + 200 + maxLineHeight + platformController.paddingYMap[? char];
 
         var instance = room_instance_add(levelRoom, instanceX, instanceY, object);
-        
+        platformController.wordIndex[array_length_1d(platformController.wordIndex)] = listIndex;
+
         if (i == 0 && j == 1) {
             room_instance_add(levelRoom, instanceX + sprite_get_width(object_get_sprite(object)) / 2, instanceY - sprite_get_height(object_get_sprite(object)), objPlayer);
         }
