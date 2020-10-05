@@ -16,5 +16,5 @@ if (argument[0] > 0) {
     return false;
 }
 
-return instance != noone && instance == noone;
+return instance != noone && oldInstance == noone;
 

@@ -69,7 +69,7 @@ if (verticalSpeed == 0 && (isOnFloor() || isSlidingOff())) {
         }
     }
 
-    if (horizontalSpeed != 0 || ((leftHeld ^^ rightHeld))) {
+    if (horizontalSpeed != 0 || (leftHeld ^^ rightHeld)) {
         stateSwitch("walk");
     } else {
         stateSwitch("idle");

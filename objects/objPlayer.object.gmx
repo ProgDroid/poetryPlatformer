@@ -110,8 +110,8 @@ offsetRight   = bbox_right - x;
 
 sweepAngleCheck = 80;
 
-image_xscale  = 0.6;
-image_yscale  = 0.6;
+image_xscale  = PLAYERSCALE;
+image_yscale  = PLAYERSCALE;
 
 drawingScaleX = 1;
 drawingScaleY = 1;
@@ -392,8 +392,7 @@ if (surface_exists(shadowController.surfaceShadows)) {
     surface_set_target(shadowController.surfaceShadows);
     
     var angle = point_direction(room_width / 2, 0, x, y);
-    
-    texture_set_interpolation(true);
+
     draw_set_colour(c_black);
     draw_sprite_ext(
         sprite_index, image_index,
