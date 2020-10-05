@@ -159,7 +159,7 @@
     <scripts name="eventScripts">
       <script>scripts\collectibleFound.gml</script>
       <script>scripts\platformLandedOn.gml</script>
-      <script>scripts\removePlatformHightlight.gml</script>
+      <script>scripts\removePlatformHighlight.gml</script>
       <script>scripts\processDeath.gml</script>
     </scripts>
     <scripts name="eventTriggering">
@@ -219,6 +219,7 @@
       <script>scripts\collision_line_first.gml</script>
       <script>scripts\animations.gml</script>
       <script>scripts\nextPower2.gml</script>
+      <script>scripts\propagateShadowEffect.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">
