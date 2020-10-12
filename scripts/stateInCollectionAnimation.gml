@@ -6,11 +6,14 @@ if (state_new) {
     image_speed = 0;
 
     flashController.dark = true;
+    
+    oldViewX  = view_xview[0];
+    oldViewY  = view_yview[0];
 }
 
 // increase value as alarm goes to 0
-range = (3 - alarm[0] / room_speed) / 3;
+var range = (3 - alarm[0] / room_speed) / 3;
 
-view_xview[0] = random_range(-range, range);
-view_yview[0] = random_range(-range, range);
+view_xview[0] = random_range(-range, range) + oldViewX;
+view_yview[0] = random_range(-range, range) + oldViewY;
 

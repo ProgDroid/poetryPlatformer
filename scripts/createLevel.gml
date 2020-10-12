@@ -38,7 +38,6 @@ var levelRoom = room_add();
 room_set_width(levelRoom, width);
 room_set_height(levelRoom, height);
 room_set_persistent(levelRoom, false);
-room_set_background(levelRoom, 0, 1, 0, backgroundPaper, 0, 0, 1, 1, 0, 0, 1);
 
 file_text_close(file);
 

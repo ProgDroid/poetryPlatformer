@@ -17,6 +17,10 @@ animations();
 
 facingDir = rightHeld - leftHeld;
 
+if (facingDir != 0) {
+    lastDir = facingDir;
+}
+
 if (place_meeting(x, y, objCollectible)) {
     stateSwitch("inCollectionAnimation");
 }

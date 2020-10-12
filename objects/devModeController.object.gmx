@@ -257,20 +257,21 @@ if (keyboard_check(vk_right) &amp;&amp; view_xview[0] &lt; room_width - view_wvi
             <string>///Draw debug info
 if (!devConsole &amp;&amp; instance_exists(objPlayer)) {
     draw_set_font(-1);
-    draw_set_colour(c_black);
+    draw_set_colour(c_red);
     draw_set_halign(fa_left);
     draw_set_valign(fa_middle);
     draw_text(devTextPosition, 64, "State: " + objPlayer.state_name);
-    draw_text(devTextPosition, 96, "FPS: " + string(fps));
-    draw_text(devTextPosition, 128, "Delta Time: " + string(delta_time));
-    draw_text(devTextPosition, 160, "Collectibles: " + string(worldController.collectiblesFound));
-    draw_text(devTextPosition, 192, "target fps: " + string(global._ts_fps));
-    draw_text(devTextPosition, 224, "time factor: " + string(timeFactorController.timeFactor));
-    draw_text(devTextPosition, 256, "sprite: " + sprite_get_name(objPlayer.sprite_index));
-    draw_text(devTextPosition, 288, "horizontal speed: " + string(objPlayer.horizontalSpeed));
-    draw_text(devTextPosition, 320, "facing direction: " + string(objPlayer.facingDir));
-    draw_text(devTextPosition, 352, "drawing scale X: " + string(objPlayer.drawingScaleX));
-    draw_text(devTextPosition, 384, "drawing scale Y: " + string(objPlayer.drawingScaleY));
+    draw_text(devTextPosition, 80, "FPS: " + string(fps));
+    draw_text(devTextPosition, 96, "Delta Time: " + string(delta_time));
+    draw_text(devTextPosition, 112, "Collectibles: " + string(worldController.collectiblesFound));
+    draw_text(devTextPosition, 128, "target fps: " + string(global._ts_fps));
+    draw_text(devTextPosition, 144, "time factor: " + string(timeFactorController.timeFactor));
+    draw_text(devTextPosition, 160, "sprite: " + sprite_get_name(objPlayer.sprite_index));
+    draw_text(devTextPosition, 192, "horizontal speed: " + string(objPlayer.horizontalSpeed));
+    draw_text(devTextPosition, 208, "facing direction: " + string(objPlayer.facingDir));
+    draw_text(devTextPosition, 224, "drawing scale X: " + string(objPlayer.drawingScaleX));
+    draw_text(devTextPosition, 240, "drawing scale Y: " + string(objPlayer.drawingScaleY));
+    draw_text(devTextPosition, 256, "last dir: " + string(objPlayer.lastDir));
     draw_set_colour(c_white);
 }
 
@@ -326,6 +327,36 @@ if (devConsole)
         }
     }    
     draw_text(devTextPosition, rectangleY2 * 0.8 * 1.2, "&gt; " + consoleCommand + cursor);
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw camera limits
+
+if (!devConsole) {
+    var ratio = viewController.cameraLimitsRatio;
+
+    for (var i = 1; i * ratio &lt; 1; i++) {
+        draw_line_colour(display_get_gui_width() * i * ratio, display_get_gui_height() * 0.1, display_get_gui_width() * i * ratio, display_get_gui_height() * 9 * 0.1, c_blue, c_blue);
+    }
 }
 
 </string>

@@ -39,6 +39,7 @@ eventRegister(allEvents.landedon, id, platformLandedOn);
 
 drawShadow  = false;
 shadowAlpha = 0;
+shadowAngle = point_direction(room_width / 2, 0, x, y);
 
 image_xscale = PLATFORMSCALE;
 image_yscale = PLATFORMSCALE;
@@ -127,14 +128,12 @@ texture_set_interpolation(true);
 
 if (surface_exists(shadowController.surfaceShadows)) {
     surface_set_target(shadowController.surfaceShadows);
-    
-    var angle = point_direction(room_width / 2, 0, x, y);
 
     draw_set_colour(c_black);
     draw_sprite_ext(
         sprite_index, image_index,
-        x + lengthdir_x(8, angle),
-        y + lengthdir_y(4, angle),
+        x + lengthdir_x(8, shadowAngle) - view_xview[0],
+        y + lengthdir_y(4, shadowAngle) - view_yview[0],
         image_xscale, image_yscale,
         image_angle, image_blend,
         shadowAlpha

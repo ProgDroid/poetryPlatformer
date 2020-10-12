@@ -7,3 +7,4 @@ if(state_next != state) {
     state_timer++;
     //state_new = false;
 }
+
