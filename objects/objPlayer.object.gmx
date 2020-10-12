@@ -97,6 +97,7 @@ airDeceleration    = 0.04;
 coyoteTime         = 7;
 
 facingDir = 0;
+lastDir   = 0;
 
 maxHp = 5;
 hp    = maxHp;
@@ -396,8 +397,8 @@ if (surface_exists(shadowController.surfaceShadows)) {
     draw_set_colour(c_black);
     draw_sprite_ext(
         sprite_index, image_index,
-        lerp(xprevious,x + lengthdir_x(8, angle), global._ts_render_alpha),
-        lerp(yprevious,y + (1-drawingScaleY) * 20 + lengthdir_y(4, angle), global._ts_render_alpha),
+        lerp(xprevious,x + lengthdir_x(10, angle), global._ts_render_alpha) - view_xview[0],
+        lerp(yprevious,y + (1-drawingScaleY) * 20 + lengthdir_y(6, angle), global._ts_render_alpha) - view_yview[0],
         image_xscale * drawingScaleX * 0.9, image_yscale * drawingScaleY * 0.9,
         image_angle, image_blend,
         image_alpha
