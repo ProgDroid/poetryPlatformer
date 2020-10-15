@@ -34,6 +34,8 @@ stateCreate("inCollectionAnimation", stateInCollectionAnimation);
 stateCreate("respawn", stateRespawn);
 stateCreate("gameOver", stateGameOver);
 stateCreate("newGame", stateNewGame);
+stateCreate("slidingOff", stateSlidingOff);
+stateCreate("wallSlide", stateWallSlide);
 
 stateInit("newGame");
 
@@ -95,6 +97,7 @@ slideFactor        = 2;
 airFrictionFactor  = 3;
 airDeceleration    = 0.04;
 coyoteTime         = 7;
+slidingOffSpeed    = 3;
 
 facingDir = 0;
 lastDir   = 0;
@@ -116,6 +119,8 @@ image_yscale  = PLAYERSCALE;
 
 drawingScaleX = 1;
 drawingScaleY = 1;
+
+wallSlideBuffer = 0;
 
 </string>
           </argument>

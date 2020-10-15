@@ -152,6 +152,7 @@
       <script>scripts\horizontalCollisions.gml</script>
       <script>scripts\verticalCollisions.gml</script>
       <script>scripts\isAgainstWallAir.gml</script>
+      <script>scripts\checkWallSlide.gml</script>
       <script>scripts\isAgainstWall.gml</script>
       <script>scripts\isOnFloor.gml</script>
       <script>scripts\isSlidingOff.gml</script>
@@ -198,6 +199,8 @@
       <script>scripts\stateRespawn.gml</script>
       <script>scripts\stateGameOver.gml</script>
       <script>scripts\stateNewGame.gml</script>
+      <script>scripts\stateSlidingOff.gml</script>
+      <script>scripts\stateWallSlide.gml</script>
     </scripts>
     <scripts name="timestepScripts">
       <script>scripts\_fixed_timestep_ev_create.gml</script>
@@ -336,7 +339,8 @@
     <room>rooms\room11</room>
     <room>rooms\room4</room>
   </rooms>
-  <constants number="8">
+  <constants number="9">
+    <constant name="WALLSLIDEBUFFER">7</constant>
     <constant name="PLAYERSCALE">0.6</constant>
     <constant name="PLATFORMSCALE">0.7</constant>
     <constant name="customDeltaTime">timeFactorController.timeFactor * ((60 / global._ts_fps) * (delta_time / ((1 / room_speed) * 1000000)))</constant>

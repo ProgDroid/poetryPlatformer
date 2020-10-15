@@ -62,7 +62,7 @@ if (!(jumpPressed || jumpHeld)) {
     if (!isOnFloor() && !isSlidingOff()) {
         stateSwitch("drop");
     } else if (!isOnFloor() && isSlidingOff()) {
-        // do nothing for now
+        stateSwitch("slidingOff");
     }
 }
 
@@ -74,10 +74,7 @@ if (!(jumpPressed || jumpHeld)) {
 //}
 
 // jump
-if (!(downPressed || downHeld) &&
-    (jumpPressed || jumpHeld) &&
-    (isOnFloor() || isSlidingOff())
-) {
+if ((jumpPressed || jumpHeld) && isOnFloor()) {
     verticalSpeed = -maxVerticalSpeed;
     stateSwitch("drop");
 }

@@ -28,6 +28,10 @@ if (!isOnFloor() && !isSlidingOff()) {
     stateSwitch("drop");
 }
 
+if (!isOnFloor() && isSlidingOff()) {
+    stateSwitch("slidingOff");
+}
+
 // manually drop from platform
 //if ((downPressed || downHeld) && (jumpPressed || jumpHeld) && isOnFloor()) {
 //    y += 1;
