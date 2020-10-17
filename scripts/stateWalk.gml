@@ -70,7 +70,7 @@ if (!isOnFloor() && !isSlidingOff()) {
 //}
 
 // jump
-if (jumpPressed && isOnFloor()) {
+if (jumpPressed && (isOnFloor() || isSlidingOff())) {
     verticalSpeed = -maxVerticalSpeed;
     stateSwitch("drop");
 }
