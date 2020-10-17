@@ -26,7 +26,13 @@ if (place_meeting(x, y, objCollectible)) {
     stateSwitch("inCollectionAnimation");
 }
 
-verticalSpeed += grav * customDeltaTime;
+var gravTmp = grav;
+
+if (jumpHeld && abs(verticalSpeed) < 1) {
+    gravTmp /= 2;
+}
+
+verticalSpeed += gravTmp * customDeltaTime;
 verticalSpeed  = clamp(verticalSpeed, -maxVerticalSpeed, maxVerticalSpeed);
 
 // air movement
