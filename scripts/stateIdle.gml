@@ -28,10 +28,6 @@ if (!isOnFloor() && !isSlidingOff()) {
     stateSwitch("drop");
 }
 
-if (!isOnFloor() && isSlidingOff()) {
-    stateSwitch("slidingOff");
-}
-
 // manually drop from platform
 //if ((downPressed || downHeld) && (jumpPressed || jumpHeld) && isOnFloor()) {
 //    y += 1;
@@ -40,7 +36,7 @@ if (!isOnFloor() && isSlidingOff()) {
 //}
 
 // regular jump
-if (!(downPressed || downHeld) && (jumpPressed || jumpHeld) && (isOnFloor() || isSlidingOff())) {
+if (!(downPressed || downHeld) && jumpPressed && (isOnFloor() || isSlidingOff())) {
     verticalSpeed = -maxVerticalSpeed;
     stateSwitch("drop");
 }

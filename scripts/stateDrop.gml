@@ -39,12 +39,6 @@ if (((leftHeld ^^ rightHeld) && !isAgainstWallAir(rightHeld - leftHeld))) {
     }
     
     horizontalMovement(accelerationTmp);
-} else if (
-    (leftHeld ^^ rightHeld) &&
-    isAgainstWallAir(rightHeld - leftHeld) &&
-    verticalSpeed > 0
-) {
-    stateSwitch("wallSlide");
 } else { // if not holding keys
     var speedSign    = sign(horizontalSpeed);
     horizontalSpeed -= speedSign * airDeceleration * customDeltaTime;
@@ -66,16 +60,7 @@ if (state_timer <= coyoteTime && jumpPressed && verticalSpeed >= 0 && horizontal
     stateSwitch("drop");
 }
 
-if (wallSlideBuffer > 0) {
-    if (jumpPressed && (checkWallSlide(-1) ^^ checkWallSlide(1))) {
-        verticalSpeed   = -maxVerticalSpeed;
-        stateSwitch("drop");
-    }
-
-    wallSlideBuffer -= 1;
-}
-
-if (verticalSpeed == 0 && isOnFloor()) {
+if (verticalSpeed == 0 && (isOnFloor() || isSlidingOff())) {
     if (hp <= 3) {
         alarm[1] = room_speed * 0.5 * customDeltaTime;
         image_speed = IMAGESPEED - 0.1;
@@ -90,10 +75,6 @@ if (verticalSpeed == 0 && isOnFloor()) {
     } else {
         stateSwitch("idle");
     }
-}
-
-if (verticalSpeed == 0 && isSlidingOff()) {
-    stateSwitch("slidingOff");
 }
 
 if (bbox_top > (view_yview[0] + view_hview[0] + 50)) {

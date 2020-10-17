@@ -8,24 +8,24 @@ y += verticalSpeed * customDeltaTime;
 var instanceAbove = collision_line(bbox_left, bbox_top - 1, bbox_right, bbox_top - 1, objPlatforms, true, true);
 var instance      = collision_line(bbox_left, bbox_bottom + 1, bbox_right, bbox_bottom + 1, objPlatforms, true, true);
 
-//if (noCollision && instance != noone) {
-//    exit;
-//} else if (noCollision && instance == noone) {
-//    noCollision = false;
-//}
-
 if (instance != noone ^^ instanceAbove != noone) {
     if (verticalSpeed <= 0 && instanceAbove != noone) {
         var previousX = x;
         var previousY = y;
         
-        if (!place_meeting(x + 1, y - 1, objPlatforms)) {
-            x = x + 1;
+        for (var i = 1; i < 3; i++) {
+            if (!place_meeting(x + i, y + i, objPlatforms)) {
+                x = previousX + i;
+                y = previousY + i;
+            }
         }
         
         if (x == previousX) {
-            if (!place_meeting(x - 1, y - 1, objPlatforms)) {
-                x = x - 1;
+            for (var i = 1; i < 3; i++) {
+                if (!place_meeting(x - i, y + 1, objPlatforms)) {
+                    x = previousX - i;
+                    y = previousY + i;
+                }
             }
         }
         
@@ -35,17 +35,23 @@ if (instance != noone ^^ instanceAbove != noone) {
         }
     }
 
-    if (verticalSpeed > 0 && instance != noone) {
+    if (verticalSpeed >= 0 && instance != noone) {
         var previousX = x;
         var previousY = y;
         
-        if (!place_meeting(x + 1, y + 1, objPlatforms)) {
-            x = x + 1;
+        for (var i = 1; i < 3; i++) {
+            if (!place_meeting(x + i, y - i, objPlatforms)) {
+                x = previousX + i;
+                y = previousY - i;
+            }
         }
         
         if (x == previousX) {
-            if (!place_meeting(x - 1, y + 1, objPlatforms)) {
-                x = x - 1;
+            for (var i = 1; i < 3; i++) {
+                if (!place_meeting(x - i, y - i, objPlatforms)) {
+                    x = previousX - i;
+                    y = previousY - i;
+                }
             }
         }
         
@@ -59,7 +65,7 @@ if (instance != noone ^^ instanceAbove != noone) {
             image_speed   = 0;
             
             if (!isOnFloor() || !isSlidingOff()) {
-                var toMove      = collision_line_first(x, y, x, bbox_bottom + offsetBottom, objPlatforms, true, true);
+                var toMove = collision_line_first(x, y, x, bbox_bottom + offsetBottom, objPlatforms, true, true);
     
                 if (toMove[0] != noone) {
                     y += toMove[2] - bbox_bottom;        

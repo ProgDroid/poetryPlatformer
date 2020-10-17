@@ -34,8 +34,6 @@ stateCreate("inCollectionAnimation", stateInCollectionAnimation);
 stateCreate("respawn", stateRespawn);
 stateCreate("gameOver", stateGameOver);
 stateCreate("newGame", stateNewGame);
-stateCreate("slidingOff", stateSlidingOff);
-stateCreate("wallSlide", stateWallSlide);
 
 stateInit("newGame");
 
@@ -94,10 +92,9 @@ maxVerticalSpeed   = 8;
 acceleration       = 0.5;
 deceleration       = 0.35;
 slideFactor        = 2;
-airFrictionFactor  = 3;
+airFrictionFactor  = 4;
 airDeceleration    = 0.04;
 coyoteTime         = 7;
-slidingOffSpeed    = 3;
 
 facingDir = 0;
 lastDir   = 0;
@@ -119,8 +116,6 @@ image_yscale  = PLAYERSCALE;
 
 drawingScaleX = 1;
 drawingScaleY = 1;
-
-wallSlideBuffer = 0;
 
 </string>
           </argument>
@@ -153,13 +148,12 @@ downPressed  = false;
 leftPressed  = false;
 rightPressed = false;
 
-jumpHeld     = false;
 jumpPressed  = false;
 
 playerStart  = false;
 
 gamepadConnected = 0;
-numberGamepads = gamepad_get_device_count();
+numberGamepads   = gamepad_get_device_count();
 
 for (var i = 0; i &lt; numberGamepads; i++) {
     if (gamepad_is_connected(i)) {
@@ -356,8 +350,7 @@ if (!instance_exists(devModeController) || !(devModeController.devConsole)) {
     downPressed  = keyboard_check_pressed(ord('S')) || (gamepad_axis_value(gamepadConnected, gp_axislv) &gt; 0);
     leftPressed  = keyboard_check_pressed(ord('A')) || (gamepad_axis_value(gamepadConnected, gp_axislh) &lt; 0);
     rightPressed = keyboard_check_pressed(ord('D')) || (gamepad_axis_value(gamepadConnected, gp_axislh) &gt; 0);
-    
-    jumpHeld     = keyboard_check(vk_space) || gamepad_button_check(gamepadConnected, gp_face1);
+
     jumpPressed  = keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(gamepadConnected, gp_face1);
 }
 

@@ -58,12 +58,8 @@ if (horizontalSpeed == 0) {
 }
 
 // no floor
-if (!(jumpPressed || jumpHeld)) {
-    if (!isOnFloor() && !isSlidingOff()) {
-        stateSwitch("drop");
-    } else if (!isOnFloor() && isSlidingOff()) {
-        stateSwitch("slidingOff");
-    }
+if (!isOnFloor() && !isSlidingOff()) {
+    stateSwitch("drop");
 }
 
 // manually drop from platform
@@ -74,7 +70,7 @@ if (!(jumpPressed || jumpHeld)) {
 //}
 
 // jump
-if ((jumpPressed || jumpHeld) && isOnFloor()) {
+if (jumpPressed && isOnFloor()) {
     verticalSpeed = -maxVerticalSpeed;
     stateSwitch("drop");
 }
