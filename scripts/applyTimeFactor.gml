@@ -8,7 +8,7 @@ if (argument[0] < 0) {
 timeFactorController.timeFactor = argument[0];
 
 with(objCharacter) {
-    image_speed = IMAGESPEED;    
+    image_speed = IMAGESPEED;
 }
 
 with(objCollectible) {
