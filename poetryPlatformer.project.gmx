@@ -336,7 +336,8 @@
     <room>rooms\room11</room>
     <room>rooms\room4</room>
   </rooms>
-  <constants number="8">
+  <constants number="9">
+    <constant name="MAXDOUBLEJUMPS">1</constant>
     <constant name="PLAYERSCALE">0.6</constant>
     <constant name="PLATFORMSCALE">0.7</constant>
     <constant name="customDeltaTime">timeFactorController.timeFactor * ((60 / global._ts_fps) * (delta_time / ((1 / room_speed) * 1000000)))</constant>
