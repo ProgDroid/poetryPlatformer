@@ -92,7 +92,7 @@ maxVerticalSpeed   = 8;
 acceleration       = 0.5;
 deceleration       = 0.35;
 slideFactor        = 2;
-airFrictionFactor  = 4;
+airFrictionFactor  = 3;
 airDeceleration    = 0.04;
 coyoteTime         = 7;
 
