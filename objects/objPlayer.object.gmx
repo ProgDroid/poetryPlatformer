@@ -95,6 +95,9 @@ slideFactor        = 2;
 airFrictionFactor  = 3;
 airDeceleration    = 0.04;
 coyoteTime         = 7;
+doubleJumpTime     = 10;
+maxDoubleJumps     = MAXDOUBLEJUMPS;
+doubleJumps        = maxDoubleJumps;
 
 facingDir = 0;
 lastDir   = 0;

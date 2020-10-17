@@ -63,6 +63,7 @@ if (instance != noone ^^ instanceAbove != noone) {
             drawingScaleX = 1.25;
             drawingScaleY = 0.8;
             image_speed   = 0;
+            doubleJumps   = maxDoubleJumps;
             
             if (!isOnFloor() || !isSlidingOff()) {
                 var toMove = collision_line_first(x, y, x, bbox_bottom + offsetBottom, objPlatforms, true, true);

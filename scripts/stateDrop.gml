@@ -53,10 +53,16 @@ verticalCollisions();
 
 horizontalCollisions();
 
-if (state_timer <= coyoteTime && jumpPressed && verticalSpeed >= 0 && horizontalSpeed != 0) {
+if (jumpPressed && state_timer <= coyoteTime && verticalSpeed >= 0 && horizontalSpeed != 0) {
     y -= state_timer div 2;
 
     verticalSpeed = -maxVerticalSpeed;
+    stateSwitch("drop");
+}
+
+if (jumpPressed && state_timer > doubleJumpTime && doubleJumps > 0) {
+    verticalSpeed = -maxVerticalSpeed;
+    doubleJumps -= 1;
     stateSwitch("drop");
 }
 
