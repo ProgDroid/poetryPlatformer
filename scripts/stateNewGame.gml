@@ -10,7 +10,7 @@ if (state_new) {
     depth        = -10;
 }
 
-if (state_timer >= room_speed) {
+if (state_timer >= room_speed * customDeltaTime) {
     stateSwitch("idle");
 }
 

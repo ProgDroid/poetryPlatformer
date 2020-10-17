@@ -36,7 +36,7 @@ if (!isOnFloor() && !isSlidingOff()) {
 //}
 
 // regular jump
-if (!(downPressed || downHeld) && (jumpPressed || jumpHeld) && (isOnFloor() || isSlidingOff())) {
+if (!(downPressed || downHeld) && jumpPressed && (isOnFloor() || isSlidingOff())) {
     verticalSpeed = -maxVerticalSpeed;
     stateSwitch("drop");
 }

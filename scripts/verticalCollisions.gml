@@ -8,24 +8,24 @@ y += verticalSpeed * customDeltaTime;
 var instanceAbove = collision_line(bbox_left, bbox_top - 1, bbox_right, bbox_top - 1, objPlatforms, true, true);
 var instance      = collision_line(bbox_left, bbox_bottom + 1, bbox_right, bbox_bottom + 1, objPlatforms, true, true);
 
-//if (noCollision && instance != noone) {
-//    exit;
-//} else if (noCollision && instance == noone) {
-//    noCollision = false;
-//}
-
 if (instance != noone ^^ instanceAbove != noone) {
     if (verticalSpeed <= 0 && instanceAbove != noone) {
         var previousX = x;
         var previousY = y;
         
-        if (!place_meeting(x + 1, y - 1, objPlatforms)) {
-            x = x + 1;
+        for (var i = 1; i < 3; i++) {
+            if (!place_meeting(x + i, y + i, objPlatforms)) {
+                x = previousX + i;
+                y = previousY + i;
+            }
         }
         
         if (x == previousX) {
-            if (!place_meeting(x - 1, y - 1, objPlatforms)) {
-                x = x - 1;
+            for (var i = 1; i < 3; i++) {
+                if (!place_meeting(x - i, y + 1, objPlatforms)) {
+                    x = previousX - i;
+                    y = previousY + i;
+                }
             }
         }
         
@@ -35,20 +35,41 @@ if (instance != noone ^^ instanceAbove != noone) {
         }
     }
 
-    if (verticalSpeed > 0 && instance != noone) {
-        move_outside_all(90, min(offsetBottom, (abs(bbox_bottom - originalBboxBottom))));
-        verticalSpeed = 0;
-        eventFire(allEvents.landedon, instance);
+    if (verticalSpeed >= 0 && instance != noone) {
+        var previousX = x;
+        var previousY = y;
         
-        drawingScaleX = 1.25;
-        drawingScaleY = 0.8;
-        image_speed   = 0;
+        for (var i = 1; i < 3; i++) {
+            if (!place_meeting(x + i, y - i, objPlatforms)) {
+                x = previousX + i;
+                y = previousY - i;
+            }
+        }
         
-        if (!isOnFloor() || !isSlidingOff()) {
-            var toMove      = collision_line_first(x, y, x, bbox_bottom + offsetBottom, objPlatforms, true, true);
-
-            if (toMove[0] != noone) {
-                y += toMove[2] - bbox_bottom;        
+        if (x == previousX) {
+            for (var i = 1; i < 3; i++) {
+                if (!place_meeting(x - i, y - i, objPlatforms)) {
+                    x = previousX - i;
+                    y = previousY - i;
+                }
+            }
+        }
+        
+        if (x == previousX) {
+            move_outside_all(90, min(abs(offsetBottom), (abs(bbox_bottom - originalBboxBottom))));
+            verticalSpeed = 0;
+            eventFire(allEvents.landedon, instance);
+            
+            drawingScaleX = 1.25;
+            drawingScaleY = 0.8;
+            image_speed   = 0;
+            
+            if (!isOnFloor() || !isSlidingOff()) {
+                var toMove = collision_line_first(x, y, x, bbox_bottom + offsetBottom, objPlatforms, true, true);
+    
+                if (toMove[0] != noone) {
+                    y += toMove[2] - bbox_bottom;        
+                }
             }
         }
     }

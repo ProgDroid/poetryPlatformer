@@ -25,19 +25,11 @@ if (place_meeting(x, y, objCollectible)) {
     stateSwitch("inCollectionAnimation");
 }
 
-// maybe add check for horizontalSpeed not being 0
-if (state_timer <= coyoteTime && jumpPressed && verticalSpeed >= 0) {
-    y -= state_timer div 2;
-    verticalSpeed = -maxVerticalSpeed;
-    stateSwitch("drop");
-}
-
 verticalSpeed += grav * customDeltaTime;
 verticalSpeed  = clamp(verticalSpeed, -maxVerticalSpeed, maxVerticalSpeed);
 
 // air movement
-if (((leftHeld ^^ rightHeld) && !isAgainstWallAir(rightHeld - leftHeld))
-) {
+if (((leftHeld ^^ rightHeld) && !isAgainstWallAir(rightHeld - leftHeld))) {
     var accelerationTmp = acceleration;
     
     if (horizontalSpeed != 0 &&
@@ -59,8 +51,13 @@ if (((leftHeld ^^ rightHeld) && !isAgainstWallAir(rightHeld - leftHeld))
 // collisions
 verticalCollisions();
 
-if (horizontalSpeed != 0) {
-    horizontalCollisions();
+horizontalCollisions();
+
+if (state_timer <= coyoteTime && jumpPressed && verticalSpeed >= 0 && horizontalSpeed != 0) {
+    y -= state_timer div 2;
+
+    verticalSpeed = -maxVerticalSpeed;
+    stateSwitch("drop");
 }
 
 if (verticalSpeed == 0 && (isOnFloor() || isSlidingOff())) {
