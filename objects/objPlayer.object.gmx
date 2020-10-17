@@ -270,6 +270,31 @@ eventUnregister(allEvents.playerfell, id);
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///panOut
+viewController.panOut = true;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
@@ -287,7 +312,8 @@ eventUnregister(allEvents.playerfell, id);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>maxHorizontalSpeed = MAXHORIZONTALSPEED;
+            <string>///maxHorizontalSpeed, image_speed
+maxHorizontalSpeed = MAXHORIZONTALSPEED;
 image_speed        = IMAGESPEED;
 
 </string>
@@ -312,11 +338,9 @@ image_speed        = IMAGESPEED;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>view_xview[0]  = 0;
-view_yview[0]  = 0;
-view_wview[0]  = window_get_width();
-view_hview[0]  = window_get_height();
-view_object[0] = noone;
+            <string>///reset view
+view_xview[0]  = oldViewX;
+view_yview[0]  = oldViewY;
 
 flashController.dark   = false;
 flashController.active = true;

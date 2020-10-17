@@ -12,6 +12,9 @@ if (state_new) {
             sprite_index = playerWalkChill;
         }
     }
+    
+    alarm[2] = -1;
+    viewController.panOut = false;
 }
 
 animations();

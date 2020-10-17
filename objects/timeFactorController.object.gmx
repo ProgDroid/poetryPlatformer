@@ -61,6 +61,10 @@ previousTimeFactor = timeFactor;
         if (alarm[1]) {
             alarm[1] += 1;
         }
+
+        if (alarm[2]) {
+            alarm[2] += 1;
+        }
     }
     
     with(objCollectible) {

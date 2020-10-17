@@ -12,6 +12,9 @@ if (state_new) {
         drawingScaleY = 1.25;
         image_speed   = 0;
     }
+    
+    alarm[2] = -1;
+    viewController.panOut = false;
 }
 
 animations();
