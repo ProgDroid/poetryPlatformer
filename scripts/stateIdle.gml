@@ -14,6 +14,8 @@ if (state_new) {
             sprite_index = playerIdleChill;
         }
     }
+    
+    alarm[2] = room_speed * 5 * customDeltaTime;
 }
 
 animations();
@@ -38,9 +40,6 @@ if (!isOnFloor() && !isSlidingOff()) {
 
 // regular jump
 if (!(downPressed || downHeld) && (jumpPressed || jumpBuffer > 0) && (isOnFloor() || isSlidingOff())) {
-    if (jumpBuffer > 0) {
-        show_debug_message("jumpBuffer: " + string(jumpBuffer));
-    }
     verticalSpeed = -maxVerticalSpeed;
     stateSwitch("drop");
 }
