@@ -1,5 +1,6 @@
-if (state_timer > room_speed * 3 * customDeltaTime) {
-    stateSwitch("suckedIn");
+if (state_new) {
+    state_new = false;
+    alarm[0] = room_speed * 3 * customDeltaTime;
 }
 
 if (image_index > endFrame) {

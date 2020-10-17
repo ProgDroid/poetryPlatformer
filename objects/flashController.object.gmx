@@ -54,7 +54,7 @@ darkFactor = 0.1;
           <argument>
             <kind>1</kind>
             <string>if (dark &amp;&amp; darkFactor &lt; 1.5) {
-    darkFactor += 0.01;
+    darkFactor += 0.01 * customDeltaTime;
 }
 
 if (active) {
