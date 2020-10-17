@@ -6,6 +6,7 @@ if (state_new) {
     verticalSpeed   = 0;
     sprite_index    = playerIdle;
     image_index     = 0;
+    doubleJumps     = maxDoubleJumps;
 
     if (hp <= 3) {
         sprite_index = playerIdleCalm;
@@ -36,7 +37,10 @@ if (!isOnFloor() && !isSlidingOff()) {
 //}
 
 // regular jump
-if (!(downPressed || downHeld) && jumpPressed && (isOnFloor() || isSlidingOff())) {
+if (!(downPressed || downHeld) && (jumpPressed || jumpBuffer > 0) && (isOnFloor() || isSlidingOff())) {
+    if (jumpBuffer > 0) {
+        show_debug_message("jumpBuffer: " + string(jumpBuffer));
+    }
     verticalSpeed = -maxVerticalSpeed;
     stateSwitch("drop");
 }

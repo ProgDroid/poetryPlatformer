@@ -98,6 +98,8 @@ coyoteTime         = 7;
 doubleJumpTime     = 10;
 maxDoubleJumps     = MAXDOUBLEJUMPS;
 doubleJumps        = maxDoubleJumps;
+maxJumpBuffer      = MAXJUMPBUFFER;
+jumpBuffer         = 0;
 
 facingDir = 0;
 lastDir   = 0;

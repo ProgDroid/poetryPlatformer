@@ -4,6 +4,7 @@ if (state_new) {
     state_new    = false;
     sprite_index = playerJump;
     image_index  = 2;
+    jumpBuffer   = 0;
     
     if (verticalSpeed == -maxVerticalSpeed) {
         image_index = 0;
@@ -52,6 +53,14 @@ if (((leftHeld ^^ rightHeld) && !isAgainstWallAir(rightHeld - leftHeld))) {
 verticalCollisions();
 
 horizontalCollisions();
+
+if (jumpBuffer > 0) {
+    jumpBuffer -= 1;
+}
+
+if (jumpPressed) {
+    jumpBuffer = maxJumpBuffer;
+}
 
 if (jumpPressed && state_timer <= coyoteTime && verticalSpeed >= 0 && horizontalSpeed != 0) {
     y -= state_timer div 2;
