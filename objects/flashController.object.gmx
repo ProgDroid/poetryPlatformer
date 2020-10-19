@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited();
+
 active     = false;
 alpha      = 1;
 dark       = false;
@@ -60,8 +61,8 @@ darkFactor = 0.1;
 if (active) {
     alpha -= 0.01 * customDeltaTime;
     if (alpha &lt;= 0) {
-        active = false;
-        alpha  = 1;
+        active   = false;
+        alpha    = 1;
         draw_set_alpha(1);
     }
 }

@@ -339,11 +339,11 @@ image_speed        = IMAGESPEED;
           <argument>
             <kind>1</kind>
             <string>///reset view
-view_xview[0]  = oldViewX;
-view_yview[0]  = oldViewY;
+view_xview[0] = oldViewX;
+view_yview[0] = oldViewY;
 
-flashController.dark   = false;
-flashController.active = true;
+flashController.dark     = false;
+flashController.active   = true;
 
 stateSwitchPrevious();
 

@@ -5,7 +5,7 @@ if (state_new) {
     alarm[0]    = room_speed * 3.75 * customDeltaTime;
     image_speed = 0;
 
-    flashController.dark = true;
+    flashController.dark     = true;
     
     oldViewX  = view_xview[0];
     oldViewY  = view_yview[0];

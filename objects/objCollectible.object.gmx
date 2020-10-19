@@ -38,6 +38,9 @@ stateInit("alive");
 fixed_timestep_register_script(id, stateExecute);
 fixed_timestep_register_script(id, stateUpdate);
 
+image_xscale = PLAYERSCALE;
+image_yscale = PLAYERSCALE;
+
 </string>
           </argument>
         </arguments>
@@ -126,7 +129,9 @@ fixed_timestep_unregister(id);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_ext(
+            <string>texture_set_interpolation(true);
+
+draw_sprite_ext(
     sprite_index,image_index,
     lerp(xprevious,x,global._ts_render_alpha),
     lerp(yprevious,y,global._ts_render_alpha),
@@ -134,6 +139,8 @@ fixed_timestep_unregister(id);
     image_angle,image_blend,
     image_alpha
 );
+
+texture_set_interpolation(false);
 
 </string>
           </argument>

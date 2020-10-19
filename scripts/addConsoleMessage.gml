@@ -12,6 +12,12 @@ if (argument_count < 2) {
     message[consoleCommands.str]  = argument[1];
 }
 
+show_debug_message(message[consoleCommands.str]);
+
+if (!instance_exists(devModeController)) {
+    exit;
+}
+
 if (devModeController.historySize == devModeController.maxHistorySize) {
     ds_list_delete(devModeController.history, 0);
     devModeController.historySize -= 1;
@@ -23,6 +29,4 @@ devModeController.historySize += 1;
 if (argument[0] == "command") {
     processCommand(argument[1]);
 }
-
-show_debug_message(message[consoleCommands.str]);
 

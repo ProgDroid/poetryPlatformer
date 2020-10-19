@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>0</visible>
   <depth>0</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>controller</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -51,6 +51,17 @@ for (var i = 0; i &lt; COLLECTIBLES; i++) {
 }
 
 collectiblesFound = 0;
+
+var loops       = array_length_1d(platformController.collectibleIndices);
+var deactivated = 0;
+
+for (var i = 0; i &lt; loops; i++) {
+    if (platformController.collectibleIndices[i] == true) {
+        var instance = instance_find(objPlatforms, i);
+        instance_deactivate_object(instance.id - deactivated);
+        deactivated++;
+    }
+}
 
 </string>
           </argument>
