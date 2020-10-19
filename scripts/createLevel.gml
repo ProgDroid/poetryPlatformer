@@ -48,10 +48,14 @@ addConsoleMessage("info", "Created " + argument[0] + " with dimensions " + strin
 room_goto(levelRoom);
 
 room_instance_add(levelRoom, 32, 32, fixedTimestepRoom);
+room_instance_add(levelRoom, 32, 32, worldController);
 
 var positionX;
 
-var listIndex    = -1;
+var listIndex        = -1;
+var collectible      = false;
+var collectiblePlace = false;
+var player           = false;
 
 platformController.wordIndex = array_create(0);
 
@@ -63,6 +67,21 @@ for (var i = 0; i < array_length_1d(lines); i++) {
 
     for (var j = 1; j < string_length(lines[i]); j++) {
         var char = string_upper(string_char_at(lines[i], j));
+        
+        if (char == "\") {
+            collectible = !collectible;
+            continue;
+        }
+        
+        if (char == "/") {
+            collectiblePlace = !collectiblePlace;
+            continue;
+        }
+        
+        if (char == "@") {
+            player = !player;
+            continue;
+        }
         
         if (char == " " || char == "") {
             var originalX = positionX;
@@ -90,10 +109,16 @@ for (var i = 0; i < array_length_1d(lines); i++) {
         var instanceY = (((height - 400) / array_length_1d(lines)) * i) + 200 + maxLineHeight + platformController.paddingYMap[? char];
 
         var instance = room_instance_add(levelRoom, instanceX, instanceY, object);
-        platformController.wordIndex[array_length_1d(platformController.wordIndex)] = listIndex;
 
-        if (i == 0 && j == 1) {
-            room_instance_add(levelRoom, instanceX + sprite_get_width(object_get_sprite(object)) / 2, instanceY - sprite_get_height(object_get_sprite(object)), objPlayer);
+        platformController.wordIndex[array_length_1d(platformController.wordIndex)] = listIndex;
+        platformController.collectibleIndices[array_length_1d(platformController.collectibleIndices)] = collectible;
+
+        if (player) {
+            room_instance_add(levelRoom, instanceX + sprite_get_width(object_get_sprite(object)) * 0.25, instanceY - sprite_get_height(object_get_sprite(object)) * PLATFORMSCALE - 10, objPlayer);
+        }
+        
+        if (collectiblePlace) {
+            room_instance_add(levelRoom, instanceX + platformController.triggerXMap[? char] * PLATFORMSCALE, instanceY + platformController.triggerYMap[? char] * PLATFORMSCALE, objCollectYokan);
         }
 
         positionX = instanceX + sprite_get_width(object_get_sprite(object)) * PLATFORMSCALE;
@@ -103,5 +128,5 @@ for (var i = 0; i < array_length_1d(lines); i++) {
 }
 
 room_set_view(levelRoom, 0, true, 0, 0, 960, 540, 0, 0, window_get_width(), window_get_height(), 0, 0, 0, 0, -1);
-//room_set_view_enabled(levelRoom, true);
+room_set_view_enabled(levelRoom, true);
 

@@ -108,7 +108,6 @@ ds_map_add(platformMap, "dotlessI", objPlatformIDotless);
           <argument>
             <kind>1</kind>
             <string>///paddingXMap
-event_inherited();
 
 paddingXMap = ds_map_create();
 
@@ -190,7 +189,6 @@ ds_map_add(paddingXMap, "dotlessI", 0);
           <argument>
             <kind>1</kind>
             <string>///paddingYMap
-event_inherited();
 
 paddingYMap = ds_map_create();
 
@@ -284,6 +282,169 @@ enum shadowfx {
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Collectible stuff
+
+collectibleIndices = array_create(0);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Collectible and trigger placement
+
+triggerXMap = ds_map_create();
+
+// letters
+ds_map_add(triggerXMap, "A", 190);
+ds_map_add(triggerXMap, "B", 296);
+ds_map_add(triggerXMap, "C", 192);
+ds_map_add(triggerXMap, "D", 295);
+ds_map_add(triggerXMap, "E", 264);
+ds_map_add(triggerXMap, "F", 200);
+ds_map_add(triggerXMap, "G", 327);
+ds_map_add(triggerXMap, "H", 284);
+ds_map_add(triggerXMap, "I", 43);
+ds_map_add(triggerXMap, "J", 120);
+ds_map_add(triggerXMap, "K", 216);
+ds_map_add(triggerXMap, "L", 215);
+ds_map_add(triggerXMap, "M", 479);
+ds_map_add(triggerXMap, "N", 320);
+ds_map_add(triggerXMap, "O", 224);
+ds_map_add(triggerXMap, "P", 215);
+ds_map_add(triggerXMap, "Q", 295);
+ds_map_add(triggerXMap, "R", 313);
+ds_map_add(triggerXMap, "S", 52);
+ds_map_add(triggerXMap, "T", 208);
+ds_map_add(triggerXMap, "U", 512);
+ds_map_add(triggerXMap, "V", 280);
+ds_map_add(triggerXMap, "W", 420);
+ds_map_add(triggerXMap, "X", 408);
+ds_map_add(triggerXMap, "Y", 95);
+ds_map_add(triggerXMap, "Z", 280);
+
+// numbers
+ds_map_add(triggerXMap, "1", 86);
+ds_map_add(triggerXMap, "2", 215);
+ds_map_add(triggerXMap, "3", 320);
+ds_map_add(triggerXMap, "4", 410);
+ds_map_add(triggerXMap, "5", 50);
+ds_map_add(triggerXMap, "6", 135);
+ds_map_add(triggerXMap, "7", 112);
+ds_map_add(triggerXMap, "8", 215);
+ds_map_add(triggerXMap, "9", 184);
+ds_map_add(triggerXMap, "0", 240);
+
+// special characters
+ds_map_add(triggerXMap, "&amp;", 415);
+ds_map_add(triggerXMap, "*", 47);
+ds_map_add(triggerXMap, ":", 56);
+ds_map_add(triggerXMap, "!", 56);
+ds_map_add(triggerXMap, "-", 155);
+ds_map_add(triggerXMap, "(", 200);
+ds_map_add(triggerXMap, ")", 95);
+ds_map_add(triggerXMap, ".", 56);
+ds_map_add(triggerXMap, "?", 170);
+ds_map_add(triggerXMap, '"', 112);
+ds_map_add(triggerXMap, "'", 40);
+ds_map_add(triggerXMap, ",", 15);
+
+// dotless i
+ds_map_add(triggerXMap, "dotlessI", 137);
+
+triggerYMap = ds_map_create();
+
+// letters
+ds_map_add(triggerYMap, "A", -130);
+ds_map_add(triggerYMap, "B", -254);
+ds_map_add(triggerYMap, "C", -138);
+ds_map_add(triggerYMap, "D", -620);
+ds_map_add(triggerYMap, "E", -339);
+ds_map_add(triggerYMap, "F", -486);
+ds_map_add(triggerYMap, "G", -75);
+ds_map_add(triggerYMap, "H", -134);
+ds_map_add(triggerYMap, "I", -341);
+ds_map_add(triggerYMap, "J", 100);
+ds_map_add(triggerYMap, "K", -89);
+ds_map_add(triggerYMap, "L", -359);
+ds_map_add(triggerYMap, "M", -469);
+ds_map_add(triggerYMap, "N", -361);
+ds_map_add(triggerYMap, "O", -90);
+ds_map_add(triggerYMap, "P", 46);
+ds_map_add(triggerYMap, "Q", -338);
+ds_map_add(triggerYMap, "R", -314);
+ds_map_add(triggerYMap, "S", -212);
+ds_map_add(triggerYMap, "T", -106);
+ds_map_add(triggerYMap, "U", -101);
+ds_map_add(triggerYMap, "V", -400);
+ds_map_add(triggerYMap, "W", -180);
+ds_map_add(triggerYMap, "X", -195);
+ds_map_add(triggerYMap, "Y", 95);
+ds_map_add(triggerYMap, "Z", -113);
+
+// numbers
+ds_map_add(triggerYMap, "1", -308);
+ds_map_add(triggerYMap, "2", -98);
+ds_map_add(triggerYMap, "3", -403);
+ds_map_add(triggerYMap, "4", -292);
+ds_map_add(triggerYMap, "5", -213);
+ds_map_add(triggerYMap, "6", -453);
+ds_map_add(triggerYMap, "7", -582);
+ds_map_add(triggerYMap, "8", -610);
+ds_map_add(triggerYMap, "9", -86);
+ds_map_add(triggerYMap, "0", -591);
+
+// special characters
+ds_map_add(triggerYMap, "&amp;", -313);
+ds_map_add(triggerYMap, "*", -208);
+ds_map_add(triggerYMap, ":", -158);
+ds_map_add(triggerYMap, "!", -141);
+ds_map_add(triggerYMap, "-", -83);
+ds_map_add(triggerYMap, "(", -735);
+ds_map_add(triggerYMap, ")", -735);
+ds_map_add(triggerYMap, ".", 20);
+ds_map_add(triggerYMap, "?", -483);
+ds_map_add(triggerYMap, '"', -108);
+ds_map_add(triggerYMap, "'", 20);
+ds_map_add(triggerYMap, ",", 39);
+
+// dotless i
+ds_map_add(triggerYMap, "dotlessI", -500);
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="1" enumb="0">
       <action>
@@ -312,6 +473,14 @@ if (ds_exists(paddingXMap, ds_type_map)) {
 
 if (ds_exists(paddingYMap, ds_type_map)) {
     ds_map_destroy(paddingYMap);
+}
+
+if (ds_exists(triggerXMap, ds_type_map)) {
+    ds_map_destroy(triggerXMap);
+}
+
+if (ds_exists(triggerYMap, ds_type_map)) {
+    ds_map_destroy(triggerYMap);
 }
 
 </string>

@@ -29,8 +29,8 @@ if (argument[0] == "warning") {
 
 if (argument[0] == "flash") {
     addConsoleMessage("info", "AHAAAA");
-    flashController.dark   = false;
-    flashController.active = true;
+    flashController.dark     = false;
+    flashController.active   = true;
     toggleDevConsole();
 }
 
