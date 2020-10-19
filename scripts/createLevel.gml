@@ -51,21 +51,31 @@ room_instance_add(levelRoom, 32, 32, fixedTimestepRoom);
 
 var positionX;
 
-var listIndex = -1;
+var listIndex    = -1;
 
 platformController.wordIndex = array_create(0);
 
 for (var i = 0; i < array_length_1d(lines); i++) {
     positionX  = 0;
     listIndex += 1;
+    
+    var previousChar = noone;
 
-    for (var j = 1; j <= string_length(lines[i]) - 1; j++) {
+    for (var j = 1; j < string_length(lines[i]); j++) {
         var char = string_upper(string_char_at(lines[i], j));
         
         if (char == " " || char == "") {
-            positionX += 350 / 2;
+            var originalX = positionX;
+
+            positionX = originalX + 350 * 0.91;
+
+            if (previousChar != noone) {
+                positionX = originalX + 350 * 0.5;
+            }
 
             listIndex += 1;
+            
+            previousChar = noone;
 
             continue;
         }
@@ -87,9 +97,11 @@ for (var i = 0; i < array_length_1d(lines); i++) {
         }
 
         positionX = instanceX + sprite_get_width(object_get_sprite(object)) * PLATFORMSCALE;
+
+        previousChar = char;
     }
 }
 
 room_set_view(levelRoom, 0, true, 0, 0, 960, 540, 0, 0, window_get_width(), window_get_height(), 0, 0, 0, 0, -1);
-room_set_view_enabled(levelRoom, true);
+//room_set_view_enabled(levelRoom, true);
 
