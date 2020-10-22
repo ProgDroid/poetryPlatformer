@@ -33,12 +33,10 @@ var loops = array_length_1d(platformController.collectibleIndices);
 
 for (var i = 0; i &lt; loops; i++) {
     if (platformController.collectibleIndices[i] == true) {
-        var instance = instance_find(objPlatforms, i);
-        show_debug_message(string(instance.id));
-        show_debug_message(object_get_name(instance.object_index));
+        var instance     = instance_find(objPlatforms, i);
         instance.visible = false;
         
-        var innerLoops = array_length_1d(platformController.collectibleMap);
+        var innerLoops   = array_length_1d(platformController.collectibleMap);
 
         for (var j = 0; j &lt; innerLoops; j++) {
             if (platformController.collectibleMap[j] == platformController.wordIndex[i]) {

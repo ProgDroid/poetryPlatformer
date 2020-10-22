@@ -1,5 +1,4 @@
-//worldController.collectibles[? id.name] = true;
-//worldController.collectiblesFound += 1;
+/// collectibleFound
 
 worldController.collectiblesFound = worldController.collectiblesFound | bit;
 
