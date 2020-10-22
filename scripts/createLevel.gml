@@ -57,8 +57,13 @@ var listIndex        = -1;
 var collectible      = false;
 var collectiblePlace = false;
 var player           = false;
+var parsedIndex      = false;
+var collectibleName  = "";
 
-platformController.wordIndex = array_create(0);
+platformController.wordIndex         = array_create(0);
+platformController.collectiblesNames = array_create(0);
+platformController.collectiblesOrder = array_create(0);
+platformController.collectibleMap    = array_create(MAXCOLLECTIBLES);
 
 for (var i = 0; i < array_length_1d(lines); i++) {
     positionX  = 0;
@@ -68,6 +73,11 @@ for (var i = 0; i < array_length_1d(lines); i++) {
 
     for (var j = 1; j < string_length(lines[i]); j++) {
         var char = string_upper(string_char_at(lines[i], j));
+        
+        if (char == "`") {
+            parsedIndex = !parsedIndex;
+            continue;
+        }
         
         if (char == "\") {
             collectible = !collectible;
@@ -99,6 +109,20 @@ for (var i = 0; i < array_length_1d(lines); i++) {
 
             continue;
         }
+        
+        if (parsedIndex) {
+            if (collectible) {
+                platformController.collectibleMap[real(char) - 1]    = listIndex;
+                platformController.collectiblesNames[real(char) - 1] = collectibleName;
+                collectibleName = "";
+            }
+            
+            if (collectiblePlace) {
+                platformController.collectiblesOrder[array_length_1d(platformController.collectiblesOrder)] = real(char) - 1;
+            }
+            
+            continue;
+        }
 
         var object = platformController.platformMap[? char];
 
@@ -113,13 +137,17 @@ for (var i = 0; i < array_length_1d(lines); i++) {
 
         platformController.wordIndex[array_length_1d(platformController.wordIndex)] = listIndex;
         platformController.collectibleIndices[array_length_1d(platformController.collectibleIndices)] = collectible;
+        
+        if (collectible) {
+            collectibleName = collectibleName + char;
+        }
 
         if (player) {
             room_instance_add(levelRoom, instanceX + sprite_get_width(object_get_sprite(object)) * 0.25, instanceY - sprite_get_height(object_get_sprite(object)) * PLATFORMSCALE - 10, objPlayer);
         }
         
         if (collectiblePlace) {
-            room_instance_add(levelRoom, instanceX + platformController.triggerXMap[? char] * PLATFORMSCALE, instanceY + platformController.triggerYMap[? char] * PLATFORMSCALE, objCollectYokan);
+            room_instance_add(levelRoom, instanceX + platformController.triggerXMap[? char] * PLATFORMSCALE, instanceY + platformController.triggerYMap[? char] * PLATFORMSCALE, objCollectible);
         }
 
         positionX = instanceX + sprite_get_width(object_get_sprite(object)) * PLATFORMSCALE;

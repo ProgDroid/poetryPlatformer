@@ -20,6 +20,7 @@ if (argument[0] == "help") {
     commands += ", spawn objectName <x> <y>";
     commands += ", createLevel <levelName>";
     commands += ", exit";
+    commands += ", print <id> <property>";
     addConsoleMessage("info", "Available commands are: " + commands);
 }
 
@@ -98,5 +99,31 @@ if (string_pos("createLevel", argument[0]) != 0) {
 
 if (argument[0] == "exit") {
     game_end();
+}
+
+if (string_pos("print", argument[0]) != 0) {
+    if (string_replace_all(argument[0], ' ', '') == "print") {
+        addConsoleMessage("warning", "Please supply <id> <property>");
+        exit;
+    }
+
+    var arguments = string_delete(argument[0], 1, 6);
+    
+    if (string_pos(" ", arguments) == 0) {
+        addConsoleMessage("warning", "Please supply <id> <property>");
+        exit;
+    }
+    
+    var givenId   = string_copy(arguments, 1, string_pos(" ", arguments) - 1);
+    var property  = string_delete(arguments, 1, string_pos(" ", arguments));
+    
+    if (!variable_instance_exists(givenId, property)) {
+        addConsoleMessage("warning", "Property " + property + " does not exists in " + object_get_name(givenId.object_index) + " with id " + givenId);
+        exit;
+    }
+    
+    var toPrint   = variable_instance_get(givenId, property);
+    
+    addConsoleMessage("info", string(toPrint));
 }
 

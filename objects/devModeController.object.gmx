@@ -263,7 +263,7 @@ if (!devConsole &amp;&amp; instance_exists(objPlayer)) {
     draw_text(devTextPosition, 64, "State: " + objPlayer.state_name);
     draw_text(devTextPosition, 80, "FPS: " + string(fps));
     draw_text(devTextPosition, 96, "Delta Time: " + string(delta_time));
-    draw_text(devTextPosition, 112, "Collectibles: " + string(worldController.collectiblesFound));
+    draw_text(devTextPosition, 112, "Collectibles: " + dec_to_bin(worldController.collectiblesFound));
     draw_text(devTextPosition, 128, "target fps: " + string(global._ts_fps));
     draw_text(devTextPosition, 144, "time factor: " + string(timeFactorController.timeFactor));
     draw_text(devTextPosition, 160, "sprite: " + sprite_get_name(objPlayer.sprite_index));

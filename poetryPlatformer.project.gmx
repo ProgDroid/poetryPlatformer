@@ -233,6 +233,7 @@
       <script>scripts\animations.gml</script>
       <script>scripts\nextPower2.gml</script>
       <script>scripts\propagateShadowEffect.gml</script>
+      <script>scripts\dec_to_bin.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -244,7 +245,6 @@
   <objects name="objects">
     <objects name="collectibles">
       <object>objects\objCollectible</object>
-      <object>objects\objCollectYokan</object>
       <object>objects\objCollectibleLetter</object>
     </objects>
     <objects name="controllers">
@@ -349,7 +349,8 @@
     <room>rooms\room11</room>
     <room>rooms\room4</room>
   </rooms>
-  <constants number="10">
+  <constants number="11">
+    <constant name="MAXCOLLECTIBLES">5</constant>
     <constant name="MAXJUMPBUFFER">7</constant>
     <constant name="MAXDOUBLEJUMPS">1</constant>
     <constant name="PLAYERSCALE">0.6</constant>
