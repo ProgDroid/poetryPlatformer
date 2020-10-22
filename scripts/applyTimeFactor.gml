@@ -19,3 +19,7 @@ with(objCollectibleLetter) {
     image_speed = IMAGESPEED;
 }
 
+with(objParticles) {
+    image_speed = IMAGESPEED;
+}
+

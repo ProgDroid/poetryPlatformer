@@ -57,6 +57,7 @@
       <sprite>sprites\spriteWorldController</sprite>
       <sprite>sprites\spriteBackgroundController</sprite>
       <sprite>sprites\spriteViewController</sprite>
+      <sprite>sprites\spriteParticlesController</sprite>
     </sprites>
     <sprites name="platforms">
       <sprite>sprites\platformA</sprite>
@@ -134,6 +135,11 @@
       <sprite>sprites\collectYokan</sprite>
       <sprite>sprites\letter</sprite>
     </sprites>
+    <sprites name="particles">
+      <sprite>sprites\landingSplat</sprite>
+      <sprite>sprites\landingSplatGrey</sprite>
+      <sprite>sprites\doubleJumpBrush</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\backgroundPaper</background>
@@ -166,6 +172,8 @@
       <script>scripts\platformLandedOn.gml</script>
       <script>scripts\removePlatformHighlight.gml</script>
       <script>scripts\processDeath.gml</script>
+      <script>scripts\landingParticles.gml</script>
+      <script>scripts\doubleJumpParticles.gml</script>
     </scripts>
     <scripts name="eventTriggering">
       <script>scripts\eventRegister.gml</script>
@@ -255,6 +263,7 @@
       <object>objects\backgroundController</object>
       <object>objects\viewController</object>
       <object>objects\platformController</object>
+      <object>objects\particlesController</object>
     </objects>
     <objects name="environments">
       <object>objects\objPlatforms</object>
@@ -317,6 +326,9 @@
     <objects name="characters">
       <object>objects\objCharacter</object>
       <object>objects\objPlayer</object>
+    </objects>
+    <objects name="particles">
+      <object>objects\objParticles</object>
     </objects>
   </objects>
   <rooms name="rooms">

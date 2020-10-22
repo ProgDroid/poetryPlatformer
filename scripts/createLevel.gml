@@ -49,6 +49,7 @@ room_goto(levelRoom);
 
 room_instance_add(levelRoom, 32, 32, fixedTimestepRoom);
 room_instance_add(levelRoom, 32, 32, worldController);
+room_instance_add(levelRoom, 32, 32, particlesController);
 
 var positionX;
 
