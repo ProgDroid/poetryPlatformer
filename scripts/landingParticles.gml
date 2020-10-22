@@ -1,7 +1,22 @@
-var instance = instance_create(objPlayer.x, objPlayer.y, objParticles);
+var instance = instance_create(objPlayer.x - 1, objPlayer.y, objParticles);
 
-instance.alarm[0] = room_speed * customDeltaTime;
-object_set_sprite(objParticles, landingSplat);
-instance.image_xscale = 0.25 * PLAYERSCALE;
-instance.image_yscale = 0.25 * PLAYERSCALE;
+instance.alarm[0]     = room_speed * 0.75 * customDeltaTime;
+instance.sprite_index = landingSplat;
+instance.image_speed  = IMAGESPEED;
+instance.image_alpha  = 1;
+instance.image_xscale = 0.25 * PLATFORMSCALE;
+instance.image_yscale = 0.25 * PLATFORMSCALE;
+instance.maxIndex     = 8;
+instance.fade         = true;
+
+instance = instance_create(objPlayer.x - 2, objPlayer.y, objParticles);
+
+instance.alarm[0]     = room_speed * 0.75 * customDeltaTime;
+instance.sprite_index = landingSplatGrey;
+instance.image_speed  = IMAGESPEED;
+instance.image_alpha  = 1;
+instance.image_xscale = 0.25 * PLATFORMSCALE;
+instance.image_yscale = 0.25 * PLATFORMSCALE;
+instance.maxIndex     = 8;
+instance.fade         = true;
 

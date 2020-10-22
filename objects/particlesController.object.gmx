@@ -28,6 +28,7 @@
             <string>event_inherited();
 
 eventRegister(allEvents.landedon, id, landingParticles);
+eventRegister(allEvents.doublejump, id, doubleJumpParticles);
 
 </string>
           </argument>

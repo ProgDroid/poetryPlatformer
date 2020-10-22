@@ -137,6 +137,8 @@
     </sprites>
     <sprites name="particles">
       <sprite>sprites\landingSplat</sprite>
+      <sprite>sprites\landingSplatGrey</sprite>
+      <sprite>sprites\doubleJumpBrush</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -171,6 +173,7 @@
       <script>scripts\removePlatformHighlight.gml</script>
       <script>scripts\processDeath.gml</script>
       <script>scripts\landingParticles.gml</script>
+      <script>scripts\doubleJumpParticles.gml</script>
     </scripts>
     <scripts name="eventTriggering">
       <script>scripts\eventRegister.gml</script>
