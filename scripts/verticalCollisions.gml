@@ -8,7 +8,7 @@ y += verticalSpeed * customDeltaTime;
 var instanceAbove = collision_line(bbox_left, bbox_top - 1, bbox_right, bbox_top - 1, objPlatforms, true, true);
 var instance      = collision_line(bbox_left, bbox_bottom + 1, bbox_right, bbox_bottom + 1, objPlatforms, true, true);
 
-if (instance != noone ^^ instanceAbove != noone) {
+if ((instance != noone && instance.visible) ^^ (instanceAbove != noone && instanceAbove.visible)) {
     if (verticalSpeed <= 0 && instanceAbove != noone) {
         var previousX = x;
         var previousY = y;

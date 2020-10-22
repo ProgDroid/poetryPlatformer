@@ -302,6 +302,10 @@ enum shadowfx {
 
 collectibleIndices = array_create(0);
 
+collectiblesOrder  = array_create(0);
+collectiblesNames  = array_create(0);
+collectibleMap     = array_create(MAXCOLLECTIBLES);
+
 </string>
           </argument>
         </arguments>

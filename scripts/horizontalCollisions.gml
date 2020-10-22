@@ -64,7 +64,7 @@ if (horizontalSpeed > 0) {
 //    noCollision = false;
 //}
 
-if (instance != noone) {
+if (instance != noone && instance.visible) {
     if (horizontalSpeed > 0) {
         move_outside_all(180, min(offsetRight, (abs(bbox_right - originalBboxRight))));
         if (x < oldX) {

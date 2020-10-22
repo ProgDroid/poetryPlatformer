@@ -1,6 +1,6 @@
 ///spawnLetters(string <collectible>)
 
-var phrase       = worldController.collectiblesPhrases[? argument[0]];
+var phrase       = argument[0];
 var stringLength = string_length(phrase);
 var spacing      = stringLength * 50;
 

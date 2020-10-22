@@ -124,6 +124,10 @@ image_yscale = PLATFORMSCALE;
     }
 }
 
+if (image_alpha &lt; 1) {
+    image_alpha = lerp(image_alpha, 1, 0.1 * customDeltaTime);
+}
+
 texture_set_interpolation(true);
 
 if (surface_exists(shadowController.surfaceShadows)) {
@@ -143,7 +147,13 @@ if (surface_exists(shadowController.surfaceShadows)) {
     surface_reset_target();
 }
 
-draw_self();
+draw_sprite_ext(
+    sprite_index, image_index,
+    x, y,
+    image_xscale, image_yscale,
+    image_angle, image_blend,
+    image_alpha
+);
 
 texture_set_interpolation(false);
 
