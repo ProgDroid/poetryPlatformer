@@ -21,6 +21,7 @@ if (argument[0] == "help") {
     commands += ", createLevel <levelName>";
     commands += ", exit";
     commands += ", print <id> <property>";
+    commands += ", toggleView";
     addConsoleMessage("info", "Available commands are: " + commands);
 }
 
@@ -125,5 +126,10 @@ if (string_pos("print", argument[0]) != 0) {
     var toPrint   = variable_instance_get(givenId, property);
     
     addConsoleMessage("info", string(toPrint));
+}
+
+if (argument[0] == "toggleView") {
+    view_enabled = !view_enabled;
+    toggleDevConsole();
 }
 

@@ -21,5 +21,8 @@ with(objCollectibleLetter) {
 
 with(objParticles) {
     image_speed = IMAGESPEED;
+    if (sprite_index == doubleJumpBrush) {
+        image_speed = IMAGESPEED * 6;
+    }
 }
 
