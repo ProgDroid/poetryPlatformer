@@ -142,7 +142,7 @@ for (var i = 0; i < array_length_1d(lines); i++) {
             collectibleName = collectibleName + char;
         }
 
-        if (player) {
+        if (player && !instance_exists(objPlayer)) {
             room_instance_add(levelRoom, instanceX + sprite_get_width(object_get_sprite(object)) * 0.25, instanceY - sprite_get_height(object_get_sprite(object)) * PLATFORMSCALE - 10, objPlayer);
         }
         
