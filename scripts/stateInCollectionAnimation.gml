@@ -7,8 +7,10 @@ if (state_new) {
 
     flashController.dark     = true;
     
-    oldViewX  = view_xview[0];
-    oldViewY  = view_yview[0];
+    oldViewX = view_xview[0];
+    oldViewY = view_yview[0];
+    
+    doubleJumps = MAXDOUBLEJUMPS;
 }
 
 // increase value as alarm goes to 0

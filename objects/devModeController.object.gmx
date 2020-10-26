@@ -272,6 +272,7 @@ if (!devConsole &amp;&amp; instance_exists(objPlayer)) {
     draw_text(devTextPosition, 224, "drawing scale X: " + string(objPlayer.drawingScaleX));
     draw_text(devTextPosition, 240, "drawing scale Y: " + string(objPlayer.drawingScaleY));
     draw_text(devTextPosition, 256, "last dir: " + string(objPlayer.lastDir));
+    draw_text(devTextPosition, 272, "double jumps: " + string(objPlayer.doubleJumps));
     draw_set_colour(c_white);
 }
 
