@@ -8,8 +8,8 @@ if (state_new) {
     
     if (verticalSpeed == -maxVerticalSpeed) {
         image_index = 0;
-        drawingScaleX = 0.75;
-        drawingScaleY = 1.35;
+        drawingScaleX = 0.75 - 0.05;
+        drawingScaleY = 1.35 + 0.05;
         image_speed   = 0;
     }
     
@@ -90,6 +90,10 @@ if (jumpPressed && state_timer <= coyoteTime && verticalSpeed >= 0 && horizontal
 if (jumpPressed && state_timer > doubleJumpTime && doubleJumps > 0) {
     verticalSpeed = -maxVerticalSpeed;
     doubleJumps -= 1;
+    image_index = 0;
+    drawingScaleX = 0.75 - 0.05;
+    drawingScaleY = 1.35 + 0.05;
+    image_speed   = 0;
     stateSwitch("drop");
     eventFire(allEvents.doublejump);
 }
