@@ -16,6 +16,8 @@ if (state_new) {
     }
     
     alarm[2] = room_speed * 5 * customDeltaTime;
+    alarm[3] = -1;
+    viewController.offsetVertically = false;
 }
 
 animations();

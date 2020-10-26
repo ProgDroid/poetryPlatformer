@@ -8,6 +8,9 @@ if (state_new) {
     image_xscale = 2 * PLAYERSCALE;
     image_yscale = 2 * PLAYERSCALE;
     depth        = -101;
+
+    alarm[3]     = -1;
+    viewController.offsetVertically = false;
 }
 
 if (floor(image_index) == 24) {

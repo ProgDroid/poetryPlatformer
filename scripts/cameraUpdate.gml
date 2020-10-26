@@ -26,6 +26,12 @@ if (abs(lerpValue) > abs(objPlayer.horizontalSpeed) + 1) {
 view_xview[0] += lerpValue;
 
 // Y axis
-view_yview[0] = lerp(view_yview[0], objPlayer.y - 0.5 * view_hview[0], 0.05 + 0.05 * abs(objPlayer.verticalSpeed) * customDeltaTime);
+if (offsetVertically) {
+    yOffset = lerp(yOffset, yOffsetMax, 0.01 * customDeltaTime);
+} else {
+    yOffset = lerp(yOffset, 0, 0.1 * customDeltaTime);
+}
+
+view_yview[0] = lerp(view_yview[0], (objPlayer.y - 0.5 * view_hview[0]) + yOffset * view_hview[0], 0.05 + 0.05 * abs(objPlayer.verticalSpeed) * customDeltaTime);
 
 

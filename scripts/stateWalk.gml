@@ -14,7 +14,9 @@ if (state_new) {
     }
     
     alarm[2] = -1;
+    alarm[3] = -1;
     viewController.panOut = false;
+    viewController.offsetVertically = false;
 }
 
 animations();
