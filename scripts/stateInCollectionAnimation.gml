@@ -11,6 +11,9 @@ if (state_new) {
     oldViewY = view_yview[0];
     
     doubleJumps = MAXDOUBLEJUMPS;
+    
+    alarm[3] = -1;
+    viewController.offsetVertically = false;
 }
 
 // increase value as alarm goes to 0

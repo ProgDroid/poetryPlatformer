@@ -14,6 +14,7 @@ if (state_new) {
     }
     
     alarm[2] = -1;
+    alarm[3] = room_speed * 3 * customDeltaTime;
     viewController.panOut = false;
 }
 
@@ -115,7 +116,7 @@ if (verticalSpeed == 0 && (isOnFloor() || isSlidingOff())) {
     }
 }
 
-if (bbox_top > (view_yview[0] + view_hview[0] + 50)) {
+if (bbox_top > (room_height + 50)) {
     eventFire(allEvents.playerfell);
 }
 

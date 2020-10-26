@@ -36,6 +36,10 @@ panOut       = false;
 panOutRatio  = 1.25;
 panOutFactor = 1;
 
+offsetVertically = false;
+yOffset          = 0;
+yOffsetMax       = 0.3;
+
 originalWidth  = 960;
 originalHeight = 540;
 
