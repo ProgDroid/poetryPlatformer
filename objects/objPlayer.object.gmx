@@ -443,14 +443,15 @@ texture_set_interpolation(true);
 
 if (surface_exists(shadowController.surfaceShadows)) {
     surface_set_target(shadowController.surfaceShadows);
-    
-    var angle = point_direction(room_width / 2, 0, x, y);
+
+    var xFactor = (x - (room_width / 2)) / room_width;
+    var yFactor = y / room_height;
 
     draw_set_colour(c_black);
     draw_sprite_ext(
         sprite_index, image_index,
-        lerp(xprevious,x + lengthdir_x(10, angle), global._ts_render_alpha) - view_xview[0],
-        lerp(yprevious,y + (1-drawingScaleY) * 20 + lengthdir_y(6, angle), global._ts_render_alpha) - view_yview[0],
+        x + 6 * xFactor - view_xview[0],
+        y + (1-drawingScaleY) * 20 + 4 * yFactor - view_yview[0],
         image_xscale * drawingScaleX * 0.9, image_yscale * drawingScaleY * 0.9,
         image_angle, image_blend,
         image_alpha
