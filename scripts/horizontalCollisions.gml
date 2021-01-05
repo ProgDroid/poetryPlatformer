@@ -12,6 +12,8 @@ if (state_name == "walk" && !isOnFloor()) {
     var previousY = y;
     var previousX = x;
 
+    // angle doesn't need to account for direction since the first arg in lengthdir
+    // already does so
     var angle     = 1;
     var maxSpeed  = maxHorizontalSpeed - (exp((maxHp - hp) / maxHp) - 1) * 0.5;
 
