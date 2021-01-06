@@ -12,9 +12,10 @@ if (state_name == "walk" && !isOnFloor()) {
     var previousY = y;
     var previousX = x;
 
+    // angle doesn't need to account for direction since the first arg in lengthdir
+    // already does so
     var angle     = 1;
     var maxSpeed  = maxHorizontalSpeed - (exp((maxHp - hp) / maxHp) - 1) * 0.5;
-    var tmpSpeed  = horizontalSpeed;
 
     while(!isOnFloor()) {
         x = oldX + lengthdir_x(horizontalSpeed * customDeltaTime, angle);
@@ -23,7 +24,7 @@ if (state_name == "walk" && !isOnFloor()) {
             x = oldX + lengthdir_x(maxSpeed * sign(horizontalSpeed) * customDeltaTime, angle);
             y = oldY + lengthdir_y(maxSpeed * sign(horizontalSpeed) * customDeltaTime, angle);
         }
-        if (angle >= sweepAngleCheck) {
+        if (angle >= sweepUpAngleCheck) {
             x = previousX;
             y = previousY;
             break;
@@ -40,7 +41,7 @@ if (state_name == "walk" && !isOnFloor()) {
                 x = oldX + lengthdir_x(maxSpeed * sign(horizontalSpeed) * customDeltaTime, angle);
                 y = oldY + lengthdir_y(maxSpeed * sign(horizontalSpeed) * customDeltaTime, angle);
             }
-            if (angle <= -sweepAngleCheck) {
+            if (angle <= -sweepDownAngleCheck) {
                 x = previousX;
                 y = previousY;
                 break;

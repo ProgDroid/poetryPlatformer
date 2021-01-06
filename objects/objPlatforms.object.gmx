@@ -39,7 +39,7 @@ eventRegister(allEvents.landedon, id, platformLandedOn);
 
 drawShadow  = false;
 shadowAlpha = 0;
-shadowAngle = point_direction(room_width / 2, 0, x, y);
+shadowAngle = abs(point_direction(room_width / 2, 0, x, y));
 
 image_xscale = PLATFORMSCALE;
 image_yscale = PLATFORMSCALE;
