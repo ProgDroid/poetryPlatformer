@@ -44,6 +44,8 @@
       <sprite>sprites\playerDead</sprite>
     </sprites>
     <sprites name="controllers">
+      <sprite>sprites\spriteInputController</sprite>
+      <sprite>sprites\spriteSettingsController</sprite>
       <sprite>sprites\spriteCheatChecker</sprite>
       <sprite>sprites\spriteDevModeController</sprite>
       <sprite>sprites\spriteFlashController</sprite>
@@ -252,6 +254,8 @@
       <object>objects\flashController</object>
       <object>objects\GUIController</object>
       <object>objects\worldController</object>
+      <object>objects\inputController</object>
+      <object>objects\settingsController</object>
       <object>objects\fixedTimestep</object>
       <object>objects\fixedTimestepRoom</object>
       <object>objects\notificationController</object>
