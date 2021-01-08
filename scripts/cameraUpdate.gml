@@ -33,5 +33,5 @@ if (offsetVertically) {
 }
 
 view_yview[0] = lerp(view_yview[0], (objPlayer.y - 0.5 * view_hview[0]) + yOffset * view_hview[0], 0.05 + 0.05 * abs(objPlayer.verticalSpeed) * customDeltaTime);
-
+view_yview[0] = min(view_yview[0], room_height - view_hview[0] / 1.5);
 

@@ -142,6 +142,7 @@
       <sprite>sprites\landingSplatGrey</sprite>
       <sprite>sprites\doubleJumpBrush</sprite>
     </sprites>
+    <sprite>sprites\spriteDeathPlane</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\backgroundPaper</background>
