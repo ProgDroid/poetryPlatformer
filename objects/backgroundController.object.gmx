@@ -53,6 +53,10 @@ background = backgroundPaper;
             <kind>1</kind>
             <string>draw_background_tiled_ext(background, view_xview[0], view_yview[0], 0.75, 0.75, -1, 1);
 
+if (view_yview[0] &gt;= room_height - view_hview[0]) {
+    draw_sprite(spriteDeathPlane, 0, view_xview[0], room_height - 100);
+}
+
 </string>
           </argument>
         </arguments>

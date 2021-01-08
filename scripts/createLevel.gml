@@ -29,7 +29,6 @@ while (!file_text_eof(file)) {
     lineIndex++;
 }
 
-draw_set_font(esteban);
 
 var width  = maxLineWidth * 350 / 75;
 var height = (maxLineHeight + 400) * (lineIndex + 1);
@@ -57,6 +56,8 @@ var listIndex        = -1;
 var collectible      = false;
 var collectiblePlace = false;
 var player           = false;
+var playerX          = 0;
+var playerY          = 0;
 var parsedIndex      = false;
 var collectibleName  = "";
 
@@ -143,7 +144,10 @@ for (var i = 0; i < array_length_1d(lines); i++) {
         }
 
         if (player && !instance_exists(objPlayer)) {
-            room_instance_add(levelRoom, instanceX + sprite_get_width(object_get_sprite(object)) * 0.25, instanceY - sprite_get_height(object_get_sprite(object)) * PLATFORMSCALE - 10, objPlayer);
+            playerX = instanceX + sprite_get_width(object_get_sprite(object)) * 0.25;
+            playerY = instanceY - sprite_get_height(object_get_sprite(object)) * PLATFORMSCALE - 10;
+
+            room_instance_add(levelRoom, playerX, playerY, objPlayer);
         }
         
         if (collectiblePlace) {
@@ -156,6 +160,6 @@ for (var i = 0; i < array_length_1d(lines); i++) {
     }
 }
 
-room_set_view(levelRoom, 0, true, 0, 0, 960, 540, 0, 0, window_get_width(), window_get_height(), 0, 0, 0, 0, -1);
+room_set_view(levelRoom, 0, true, playerX - 480 / 2, playerY - 270, 960, 540, 0, 0, window_get_width(), window_get_height(), 0, 0, 0, 0, -1);
 room_set_view_enabled(levelRoom, true);
 
