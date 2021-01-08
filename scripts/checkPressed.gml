@@ -19,6 +19,11 @@ if (argument_count == 1) {
     argument1 = "";
 }
 
+if (argument1 != "greater" && argument1 != "less" && argument1 != "") {
+    addConsoleMessage("warning", "Bad argument for checkPressed operator: " + argument1);
+    exit;
+}
+
 var keyPressed = false;
 
 if (inputController.currentInputType == inputmethod.keyboard) {
