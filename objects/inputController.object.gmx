@@ -183,32 +183,33 @@ if (!instance_exists(settingsController)) {
     exit;
 }
 
-// review this as I need to check from all the options per action
 if (!instance_exists(devModeController) || !(devModeController.devConsole)) {
-    playerUpHeld       = settingsController.playerUpHeld;
-    playerDownHeld     = settingsController.playerDownHeld;
-    playerLeftHeld     = settingsController.playerLeftHeld;
-    playerRightHeld    = settingsController.playerRightHeld;
-    playerJumpHeld     = settingsController.playerJumpHeld;
-    playerUpPressed    = settingsController.playerUpPressed;
-    playerDownPressed  = settingsController.playerDownPressed;
-    playerLeftPressed  = settingsController.playerLeftPressed;
-    playerRightPressed = settingsController.playerRightPressed;
-    playerJumpPressed  = settingsController.playerJumpPressed;
+    playerUpHeld       = checkHeld(settingsController.keybinds[? "playerUp"], "less");
+    playerDownHeld     = checkHeld(settingsController.keybinds[? "playerDown"], "greater");
+    playerLeftHeld     = checkHeld(settingsController.keybinds[? "playerLeft"], "less");
+    playerRightHeld    = checkHeld(settingsController.keybinds[? "playerRight"], "greater");
+    playerJumpHeld     = checkHeld(settingsController.keybinds[? "jump"], "");
+    playerUpPressed    = checkPressed(settingsController.keybinds[? "playerUp"], "less");
+    playerDownPressed  = checkPressed(settingsController.keybinds[? "playerDown"], "greater");
+    playerLeftPressed  = checkPressed(settingsController.keybinds[? "playerLeft"], "less");
+    playerRightPressed = checkPressed(settingsController.keybinds[? "playerRight"], "greater");
+    playerJumpPressed  = checkPressed(settingsController.keybinds[? "jump"], "");
 }
 
-menuUpHeld       = settingsController.menuUpHeld;
-menuDownHeld     = settingsController.menuDownHeld;
-menuLeftHeld     = settingsController.menuLeftHeld;
-menuRightHeld    = settingsController.menuRightHeld;
-menuUpPressed    = settingsController.menuUpPressed;
-menuDownPressed  = settingsController.menuDownPressed;
-menuLeftPressed  = settingsController.menuLeftPressed;
-menuRightPressed = settingsController.menuRightPressed;
-menuAccept       = settingsController.menuAccept;
-menuBack         = settingsController.menuBack;
+// check if in menu?
+menuUpHeld       = checkHeld(settingsController.keybinds[? "menuUp"], "less");
+menuDownHeld     = checkHeld(settingsController.keybinds[? "menuDown"], "greater");
+menuLeftHeld     = checkHeld(settingsController.keybinds[? "menuLeft"], "less");
+menuRightHeld    = checkHeld(settingsController.keybinds[? "menuRight"], "greater");
+menuUpPressed    = checkPressed(settingsController.keybinds[? "menuUp"], "less");
+menuDownPressed  = checkPressed(settingsController.keybinds[? "menuDown"], "greater");
+menuLeftPressed  = checkPressed(settingsController.keybinds[? "menuLeft"], "less");
+menuRightPressed = checkPressed(settingsController.keybinds[? "menuRight"], "greater");
+menuAccept       = checkPressed(settingsController.keybinds[? "accept"], "");
+menuBack         = checkPressed(settingsController.keybinds[? "back"], "");
 
-start            = settingsController.start;
+// where should this go?
+start            = checkPressed(settingsController.keybinds[? "start"], "");
 
 </string>
           </argument>

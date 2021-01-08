@@ -382,23 +382,10 @@ stateSwitchPrevious();
             <string>///Movement
 
 if (!instance_exists(inputController)) {
+    addConsoleMessage("warning", program_directory);
     addConsoleMessage("warning", "inputController doesn't exists");
     exit;
 }
-
-// for near future reference
-upHeld       = keyboard_check(ord('W')) || (gamepad_axis_value(gamepadConnected, gp_axislv) &lt; 0);
-downHeld     = keyboard_check(ord('S')) || (gamepad_axis_value(gamepadConnected, gp_axislv) &gt; 0);
-leftHeld     = keyboard_check(ord('A')) || (gamepad_axis_value(gamepadConnected, gp_axislh) &lt; 0);
-rightHeld    = keyboard_check(ord('D')) || (gamepad_axis_value(gamepadConnected, gp_axislh) &gt; 0);
-downPressed  = keyboard_check_pressed(ord('S')) || (gamepad_axis_value(gamepadConnected, gp_axislv) &gt; 0);
-leftPressed  = keyboard_check_pressed(ord('A')) || (gamepad_axis_value(gamepadConnected, gp_axislh) &lt; 0);
-rightPressed = keyboard_check_pressed(ord('D')) || (gamepad_axis_value(gamepadConnected, gp_axislh) &gt; 0);
-
-jumpPressed  = keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(gamepadConnected, gp_face1);
-jumpHeld     = keyboard_check(vk_space) || gamepad_button_check(gamepadConnected, gp_face1);
-
-playerStart  = keyboard_check_pressed(vk_escape) || gamepad_button_check_pressed(gamepadConnected, gp_start);
 
 // rather than changing every instance of these to inputcontroller.*
 // will do this even if it's a bit dodgy

@@ -307,6 +307,9 @@ if (!devConsole &amp;&amp; instance_exists(objPlayer)) {
     draw_text(devTextPosition, 240, "drawing scale Y: " + string(objPlayer.drawingScaleY));
     draw_text(devTextPosition, 256, "last dir: " + string(objPlayer.lastDir));
     draw_text(devTextPosition, 272, "double jumps: " + string(objPlayer.doubleJumps));
+    draw_text(devTextPosition, 288, "input type: " + string(inputController.currentInputType));
+    draw_text(devTextPosition, 304, "active pad: " + string(inputController.activePad));
+    draw_text(devTextPosition, 320, "connected pads: " + string(ds_list_size(inputController.connectedPads)));
     draw_set_colour(c_white);
 }
 

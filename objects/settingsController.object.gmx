@@ -30,6 +30,66 @@
 // will probably need to save this so think about json encoding
 // possibly an array per action here
 // e.g. jump = [ord('W'), noone, gamepad_axis_value(gamepadConnected, gp_axislv)];
+keybinds = loadJson("keybinds.json");
+
+if (keybinds == noone) {
+    playerUp    = ds_list_create();
+    ds_list_add(playerUp, ord('W'), vk_up, gp_padu, gp_axislv);
+
+    playerDown  = ds_list_create();
+    ds_list_add(playerDown, ord('S'), vk_down, gp_padd, gp_axislv);
+
+    playerLeft  = ds_list_create();
+    ds_list_add(playerLeft, ord('A'), vk_left, gp_padl, gp_axislh);
+
+    playerRight = ds_list_create();
+    ds_list_add(playerRight, ord('D'), vk_right, gp_padr, gp_axislh);
+
+    jump        = ds_list_create();
+    ds_list_add(jump, vk_space, noone, gp_face1, noone);
+
+    start       = ds_list_create();
+    ds_list_add(start, vk_escape, noone, gp_start, noone);
+
+    menuUp      = ds_list_create();
+    ds_list_add(menuUp, ord('W'), vk_up, gp_padu, gp_axislv);
+
+    menuDown    = ds_list_create();
+    ds_list_add(menuDown, ord('S'), vk_down, gp_padd, gp_axislv);
+
+    menuLeft    = ds_list_create();
+    ds_list_add(menuLeft, ord('A'), vk_left, gp_padl, gp_axislh);
+
+    menuRight   = ds_list_create();
+    ds_list_add(menuRight, ord('D'), vk_right, gp_padr, gp_axislh);
+
+    accept      = ds_list_create();
+    ds_list_add(accept, vk_space, vk_enter, gp_face1, noone);
+
+    back        = ds_list_create();
+    ds_list_add(back, vk_escape, vk_backspace, gp_face2, noone);
+
+    keybinds    = ds_map_create();
+    ds_map_add_list(keybinds, "playerUp", playerUp);
+    ds_map_add_list(keybinds, "playerDown", playerDown);
+    ds_map_add_list(keybinds, "playerLeft", playerLeft);
+    ds_map_add_list(keybinds, "playerRight", playerRight);
+    ds_map_add_list(keybinds, "jump", jump);
+    ds_map_add_list(keybinds, "start", start);
+    ds_map_add_list(keybinds, "menuUp", menuUp);
+    ds_map_add_list(keybinds, "menuDown", menuDown);
+    ds_map_add_list(keybinds, "menuLeft", menuLeft);
+    ds_map_add_list(keybinds, "menuRight", menuRight);
+    ds_map_add_list(keybinds, "accept", accept);
+    ds_map_add_list(keybinds, "back", back);
+
+    ds_map_add(keybinds, "deadzone", 0.2);
+    ds_map_add(keybinds, "buttonThreshold", 0.1);
+
+    var file = file_text_open_write(working_directory + "keybinds.json");
+    file_text_write_string(file, json_encode(keybinds));
+    file_text_close(file);
+}
 
 </string>
           </argument>
@@ -55,7 +115,9 @@
             <kind>1</kind>
             <string>///Destroy structures
 
-// delete stuff here
+if (ds_exists(keybinds, ds_type_map)) {
+    ds_map_destroy(keybinds);
+}
 
 </string>
           </argument>
