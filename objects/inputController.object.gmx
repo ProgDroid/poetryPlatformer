@@ -125,17 +125,17 @@ if (currentInputType == inputmethod.keyboard) {
             // don't need to use binds from settings here
             // as it doesn't matter what it means to press something
             if (
-                gamepad_axis_value(slot, gp_axislh != 0) ||
-                gamepad_axis_value(slot, gp_axislv != 0) ||
-                gamepad_axis_value(slot, gp_axisrh != 0) ||
-                gamepad_axis_value(slot, gp_axisrv != 0)
+                gamepad_axis_value(slot, gp_axislh) != 0 ||
+                gamepad_axis_value(slot, gp_axislv) != 0 ||
+                gamepad_axis_value(slot, gp_axisrh) != 0 ||
+                gamepad_axis_value(slot, gp_axisrv) != 0
             ) {
                 currentInputType = inputmethod.pad;
                 activePad        = slot;
                 exit;
             }
 
-            for (var j = gp_face1; j &lt; gp_axisrv; j++) {
+            for (var j = gp_face1; j &lt; gp_axislv; j++) {
                 if (gamepad_button_check_pressed(slot, j)) {
                     currentInputType = inputmethod.pad;
                     activePad        = slot;
@@ -240,15 +240,24 @@ if (!ds_exists(connectedPads, ds_type_list)) {
     exit;
 }
 
+if (!instance_exists(settingsController)) {
+    addConsoleMessage("warning", "settingsController doesn't exist");
+    exit;
+}
+
 if (gamepad_is_supported() &amp;&amp; async_load[? "event_type"] == "gamepad discovered") {
+    addConsoleMessage("info", "Gamepad discovered");
     var slot         = async_load[? "pad_index"];
     activePad        = slot;
     currentInputType = inputmethod.pad;
     ds_list_add(connectedPads, slot);
+    gamepad_set_axis_deadzone(slot, settingsController.keybinds[? "deadzone"]);
+    gamepad_set_axis_deadzone(slot, settingsController.keybinds[? "buttonThreshold"]);
     exit;
 }
 
-if (async_load[? "event_type"] == "gamepad discovered") {
+if (async_load[? "event_type"] == "gamepad lost") {
+    addConsoleMessage("info", "Gamepad lost");
     var slot      = async_load[? "pad_index"];
     var listIndex = ds_list_find_index(connectedPads, slot);
 
