@@ -11,43 +11,24 @@ x += horizontalSpeed * customDeltaTime;
 if (state_name == "walk" && !isOnFloor()) {
     var previousY = y;
     var previousX = x;
+    var maxi      = sweepUpAngleCheck + sweepDownAngleCheck - 1;
+    var mini      = 0;
+    var mid;
 
-    // angle doesn't need to account for direction since the first arg in lengthdir
-    // already does so
-    var angle     = 1;
-    var maxSpeed  = maxHorizontalSpeed - (exp((maxHp - hp) / maxHp) - 1) * 0.5;
-
-    while(!isOnFloor()) {
-        x = oldX + lengthdir_x(horizontalSpeed * customDeltaTime, angle);
-        y = oldY + lengthdir_y(horizontalSpeed * customDeltaTime, angle);
+    while (mini <= maxi) {        
+        mid = mini + (maxi - mini) div 2;
+        x   = oldX + lengthdir_x(horizontalSpeed * customDeltaTime, mid - sweepDownAngleCheck);
+        y   = oldY + lengthdir_y(horizontalSpeed * customDeltaTime * sign(horizontalSpeed), mid - sweepDownAngleCheck);
+        
         if (!isOnFloor()) {
-            x = oldX + lengthdir_x(maxSpeed * sign(horizontalSpeed) * customDeltaTime, angle);
-            y = oldY + lengthdir_y(maxSpeed * sign(horizontalSpeed) * customDeltaTime, angle);
-        }
-        if (angle >= sweepUpAngleCheck) {
-            x = previousX;
-            y = previousY;
-            break;
-        }
-        angle += 1;
-    }
-
-    angle = -1;
-    if (x == previousX && y == previousY) {
-        while(!isOnFloor()) {
-            x = oldX + lengthdir_x(horizontalSpeed * customDeltaTime, angle);
-            y = oldY + lengthdir_y(horizontalSpeed * customDeltaTime, angle);
-            if (!isOnFloor()) {
-                x = oldX + lengthdir_x(maxSpeed * sign(horizontalSpeed) * customDeltaTime, angle);
-                y = oldY + lengthdir_y(maxSpeed * sign(horizontalSpeed) * customDeltaTime, angle);
+            if (place_meeting(x, y, objPlatforms)) {
+                mini = mid + 1;
+            } else {
+                maxi = mid - 1;
             }
-            if (angle <= -sweepDownAngleCheck) {
-                x = previousX;
-                y = previousY;
-                break;
-            }
-            angle -= 1;
+            continue;
         }
+        break;
     }
 }
 
