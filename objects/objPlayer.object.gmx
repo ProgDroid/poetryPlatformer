@@ -114,8 +114,8 @@ offsetRight   = bbox_right - x;
 
 //noCollision = false;
 
-sweepDownAngleCheck = 60;
-sweepUpAngleCheck   = 80;
+sweepDownAngleCheck = 40;
+sweepUpAngleCheck   = 60;
 
 image_xscale  = PLAYERSCALE;
 image_yscale  = PLAYERSCALE;
