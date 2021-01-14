@@ -18,5 +18,20 @@ if (!window_get_fullscreen()) {
     settingsController.alarm[0] = 1; // window_center()
 }
 
-display_set_gui_maximise();
+display_set_gui_size(argument0, argument1);
+
+view_wview[0] = argument0 div 2;
+view_hview[0] = argument1 div 2;
+
+if (instance_exists(viewController)) {
+    viewController.originalWidth  = argument0 div 2;
+    viewController.originalHeight = argument1 div 2;
+}
+
+view_wport[0] = argument0;
+view_hport[0] = argument1;
+
+surface_resize(application_surface, argument0, argument1);
+
+refreshGuiValues();
 

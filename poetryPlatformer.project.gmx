@@ -238,6 +238,7 @@
       <script>scripts\propagateShadowEffect.gml</script>
       <script>scripts\dec_to_bin.gml</script>
       <script>scripts\loadJson.gml</script>
+      <script>scripts\refreshGuiValues.gml</script>
     </scripts>
     <scripts name="inputScripts">
       <script>scripts\checkHeld.gml</script>
@@ -364,7 +365,9 @@
     <room>rooms\room11</room>
     <room>rooms\room4</room>
   </rooms>
-  <constants number="11">
+  <constants number="13">
+    <constant name="BASE_HEIGHT">1080</constant>
+    <constant name="BASE_WIDTH">1920</constant>
     <constant name="MAXCOLLECTIBLES">5</constant>
     <constant name="MAXJUMPBUFFER">7</constant>
     <constant name="MAXDOUBLEJUMPS">1</constant>
