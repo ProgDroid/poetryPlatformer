@@ -243,6 +243,9 @@
       <script>scripts\checkHeld.gml</script>
       <script>scripts\checkPressed.gml</script>
     </scripts>
+    <scripts name="settingsScripts">
+      <script>scripts\changeResolution.gml</script>
+    </scripts>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\gaussianBlur.shader</shader>

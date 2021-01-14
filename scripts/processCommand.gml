@@ -22,6 +22,7 @@ if (argument[0] == "help") {
     commands += ", exit";
     commands += ", print <id> <property>";
     commands += ", toggleView";
+    commands += ", resolution <width> <height>";
     addConsoleMessage("info", "Available commands are: " + commands);
 }
 
@@ -130,6 +131,27 @@ if (string_pos("print", argument[0]) != 0) {
 
 if (argument[0] == "toggleView") {
     view_enabled = !view_enabled;
+    toggleDevConsole();
+}
+
+if (string_pos("resolution", argument[0]) != 0) {
+    if (string_replace_all(argument[0], ' ', '') == "resolution") {
+        addConsoleMessage("warning", "Please supply a resolution to change to");
+        exit;
+    }
+
+    var arguments = string_delete(argument[0], 1, 11);
+
+    if (string_pos(" ", arguments) == 0) {
+        addConsoleMessage("warning", "Please supply two values for a resolution to change to");
+        exit;
+    }
+
+    var width  = real(string_digits(string_copy(arguments, 1, string_pos(" ", arguments) - 1)));
+    var height = real(string_digits(string_delete(arguments, 1, string_pos(" ", arguments))));
+
+    changeResolution(width, height);
+
     toggleDevConsole();
 }
 
