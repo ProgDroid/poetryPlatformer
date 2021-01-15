@@ -242,7 +242,6 @@
       <script>scripts\dec_to_bin.gml</script>
       <script>scripts\loadJson.gml</script>
       <script>scripts\refreshGuiValues.gml</script>
-      <script>scripts\easeOut.gml</script>
     </scripts>
     <scripts name="inputScripts">
       <script>scripts\checkHeld.gml</script>
