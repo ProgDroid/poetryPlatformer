@@ -5,6 +5,5 @@ if(state_next != state) {
     state_new   = true;
 } else {
     state_timer++;
-    //state_new = false;
 }
 

@@ -209,6 +209,9 @@
       <script>scripts\stateRespawn.gml</script>
       <script>scripts\stateGameOver.gml</script>
       <script>scripts\stateNewGame.gml</script>
+      <script>scripts\stateDash.gml</script>
+      <script>scripts\stateDashThrough.gml</script>
+      <script>scripts\stateDashCancelled.gml</script>
     </scripts>
     <scripts name="timestepScripts">
       <script>scripts\_fixed_timestep_ev_create.gml</script>
@@ -239,6 +242,7 @@
       <script>scripts\dec_to_bin.gml</script>
       <script>scripts\loadJson.gml</script>
       <script>scripts\refreshGuiValues.gml</script>
+      <script>scripts\easeOut.gml</script>
     </scripts>
     <scripts name="inputScripts">
       <script>scripts\checkHeld.gml</script>

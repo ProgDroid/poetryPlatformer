@@ -34,7 +34,10 @@ enum allEvents {
     landedon,
     removehighlight,
     playerfell,
-    doublejump
+    doublejump,
+    dashheld,
+    dashcancelled,
+    dashthrough
 }
 
 </string>

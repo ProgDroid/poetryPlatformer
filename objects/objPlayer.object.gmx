@@ -34,6 +34,9 @@ stateCreate("inCollectionAnimation", stateInCollectionAnimation);
 stateCreate("respawn", stateRespawn);
 stateCreate("gameOver", stateGameOver);
 stateCreate("newGame", stateNewGame);
+stateCreate("dashStart", stateDash);
+stateCreate("dashThrough", stateDashThrough);
+stateCreate("dashCancelled", stateDashCancelled);
 
 stateInit("newGame");
 
@@ -100,6 +103,8 @@ maxDoubleJumps     = MAXDOUBLEJUMPS;
 doubleJumps        = maxDoubleJumps;
 maxJumpBuffer      = MAXJUMPBUFFER;
 jumpBuffer         = 0;
+dashTime           = 5;
+dashTimer          = -1;
 
 facingDir = 0;
 lastDir   = 0;
@@ -111,8 +116,6 @@ offsetTop     = bbox_top - y;
 offsetBottom  = bbox_bottom - y;
 offsetLeft    = bbox_left - x;
 offsetRight   = bbox_right - x;
-
-//noCollision = false;
 
 sweepDownAngleCheck = 40;
 sweepUpAngleCheck   = 60;
@@ -149,11 +152,15 @@ downHeld     = false;
 leftHeld     = false;
 rightHeld    = false;
 jumpHeld     = false;
+dashHeld     = false;
 
 downPressed  = false;
 leftPressed  = false;
 rightPressed = false;
 jumpPressed  = false;
+dashPressed  = false;
+
+dashConfirm  = false;
 
 start        = false;
 
@@ -394,11 +401,15 @@ downHeld     = inputController.playerDownHeld;
 leftHeld     = inputController.playerLeftHeld;
 rightHeld    = inputController.playerRightHeld;
 jumpHeld     = inputController.playerJumpHeld;
+dashHeld     = inputController.playerDashHeld;
 
 downPressed  = inputController.playerDownPressed;
 leftPressed  = inputController.playerLeftPressed;
 rightPressed = inputController.playerRightPressed;
 jumpPressed  = inputController.playerJumpPressed;
+dashPressed  = inputController.playerDashPressed;
+
+dashConfirm  = inputController.playerDashConfirm;
 
 start        = inputController.start;
 

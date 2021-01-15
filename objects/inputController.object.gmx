@@ -34,11 +34,14 @@ playerDownHeld     = false;
 playerLeftHeld     = false;
 playerRightHeld    = false;
 playerJumpHeld     = false;
+playerDashHeld     = false;
 playerUpPressed    = false;
 playerDownPressed  = false;
 playerLeftPressed  = false;
 playerRightPressed = false;
 playerJumpPressed  = false;
+playerDashPressed  = false;
+playerDashConfirm  = false;
 
 menuUpHeld         = false;
 menuDownHeld       = false;
@@ -189,11 +192,14 @@ if (!instance_exists(devModeController) || !(devModeController.devConsole)) {
     playerLeftHeld     = checkHeld(settingsController.keybinds[? "playerLeft"], "less");
     playerRightHeld    = checkHeld(settingsController.keybinds[? "playerRight"], "greater");
     playerJumpHeld     = checkHeld(settingsController.keybinds[? "jump"], "");
+    playerDashHeld     = checkHeld(settingsController.keybinds[? "dash"], "");
     playerUpPressed    = checkPressed(settingsController.keybinds[? "playerUp"], "less");
     playerDownPressed  = checkPressed(settingsController.keybinds[? "playerDown"], "greater");
     playerLeftPressed  = checkPressed(settingsController.keybinds[? "playerLeft"], "less");
     playerRightPressed = checkPressed(settingsController.keybinds[? "playerRight"], "greater");
     playerJumpPressed  = checkPressed(settingsController.keybinds[? "jump"], "");
+    playerDashPressed  = checkPressed(settingsController.keybinds[? "dash"], "");
+    playerDashConfirm  = checkPressed(settingsController.keybinds[? "dashConfirm"], "");
 }
 
 // check if in menu?

@@ -40,12 +40,6 @@ if (horizontalSpeed > 0) {
     instance = collision_line(bbox_left - 1, bbox_top, bbox_left - 1, y, objPlatforms, true, true);
 }
 
-//if (noCollision && instance != noone) {
-//    exit;
-//} else if (noCollision && instance == noone) {
-//    noCollision = false;
-//}
-
 if (instance != noone && instance.visible) {
     if (horizontalSpeed > 0) {
         move_outside_all(180, min(offsetRight, (abs(bbox_right - originalBboxRight))));
