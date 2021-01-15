@@ -2,6 +2,13 @@
 
 if (state_new) {
     state_new = false;
+    viewController.zoomIn    = false;
+    flashController.dashDark = false;
+}
+
+if (place_meeting(x, y, objCollectible)) {
+    applyTimeFactor(1);
+    stateSwitch("inCollectionAnimation");
 }
 
 applyTimeFactor(timeFactorController.timeFactor + (1 - timeFactorController.timeFactor) * 0.5 * customDeltaTime);
@@ -31,18 +38,18 @@ verticalSpeed  = clamp(verticalSpeed, -maxVerticalSpeed, maxVerticalSpeed);
 // air movement
 if (((leftHeld ^^ rightHeld) && !isAgainstWallAir(rightHeld - leftHeld))) {
     var accelerationTmp = acceleration;
-    
+
     if (horizontalSpeed != 0 &&
         sign(horizontalSpeed) != facingDir
     ) {
         accelerationTmp *= airFrictionFactor;
     }
-    
+
     horizontalMovement(accelerationTmp);
 } else { // if not holding keys
     var speedSign    = sign(horizontalSpeed);
     horizontalSpeed -= speedSign * airDeceleration * customDeltaTime;
-    
+
     if (sign(horizontalSpeed) != speedSign) {
         horizontalSpeed = 0;
     }
@@ -60,6 +67,14 @@ if (place_meeting(x, y, objPlatforms)) {
 }
 
 horizontalCollisions();
+
+if (jumpBuffer > 0) {
+    jumpBuffer -= 1;
+}
+
+if (jumpPressed) {
+    jumpBuffer = maxJumpBuffer;
+}
 
 if (verticalSpeed == 0 && (isOnFloor() || isSlidingOff())) {
     if (hp <= 3) {
@@ -84,5 +99,3 @@ if (bbox_top > (room_height + 50)) {
     applyTimeFactor(1);
     eventFire(allEvents.playerfell);
 }
-
-

@@ -5,6 +5,7 @@ if (state_new) {
     sprite_index = playerWalk;
     image_index  = 0;
     doubleJumps  = maxDoubleJumps;
+    noCoyote     = false;
 
     if (hp <= 3) {
         sprite_index = playerWalkCalm;
@@ -12,11 +13,13 @@ if (state_new) {
             sprite_index = playerWalkChill;
         }
     }
-    
+
     alarm[2] = -1;
     alarm[3] = -1;
-    viewController.panOut = false;
+    viewController.panOut           = false;
     viewController.offsetVertically = false;
+    viewController.zoomIn           = false;
+    flashController.dashDark        = false;
 }
 
 animations();
@@ -35,7 +38,7 @@ if (place_meeting(x, y, objCollectible)) {
 if (leftHeld ^^ rightHeld && !isAgainstWall(rightHeld - leftHeld)) {
     // check for slide
     var accelerationTmp = acceleration;
-    
+
     if (horizontalSpeed != 0 &&
         sign(horizontalSpeed) != facingDir
     ) {
@@ -46,7 +49,7 @@ if (leftHeld ^^ rightHeld && !isAgainstWall(rightHeld - leftHeld)) {
 } else if (!isAgainstWall(sign(horizontalSpeed))){ // if not holding keys
     var speedSign    = sign(horizontalSpeed);
     horizontalSpeed -= speedSign * deceleration * customDeltaTime;
-    
+
     if (sign(horizontalSpeed) != speedSign) {
         horizontalSpeed = 0;
     }

@@ -7,8 +7,14 @@ if (panOut) {
     panOutFactor = lerp(panOutFactor, 1, 0.01 * customDeltaTime);
 }
 
-view_hview[0] = originalHeight * panOutFactor;
-view_wview[0] = originalWidth * panOutFactor;
+if (zoomIn) {
+    zoomInFactor = lerp(zoomInFactor, zoomInRatio, 0.05 * customDeltaTimeNoTimeFactor);
+} else {
+    zoomInFactor = lerp(zoomInFactor, 1, 0.05 * customDeltaTimeNoTimeFactor);
+}
+
+view_hview[0] = originalHeight * panOutFactor * zoomInFactor;
+view_wview[0] = originalWidth * panOutFactor * zoomInFactor;
 
 // X axis
 var limit = cameraLimitsRatio;

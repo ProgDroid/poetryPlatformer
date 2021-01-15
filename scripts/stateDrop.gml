@@ -5,17 +5,19 @@ if (state_new) {
     sprite_index = playerJump;
     image_index  = 2;
     jumpBuffer   = 0;
-    
+
     if (verticalSpeed == -maxVerticalSpeed) {
         image_index = 0;
         drawingScaleX = 0.75 - 0.05;
         drawingScaleY = 1.35 + 0.05;
         image_speed   = 0;
     }
-    
+
     alarm[2] = -1;
     alarm[3] = room_speed * 3 * customDeltaTime;
-    viewController.panOut = false;
+    viewController.panOut    = false;
+    viewController.zoomIn    = false;
+    flashController.dashDark = false;
 }
 
 animations();
@@ -42,18 +44,18 @@ verticalSpeed  = clamp(verticalSpeed, -maxVerticalSpeed, maxVerticalSpeed);
 // air movement
 if (((leftHeld ^^ rightHeld) && !isAgainstWallAir(rightHeld - leftHeld))) {
     var accelerationTmp = acceleration;
-    
+
     if (horizontalSpeed != 0 &&
         sign(horizontalSpeed) != facingDir
     ) {
         accelerationTmp *= airFrictionFactor;
     }
-    
+
     horizontalMovement(accelerationTmp);
 } else { // if not holding keys
     var speedSign    = sign(horizontalSpeed);
     horizontalSpeed -= speedSign * airDeceleration * customDeltaTime;
-    
+
     if (sign(horizontalSpeed) != speedSign) {
         horizontalSpeed = 0;
     }
@@ -80,7 +82,13 @@ if (jumpPressed) {
     jumpBuffer = maxJumpBuffer;
 }
 
-if (jumpPressed && state_timer <= coyoteTime && verticalSpeed >= 0 && horizontalSpeed != 0) {
+if (
+    jumpPressed &&
+    state_timer <= coyoteTime &&
+    verticalSpeed >= 0 &&
+    horizontalSpeed != 0 &&
+    !noCoyote
+) {
     y -= state_timer div 2;
 
     verticalSpeed = -maxVerticalSpeed;

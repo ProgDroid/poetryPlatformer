@@ -3,8 +3,13 @@
 if (state_new) {
     state_new      = false;
     dashHeldBuffer = 5;
+    alarm[3]       = -1;
+    noCoyote       = true;
+
     viewController.offsetVertically = false;
-    alarm[3] = -1;
+    viewController.zoomIn           = true;
+    flashController.dashDark        = true;
+    flashController.dashDarkFactor  = 0.1;
 
     eventFire(allEvents.dashheld);
 }
@@ -12,13 +17,13 @@ if (state_new) {
 applyTimeFactor(lerp(timeFactorController.timeFactor, 0.05, 0.5 * customDeltaTime));
 
 if (dashConfirm) {
-    stateSwitch("dashThrough");
+    stateSwitch("dashThrough", false);
 
     eventFire(allEvents.dashthrough);
 }
 
 if (dashHeldBuffer <= 0 || state_timer > 300) {
-    stateSwitch("dashCancelled");
+    stateSwitch("dashCancelled", false);
 
     eventFire(allEvents.dashcancelled);
 }
@@ -47,18 +52,18 @@ verticalSpeed  = clamp(verticalSpeed, -maxVerticalSpeed, maxVerticalSpeed);
 // air movement
 if (((leftHeld ^^ rightHeld) && !isAgainstWallAir(rightHeld - leftHeld))) {
     var accelerationTmp = acceleration;
-    
+
     if (horizontalSpeed != 0 &&
         sign(horizontalSpeed) != facingDir
     ) {
         accelerationTmp *= airFrictionFactor;
     }
-    
+
     horizontalMovement(accelerationTmp);
 } else { // if not holding keys
     var speedSign    = sign(horizontalSpeed);
     horizontalSpeed -= speedSign * airDeceleration * customDeltaTime;
-    
+
     if (sign(horizontalSpeed) != speedSign) {
         horizontalSpeed = 0;
     }
@@ -100,4 +105,3 @@ if (bbox_top > (room_height + 50)) {
     applyTimeFactor(1);
     eventFire(allEvents.playerfell);
 }
-

@@ -7,6 +7,7 @@ if (state_new) {
     sprite_index    = playerIdle;
     image_index     = 0;
     doubleJumps     = maxDoubleJumps;
+    noCoyote        = false;
 
     if (hp <= 3) {
         sprite_index = playerIdleCalm;
@@ -14,10 +15,12 @@ if (state_new) {
             sprite_index = playerIdleChill;
         }
     }
-    
+
     alarm[2] = room_speed * 5 * customDeltaTime;
     alarm[3] = -1;
     viewController.offsetVertically = false;
+    viewController.zoomIn           = false;
+    flashController.dashDark        = false;
 }
 
 animations();

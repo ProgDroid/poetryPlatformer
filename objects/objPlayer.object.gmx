@@ -105,6 +105,7 @@ maxJumpBuffer      = MAXJUMPBUFFER;
 jumpBuffer         = 0;
 dashTime           = 5;
 dashTimer          = -1;
+noCoyote           = false;
 
 facingDir = 0;
 lastDir   = 0;
