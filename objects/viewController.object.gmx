@@ -40,8 +40,8 @@ offsetVertically = false;
 yOffset          = 0;
 yOffsetMax       = 0.3;
 
-originalWidth  = 960;
-originalHeight = 540;
+originalWidth  = settingsController.visualSettings[? "width"] div 2;
+originalHeight = settingsController.visualSettings[? "height"] div 2;
 
 </string>
           </argument>

@@ -160,6 +160,23 @@ for (var i = 0; i < array_length_1d(lines); i++) {
     }
 }
 
-room_set_view(levelRoom, 0, true, playerX - 480 / 2, playerY - 270, 960, 540, 0, 0, window_get_width(), window_get_height(), 0, 0, 0, 0, -1);
+room_set_view(
+    levelRoom,
+    0,
+    true,
+    playerX - settingsController.visualSettings[? "height"] div 3,
+    playerY - settingsController.visualSettings[? "height"] div 4,
+    settingsController.visualSettings[? "width"] div 2,
+    settingsController.visualSettings[? "height"] div 2,
+    0,
+    0,
+    settingsController.visualSettings[? "width"],
+    settingsController.visualSettings[? "height"],
+    0,
+    0,
+    0,
+    0,
+    -1
+);
 room_set_view_enabled(levelRoom, true);
 

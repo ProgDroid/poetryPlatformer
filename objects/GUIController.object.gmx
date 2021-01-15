@@ -27,12 +27,39 @@
             <kind>1</kind>
             <string>event_inherited();
 
-animationIndex    = 0;
+// hacky but saves some code repetition
+alarm[0] = 1;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>animationIndex    = 0;
 gameOver          = false;
 healthbarPosition = display_get_gui_width() * 0.025;
 centreX           = display_get_gui_width() / 2;
 centreY           = display_get_gui_height() / 2;
 fontScaling       = 0.1 * display_get_gui_height() / 203;
+offsetX           = display_get_gui_width() - display_get_gui_width() * settingsController.visualSettings[? "guiScalingX"];
+offsetY           = display_get_gui_height() - display_get_gui_height() * settingsController.visualSettings[? "guiScalingY"];
 
 </string>
           </argument>
@@ -67,10 +94,10 @@ if (!gameOver &amp;&amp; instance_exists(objPlayer)) {
         char = string_char_at("alive", i + 1);
         
         d3d_set_fog(true, merge_colour(make_colour_rgb(236, 158, 150), c_white, 0.5), false, true);
-            draw_sprite_ext(letter, (ord(char) - ord('a')) * 13 + animationIndex, healthbarPosition + i * 22, 40, 0.80, 0.80, 0, c_white, 1);
+            draw_sprite_ext(letter, (ord(char) - ord('a')) * 13 + animationIndex, healthbarPosition + offsetX + i * 22, 40 + offsetY, 0.80, 0.80, 0, c_white, 1);
         d3d_set_fog(false, c_white, false, false);
 
-        draw_sprite_ext(letter, (ord(char) - ord('a')) * 13 + animationIndex, healthbarPosition + i * 22, 40, 0.75, 0.75, 0, c_white, 1);
+        draw_sprite_ext(letter, (ord(char) - ord('a')) * 13 + animationIndex, healthbarPosition + offsetX + i * 22, 40 + offsetY, 0.75, 0.75, 0, c_white, 1);
     }
     
     animationIndex += (IMAGESPEED / objPlayer.maxHp) * objPlayer.hp;

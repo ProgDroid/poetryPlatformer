@@ -30,7 +30,7 @@
 // will probably need to save this so think about json encoding
 // possibly an array per action here
 // e.g. jump = [ord('W'), noone, gamepad_axis_value(gamepadConnected, gp_axislv)];
-keybinds = loadJson("keybinds.json");
+keybinds = loadJson("settings\keybinds.json");
 
 if (keybinds == noone) {
     playerUp    = ds_list_create();
@@ -86,7 +86,7 @@ if (keybinds == noone) {
     ds_map_add(keybinds, "deadzone", 0.2);
     ds_map_add(keybinds, "buttonThreshold", 0.1);
 
-    var file = file_text_open_write(working_directory + "keybinds.json");
+    var file = file_text_open_write(working_directory + "settings\keybinds.json");
     file_text_write_string(file, json_encode(keybinds));
     file_text_close(file);
 }
@@ -118,6 +118,48 @@ draw_enable_swf_aa(true);
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Create view values
+visualSettings = loadJson("settings\visualSettings.json")
+
+if (visualSettings == noone) {
+    visualSettings = ds_map_create();
+
+    ds_map_add(visualSettings, "width", display_get_width());
+    ds_map_add(visualSettings, "height", display_get_height());
+
+    ds_map_add(visualSettings, "guiScalingX", 1);
+    ds_map_add(visualSettings, "guiScalingY", 1);
+
+    var file = file_text_open_write(working_directory + "settings\visualSettings.json");
+    file_text_write_string(file, json_encode(visualSettings));
+    file_text_close(file);
+}
+
+window_set_size(display_get_width(), display_get_height());
+surface_resize(application_surface, display_get_width(), display_get_height());
+
+alarm[0] = 1;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="1" enumb="0">
       <action>
@@ -141,6 +183,34 @@ draw_enable_swf_aa(true);
 if (ds_exists(keybinds, ds_type_map)) {
     ds_map_destroy(keybinds);
 }
+
+if (ds_exists(visualSettings, ds_type_map)) {
+    ds_map_destroy(visualSettings);
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>window_center();
 
 </string>
           </argument>
