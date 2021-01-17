@@ -312,6 +312,8 @@ if (!devConsole &amp;&amp; instance_exists(objPlayer)) {
     draw_text(devTextPosition, 288, "input type: " + string(inputController.currentInputType));
     draw_text(devTextPosition, 304, "active pad: " + string(inputController.activePad));
     draw_text(devTextPosition, 320, "connected pads: " + string(ds_list_size(inputController.connectedPads)));
+    draw_text(devTextPosition, 336, "dashes: " + string(objPlayer.dashes));
+    draw_text(devTextPosition, 352, "maxDashes: " + string(objPlayer.maxDashes));
 
     draw_set_colour(c_white);
 }

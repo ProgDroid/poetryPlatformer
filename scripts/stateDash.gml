@@ -12,17 +12,23 @@ if (state_new) {
     flashController.dashDarkFactor  = 0.1;
 
     eventFire(allEvents.dashheld);
+
+    dashTraceLength = 0;
 }
 
 applyTimeFactor(lerp(timeFactorController.timeFactor, 0.05, 0.5 * customDeltaTime));
 
+dashTraceLength = lerp(dashTraceLength, DASH_TRACE_LENGTH, 0.15 * customDeltaTimeNoTimeFactor);
+
 if (dashConfirm) {
+    dashTraceLength = 0;
     stateSwitch("dashThrough", false);
 
     eventFire(allEvents.dashthrough);
 }
 
 if (dashHeldBuffer <= 0 || state_timer > 300) {
+    dashTraceLength = 0;
     stateSwitch("dashCancelled", false);
 
     eventFire(allEvents.dashcancelled);
@@ -93,15 +99,18 @@ if (verticalSpeed == 0 && (isOnFloor() || isSlidingOff())) {
     }
 
     if (horizontalSpeed != 0 || (leftHeld ^^ rightHeld)) {
+        dashTraceLength = 0;
         applyTimeFactor(1);
         stateSwitch("walk");
     } else {
+        dashTraceLength = 0;
         applyTimeFactor(1);
         stateSwitch("idle");
     }
 }
 
 if (bbox_top > (room_height + 50)) {
+    dashTraceLength = 0;
     applyTimeFactor(1);
     eventFire(allEvents.playerfell);
 }

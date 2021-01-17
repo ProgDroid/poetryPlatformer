@@ -14,7 +14,7 @@ if (state_new) {
     }
 
     alarm[2] = -1;
-    alarm[3] = room_speed * 3 * customDeltaTime;
+    alarm[3] = room_speed * 1 * customDeltaTime;
     viewController.panOut    = false;
     viewController.zoomIn    = false;
     flashController.dashDark = false;
@@ -103,11 +103,13 @@ if (jumpPressed && state_timer > doubleJumpTime && doubleJumps > 0) {
     drawingScaleX = 0.75 - 0.05;
     drawingScaleY = 1.35 + 0.05;
     image_speed   = 0;
-    stateSwitch("drop");
+    viewController.offsetVertically = false;
+    alarm[3] = room_speed * 1 * customDeltaTime;
     eventFire(allEvents.doublejump);
+    stateSwitch("drop");
 }
 
-if (dashPressed) {
+if (dashPressed && dashes > 0) {
     dashTimer = 3;
 }
 
@@ -125,9 +127,9 @@ if (verticalSpeed == 0 && (isOnFloor() || isSlidingOff())) {
     if (hp <= 3) {
         alarm[1] = room_speed * 0.5 * customDeltaTime;
         image_speed = IMAGESPEED - 0.1;
-        maxHorizontalSpeed = MAXHORIZONTALSPEED - 0.66;
+        maxHorizontalSpeed = MAXHORIZONTALSPEED - 0.33;
         if (hp == 1) {
-            maxHorizontalSpeed = MAXHORIZONTALSPEED - 1;
+            maxHorizontalSpeed = MAXHORIZONTALSPEED - 0.66;
         }
     }
 

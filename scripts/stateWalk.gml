@@ -6,6 +6,7 @@ if (state_new) {
     image_index  = 0;
     doubleJumps  = maxDoubleJumps;
     noCoyote     = false;
+    dashes       = maxDashes;
 
     if (hp <= 3) {
         sprite_index = playerWalkCalm;

@@ -23,7 +23,7 @@ if (objPlayer.lastDir == -1) {
     limit = 1 - limit;
 }
 
-var lerpValue = lerp(view_xview[0], objPlayer.x - limit * view_wview[0], 0.05 + 0.05 * abs(objPlayer.horizontalSpeed) * customDeltaTime) - view_xview[0];
+var lerpValue = lerp(view_xview[0], objPlayer.x - limit * view_wview[0], 0.05 + 0.05 * objPlayer.maxHorizontalSpeed * customDeltaTime) - view_xview[0];
 
 if (abs(lerpValue) > abs(objPlayer.horizontalSpeed) + 1) {
     lerpValue = (abs(objPlayer.horizontalSpeed) + 1) * sign(lerpValue) * customDeltaTime;
@@ -38,6 +38,12 @@ if (offsetVertically) {
     yOffset = lerp(yOffset, 0, 0.1 * customDeltaTime);
 }
 
-view_yview[0] = lerp(view_yview[0], (objPlayer.y - 0.5 * view_hview[0]) + yOffset * view_hview[0], 0.05 + 0.05 * abs(objPlayer.verticalSpeed) * customDeltaTime);
+if (zoomIn) {
+    dashOffset = clamp((mouse_y - objPlayer.y) / 3, -dashMaxOffset, dashMaxOffset);
+} else {
+    dashOffset = 0;
+}
+
+view_yview[0] = lerp(view_yview[0], (objPlayer.y - 0.5 * view_hview[0]) + yOffset * view_hview[0] + dashOffset, 0.05 + 0.05 * abs(objPlayer.verticalSpeed) * customDeltaTime);
 view_yview[0] = min(view_yview[0], room_height - view_hview[0] / 1.5);
 
