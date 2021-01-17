@@ -7,6 +7,8 @@ if (state_new) {
     sprite_index    = playerIdle;
     image_index     = 0;
     doubleJumps     = maxDoubleJumps;
+    noCoyote        = false;
+    dashes          = maxDashes;
 
     if (hp <= 3) {
         sprite_index = playerIdleCalm;
@@ -14,10 +16,12 @@ if (state_new) {
             sprite_index = playerIdleChill;
         }
     }
-    
+
     alarm[2] = room_speed * 5 * customDeltaTime;
     alarm[3] = -1;
     viewController.offsetVertically = false;
+    viewController.zoomIn           = false;
+    flashController.dashDark        = false;
 }
 
 animations();
@@ -32,13 +36,6 @@ if (((leftHeld ^^ rightHeld) && !isAgainstWall(rightHeld - leftHeld))
 if (!isOnFloor() && !isSlidingOff()) {
     stateSwitch("drop");
 }
-
-// manually drop from platform
-//if ((downPressed || downHeld) && (jumpPressed || jumpHeld) && isOnFloor()) {
-//    y += 1;
-//    noCollision = true;
-//    stateSwitch("drop");
-//}
 
 // regular jump
 if (!(downPressed || downHeld) && (jumpPressed || jumpBuffer > 0) && (isOnFloor() || isSlidingOff())) {

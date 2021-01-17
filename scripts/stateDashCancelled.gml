@@ -1,23 +1,21 @@
-///stateDrop
+///stateDashCancelled
 
 if (state_new) {
-    state_new    = false;
-    sprite_index = playerJump;
-    image_index  = 2;
-    jumpBuffer   = 0;
-
-    if (verticalSpeed == -maxVerticalSpeed) {
-        image_index = 0;
-        drawingScaleX = 0.75 - 0.05;
-        drawingScaleY = 1.35 + 0.05;
-        image_speed   = 0;
-    }
-
-    alarm[2] = -1;
-    alarm[3] = room_speed * 1 * customDeltaTime;
-    viewController.panOut    = false;
+    state_new = false;
     viewController.zoomIn    = false;
     flashController.dashDark = false;
+}
+
+if (place_meeting(x, y, objCollectible)) {
+    applyTimeFactor(1);
+    stateSwitch("inCollectionAnimation");
+}
+
+applyTimeFactor(timeFactorController.timeFactor + (1 - timeFactorController.timeFactor) * 0.5 * customDeltaTime);
+
+if (timeFactorController.timeFactor >= 1) {
+    applyTimeFactor(1);
+    stateSwitchPrevious();
 }
 
 animations();
@@ -26,10 +24,6 @@ facingDir = rightHeld - leftHeld;
 
 if (facingDir != 0) {
     lastDir = facingDir;
-}
-
-if (place_meeting(x, y, objCollectible)) {
-    stateSwitch("inCollectionAnimation");
 }
 
 var gravTmp = grav;
@@ -82,47 +76,6 @@ if (jumpPressed) {
     jumpBuffer = maxJumpBuffer;
 }
 
-if (
-    jumpPressed &&
-    state_timer <= coyoteTime &&
-    verticalSpeed >= 0 &&
-    horizontalSpeed != 0 &&
-    !noCoyote
-) {
-    y -= state_timer div 2;
-
-    verticalSpeed = -maxVerticalSpeed;
-    stateSwitch("drop");
-}
-
-// double jump
-if (jumpPressed && state_timer > doubleJumpTime && doubleJumps > 0) {
-    verticalSpeed = -maxVerticalSpeed;
-    doubleJumps -= 1;
-    image_index = 0;
-    drawingScaleX = 0.75 - 0.05;
-    drawingScaleY = 1.35 + 0.05;
-    image_speed   = 0;
-    viewController.offsetVertically = false;
-    alarm[3] = room_speed * 1 * customDeltaTime;
-    eventFire(allEvents.doublejump);
-    stateSwitch("drop");
-}
-
-if (dashPressed && dashes > 0) {
-    dashTimer = 3;
-}
-
-if (dashHeld) {
-    dashTimer--;
-}
-
-// dash
-if (state_timer > dashTime && dashTimer == 0) {
-    dashTimer = -1;
-    stateSwitch("dashStart", false);
-}
-
 if (verticalSpeed == 0 && (isOnFloor() || isSlidingOff())) {
     if (hp <= 3) {
         alarm[1] = room_speed * 0.5 * customDeltaTime;
@@ -134,13 +87,15 @@ if (verticalSpeed == 0 && (isOnFloor() || isSlidingOff())) {
     }
 
     if (horizontalSpeed != 0 || (leftHeld ^^ rightHeld)) {
+        applyTimeFactor(1);
         stateSwitch("walk");
     } else {
+        applyTimeFactor(1);
         stateSwitch("idle");
     }
 }
 
 if (bbox_top > (room_height + 50)) {
+    applyTimeFactor(1);
     eventFire(allEvents.playerfell);
 }
-

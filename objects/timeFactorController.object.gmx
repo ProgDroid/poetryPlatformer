@@ -97,6 +97,7 @@ previousTimeFactor = timeFactor;
         }
     }
 }
+
 </string>
           </argument>
         </arguments>

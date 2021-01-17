@@ -36,6 +36,12 @@ panOut       = false;
 panOutRatio  = 1.25;
 panOutFactor = 1;
 
+zoomIn        = false;
+zoomInRatio   = 0.95;
+zoomInFactor  = 1;
+dashOffset    = 0;
+dashMaxOffset = 100;
+
 offsetVertically = false;
 yOffset          = 0;
 yOffsetMax       = 0.3;

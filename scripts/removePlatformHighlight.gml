@@ -1,4 +1,4 @@
-///@decription Remove highlight from platform
+///@description Remove highlight from platform
 
 drawShadow = false;
 

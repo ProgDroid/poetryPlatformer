@@ -34,6 +34,9 @@ stateCreate("inCollectionAnimation", stateInCollectionAnimation);
 stateCreate("respawn", stateRespawn);
 stateCreate("gameOver", stateGameOver);
 stateCreate("newGame", stateNewGame);
+stateCreate("dashStart", stateDash);
+stateCreate("dashThrough", stateDashThrough);
+stateCreate("dashCancelled", stateDashCancelled);
 
 stateInit("newGame");
 
@@ -100,19 +103,18 @@ maxDoubleJumps     = MAXDOUBLEJUMPS;
 doubleJumps        = maxDoubleJumps;
 maxJumpBuffer      = MAXJUMPBUFFER;
 jumpBuffer         = 0;
+noCoyote           = false;
 
 facingDir = 0;
 lastDir   = 0;
 
-maxHp = 5;
-hp    = maxHp;
+maxHp = MAXCOLLECTIBLES;
+hp    = 0;
 
 offsetTop     = bbox_top - y;
 offsetBottom  = bbox_bottom - y;
 offsetLeft    = bbox_left - x;
 offsetRight   = bbox_right - x;
-
-//noCollision = false;
 
 sweepDownAngleCheck = 40;
 sweepUpAngleCheck   = 60;
@@ -122,6 +124,18 @@ image_yscale  = PLAYERSCALE;
 
 drawingScaleX = 1;
 drawingScaleY = 1;
+
+maxDashes       = 1;
+dashes          = maxDashes;
+dashTime        = 5;
+dashTimer       = -1;
+dashTraceLength = 0;
+dashScale       = 0;
+dashAngle       = 0;
+dashSize        = sprite_get_width(spriteDashTrace);
+dashX           = 0;
+dashY           = 0;
+dashLerp        = LERP_AMOUNT;
 
 </string>
           </argument>
@@ -149,11 +163,15 @@ downHeld     = false;
 leftHeld     = false;
 rightHeld    = false;
 jumpHeld     = false;
+dashHeld     = false;
 
 downPressed  = false;
 leftPressed  = false;
 rightPressed = false;
 jumpPressed  = false;
+dashPressed  = false;
+
+dashConfirm  = false;
 
 start        = false;
 
@@ -394,11 +412,15 @@ downHeld     = inputController.playerDownHeld;
 leftHeld     = inputController.playerLeftHeld;
 rightHeld    = inputController.playerRightHeld;
 jumpHeld     = inputController.playerJumpHeld;
+dashHeld     = inputController.playerDashHeld;
 
 downPressed  = inputController.playerDownPressed;
 leftPressed  = inputController.playerLeftPressed;
 rightPressed = inputController.playerRightPressed;
 jumpPressed  = inputController.playerJumpPressed;
+dashPressed  = inputController.playerDashPressed;
+
+dashConfirm  = inputController.playerDashConfirm;
 
 start        = inputController.start;
 
@@ -406,6 +428,35 @@ start        = inputController.start;
 // move to menuController
 if (start) {
     game_end();
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Dash placement
+if (dashTimer &gt; 0 || dashTraceLength &gt; 0) {
+    var pointDistance = point_distance(x, y, mouse_x, mouse_y);
+    dashScale         = min(pointDistance, max(dashTraceLength, 20)) / dashSize;
+    dashAngle         = point_direction(x, y, mouse_x, mouse_y);
+    dashX             = x + dashScale * lengthdir_x(dashSize, dashAngle);
+    dashY             = y + dashScale * lengthdir_y(dashSize, dashAngle);
 }
 
 </string>
@@ -452,6 +503,35 @@ if (surface_exists(shadowController.surfaceShadows)) {
     draw_set_colour(c_white);
     
     surface_reset_target();
+}
+
+if (dashTraceLength &gt; 0 &amp;&amp; state_timer &gt; 1) {
+    draw_sprite_ext(spriteDashTrace, 0, x, y, dashScale, 1, dashAngle, c_white, 0.7);
+    draw_sprite_ext(
+        sprite_index,
+        image_index,
+        dashX,
+        dashY,
+        dashTraceLength / DASH_TRACE_LENGTH * 0.7,
+        dashTraceLength / DASH_TRACE_LENGTH * 0.7,
+        0,
+        c_white,
+        0.5
+    );
+}
+
+if (state_name == "dashThrough" &amp;&amp; state_timer &gt; 2) {
+    draw_sprite_ext(
+        sprite_index,
+        image_index,
+        xprevious,
+        yprevious,
+        PLAYERSCALE,
+        PLAYERSCALE,
+        0,
+        c_white,
+        0.4
+    );
 }
 
 draw_sprite_ext(

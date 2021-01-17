@@ -48,6 +48,12 @@ if (keybinds == noone) {
     jump        = ds_list_create();
     ds_list_add(jump, vk_space, noone, gp_face1, noone);
 
+    dash        = ds_list_create();
+    ds_list_add(dash, vk_shift, noone, gp_shoulderr, noone);
+
+    dashConfirm = ds_list_create();
+    ds_list_add(dashConfirm, vk_space, noone, gp_face1, noone);
+
     start       = ds_list_create();
     ds_list_add(start, vk_escape, noone, gp_start, noone);
 
@@ -75,6 +81,8 @@ if (keybinds == noone) {
     ds_map_add_list(keybinds, "playerLeft", playerLeft);
     ds_map_add_list(keybinds, "playerRight", playerRight);
     ds_map_add_list(keybinds, "jump", jump);
+    ds_map_add_list(keybinds, "dash", dash);
+    ds_map_add_list(keybinds, "dashConfirm", dashConfirm);
     ds_map_add_list(keybinds, "start", start);
     ds_map_add_list(keybinds, "menuUp", menuUp);
     ds_map_add_list(keybinds, "menuDown", menuDown);

@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="2" name="datafiles">
-    <datafiles number="2" name="levels">
+  <datafiles number="3" name="datafiles">
+    <datafiles number="3" name="levels">
       <datafile>
         <name>thatSweetButterfly.txt</name>
         <exists>-1</exists>
@@ -143,6 +143,7 @@
       <sprite>sprites\doubleJumpBrush</sprite>
     </sprites>
     <sprite>sprites\spriteDeathPlane</sprite>
+    <sprite>sprites\spriteDashTrace</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\backgroundPaper</background>
@@ -209,6 +210,9 @@
       <script>scripts\stateRespawn.gml</script>
       <script>scripts\stateGameOver.gml</script>
       <script>scripts\stateNewGame.gml</script>
+      <script>scripts\stateDash.gml</script>
+      <script>scripts\stateDashThrough.gml</script>
+      <script>scripts\stateDashCancelled.gml</script>
     </scripts>
     <scripts name="timestepScripts">
       <script>scripts\_fixed_timestep_ev_create.gml</script>
@@ -365,7 +369,9 @@
     <room>rooms\room11</room>
     <room>rooms\room4</room>
   </rooms>
-  <constants number="13">
+  <constants number="14">
+    <constant name="LERP_AMOUNT">0.025</constant>
+    <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
     <constant name="BASE_WIDTH">1920</constant>
     <constant name="MAXCOLLECTIBLES">5</constant>
@@ -375,7 +381,6 @@
     <constant name="PLATFORMSCALE">0.7</constant>
     <constant name="customDeltaTime">timeFactorController.timeFactor * ((60 / global._ts_fps) * (delta_time / ((1 / room_speed) * 1000000)))</constant>
     <constant name="customDeltaTimeNoTimeFactor">((60 / global._ts_fps) * (delta_time / ((1 / room_speed) * 1000000)))</constant>
-    <constant name="COLLECTIBLES">5</constant>
     <constant name="IMAGESPEED">timeFactorController.timeFactor * (1 / (room_speed * 0.1))</constant>
     <constant name="IMAGESPEEDNOTIME">(1 / (room_speed * 0.1))</constant>
     <constant name="MAXHORIZONTALSPEED">3.75</constant>
