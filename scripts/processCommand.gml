@@ -25,6 +25,7 @@ if (argument[0] == "help") {
     commands += ", resolution <width> <height>";
     commands += ", view <width> <height>";
     commands += ", showView";
+    commands += ", fps <1234>";
     addConsoleMessage("info", "Available commands are: " + commands);
 }
 
@@ -181,5 +182,19 @@ if (string_pos("view", argument[0]) == 1) {
 
 if (argument[0] == "showView") {
     addConsoleMessage("info", "View is " + string(view_wview[0]) + "x" + string(view_hview[0]));
+}
+
+if (string_pos("fps", argument[0]) == 1) {
+    if (string_replace_all(argument[0], ' ', '') == "fps") {
+        addConsoleMessage("warning", "Please supply a value for fps");
+        exit;
+    }
+
+    var arg      = string_delete(argument[0], 1, 4);
+    var fpsValue = real(string_digits(arg));
+    
+    room_speed = fpsValue;
+
+    toggleDevConsole();
 }
 
