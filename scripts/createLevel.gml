@@ -171,7 +171,7 @@ for (var i = 0; i < array_length_1d(lines); i++) {
         }
 
         if (levelEnd) {
-            room_instance_add(levelRoom, instanceX + platformController.triggerXMap[? char] * PLATFORMSCALE, instanceY + platformController.triggerYMap[? char] * PLATFORMSCALE, objLevelEnd);
+            room_instance_add(levelRoom, instanceX + platformController.triggerXMap[? "dotlessI"] * PLATFORMSCALE, instanceY + platformController.triggerYMap[? "dotlessI"] * PLATFORMSCALE, objLevelEnd);
         }
 
         positionX = instanceX + sprite_get_width(object_get_sprite(object)) * PLATFORMSCALE;

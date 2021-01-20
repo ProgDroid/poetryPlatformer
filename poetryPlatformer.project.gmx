@@ -142,8 +142,11 @@
       <sprite>sprites\landingSplatGrey</sprite>
       <sprite>sprites\doubleJumpBrush</sprite>
     </sprites>
-    <sprite>sprites\spriteDeathPlane</sprite>
-    <sprite>sprites\spriteDashTrace</sprite>
+    <sprites name="miscLevel">
+      <sprite>sprites\spriteDashTrace</sprite>
+      <sprite>sprites\spriteDeathPlane</sprite>
+      <sprite>sprites\spriteLevelEnd</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\backgroundPaper</background>
