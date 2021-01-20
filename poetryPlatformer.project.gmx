@@ -340,6 +340,7 @@
         <object>objects\objPlatformZ</object>
         <object>objects\objPlatformZero</object>
       </objects>
+      <object>objects\objLevelEnd</object>
     </objects>
     <objects name="characters">
       <object>objects\objCharacter</object>
