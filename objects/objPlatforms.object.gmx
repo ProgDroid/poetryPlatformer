@@ -44,6 +44,8 @@ shadowAngle = abs(point_direction(room_width / 2, 0, x, y));
 image_xscale = PLATFORMSCALE;
 image_yscale = PLATFORMSCALE;
 
+belonging = false;
+
 </string>
           </argument>
         </arguments>
@@ -124,7 +126,7 @@ image_yscale = PLATFORMSCALE;
     }
 }
 
-if (image_alpha &lt; 1) {
+if (image_alpha &lt; 1 &amp;&amp; !belonging) {
     image_alpha = lerp(image_alpha, 1, 0.1 * customDeltaTime);
 }
 

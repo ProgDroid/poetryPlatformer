@@ -37,7 +37,10 @@ enum allEvents {
     doublejump,
     dashheld,
     dashcancelled,
-    dashthrough
+    dashthrough,
+    gameending,
+    fadeout,
+    theend
 }
 
 </string>

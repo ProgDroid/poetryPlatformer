@@ -25,7 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed = IMAGESPEED;
+            <string>image_speed   = IMAGESPEED;
+endLevel      = false;
+fadeTriggered = false;
+
+eventRegister(allEvents.gameending, id, endLevelTrigger);
 
 </string>
           </argument>
@@ -49,8 +53,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (place_meeting(x, y, objPlayer)) {
-    game_end();
+            <string>if (endLevel) {
+    image_alpha = lerp(image_alpha, 0, 0.025 * customDeltaTime);
+}
+
+if (!fadeTriggered &amp;&amp; image_alpha &lt; 0.1) {
+    eventFire(allEvents.fadeout);
 }
 
 </string>

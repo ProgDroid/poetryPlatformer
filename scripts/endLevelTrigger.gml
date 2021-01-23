@@ -1,0 +1,4 @@
+/// endLevelTrigger
+
+endLevel = true;
+

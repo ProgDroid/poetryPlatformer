@@ -35,6 +35,10 @@ if (place_meeting(x, y, objCollectible)) {
     stateSwitch("inCollectionAnimation");
 }
 
+if (place_meeting(x, y, objLevelEnd)) {
+    stateSwitch("ending");
+}
+
 // if holding directional key
 if (leftHeld ^^ rightHeld && !isAgainstWall(rightHeld - leftHeld)) {
     // check for slide

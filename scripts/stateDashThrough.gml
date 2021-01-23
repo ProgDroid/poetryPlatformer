@@ -28,6 +28,11 @@ if (place_meeting(x, y, objCollectible)) {
     stateSwitch("inCollectionAnimation");
 }
 
+if (place_meeting(x, y, objLevelEnd)) {
+    applyTimeFactor(1);
+    stateSwitch("ending");
+}
+
 if (x > dashX - 5 && x < dashX + 5 &&
     y > dashY - 5 && y < dashY + 5 &&
     (instance == noone || !instance.visible)
