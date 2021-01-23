@@ -385,7 +385,7 @@ ds_map_add(triggerXMap, "'", 40);
 ds_map_add(triggerXMap, ",", 15);
 
 // dotless i
-ds_map_add(triggerXMap, "dotlessI", 137);
+ds_map_add(triggerXMap, "dotlessI", 127);
 
 triggerYMap = ds_map_create();
 
@@ -444,7 +444,7 @@ ds_map_add(triggerYMap, "'", 20);
 ds_map_add(triggerYMap, ",", 39);
 
 // dotless i
-ds_map_add(triggerYMap, "dotlessI", -500);
+ds_map_add(triggerYMap, "dotlessI", -525);
 </string>
           </argument>
         </arguments>
