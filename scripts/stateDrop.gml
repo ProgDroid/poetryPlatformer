@@ -14,7 +14,7 @@ if (state_new) {
     }
 
     alarm[2] = -1;
-    alarm[3] = room_speed * 1 * customDeltaTime;
+    alarm[3] = room_speed * 1;
     viewController.panOut    = false;
     viewController.zoomIn    = false;
     flashController.dashDark = false;
@@ -42,7 +42,7 @@ if (jumpHeld && abs(verticalSpeed) < 1) {
     gravTmp /= 2;
 }
 
-verticalSpeed += gravTmp * customDeltaTime;
+verticalSpeed += gravTmp * timeFactorController.timeFactor;
 verticalSpeed  = clamp(verticalSpeed, -maxVerticalSpeed, maxVerticalSpeed);
 
 // air movement
@@ -58,7 +58,7 @@ if (((leftHeld ^^ rightHeld) && !isAgainstWallAir(rightHeld - leftHeld))) {
     horizontalMovement(accelerationTmp);
 } else { // if not holding keys
     var speedSign    = sign(horizontalSpeed);
-    horizontalSpeed -= speedSign * airDeceleration * customDeltaTime;
+    horizontalSpeed -= speedSign * airDeceleration * timeFactorController.timeFactor;
 
     if (sign(horizontalSpeed) != speedSign) {
         horizontalSpeed = 0;
@@ -108,7 +108,7 @@ if (jumpPressed && state_timer > doubleJumpTime && doubleJumps > 0) {
     drawingScaleY = 1.35 + 0.05;
     image_speed   = 0;
     viewController.offsetVertically = false;
-    alarm[3] = room_speed * 1 * customDeltaTime;
+    alarm[3] = room_speed * 1;
     eventFire(allEvents.doublejump);
     stateSwitch("drop");
 }
@@ -129,7 +129,7 @@ if (state_timer > dashTime && dashTimer == 0) {
 
 if (verticalSpeed == 0 && (isOnFloor() || isSlidingOff())) {
     if (hp <= 3) {
-        alarm[1] = room_speed * 0.5 * customDeltaTime;
+        alarm[1] = room_speed * 0.5;
         image_speed = IMAGESPEED - 0.1;
         maxHorizontalSpeed = MAXHORIZONTALSPEED - 0.33;
         if (hp == 1) {
