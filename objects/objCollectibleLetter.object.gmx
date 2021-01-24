@@ -163,8 +163,8 @@ if (state_name != "dead") {
 
     draw_sprite_ext(
         sprite_index,image_index,
-        lerp(xprevious,x,global._ts_render_alpha),
-        lerp(yprevious,y,global._ts_render_alpha),
+        x,
+        y,
         image_xscale * 1.01,image_yscale * 1.01,
         image_angle,image_blend,
         image_alpha
@@ -175,8 +175,8 @@ if (state_name != "dead") {
 
 draw_sprite_ext(
     sprite_index,image_index,
-    lerp(xprevious,x,global._ts_render_alpha),
-    lerp(yprevious,y,global._ts_render_alpha),
+    x,
+    y,
     image_xscale,image_yscale,
     image_angle,image_blend,
     image_alpha

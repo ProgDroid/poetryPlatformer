@@ -13,7 +13,11 @@ if (state_new) {
     flashController.dashDark        = false;
 }
 
-move_towards_point(objLevelEnd.x, objLevelEnd.y - 63, 1);
+if (point_distance(objLevelEnd.x, objLevelEnd.y - 63, x, y) > 5) {
+    move_towards_point(objLevelEnd.x, objLevelEnd.y - 63, customDeltaTime);
+} else {
+    speed = 0;
+}
 
 image_alpha = lerp(image_alpha, 0, 0.01);
 

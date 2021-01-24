@@ -16,9 +16,9 @@ if (state_new) {
     dashTraceLength = 0;
 }
 
-applyTimeFactor(lerp(timeFactorController.timeFactor, 0.05, 0.5 * customDeltaTime));
+applyTimeFactor(lerp(timeFactorController.timeFactor, 0.05, 0.5 * timeFactorController.timeFactor));
 
-dashTraceLength = lerp(dashTraceLength, DASH_TRACE_LENGTH, 0.15 * customDeltaTimeNoTimeFactor);
+dashTraceLength = lerp(dashTraceLength, DASH_TRACE_LENGTH, 0.15);
 
 if (dashConfirm) {
     dashTraceLength = 0;
@@ -52,7 +52,7 @@ if (jumpHeld && abs(verticalSpeed) < 1) {
     gravTmp /= 2;
 }
 
-verticalSpeed += gravTmp * customDeltaTime;
+verticalSpeed += gravTmp * timeFactorController.timeFactor;
 verticalSpeed  = clamp(verticalSpeed, -maxVerticalSpeed, maxVerticalSpeed);
 
 // air movement
@@ -68,7 +68,7 @@ if (((leftHeld ^^ rightHeld) && !isAgainstWallAir(rightHeld - leftHeld))) {
     horizontalMovement(accelerationTmp);
 } else { // if not holding keys
     var speedSign    = sign(horizontalSpeed);
-    horizontalSpeed -= speedSign * airDeceleration * customDeltaTime;
+    horizontalSpeed -= speedSign * airDeceleration * timeFactorController.timeFactor;
 
     if (sign(horizontalSpeed) != speedSign) {
         horizontalSpeed = 0;
@@ -90,7 +90,7 @@ horizontalCollisions();
 
 if (verticalSpeed == 0 && (isOnFloor() || isSlidingOff())) {
     if (hp <= 3) {
-        alarm[1] = room_speed * 0.5 * customDeltaTime;
+        alarm[1] = room_speed * 0.5 * timeFactorController.timeFactor;
         image_speed = IMAGESPEED - 0.1;
         maxHorizontalSpeed = MAXHORIZONTALSPEED - 0.33;
         if (hp == 1) {

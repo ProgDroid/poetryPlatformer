@@ -17,7 +17,7 @@ if (state_new) {
         }
     }
 
-    alarm[2] = room_speed * 5 * customDeltaTime;
+    alarm[2] = room_speed * 5;
     alarm[3] = -1;
     viewController.offsetVertically = false;
     viewController.zoomIn           = false;

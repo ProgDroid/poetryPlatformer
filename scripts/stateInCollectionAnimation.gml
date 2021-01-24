@@ -2,7 +2,7 @@
 
 if (state_new) {
     state_new   = false;
-    alarm[0]    = room_speed * 3.75 * customDeltaTime;
+    alarm[0]    = room_speed * 3.75;
     image_speed = 0;
 
     flashController.dark     = true;
