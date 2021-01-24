@@ -29,10 +29,6 @@
 
 alarm[0] = room_speed * 0.25;
 
-if (customDeltaTimeNoTimeFactor != 0) {
-    alarm[0] = alarm[0] * customDeltaTimeNoTimeFactor;
-}
-
 </string>
           </argument>
         </arguments>
@@ -70,10 +66,6 @@ if (stringLength &gt;= 7) { // length of "devcode"
 }
 
 alarm[0] = room_speed * 0.25;
-    
-if (customDeltaTimeNoTimeFactor != 0) {
-    alarm[0] = alarm[0] * customDeltaTimeNoTimeFactor;
-}
 
 </string>
           </argument>
