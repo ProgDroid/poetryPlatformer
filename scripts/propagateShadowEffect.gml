@@ -21,7 +21,7 @@ for (var i = index + 1; i < loops; i++) {
     }
 
     var instance = instance_find(objPlatforms, i);
-    instance.alarm[argument[0]]     = room_speed * 0.2 * abs(i - index) * customDeltaTime;
+    instance.alarm[argument[0]]     = room_speed * 0.2 * abs(i - index);
     instance.alarm[1 - argument[0]] = -1;
 }
 
@@ -31,7 +31,7 @@ for (var i = index - 1; i >= 0; i--) {
     }
     
     var instance = instance_find(objPlatforms, i);
-    instance.alarm[argument[0]]     = room_speed * 0.2 * abs(i - index) * customDeltaTime;
+    instance.alarm[argument[0]]     = room_speed * 0.2 * abs(i - index);
     instance.alarm[1 - argument[0]] = -1;
 }
 
