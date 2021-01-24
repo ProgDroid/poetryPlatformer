@@ -37,6 +37,7 @@ stateCreate("newGame", stateNewGame);
 stateCreate("dashStart", stateDash);
 stateCreate("dashThrough", stateDashThrough);
 stateCreate("dashCancelled", stateDashCancelled);
+stateCreate("ending", stateEnding);
 
 stateInit("newGame");
 

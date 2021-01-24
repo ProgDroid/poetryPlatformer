@@ -11,6 +11,11 @@ if (place_meeting(x, y, objCollectible)) {
     stateSwitch("inCollectionAnimation");
 }
 
+if (place_meeting(x, y, objLevelEnd)) {
+    applyTimeFactor(1);
+    stateSwitch("ending");
+}
+
 applyTimeFactor(timeFactorController.timeFactor + (1 - timeFactorController.timeFactor) * 0.5 * customDeltaTime);
 
 if (timeFactorController.timeFactor >= 1) {

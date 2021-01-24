@@ -32,6 +32,10 @@ if (place_meeting(x, y, objCollectible)) {
     stateSwitch("inCollectionAnimation");
 }
 
+if (place_meeting(x, y, objLevelEnd)) {
+    stateSwitch("ending");
+}
+
 var gravTmp = grav;
 
 if (jumpHeld && abs(verticalSpeed) < 1) {

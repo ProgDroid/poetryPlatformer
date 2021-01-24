@@ -1,0 +1,4 @@
+/// scriptFadeOut
+
+fadeOut = true;
+

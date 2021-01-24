@@ -142,8 +142,11 @@
       <sprite>sprites\landingSplatGrey</sprite>
       <sprite>sprites\doubleJumpBrush</sprite>
     </sprites>
-    <sprite>sprites\spriteDeathPlane</sprite>
-    <sprite>sprites\spriteDashTrace</sprite>
+    <sprites name="miscLevel">
+      <sprite>sprites\spriteDashTrace</sprite>
+      <sprite>sprites\spriteDeathPlane</sprite>
+      <sprite>sprites\spriteLevelEnd</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\backgroundPaper</background>
@@ -178,6 +181,10 @@
       <script>scripts\processDeath.gml</script>
       <script>scripts\landingParticles.gml</script>
       <script>scripts\doubleJumpParticles.gml</script>
+      <script>scripts\belong.gml</script>
+      <script>scripts\endLevelTrigger.gml</script>
+      <script>scripts\scriptFadeOut.gml</script>
+      <script>scripts\endGame.gml</script>
     </scripts>
     <scripts name="eventTriggering">
       <script>scripts\eventRegister.gml</script>
@@ -213,6 +220,7 @@
       <script>scripts\stateDash.gml</script>
       <script>scripts\stateDashThrough.gml</script>
       <script>scripts\stateDashCancelled.gml</script>
+      <script>scripts\stateEnding.gml</script>
     </scripts>
     <scripts name="timestepScripts">
       <script>scripts\_fixed_timestep_ev_create.gml</script>
@@ -340,6 +348,7 @@
         <object>objects\objPlatformZ</object>
         <object>objects\objPlatformZero</object>
       </objects>
+      <object>objects\objLevelEnd</object>
     </objects>
     <objects name="characters">
       <object>objects\objCharacter</object>
@@ -360,8 +369,8 @@
     <room>rooms\VIEW</room>
     <room>rooms\PLATFORMMAP</room>
     <room>rooms\GUI</room>
-    <room>rooms\FLASH</room>
     <room>rooms\EVENTLISTEN</room>
+    <room>rooms\FLASH</room>
     <room>rooms\SHADOW</room>
     <room>rooms\room15</room>
     <room>rooms\WORLD</room>

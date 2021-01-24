@@ -60,6 +60,7 @@ var playerX          = 0;
 var playerY          = 0;
 var parsedIndex      = false;
 var collectibleName  = "";
+var levelEnd         = false;
 
 platformController.wordIndex         = array_create(0);
 platformController.collectiblesNames = array_create(0);
@@ -74,27 +75,37 @@ for (var i = 0; i < array_length_1d(lines); i++) {
 
     for (var j = 1; j < string_length(lines[i]); j++) {
         var char = string_upper(string_char_at(lines[i], j));
-        
+
         if (char == "`") {
             parsedIndex = !parsedIndex;
             continue;
         }
-        
+
         if (char == "\") {
             collectible = !collectible;
             continue;
         }
-        
+
         if (char == "/") {
             collectiblePlace = !collectiblePlace;
             continue;
         }
-        
+
         if (char == "@") {
             player = !player;
             continue;
         }
-        
+
+        if (levelEnd && char != "I" && char != "|") {
+            addConsoleMessage("warning", "Level end trigger is not on i character");
+            exit;
+        }
+
+        if (char == "|") {
+            levelEnd = !levelEnd;
+            continue;
+        }
+
         if (char == " " || char == "") {
             var originalX = positionX;
 
@@ -125,7 +136,12 @@ for (var i = 0; i < array_length_1d(lines); i++) {
             continue;
         }
 
+        // how I miss ternary...
         var object = platformController.platformMap[? char];
+
+        if (levelEnd) {
+            object = platformController.platformMap[? "dotlessI"];
+        }
 
         if (!is_real(object)) {
             continue;
@@ -138,7 +154,7 @@ for (var i = 0; i < array_length_1d(lines); i++) {
 
         platformController.wordIndex[array_length_1d(platformController.wordIndex)] = listIndex;
         platformController.collectibleIndices[array_length_1d(platformController.collectibleIndices)] = collectible;
-        
+
         if (collectible) {
             collectibleName = collectibleName + char;
         }
@@ -149,9 +165,13 @@ for (var i = 0; i < array_length_1d(lines); i++) {
 
             room_instance_add(levelRoom, playerX, playerY, objPlayer);
         }
-        
+
         if (collectiblePlace) {
             room_instance_add(levelRoom, instanceX + platformController.triggerXMap[? char] * PLATFORMSCALE, instanceY + platformController.triggerYMap[? char] * PLATFORMSCALE, objCollectible);
+        }
+
+        if (levelEnd) {
+            room_instance_add(levelRoom, instanceX + platformController.triggerXMap[? "dotlessI"] * PLATFORMSCALE, instanceY + platformController.triggerYMap[? "dotlessI"] * PLATFORMSCALE, objLevelEnd);
         }
 
         positionX = instanceX + sprite_get_width(object_get_sprite(object)) * PLATFORMSCALE;

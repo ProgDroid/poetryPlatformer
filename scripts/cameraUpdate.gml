@@ -23,6 +23,10 @@ if (objPlayer.lastDir == -1) {
     limit = 1 - limit;
 }
 
+if (objPlayer.state_name == "ending") {
+    limit = 0.5;
+}
+
 var lerpValue = lerp(view_xview[0], objPlayer.x - limit * view_wview[0], 0.05 + 0.05 * objPlayer.maxHorizontalSpeed * customDeltaTime) - view_xview[0];
 
 if (abs(lerpValue) > abs(objPlayer.horizontalSpeed) + 1) {

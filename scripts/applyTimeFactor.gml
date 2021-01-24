@@ -26,3 +26,7 @@ with(objParticles) {
     }
 }
 
+with(objLevelEnd) {
+    image_speed = IMAGESPEED;
+}
+
