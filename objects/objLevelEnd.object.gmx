@@ -58,6 +58,7 @@ eventRegister(allEvents.gameending, id, endLevelTrigger);
 }
 
 if (!fadeTriggered &amp;&amp; image_alpha &lt; 0.1) {
+    fadeTriggered = true;
     eventFire(allEvents.fadeout);
 }
 
