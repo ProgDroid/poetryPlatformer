@@ -12,16 +12,16 @@ if (state_new) {
 var instance = instance_place(dashX, dashY, objPlatforms);
 
 if (instance != noone && instance.visible) {
-    dashX += lengthdir_x(MAXHORIZONTALSPEED, dashAngle) * customDeltaTimeNoTimeFactor;
-    dashY += lengthdir_y(MAXHORIZONTALSPEED, dashAngle) * customDeltaTimeNoTimeFactor;
+    dashX += lengthdir_x(MAXHORIZONTALSPEED, dashAngle);
+    dashY += lengthdir_y(MAXHORIZONTALSPEED, dashAngle);
 }
 
-dashLerp = lerp(dashLerp, 0.15, LERP_AMOUNT * customDeltaTimeNoTimeFactor);
+dashLerp = lerp(dashLerp, 0.15, LERP_AMOUNT);
 
-view_xview[0] += lerp(x, dashX, dashLerp * customDeltaTimeNoTimeFactor) - x;
+view_xview[0] += lerp(x, dashX, dashLerp) - x;
 
-x = lerp(x, dashX, dashLerp * customDeltaTimeNoTimeFactor);
-y = lerp(y, dashY, dashLerp * customDeltaTimeNoTimeFactor);
+x = lerp(x, dashX, dashLerp);
+y = lerp(y, dashY, dashLerp);
 
 if (place_meeting(x, y, objCollectible)) {
     applyTimeFactor(1);
