@@ -16,7 +16,7 @@ if (place_meeting(x, y, objLevelEnd)) {
     stateSwitch("ending");
 }
 
-applyTimeFactor(timeFactorController.timeFactor + (1 - timeFactorController.timeFactor) * 0.5 * customDeltaTime);
+applyTimeFactor(timeFactorController.timeFactor + (1 - timeFactorController.timeFactor) * 0.5 * timeFactorController.timeFactor);
 
 if (timeFactorController.timeFactor >= 1) {
     applyTimeFactor(1);
@@ -37,7 +37,7 @@ if (jumpHeld && abs(verticalSpeed) < 1) {
     gravTmp /= 2;
 }
 
-verticalSpeed += gravTmp * customDeltaTime;
+verticalSpeed += gravTmp * timeFactorController.timeFactor;
 verticalSpeed  = clamp(verticalSpeed, -maxVerticalSpeed, maxVerticalSpeed);
 
 // air movement
@@ -53,7 +53,7 @@ if (((leftHeld ^^ rightHeld) && !isAgainstWallAir(rightHeld - leftHeld))) {
     horizontalMovement(accelerationTmp);
 } else { // if not holding keys
     var speedSign    = sign(horizontalSpeed);
-    horizontalSpeed -= speedSign * airDeceleration * customDeltaTime;
+    horizontalSpeed -= speedSign * airDeceleration * timeFactorController.timeFactor;
 
     if (sign(horizontalSpeed) != speedSign) {
         horizontalSpeed = 0;
@@ -83,7 +83,7 @@ if (jumpPressed) {
 
 if (verticalSpeed == 0 && (isOnFloor() || isSlidingOff())) {
     if (hp <= 3) {
-        alarm[1] = room_speed * 0.5 * customDeltaTime;
+        alarm[1] = room_speed * 0.5;
         image_speed = IMAGESPEED - 0.1;
         maxHorizontalSpeed = MAXHORIZONTALSPEED - 0.33;
         if (hp == 1) {
