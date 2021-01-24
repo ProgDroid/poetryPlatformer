@@ -537,8 +537,8 @@ if (state_name == "dashThrough" &amp;&amp; state_timer &gt; 2) {
 
 draw_sprite_ext(
     sprite_index,image_index,
-    lerp(xprevious,x,global._ts_render_alpha),
-    lerp(yprevious,y + (1-drawingScaleY) * 20,global._ts_render_alpha),
+    x,
+    y + (1-drawingScaleY) * 20,
     image_xscale * drawingScaleX,image_yscale * drawingScaleY,
     image_angle,image_blend,
     image_alpha
