@@ -2,15 +2,15 @@
 
 // view size
 if (panOut) {
-    panOutFactor = lerp(panOutFactor, panOutRatio, 0.01 * customDeltaTime);
+    panOutFactor = lerp(panOutFactor, panOutRatio, 0.01 * timeFactorController.timeFactor);
 } else {
-    panOutFactor = lerp(panOutFactor, 1, 0.01 * customDeltaTime);
+    panOutFactor = lerp(panOutFactor, 1, 0.01 * timeFactorController.timeFactor);
 }
 
 if (zoomIn) {
-    zoomInFactor = lerp(zoomInFactor, zoomInRatio, 0.05 * customDeltaTimeNoTimeFactor);
+    zoomInFactor = lerp(zoomInFactor, zoomInRatio, 0.05);
 } else {
-    zoomInFactor = lerp(zoomInFactor, 1, 0.05 * customDeltaTimeNoTimeFactor);
+    zoomInFactor = lerp(zoomInFactor, 1, 0.05);
 }
 
 view_hview[0] = originalHeight * panOutFactor * zoomInFactor;
@@ -27,19 +27,19 @@ if (objPlayer.state_name == "ending") {
     limit = 0.5;
 }
 
-var lerpValue = lerp(view_xview[0], objPlayer.x - limit * view_wview[0], 0.05 + 0.05 * objPlayer.maxHorizontalSpeed * customDeltaTime) - view_xview[0];
+var lerpValue = lerp(view_xview[0], objPlayer.x - limit * view_wview[0], 0.05 + 0.05 * objPlayer.maxHorizontalSpeed * timeFactorController.timeFactor) - view_xview[0];
 
 if (abs(lerpValue) > abs(objPlayer.horizontalSpeed) + 1) {
-    lerpValue = (abs(objPlayer.horizontalSpeed) + 1) * sign(lerpValue) * customDeltaTime;
+    lerpValue = (abs(objPlayer.horizontalSpeed) + 1) * sign(lerpValue) * timeFactorController.timeFactor;
 }
 
 view_xview[0] += lerpValue;
 
 // Y axis
 if (offsetVertically) {
-    yOffset = lerp(yOffset, yOffsetMax, 0.01 * customDeltaTime);
+    yOffset = lerp(yOffset, yOffsetMax, 0.01 * timeFactorController.timeFactor);
 } else {
-    yOffset = lerp(yOffset, 0, 0.1 * customDeltaTime);
+    yOffset = lerp(yOffset, 0, 0.1 * timeFactorController.timeFactor);
 }
 
 if (zoomIn) {
@@ -48,6 +48,6 @@ if (zoomIn) {
     dashOffset = 0;
 }
 
-view_yview[0] = lerp(view_yview[0], (objPlayer.y - 0.5 * view_hview[0]) + yOffset * view_hview[0] + dashOffset, 0.05 + 0.05 * abs(objPlayer.verticalSpeed) * customDeltaTime);
+view_yview[0] = lerp(view_yview[0], (objPlayer.y - 0.5 * view_hview[0]) + yOffset * view_hview[0] + dashOffset, 0.05 + 0.05 * abs(objPlayer.verticalSpeed) * timeFactorController.timeFactor);
 view_yview[0] = min(view_yview[0], room_height - view_hview[0] / 1.5);
 
