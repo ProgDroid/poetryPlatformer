@@ -251,6 +251,7 @@
       <script>scripts\dec_to_bin.gml</script>
       <script>scripts\loadJson.gml</script>
       <script>scripts\refreshGuiValues.gml</script>
+      <script>scripts\inverseDeltaTime.gml</script>
     </scripts>
     <scripts name="inputScripts">
       <script>scripts\checkHeld.gml</script>
@@ -388,8 +389,8 @@
     <constant name="MAXDOUBLEJUMPS">1</constant>
     <constant name="PLAYERSCALE">0.6</constant>
     <constant name="PLATFORMSCALE">0.7</constant>
-    <constant name="customDeltaTime">timeFactorController.timeFactor * ((60 / global._ts_fps) * (delta_time / ((1 / room_speed) * 1000000)))</constant>
-    <constant name="customDeltaTimeNoTimeFactor">((60 / global._ts_fps) * (delta_time / ((1 / room_speed) * 1000000)))</constant>
+    <constant name="customDeltaTime">timeFactorController.timeFactor * (delta_time / ((1 / 60) * 1000000))</constant>
+    <constant name="customDeltaTimeNoTimeFactor">(delta_time / ((1 / 60) * 1000000))</constant>
     <constant name="IMAGESPEED">timeFactorController.timeFactor * (1 / (room_speed * 0.1))</constant>
     <constant name="IMAGESPEEDNOTIME">(1 / (room_speed * 0.1))</constant>
     <constant name="MAXHORIZONTALSPEED">3.75</constant>

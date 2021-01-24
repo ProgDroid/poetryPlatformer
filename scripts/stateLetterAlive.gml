@@ -1,6 +1,6 @@
 if (state_new) {
     state_new = false;
-    alarm[0] = room_speed * 3 * customDeltaTime;
+    alarm[0] = room_speed * 3 * inverseDeltaTime();
 }
 
 if (image_index > endFrame) {

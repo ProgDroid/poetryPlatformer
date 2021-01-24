@@ -1,6 +1,6 @@
 var instance = instance_create(objPlayer.x - 1, objPlayer.y, objParticles);
 
-instance.alarm[0]     = room_speed * 0.75 * customDeltaTime;
+instance.alarm[0] = room_speed * 0.75 * inverseDeltaTime();
 instance.sprite_index = landingSplat;
 instance.image_speed  = IMAGESPEED;
 instance.image_alpha  = 1;
@@ -11,7 +11,8 @@ instance.fade         = true;
 
 instance = instance_create(objPlayer.x - 2, objPlayer.y, objParticles);
 
-instance.alarm[0]     = room_speed * 0.75 * customDeltaTime;
+instance.alarm[0] = room_speed * 0.75 * inverseDeltaTime();
+
 instance.sprite_index = landingSplatGrey;
 instance.image_speed  = IMAGESPEED;
 instance.image_alpha  = 1;
