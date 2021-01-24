@@ -11,7 +11,7 @@ if (devModeController.devConsole) {
     keyboard_lastchar = "";
     
     devModeController.cursor = "_";
-    devModeController.alarm[0] = room_speed * 0.5 * (1 / customDeltaTimeNoTimeFactor);
+    devModeController.alarm[0] = room_speed * 0.5;
 
     exit;
 }

@@ -1,4 +1,4 @@
 /// endGame
 
-alarm[0] = room_speed * inverseDeltaTime();
+alarm[0] = room_speed;
 

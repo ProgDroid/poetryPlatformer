@@ -6,7 +6,7 @@ if (state_new) {
 
     image_index = (ord('z') - ord('a')) * 13 + 13;
     
-    alarm[1] = room_speed * inverseDeltaTime();
+    alarm[1] = room_speed;
 }
 
 if (image_index > ((ord('z') - ord('a')) * 13 + 17)) {
