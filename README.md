@@ -25,6 +25,17 @@ For more about the future of this project, check out the [project board](https:/
 ### Developer Console
 ![Dev Console](https://user-images.githubusercontent.com/18398887/106155337-76152880-6178-11eb-93ea-c6335835e2e3.png)
 
+## How to play
+Just download the standalone Windows executable release and have fun!
+
+Use `A and D` or `arrow keys` to move. You can also use the `D-Pad` or the `left analog stick` with a controller
+
+Press `Space` to jump (and double jump) or `A` on an Xbox controller or `X` on a Playstation one
+
+Hold `Shift` in the air to start a dash, point with the mouse and confirm with `Space`. This is not currently supported on controller
+
+Press `ESC` or `Start` to exit the game at any time
+
 ## Credits
 Some solutions present here were based on:
 - [fix-your-timestep](https://github.com/GameMakerDiscord/fix-your-timestep)
