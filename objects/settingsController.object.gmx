@@ -75,6 +75,18 @@ if (keybinds == noone) {
     back        = ds_list_create();
     ds_list_add(back, vk_escape, vk_backspace, gp_face2, noone);
 
+    cameraUp    = ds_list_create();
+    ds_list_add(cameraUp, ord('I'), noone, gp_axisrv, noone);
+
+    cameraDown  = ds_list_create();
+    ds_list_add(cameraDown, ord('K'), noone, gp_axisrv, noone);
+
+    cameraLeft  = ds_list_create();
+    ds_list_add(cameraLeft, ord('J'), noone, gp_axisrh, noone);
+
+    cameraRight = ds_list_create();
+    ds_list_add(cameraRight, ord('L'), noone, gp_axisrh, noone);
+
     keybinds    = ds_map_create();
     ds_map_add_list(keybinds, "playerUp", playerUp);
     ds_map_add_list(keybinds, "playerDown", playerDown);
@@ -90,6 +102,10 @@ if (keybinds == noone) {
     ds_map_add_list(keybinds, "menuRight", menuRight);
     ds_map_add_list(keybinds, "accept", accept);
     ds_map_add_list(keybinds, "back", back);
+    ds_map_add_list(keybinds, "cameraUp", cameraUp);
+    ds_map_add_list(keybinds, "cameraDown", cameraDown);
+    ds_map_add_list(keybinds, "cameraLeft", cameraLeft);
+    ds_map_add_list(keybinds, "cameraRight", cameraRight);
 
     ds_map_add(keybinds, "deadzone", 0.2);
     ds_map_add(keybinds, "buttonThreshold", 0.1);
@@ -187,6 +203,10 @@ alarm[0] = 1;
           <argument>
             <kind>1</kind>
             <string>///Destroy structures
+
+var file = file_text_open_write(working_directory + "settings\keybinds.json");
+file_text_write_string(file, json_encode(keybinds));
+file_text_close(file);
 
 if (ds_exists(keybinds, ds_type_map)) {
     ds_map_destroy(keybinds);

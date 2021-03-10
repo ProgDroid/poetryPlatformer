@@ -1,5 +1,10 @@
 ///@description Update the camera
 
+// yikes
+if (objPlayer.state_name = "inCollectionAnimation") {
+    exit;
+}
+
 // view size
 if (panOut) {
     panOutFactor = lerp(panOutFactor, panOutRatio, 0.01 * timeFactorController.timeFactor);
@@ -27,13 +32,16 @@ if (objPlayer.state_name == "ending") {
     limit = 0.5;
 }
 
-var lerpValue = lerp(view_xview[0], objPlayer.x - limit * view_wview[0], 0.05 + 0.05 * objPlayer.maxHorizontalSpeed * timeFactorController.timeFactor) - view_xview[0];
+xShift = lerp(xShift, (inputController.cameraRight - inputController.cameraLeft) * viewShiftMax * !GUIController.gameOver * !objPlayer.dashHeld, 0.1);
+
+var lerpValue = lerp(viewXNoShift, objPlayer.x - limit * view_wview[0], 0.05 + 0.05 * objPlayer.maxHorizontalSpeed * timeFactorController.timeFactor) - viewXNoShift;
 
 if (abs(lerpValue) > abs(objPlayer.horizontalSpeed) + 1) {
     lerpValue = (abs(objPlayer.horizontalSpeed) + 1) * sign(lerpValue) * timeFactorController.timeFactor;
 }
 
-view_xview[0] += lerpValue;
+viewXNoShift += lerpValue;
+view_xview[0] = viewXNoShift + xShift;
 
 // Y axis
 if (offsetVertically) {
@@ -48,6 +56,9 @@ if (zoomIn) {
     dashOffset = 0;
 }
 
-view_yview[0] = lerp(view_yview[0], (objPlayer.y - 0.5 * view_hview[0]) + yOffset * view_hview[0] + dashOffset, 0.05 + 0.05 * abs(objPlayer.verticalSpeed) * timeFactorController.timeFactor);
-view_yview[0] = min(view_yview[0], room_height - view_hview[0] / 1.5);
+yShift = lerp(yShift, (inputController.cameraDown - inputController.cameraUp) * viewShiftMax * !GUIController.gameOver * !objPlayer.dashHeld * !offsetVertically, 0.1);
+
+viewYNoShift  = lerp(viewYNoShift, (objPlayer.y - 0.5 * view_hview[0]) + yOffset * view_hview[0] + dashOffset, 0.05 + 0.05 * abs(objPlayer.verticalSpeed) * timeFactorController.timeFactor);
+viewYNoShift  = min(viewYNoShift, room_height - view_hview[0] / 1.5);
+view_yview[0] = viewYNoShift + yShift;
 

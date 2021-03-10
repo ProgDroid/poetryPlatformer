@@ -56,6 +56,11 @@ menuBack           = false;
 
 start              = false;
 
+cameraUp           = false;
+cameraDown         = false;
+cameraLeft         = false;
+cameraRight        = false;
+
 enum inputmethod {
     pad,
     keyboard
@@ -200,6 +205,11 @@ if (!instance_exists(devModeController) || !(devModeController.devConsole)) {
     playerJumpPressed  = checkPressed(settingsController.keybinds[? "jump"], "");
     playerDashPressed  = checkPressed(settingsController.keybinds[? "dash"], "");
     playerDashConfirm  = checkPressed(settingsController.keybinds[? "dashConfirm"], "");
+
+    cameraUp           = checkHeld(settingsController.keybinds[? "cameraUp"], "less");
+    cameraDown         = checkHeld(settingsController.keybinds[? "cameraDown"], "greater");
+    cameraLeft         = checkHeld(settingsController.keybinds[? "cameraLeft"], "less");
+    cameraRight        = checkHeld(settingsController.keybinds[? "cameraRight"], "greater");
 }
 
 // check if in menu?
@@ -258,7 +268,7 @@ if (gamepad_is_supported() &amp;&amp; async_load[? "event_type"] == "gamepad dis
     currentInputType = inputmethod.pad;
     ds_list_add(connectedPads, slot);
     gamepad_set_axis_deadzone(slot, settingsController.keybinds[? "deadzone"]);
-    gamepad_set_axis_deadzone(slot, settingsController.keybinds[? "buttonThreshold"]);
+    gamepad_set_button_threshold(slot, settingsController.keybinds[? "buttonThreshold"]);
     exit;
 }
 

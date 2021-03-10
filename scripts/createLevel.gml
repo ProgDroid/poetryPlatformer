@@ -184,7 +184,7 @@ room_set_view(
     levelRoom,
     0,
     true,
-    playerX - settingsController.visualSettings[? "height"] div 3,
+    playerX - settingsController.visualSettings[? "width"] div 3,
     playerY - settingsController.visualSettings[? "height"] div 4,
     settingsController.visualSettings[? "width"] div 2,
     settingsController.visualSettings[? "height"] div 2,

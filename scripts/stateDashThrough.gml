@@ -18,7 +18,7 @@ if (instance != noone && instance.visible) {
 
 dashLerp = lerp(dashLerp, 0.15, LERP_AMOUNT);
 
-view_xview[0] += lerp(x, dashX, dashLerp) - x;
+viewController.viewXNoShift += lerp(x, dashX, dashLerp) - x;
 
 x = lerp(x, dashX, dashLerp);
 y = lerp(y, dashY, dashLerp);

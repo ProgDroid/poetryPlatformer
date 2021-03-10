@@ -49,6 +49,12 @@ yOffsetMax       = 0.3;
 originalWidth  = settingsController.visualSettings[? "width"] div 2;
 originalHeight = settingsController.visualSettings[? "height"] div 2;
 
+viewShiftMax = 250;
+viewXNoShift = view_xview[0];
+viewYNoShift = view_yview[0];
+xShift       = 0;
+yShift       = 0;
+
 </string>
           </argument>
         </arguments>
