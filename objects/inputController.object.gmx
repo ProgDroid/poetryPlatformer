@@ -56,7 +56,6 @@ menuBack           = false;
 
 start              = false;
 
-//cameraModifier     = false;
 cameraUp           = false;
 cameraDown         = false;
 cameraLeft         = false;
@@ -206,8 +205,7 @@ if (!instance_exists(devModeController) || !(devModeController.devConsole)) {
     playerJumpPressed  = checkPressed(settingsController.keybinds[? "jump"], "");
     playerDashPressed  = checkPressed(settingsController.keybinds[? "dash"], "");
     playerDashConfirm  = checkPressed(settingsController.keybinds[? "dashConfirm"], "");
-    
-    //cameraModifier     = checkHeld(settingsController.keybinds[? "cameraModifier"], "") + (1 - currentInputType);
+
     cameraUp           = checkHeld(settingsController.keybinds[? "cameraUp"], "less");
     cameraDown         = checkHeld(settingsController.keybinds[? "cameraDown"], "greater");
     cameraLeft         = checkHeld(settingsController.keybinds[? "cameraLeft"], "less");

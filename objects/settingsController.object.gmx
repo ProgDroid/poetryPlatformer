@@ -74,9 +74,6 @@ if (keybinds == noone) {
 
     back        = ds_list_create();
     ds_list_add(back, vk_escape, vk_backspace, gp_face2, noone);
-    
-    //cameraModifier = ds_list_create();
-    //ds_list_add(cameraModifier, vk_control, noone, noone, noone);
 
     cameraUp    = ds_list_create();
     ds_list_add(cameraUp, ord('I'), noone, gp_axisrv, noone);
@@ -105,7 +102,6 @@ if (keybinds == noone) {
     ds_map_add_list(keybinds, "menuRight", menuRight);
     ds_map_add_list(keybinds, "accept", accept);
     ds_map_add_list(keybinds, "back", back);
-    //ds_map_add_list(keybinds, "cameraModifier", cameraModifier);
     ds_map_add_list(keybinds, "cameraUp", cameraUp);
     ds_map_add_list(keybinds, "cameraDown", cameraDown);
     ds_map_add_list(keybinds, "cameraLeft", cameraLeft);
