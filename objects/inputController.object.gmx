@@ -270,7 +270,7 @@ if (gamepad_is_supported() &amp;&amp; async_load[? "event_type"] == "gamepad dis
     currentInputType = inputmethod.pad;
     ds_list_add(connectedPads, slot);
     gamepad_set_axis_deadzone(slot, settingsController.keybinds[? "deadzone"]);
-    gamepad_set_axis_deadzone(slot, settingsController.keybinds[? "buttonThreshold"]);
+    gamepad_set_button_threshold(slot, settingsController.keybinds[? "buttonThreshold"]);
     exit;
 }
 
