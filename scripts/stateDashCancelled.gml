@@ -25,11 +25,7 @@ if (timeFactorController.timeFactor >= 1) {
 
 animations();
 
-facingDir = rightHeld - leftHeld;
-
-if (facingDir != 0) {
-    lastDir = facingDir;
-}
+script_execute(facingDirection);
 
 var gravTmp = grav;
 

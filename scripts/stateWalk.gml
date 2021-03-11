@@ -4,7 +4,7 @@ if (state_new) {
     state_new    = false;
     sprite_index = playerWalk;
     image_index  = 0;
-    doubleJumps  = maxDoubleJumps;
+    doubleJump   = doubleJumpScript;
     noCoyote     = false;
     dashes       = maxDashes;
 
@@ -21,47 +21,17 @@ if (state_new) {
     viewController.offsetVertically = false;
     viewController.zoomIn           = false;
     flashController.dashDark        = false;
+
+    moveHorizontal = walk;
 }
 
 animations();
 
-facingDir = rightHeld - leftHeld;
+script_execute(facingDirection);
 
-if (facingDir != 0) {
-    lastDir = facingDir;
-}
+script_execute(collectStuff);
 
-if (place_meeting(x, y, objCollectible)) {
-    stateSwitch("inCollectionAnimation");
-}
-
-if (place_meeting(x, y, objLevelEnd)) {
-    stateSwitch("ending");
-}
-
-// if holding directional key
-if (leftHeld ^^ rightHeld && !isAgainstWall(rightHeld - leftHeld)) {
-    // check for slide
-    var accelerationTmp = acceleration;
-
-    if (horizontalSpeed != 0 &&
-        sign(horizontalSpeed) != facingDir
-    ) {
-        accelerationTmp *= slideFactor;
-    }
-
-    horizontalMovement(accelerationTmp);
-} else if (!isAgainstWall(sign(horizontalSpeed))){ // if not holding keys
-    var speedSign    = sign(horizontalSpeed);
-    horizontalSpeed -= speedSign * deceleration * timeFactorController.timeFactor;
-
-    if (sign(horizontalSpeed) != speedSign) {
-        horizontalSpeed = 0;
-    }
-} else if (isAgainstWall(rightHeld - leftHeld)) {
-    // push
-    show_debug_message("pushing");
-}
+script_execute(moveHorizontal);
 
 // collisions
 horizontalCollisions();

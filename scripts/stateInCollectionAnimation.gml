@@ -10,7 +10,7 @@ if (state_new) {
     oldViewX = view_xview[0];
     oldViewY = view_yview[0];
     
-    doubleJumps = MAXDOUBLEJUMPS;
+    doubleJump  = doubleJumpScript;
     dashes      = maxDashes;
     
     alarm[3] = -1;

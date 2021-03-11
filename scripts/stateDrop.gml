@@ -18,63 +18,24 @@ if (state_new) {
     viewController.panOut    = false;
     viewController.zoomIn    = false;
     flashController.dashDark = false;
+
+    moveHorizontal = airWalk;
 }
 
 animations();
 
-facingDir = rightHeld - leftHeld;
+script_execute(facingDirection);
 
-if (facingDir != 0) {
-    lastDir = facingDir;
-}
+script_execute(collectStuff);
 
-if (place_meeting(x, y, objCollectible)) {
-    stateSwitch("inCollectionAnimation");
-}
+script_execute(moveVertical);
 
-if (place_meeting(x, y, objLevelEnd)) {
-    stateSwitch("ending");
-}
-
-var gravTmp = grav;
-
-if (jumpHeld && abs(verticalSpeed) < 1) {
-    gravTmp /= 2;
-}
-
-verticalSpeed += gravTmp * timeFactorController.timeFactor;
-verticalSpeed  = clamp(verticalSpeed, -maxVerticalSpeed, maxVerticalSpeed);
-
-// air movement
-if (((leftHeld ^^ rightHeld) && !isAgainstWallAir(rightHeld - leftHeld))) {
-    var accelerationTmp = acceleration;
-
-    if (horizontalSpeed != 0 &&
-        sign(horizontalSpeed) != facingDir
-    ) {
-        accelerationTmp *= airFrictionFactor;
-    }
-
-    horizontalMovement(accelerationTmp);
-} else { // if not holding keys
-    var speedSign    = sign(horizontalSpeed);
-    horizontalSpeed -= speedSign * airDeceleration * timeFactorController.timeFactor;
-
-    if (sign(horizontalSpeed) != speedSign) {
-        horizontalSpeed = 0;
-    }
-}
+script_execute(moveHorizontal);
 
 // collisions
 verticalCollisions();
 
-if (place_meeting(x, y, objPlatforms)) {
-    if (!place_meeting(x - abs(offsetRight), y, objPlatforms)) {
-        x -= 1;
-    } else if (!place_meeting(x + abs(offsetLeft), y, objPlatforms)) {
-        x += 1;
-    }
-}
+script_execute(slideAlongWalls);
 
 horizontalCollisions();
 
@@ -99,18 +60,8 @@ if (
     stateSwitch("drop");
 }
 
-// double jump
-if (jumpPressed && state_timer > doubleJumpTime && doubleJumps > 0) {
-    verticalSpeed = -maxVerticalSpeed;
-    doubleJumps -= 1;
-    image_index = 0;
-    drawingScaleX = 0.75 - 0.05;
-    drawingScaleY = 1.35 + 0.05;
-    image_speed   = 0;
-    viewController.offsetVertically = false;
-    alarm[3] = room_speed * 1;
-    eventFire(allEvents.doublejump);
-    stateSwitch("drop");
+if (jumpPressed) {
+    script_execute(doubleJump);
 }
 
 if (dashPressed && dashes > 0) {

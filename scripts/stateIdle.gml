@@ -6,7 +6,7 @@ if (state_new) {
     verticalSpeed   = 0;
     sprite_index    = playerIdle;
     image_index     = 0;
-    doubleJumps     = maxDoubleJumps;
+    doubleJump      = doubleJumpScript;
     noCoyote        = false;
     dashes          = maxDashes;
 

@@ -221,6 +221,13 @@
       <script>scripts\stateDashThrough.gml</script>
       <script>scripts\stateDashCancelled.gml</script>
       <script>scripts\stateEnding.gml</script>
+      <script>scripts\facingDirScript.gml</script>
+      <script>scripts\walk.gml</script>
+      <script>scripts\collect.gml</script>
+      <script>scripts\drop.gml</script>
+      <script>scripts\airWalk.gml</script>
+      <script>scripts\slideOnWall.gml</script>
+      <script>scripts\doubleJumpScript.gml</script>
     </scripts>
     <scripts name="timestepScripts">
       <script>scripts\_fixed_timestep_ev_create.gml</script>
@@ -251,6 +258,7 @@
       <script>scripts\dec_to_bin.gml</script>
       <script>scripts\loadJson.gml</script>
       <script>scripts\refreshGuiValues.gml</script>
+      <script>scripts\emptyScript.gml</script>
     </scripts>
     <scripts name="inputScripts">
       <script>scripts\checkHeld.gml</script>
@@ -378,14 +386,13 @@
     <room>rooms\room11</room>
     <room>rooms\room4</room>
   </rooms>
-  <constants number="14">
+  <constants number="13">
     <constant name="LERP_AMOUNT">0.025</constant>
     <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
     <constant name="BASE_WIDTH">1920</constant>
     <constant name="MAXCOLLECTIBLES">5</constant>
     <constant name="MAXJUMPBUFFER">7</constant>
-    <constant name="MAXDOUBLEJUMPS">1</constant>
     <constant name="PLAYERSCALE">0.6</constant>
     <constant name="PLATFORMSCALE">0.7</constant>
     <constant name="customDeltaTime">timeFactorController.timeFactor * (delta_time / ((1 / 60) * 1000000))</constant>
