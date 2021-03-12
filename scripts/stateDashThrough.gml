@@ -39,7 +39,6 @@ if (x > dashX - 5 && x < dashX + 5 &&
 ) {
     verticalSpeed   = 0;
     horizontalSpeed = 0;
-    noCoyote        = true;
     applyTimeFactor(1);
     stateSwitch("drop");
 }

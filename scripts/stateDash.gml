@@ -4,7 +4,6 @@ if (state_new) {
     state_new      = false;
     dashHeldBuffer = 5;
     alarm[3]       = -1;
-    noCoyote       = true;
 
     viewController.offsetVertically = false;
     viewController.zoomIn           = true;

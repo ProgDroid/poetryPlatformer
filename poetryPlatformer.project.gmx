@@ -221,13 +221,6 @@
       <script>scripts\stateDashThrough.gml</script>
       <script>scripts\stateDashCancelled.gml</script>
       <script>scripts\stateEnding.gml</script>
-      <script>scripts\facingDirScript.gml</script>
-      <script>scripts\walk.gml</script>
-      <script>scripts\collect.gml</script>
-      <script>scripts\drop.gml</script>
-      <script>scripts\airWalk.gml</script>
-      <script>scripts\slideOnWall.gml</script>
-      <script>scripts\doubleJumpScript.gml</script>
     </scripts>
     <scripts name="timestepScripts">
       <script>scripts\_fixed_timestep_ev_create.gml</script>
@@ -266,6 +259,18 @@
     </scripts>
     <scripts name="settingsScripts">
       <script>scripts\changeResolution.gml</script>
+    </scripts>
+    <scripts name="playerStateSubScripts">
+      <script>scripts\facingDirScript.gml</script>
+      <script>scripts\walk.gml</script>
+      <script>scripts\collect.gml</script>
+      <script>scripts\drop.gml</script>
+      <script>scripts\airWalk.gml</script>
+      <script>scripts\slideOnWall.gml</script>
+      <script>scripts\doubleJumpScript.gml</script>
+      <script>scripts\coyoteJump.gml</script>
+      <script>scripts\landScript.gml</script>
+      <script>scripts\dieScript.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -386,7 +391,7 @@
     <room>rooms\room11</room>
     <room>rooms\room4</room>
   </rooms>
-  <constants number="13">
+  <constants number="14">
     <constant name="LERP_AMOUNT">0.025</constant>
     <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
@@ -399,6 +404,7 @@
     <constant name="customDeltaTimeNoTimeFactor">(delta_time / ((1 / 60) * 1000000))</constant>
     <constant name="IMAGESPEED">timeFactorController.timeFactor * (1 / (room_speed * 0.1))</constant>
     <constant name="IMAGESPEEDNOTIME">(1 / (room_speed * 0.1))</constant>
+    <constant name="COYOTE_TIME">8</constant>
     <constant name="MAXHORIZONTALSPEED">3.75</constant>
   </constants>
   <help>

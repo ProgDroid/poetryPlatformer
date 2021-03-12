@@ -99,11 +99,9 @@ slideFactor        = 2;
 airFrictionFactor  = 3;
 airDeceleration    = 0.04;
 coyoteTime         = 7;
-doubleJumpTime     = 10;
 doubleJump         = doubleJumpScript;
 maxJumpBuffer      = MAXJUMPBUFFER;
 jumpBuffer         = 0;
-noCoyote           = false;
 
 facingDir = 0;
 lastDir   = 0;
@@ -127,7 +125,6 @@ drawingScaleY = 1;
 
 maxDashes       = 1;
 dashes          = maxDashes;
-dashTime        = 5;
 dashTimer       = -1;
 dashTraceLength = 0;
 dashScale       = 0;
@@ -143,6 +140,8 @@ collectStuff    = collect;
 moveVertical    = drop;
 slideAlongWalls = slideOnWall;
 doubleJump      = doubleJumpScript;
+land            = landScript;
+die             = dieScript;
 
 </string>
           </argument>

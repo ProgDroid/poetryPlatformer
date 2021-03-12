@@ -1,9 +1,5 @@
 ///doubleJumpScript
 
-if (state_timer <= doubleJumpTime) {
-    exit;
-}
-
 verticalSpeed = -maxVerticalSpeed;
 doubleJump    = emptyScript;
 image_index   = 0;

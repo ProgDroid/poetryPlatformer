@@ -7,7 +7,6 @@ if (state_new) {
     sprite_index    = playerIdle;
     image_index     = 0;
     doubleJump      = doubleJumpScript;
-    noCoyote        = false;
     dashes          = maxDashes;
 
     if (hp <= 3) {
@@ -34,6 +33,7 @@ if (((leftHeld ^^ rightHeld) && !isAgainstWall(rightHeld - leftHeld))
 
 // platform ran away from under you
 if (!isOnFloor() && !isSlidingOff()) {
+    doubleJump = coyoteJump;
     stateSwitch("drop");
 }
 

@@ -43,24 +43,12 @@ if (jumpBuffer > 0) {
     jumpBuffer -= 1;
 }
 
+if (state_timer == COYOTE_TIME) {
+    doubleJump = doubleJumpScript;
+}
+
 if (jumpPressed) {
     jumpBuffer = maxJumpBuffer;
-}
-
-if (
-    jumpPressed &&
-    state_timer <= coyoteTime &&
-    verticalSpeed >= 0 &&
-    horizontalSpeed != 0 &&
-    !noCoyote
-) {
-    y -= state_timer div 2;
-
-    verticalSpeed = -maxVerticalSpeed;
-    stateSwitch("drop");
-}
-
-if (jumpPressed) {
     script_execute(doubleJump);
 }
 
@@ -73,29 +61,12 @@ if (dashHeld) {
 }
 
 // dash
-if (state_timer > dashTime && dashTimer == 0) {
+if (dashTimer == 0) {
     dashTimer = -1;
     stateSwitch("dashStart", false);
 }
 
-if (verticalSpeed == 0 && (isOnFloor() || isSlidingOff())) {
-    if (hp <= 3) {
-        alarm[1] = room_speed * 0.5;
-        image_speed = IMAGESPEED - 0.1;
-        maxHorizontalSpeed = MAXHORIZONTALSPEED - 0.33;
-        if (hp == 1) {
-            maxHorizontalSpeed = MAXHORIZONTALSPEED - 0.66;
-        }
-    }
+script_execute(land);
 
-    if (horizontalSpeed != 0 || (leftHeld ^^ rightHeld)) {
-        stateSwitch("walk");
-    } else {
-        stateSwitch("idle");
-    }
-}
-
-if (bbox_top > (room_height + 50)) {
-    eventFire(allEvents.playerfell);
-}
+script_execute(die);
 

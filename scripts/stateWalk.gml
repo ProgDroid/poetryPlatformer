@@ -5,7 +5,6 @@ if (state_new) {
     sprite_index = playerWalk;
     image_index  = 0;
     doubleJump   = doubleJumpScript;
-    noCoyote     = false;
     dashes       = maxDashes;
 
     if (hp <= 3) {
@@ -43,6 +42,7 @@ if (horizontalSpeed == 0) {
 
 // no floor
 if (!isOnFloor() && !isSlidingOff()) {
+    doubleJump = coyoteJump;
     stateSwitch("drop");
 }
 
