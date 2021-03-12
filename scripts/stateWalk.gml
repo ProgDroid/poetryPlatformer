@@ -49,6 +49,7 @@ if (!isOnFloor() && !isSlidingOff()) {
 // jump
 if ((jumpPressed || jumpBuffer > 0) && (isOnFloor() || isSlidingOff())) {
     verticalSpeed = -maxVerticalSpeed;
+    doubleJump = doubleJumpScript;
     stateSwitch("drop");
 }
 

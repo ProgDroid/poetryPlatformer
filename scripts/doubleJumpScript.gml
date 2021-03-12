@@ -1,5 +1,9 @@
 ///doubleJumpScript
 
+if (state_timer <= COYOTE_TIME) {
+    exit;
+}
+
 verticalSpeed = -maxVerticalSpeed;
 doubleJump    = emptyScript;
 image_index   = 0;

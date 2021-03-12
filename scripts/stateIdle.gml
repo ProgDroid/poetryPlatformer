@@ -33,13 +33,13 @@ if (((leftHeld ^^ rightHeld) && !isAgainstWall(rightHeld - leftHeld))
 
 // platform ran away from under you
 if (!isOnFloor() && !isSlidingOff()) {
-    doubleJump = coyoteJump;
     stateSwitch("drop");
 }
 
 // regular jump
 if (!(downPressed || downHeld) && (jumpPressed || jumpBuffer > 0) && (isOnFloor() || isSlidingOff())) {
     verticalSpeed = -maxVerticalSpeed;
+    doubleJump = doubleJumpScript;
     stateSwitch("drop");
 }
 

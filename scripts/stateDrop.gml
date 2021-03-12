@@ -43,7 +43,7 @@ if (jumpBuffer > 0) {
     jumpBuffer -= 1;
 }
 
-if (state_timer == COYOTE_TIME) {
+if (state_timer == COYOTE_TIME && doubleJump == coyoteJump) {
     doubleJump = doubleJumpScript;
 }
 
