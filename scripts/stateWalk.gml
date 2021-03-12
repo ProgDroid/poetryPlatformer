@@ -4,7 +4,6 @@ if (state_new) {
     state_new    = false;
     sprite_index = playerWalk;
     image_index  = 0;
-    doubleJump   = doubleJumpScript;
     dashes       = maxDashes;
 
     if (hp <= 3) {
@@ -49,7 +48,7 @@ if (!isOnFloor() && !isSlidingOff()) {
 // jump
 if ((jumpPressed || jumpBuffer > 0) && (isOnFloor() || isSlidingOff())) {
     verticalSpeed = -maxVerticalSpeed;
-    doubleJump = doubleJumpScript;
+    doubleJump    = emptyScript;
     stateSwitch("drop");
 }
 

@@ -43,12 +43,12 @@ if (jumpBuffer > 0) {
     jumpBuffer -= 1;
 }
 
-if (state_timer == COYOTE_TIME && doubleJump == coyoteJump) {
+if (state_timer == COYOTE_TIME && doubleJump != noJump) {
     doubleJump = doubleJumpScript;
 }
 
 if (jumpPressed) {
-    jumpBuffer = maxJumpBuffer;
+    jumpBuffer = MAXJUMPBUFFER;
     script_execute(doubleJump);
 }
 

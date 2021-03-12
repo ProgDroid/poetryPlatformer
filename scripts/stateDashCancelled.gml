@@ -74,7 +74,7 @@ if (jumpBuffer > 0) {
 }
 
 if (jumpPressed) {
-    jumpBuffer = maxJumpBuffer;
+    jumpBuffer = MAXJUMPBUFFER;
 }
 
 if (verticalSpeed == 0 && (isOnFloor() || isSlidingOff())) {

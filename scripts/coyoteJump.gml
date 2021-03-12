@@ -7,7 +7,7 @@ if (
     y -= state_timer div 2;
 
     verticalSpeed = -maxVerticalSpeed;
-    doubleJump    = doubleJumpScript;
+    doubleJump    = emptyScript;
     stateSwitch("drop");
 }
 

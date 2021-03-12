@@ -6,7 +6,6 @@ if (state_new) {
     verticalSpeed   = 0;
     sprite_index    = playerIdle;
     image_index     = 0;
-    doubleJump      = doubleJumpScript;
     dashes          = maxDashes;
 
     if (hp <= 3) {
@@ -33,13 +32,14 @@ if (((leftHeld ^^ rightHeld) && !isAgainstWall(rightHeld - leftHeld))
 
 // platform ran away from under you
 if (!isOnFloor() && !isSlidingOff()) {
+    doubleJump = emptyScript;
     stateSwitch("drop");
 }
 
 // regular jump
 if (!(downPressed || downHeld) && (jumpPressed || jumpBuffer > 0) && (isOnFloor() || isSlidingOff())) {
     verticalSpeed = -maxVerticalSpeed;
-    doubleJump = doubleJumpScript;
+    doubleJump    = emptyScript;
     stateSwitch("drop");
 }
 

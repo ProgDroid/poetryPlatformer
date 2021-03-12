@@ -10,6 +10,8 @@ if (verticalSpeed == 0 && (isOnFloor() || isSlidingOff())) {
         }
     }
 
+    doubleJump = emptyScript;
+
     if (horizontalSpeed != 0 || (leftHeld ^^ rightHeld)) {
         stateSwitch("walk");
     } else {

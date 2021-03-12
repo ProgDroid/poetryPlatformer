@@ -271,6 +271,7 @@
       <script>scripts\coyoteJump.gml</script>
       <script>scripts\landScript.gml</script>
       <script>scripts\dieScript.gml</script>
+      <script>scripts\noJump.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">

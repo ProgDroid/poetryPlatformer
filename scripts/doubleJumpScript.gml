@@ -1,11 +1,7 @@
 ///doubleJumpScript
 
-if (state_timer <= COYOTE_TIME) {
-    exit;
-}
-
 verticalSpeed = -maxVerticalSpeed;
-doubleJump    = emptyScript;
+doubleJump    = noJump;
 image_index   = 0;
 drawingScaleX = 0.75 - 0.05;
 drawingScaleY = 1.35 + 0.05;

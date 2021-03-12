@@ -98,9 +98,6 @@ deceleration       = 0.35;
 slideFactor        = 2;
 airFrictionFactor  = 3;
 airDeceleration    = 0.04;
-coyoteTime         = 7;
-doubleJump         = doubleJumpScript;
-maxJumpBuffer      = MAXJUMPBUFFER;
 jumpBuffer         = 0;
 
 facingDir = 0;
@@ -139,7 +136,7 @@ moveHorizontal  = walk;
 collectStuff    = collect;
 moveVertical    = drop;
 slideAlongWalls = slideOnWall;
-doubleJump      = doubleJumpScript;
+doubleJump      = emptyScript;
 land            = landScript;
 die             = dieScript;
 
