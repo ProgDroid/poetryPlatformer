@@ -20,6 +20,9 @@ if (state_new) {
     flashController.dashDark = false;
 
     moveHorizontal = airWalk;
+    collectStuff   = collect;
+    land           = landScript;
+    die            = dieScript;
 }
 
 animations();

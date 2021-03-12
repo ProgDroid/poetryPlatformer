@@ -13,6 +13,9 @@ if (state_new) {
     eventFire(allEvents.dashheld);
 
     dashTraceLength = 0;
+
+    land = dashLandScript;
+    die  = dashDieScript;
 }
 
 applyTimeFactor(lerp(timeFactorController.timeFactor, 0.05, 0.5 * timeFactorController.timeFactor));
@@ -41,71 +44,17 @@ animations();
 
 script_execute(facingDirection);
 
-var gravTmp = grav;
+script_execute(moveVertical);
 
-if (jumpHeld && abs(verticalSpeed) < 1) {
-    gravTmp /= 2;
-}
-
-verticalSpeed += gravTmp * timeFactorController.timeFactor;
-verticalSpeed  = clamp(verticalSpeed, -maxVerticalSpeed, maxVerticalSpeed);
-
-// air movement
-if (((leftHeld ^^ rightHeld) && !isAgainstWallAir(rightHeld - leftHeld))) {
-    var accelerationTmp = acceleration;
-
-    if (horizontalSpeed != 0 &&
-        sign(horizontalSpeed) != facingDir
-    ) {
-        accelerationTmp *= airFrictionFactor;
-    }
-
-    horizontalMovement(accelerationTmp);
-} else { // if not holding keys
-    var speedSign    = sign(horizontalSpeed);
-    horizontalSpeed -= speedSign * airDeceleration * timeFactorController.timeFactor;
-
-    if (sign(horizontalSpeed) != speedSign) {
-        horizontalSpeed = 0;
-    }
-}
+script_execute(moveHorizontal);
 
 // collisions
 verticalCollisions();
 
-if (place_meeting(x, y, objPlatforms)) {
-    if (!place_meeting(x - abs(offsetRight), y, objPlatforms)) {
-        x -= 1;
-    } else if (!place_meeting(x + abs(offsetLeft), y, objPlatforms)) {
-        x += 1;
-    }
-}
+script_execute(slideAlongWalls);
 
 horizontalCollisions();
 
-if (verticalSpeed == 0 && (isOnFloor() || isSlidingOff())) {
-    if (hp <= 3) {
-        alarm[1] = room_speed * 0.5 * timeFactorController.timeFactor;
-        image_speed = IMAGESPEED - 0.1;
-        maxHorizontalSpeed = MAXHORIZONTALSPEED - 0.33;
-        if (hp == 1) {
-            maxHorizontalSpeed = MAXHORIZONTALSPEED - 0.66;
-        }
-    }
+script_execute(land);
 
-    if (horizontalSpeed != 0 || (leftHeld ^^ rightHeld)) {
-        dashTraceLength = 0;
-        applyTimeFactor(1);
-        stateSwitch("walk");
-    } else {
-        dashTraceLength = 0;
-        applyTimeFactor(1);
-        stateSwitch("idle");
-    }
-}
-
-if (bbox_top > (room_height + 50)) {
-    dashTraceLength = 0;
-    applyTimeFactor(1);
-    eventFire(allEvents.playerfell);
-}
+script_execute(die);

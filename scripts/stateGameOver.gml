@@ -12,6 +12,9 @@ if (state_new) {
     alarm[3]     = -1;
     viewController.offsetVertically = false;
     viewController.yOffset          = 0;
+
+    viewController.zoomIn           = false;
+    flashController.dashDark        = false;
 }
 
 if (floor(image_index) == 24) {

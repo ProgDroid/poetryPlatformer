@@ -272,6 +272,9 @@
       <script>scripts\landScript.gml</script>
       <script>scripts\dieScript.gml</script>
       <script>scripts\noJump.gml</script>
+      <script>scripts\dashLandScript.gml</script>
+      <script>scripts\dashDieScript.gml</script>
+      <script>scripts\dashCollect.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">
