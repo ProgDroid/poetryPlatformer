@@ -287,12 +287,21 @@ if (!devConsole &amp;&amp; instance_exists(objPlayer)) {
     draw_text(devTextPosition, 224, "drawing scale X: " + string(objPlayer.drawingScaleX));
     draw_text(devTextPosition, 240, "drawing scale Y: " + string(objPlayer.drawingScaleY));
     draw_text(devTextPosition, 256, "last dir: " + string(objPlayer.lastDir));
-    draw_text(devTextPosition, 272, "double jumps: " + string(objPlayer.doubleJumps));
+    draw_text(devTextPosition, 272, "double jumps: " + string(objPlayer.doubleJump == doubleJumpScript));
     draw_text(devTextPosition, 288, "input type: " + string(inputController.currentInputType));
     draw_text(devTextPosition, 304, "active pad: " + string(inputController.activePad));
     draw_text(devTextPosition, 320, "connected pads: " + string(ds_list_size(inputController.connectedPads)));
     draw_text(devTextPosition, 336, "dashes: " + string(objPlayer.dashes));
     draw_text(devTextPosition, 352, "maxDashes: " + string(objPlayer.maxDashes));
+    draw_text(devTextPosition, 384, "scripts:");
+    draw_text(devTextPosition + 20, 400, "facingDirection: " + string(script_get_name(objPlayer.facingDirection)));
+    draw_text(devTextPosition + 20, 416, "moveHorizontal: " + string(script_get_name(objPlayer.moveHorizontal)));
+    draw_text(devTextPosition + 20, 432, "collectStuff: " + string(script_get_name(objPlayer.collectStuff)));
+    draw_text(devTextPosition + 20, 448, "moveVertical: " + string(script_get_name(objPlayer.moveVertical)));
+    draw_text(devTextPosition + 20, 464, "slideAlongWalls: " + string(script_get_name(objPlayer.slideAlongWalls)));
+    draw_text(devTextPosition + 20, 480, "doubleJump: " + string(script_get_name(objPlayer.doubleJump)));
+    draw_text(devTextPosition + 20, 496, "land: " + string(script_get_name(objPlayer.land)));
+    draw_text(devTextPosition + 20, 512, "die: " + string(script_get_name(objPlayer.die)));
 
     draw_set_colour(c_white);
 }

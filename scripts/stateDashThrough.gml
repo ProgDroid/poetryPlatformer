@@ -7,6 +7,10 @@ if (state_new) {
     flashController.dashDark = false;
     applyTimeFactor(0);
     dashLerp = LERP_AMOUNT;
+
+    collectStuff = dashCollect;
+    land         = landScript;
+    die          = dieScript;
 }
 
 var instance = instance_place(dashX, dashY, objPlatforms);
@@ -23,15 +27,7 @@ viewController.viewXNoShift += lerp(x, dashX, dashLerp) - x;
 x = lerp(x, dashX, dashLerp);
 y = lerp(y, dashY, dashLerp);
 
-if (place_meeting(x, y, objCollectible)) {
-    applyTimeFactor(1);
-    stateSwitch("inCollectionAnimation");
-}
-
-if (place_meeting(x, y, objLevelEnd)) {
-    applyTimeFactor(1);
-    stateSwitch("ending");
-}
+script_execute(collectStuff);
 
 if (x > dashX - 5 && x < dashX + 5 &&
     y > dashY - 5 && y < dashY + 5 &&
@@ -39,7 +35,6 @@ if (x > dashX - 5 && x < dashX + 5 &&
 ) {
     verticalSpeed   = 0;
     horizontalSpeed = 0;
-    noCoyote        = true;
     applyTimeFactor(1);
     stateSwitch("drop");
 }

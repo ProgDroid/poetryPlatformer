@@ -98,13 +98,7 @@ deceleration       = 0.35;
 slideFactor        = 2;
 airFrictionFactor  = 3;
 airDeceleration    = 0.04;
-coyoteTime         = 7;
-doubleJumpTime     = 10;
-maxDoubleJumps     = MAXDOUBLEJUMPS;
-doubleJumps        = maxDoubleJumps;
-maxJumpBuffer      = MAXJUMPBUFFER;
 jumpBuffer         = 0;
-noCoyote           = false;
 
 facingDir = 0;
 lastDir   = 0;
@@ -128,7 +122,6 @@ drawingScaleY = 1;
 
 maxDashes       = 1;
 dashes          = maxDashes;
-dashTime        = 5;
 dashTimer       = -1;
 dashTraceLength = 0;
 dashScale       = 0;
@@ -137,6 +130,15 @@ dashSize        = sprite_get_width(spriteDashTrace);
 dashX           = 0;
 dashY           = 0;
 dashLerp        = LERP_AMOUNT;
+
+facingDirection = facingDirScript;
+moveHorizontal  = walk;
+collectStuff    = collect;
+moveVertical    = drop;
+slideAlongWalls = slideOnWall;
+doubleJump      = emptyScript;
+land            = landScript;
+die             = dieScript;
 
 </string>
           </argument>
