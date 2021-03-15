@@ -7,31 +7,24 @@ if (argument_count != 1) {
 }
 
 var loops = instance_number(objPlatforms);
-var index;
-for (index = 0; index < loops; index++) {
-    var instance = instance_find(objPlatforms, index);
-    if (instance.id == id) {
-        break;
-    }
-}
 
-for (var i = index + 1; i < loops; i++) {
-    if (platformController.wordIndex[i] != platformController.wordIndex[index]) {
+for (var i = selfIndex + 1; i < loops; i++) {
+    if (platformController.wordIndex[i] != platformController.wordIndex[selfIndex]) {
         break;
     }
 
     var instance = instance_find(objPlatforms, i);
-    instance.alarm[argument[0]]     = room_speed * 0.2 * abs(i - index);
+    instance.alarm[argument[0]]     = room_speed * 0.2 * abs(i - selfIndex);
     instance.alarm[1 - argument[0]] = -1;
 }
 
-for (var i = index - 1; i >= 0; i--) {
-    if (platformController.wordIndex[i] != platformController.wordIndex[index]) {
+for (var i = selfIndex - 1; i >= 0; i--) {
+    if (platformController.wordIndex[i] != platformController.wordIndex[selfIndex]) {
         break;
     }
     
     var instance = instance_find(objPlatforms, i);
-    instance.alarm[argument[0]]     = room_speed * 0.2 * abs(i - index);
+    instance.alarm[argument[0]]     = room_speed * 0.2 * abs(i - selfIndex);
     instance.alarm[1 - argument[0]] = -1;
 }
 

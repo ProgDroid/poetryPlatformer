@@ -58,6 +58,13 @@ for (var i = 0; i &lt; loops; i++) {
 
 eventRegister(allEvents.theend, id, endGame);
 
+loops = instance_number(objPlatforms);
+
+for (var i = 0; i &lt; loops; i++) {
+    var instance = instance_find(objPlatforms, i);
+    instance.selfIndex = i;
+}
+
 </string>
           </argument>
         </arguments>
