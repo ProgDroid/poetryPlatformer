@@ -13,7 +13,7 @@ if (((leftHeld ^^ rightHeld) && !isAgainstWallAir(rightHeld - leftHeld))) {
     horizontalMovement(accelerationTmp);
 } else { // if not holding keys
     var speedSign    = sign(horizontalSpeed);
-    horizontalSpeed -= speedSign * airDeceleration * timeFactorController.timeFactor;
+    horizontalSpeed -= speedSign * airDeceleration * timeFactorController.timeFactor * timeFactorController.pauseFactor;
 
     if (sign(horizontalSpeed) != speedSign) {
         horizontalSpeed = 0;

@@ -1,5 +1,5 @@
 if (speedFactor < 1) {
-    speedFactor += 0.01 * timeFactorController.timeFactor;
+    speedFactor += 0.01 * timeFactorController.timeFactor * timeFactorController.pauseFactor;
 }
 
 move_towards_point(objPlayer.x, objPlayer.y, speedFactor * 20 * customDeltaTime);

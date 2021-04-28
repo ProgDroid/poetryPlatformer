@@ -5,9 +5,8 @@ devModeController.devConsole = !devModeController.devConsole;
 if (devModeController.devConsole) {
     postProcessingController.blur = true;
 
-    timeFactorController.previousTimeFactor = timeFactorController.timeFactor;
-    applyTimeFactor(0);
-    
+    pause();
+
     keyboard_lastchar = "";
     
     devModeController.cursor = "_";
@@ -19,5 +18,5 @@ if (devModeController.devConsole) {
 postProcessingController.blur = false;
 application_surface_draw_enable(true);
 
-applyTimeFactor(timeFactorController.previousTimeFactor);
+unpause();
 

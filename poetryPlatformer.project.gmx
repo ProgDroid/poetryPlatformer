@@ -252,6 +252,9 @@
       <script>scripts\loadJson.gml</script>
       <script>scripts\refreshGuiValues.gml</script>
       <script>scripts\emptyScript.gml</script>
+      <script>scripts\refreshImageSpeeds.gml</script>
+      <script>scripts\pause.gml</script>
+      <script>scripts\unpause.gml</script>
     </scripts>
     <scripts name="inputScripts">
       <script>scripts\checkHeld.gml</script>
@@ -404,10 +407,10 @@
     <constant name="MAXJUMPBUFFER">7</constant>
     <constant name="PLAYERSCALE">0.6</constant>
     <constant name="PLATFORMSCALE">0.7</constant>
-    <constant name="customDeltaTime">timeFactorController.timeFactor * (delta_time / ((1 / 60) * 1000000))</constant>
-    <constant name="customDeltaTimeNoTimeFactor">(delta_time / ((1 / 60) * 1000000))</constant>
-    <constant name="IMAGESPEED">timeFactorController.timeFactor * (1 / (room_speed * 0.1))</constant>
-    <constant name="IMAGESPEEDNOTIME">(1 / (room_speed * 0.1))</constant>
+    <constant name="customDeltaTime">timeFactorController.pauseFactor * timeFactorController.timeFactor * (delta_time / ((1 / 60) * 1000000))</constant>
+    <constant name="customDeltaTimeNoTimeFactor">timeFactorController.pauseFactor * (delta_time / ((1 / 60) * 1000000))</constant>
+    <constant name="IMAGESPEED">timeFactorController.pauseFactor * timeFactorController.timeFactor * (1 / (room_speed * 0.1))</constant>
+    <constant name="IMAGESPEEDNOTIME">timeFactorController.pauseFactor * (1 / (room_speed * 0.1))</constant>
     <constant name="COYOTE_TIME">8</constant>
     <constant name="MAXHORIZONTALSPEED">3.75</constant>
   </constants>
