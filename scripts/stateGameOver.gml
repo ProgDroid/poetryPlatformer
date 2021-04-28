@@ -22,7 +22,8 @@ if (floor(image_index) == 24) {
     image_speed = 0;
 }
 
-if (jumpPressed) {
+if (inputController.playerJumpPressed) {
+    inputController.playerJumpPressed = false;
     with(all) {
         if (!persistent) {
             instance_destroy();

@@ -22,7 +22,8 @@ applyTimeFactor(lerp(timeFactorController.timeFactor, 0.05, 0.5 * timeFactorCont
 
 dashTraceLength = lerp(dashTraceLength, DASH_TRACE_LENGTH, 0.15);
 
-if (dashConfirm) {
+if (inputController.playerDashConfirm) {
+    inputController.playerDashConfirm = false;
     dashTraceLength = 0;
     stateSwitch("dashThrough", false);
 
@@ -36,7 +37,7 @@ if (dashHeldBuffer <= 0 || state_timer > 300) {
     eventFire(allEvents.dashcancelled);
 }
 
-if (!dashHeld) {
+if (!inputController.playerDashHeld) {
     dashHeldBuffer--;
 }
 

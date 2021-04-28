@@ -25,7 +25,7 @@ if (state_new) {
 animations();
 
 // walk if not against wall
-if (((leftHeld ^^ rightHeld) && !isAgainstWall(rightHeld - leftHeld))
+if (((inputController.playerLeftHeld ^^ inputController.playerRightHeld) && !isAgainstWall(inputController.playerRightHeld - inputController.playerLeftHeld))
 ) {
     stateSwitch("walk");
 }
@@ -37,7 +37,9 @@ if (!isOnFloor() && !isSlidingOff()) {
 }
 
 // regular jump
-if (!(downPressed || downHeld) && (jumpPressed || jumpBuffer > 0) && (isOnFloor() || isSlidingOff())) {
+if (!(inputController.playerDownPressed || inputController.playerDownHeld) && (inputController.playerJumpPressed || jumpBuffer > 0) && (isOnFloor() || isSlidingOff())) {
+    inputController.playerDownPressed = false;
+    inputController.playerJumpPressed = false;
     verticalSpeed = -maxVerticalSpeed;
     doubleJump    = emptyScript;
     stateSwitch("drop");

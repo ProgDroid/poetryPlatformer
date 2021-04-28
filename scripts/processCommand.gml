@@ -192,6 +192,11 @@ if (string_pos("fps", argument[0]) == 1) {
 
     var arg      = string_delete(argument[0], 1, 4);
     var fpsValue = real(string_digits(arg));
+
+    if (fpsValue < 1) {
+        addConsoleMessage("warning", "Please supply a positive non-zero value for fps");
+        exit;
+    }
     
     room_speed = fpsValue;
 

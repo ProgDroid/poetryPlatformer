@@ -47,6 +47,7 @@ while(global._ts_accumulator>=_dt_max) {
     }
 
     ++_steps_taken;
+    cleanPressedInputs();
 }
 
 //Calculate blended alpha

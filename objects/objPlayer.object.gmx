@@ -160,44 +160,6 @@ die             = dieScript;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Controls
-
-downHeld     = false;
-leftHeld     = false;
-rightHeld    = false;
-jumpHeld     = false;
-dashHeld     = false;
-
-downPressed  = false;
-leftPressed  = false;
-rightPressed = false;
-jumpPressed  = false;
-dashPressed  = false;
-
-dashConfirm  = false;
-
-start        = false;
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>///Register as observer
 eventRegister(allEvents.collectiblefound, id, heal);
 eventRegister(allEvents.playerfell, id, processDeath);
@@ -402,34 +364,10 @@ stateSwitchPrevious();
             <kind>1</kind>
             <string>///Movement
 
-if (!instance_exists(inputController)) {
-    addConsoleMessage("warning", program_directory);
-    addConsoleMessage("warning", "inputController doesn't exists");
-    exit;
-}
-
-// rather than changing every instance of these to inputcontroller.*
-// will do this even if it's a bit dodgy
-// which also lets me have less error checking for inputController existing
-downHeld     = inputController.playerDownHeld;
-leftHeld     = inputController.playerLeftHeld;
-rightHeld    = inputController.playerRightHeld;
-jumpHeld     = inputController.playerJumpHeld;
-dashHeld     = inputController.playerDashHeld;
-
-downPressed  = inputController.playerDownPressed;
-leftPressed  = inputController.playerLeftPressed;
-rightPressed = inputController.playerRightPressed;
-jumpPressed  = inputController.playerJumpPressed;
-dashPressed  = inputController.playerDashPressed;
-
-dashConfirm  = inputController.playerDashConfirm;
-
-start        = inputController.start;
-
 // end game
 // move to menuController
-if (start) {
+if (inputController.start) {
+    inputController.start = false
     game_end();
 }
 

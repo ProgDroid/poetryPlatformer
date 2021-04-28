@@ -10,7 +10,7 @@ if (verticalSpeed == 0 && (isOnFloor() || isSlidingOff())) {
         }
     }
 
-    if (horizontalSpeed != 0 || (leftHeld ^^ rightHeld)) {
+    if (horizontalSpeed != 0 || (inputController.playerLeftHeld ^^ inputController.playerRightHeld)) {
         dashTraceLength = 0;
         applyTimeFactor(1);
         stateSwitch("walk");

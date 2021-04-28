@@ -34,7 +34,8 @@ if (jumpBuffer > 0) {
     jumpBuffer -= 1;
 }
 
-if (jumpPressed) {
+if (inputController.playerJumpPressed) {
+    inputController.playerJumpPressed = false;
     jumpBuffer = MAXJUMPBUFFER;
     script_execute(doubleJump);
 }

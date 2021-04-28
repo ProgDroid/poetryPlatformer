@@ -302,6 +302,22 @@ if (!devConsole &amp;&amp; instance_exists(objPlayer)) {
     draw_text(devTextPosition + 20, 496, "land: " + string(script_get_name(objPlayer.land)));
     draw_text(devTextPosition + 20, 512, "die: " + string(script_get_name(objPlayer.die)));
     draw_text(devTextPosition, 528, "pause factor: " + string(timeFactorController.pauseFactor));
+    draw_text(devTextPosition, 544, "inputs:");
+    draw_text(devTextPosition + 20, 560, "player:");
+    draw_text(devTextPosition + 20 + 20, 576, "upHeld: " + string(inputController.playerUpHeld));
+    draw_text(devTextPosition + 20 + 20, 592, "downHeld: " + string(inputController.playerDownHeld));
+    draw_text(devTextPosition + 20 + 20, 608, "leftHeld: " + string(inputController.playerLeftHeld));
+    draw_text(devTextPosition + 20 + 20, 624, "rightHeld: " + string(inputController.playerRightHeld));
+    draw_text(devTextPosition + 20 + 20, 640, "jumpHeld: " + string(inputController.playerJumpHeld));
+    draw_text(devTextPosition + 20 + 20, 656, "dashHeld: " + string(inputController.playerDashHeld));
+    draw_text(devTextPosition + 20 + 20, 672, "upPressed: " + string(inputController.playerUpPressed));
+    draw_text(devTextPosition + 20 + 20, 688, "downPressed: " + string(inputController.playerDownPressed));
+    draw_text(devTextPosition + 20 + 20, 704, "leftPressed: " + string(inputController.playerLeftPressed));
+    draw_text(devTextPosition + 20 + 20, 720, "rightPressed: " + string(inputController.playerRightPressed));
+    draw_text(devTextPosition + 20 + 20, 736, "jumpPressed: " + string(inputController.playerJumpPressed));
+    draw_text(devTextPosition + 20 + 20, 752, "dashPressed: " + string(inputController.playerDashPressed));
+    draw_text(devTextPosition + 20 + 20, 768, "dashConfirm: " + string(inputController.playerDashConfirm));
+    draw_text(devTextPosition, 784, "room_speed: " + string(room_speed));
 
     draw_set_colour(c_white);
 }

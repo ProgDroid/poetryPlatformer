@@ -46,7 +46,8 @@ if (!isOnFloor() && !isSlidingOff()) {
 }
 
 // jump
-if ((jumpPressed || jumpBuffer > 0) && (isOnFloor() || isSlidingOff())) {
+if ((inputController.playerJumpPressed || jumpBuffer > 0) && (isOnFloor() || isSlidingOff())) {
+    inputController.playerJumpPressed = false;
     verticalSpeed = -maxVerticalSpeed;
     doubleJump    = emptyScript;
     stateSwitch("drop");

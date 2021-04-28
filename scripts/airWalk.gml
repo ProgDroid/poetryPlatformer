@@ -1,7 +1,7 @@
 ///airWalk
 
 // air movement
-if (((leftHeld ^^ rightHeld) && !isAgainstWallAir(rightHeld - leftHeld))) {
+if (((inputController.playerLeftHeld ^^ inputController.playerRightHeld) && !isAgainstWallAir(inputController.playerRightHeld - inputController.playerLeftHeld))) {
     var accelerationTmp = acceleration;
 
     if (horizontalSpeed != 0 &&

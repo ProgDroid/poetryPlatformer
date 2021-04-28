@@ -50,16 +50,18 @@ if (state_timer == COYOTE_TIME && doubleJump != noJump) {
     doubleJump = doubleJumpScript;
 }
 
-if (jumpPressed) {
+if (inputController.playerJumpPressed) {
+    inputController.playerJumpPressed = false;
     jumpBuffer = MAXJUMPBUFFER;
     script_execute(doubleJump);
 }
 
-if (dashPressed && dashes > 0) {
+if (inputController.playerDashPressed && dashes > 0) {
+    inputController.playerDashPressed = false;
     dashTimer = 3;
 }
 
-if (dashHeld) {
+if (inputController.playerDashHeld) {
     dashTimer--;
 }
 
