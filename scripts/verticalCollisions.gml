@@ -3,7 +3,7 @@
 var originalBboxTop    = bbox_top;
 var originalBboxBottom = bbox_bottom;
 
-y += verticalSpeed * timeFactorController.timeFactor;
+y += verticalSpeed * timeFactorController.timeFactor * timeFactorController.pauseFactor;
 
 var instanceAbove = collision_line(bbox_left, bbox_top - 1, bbox_right, bbox_top - 1, objPlatforms, true, true);
 var instance      = collision_line(bbox_left, bbox_bottom + 1, bbox_right, bbox_bottom + 1, objPlatforms, true, true);

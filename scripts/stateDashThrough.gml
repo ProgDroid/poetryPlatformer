@@ -20,12 +20,12 @@ if (instance != noone && instance.visible) {
     dashY += lengthdir_y(MAXHORIZONTALSPEED, dashAngle);
 }
 
-dashLerp = lerp(dashLerp, 0.15, LERP_AMOUNT);
+dashLerp = lerp(dashLerp, 0.15, LERP_AMOUNT * timeFactorController.pauseFactor);
 
-viewController.viewXNoShift += lerp(x, dashX, dashLerp) - x;
+viewController.viewXNoShift += lerp(x, dashX, dashLerp * timeFactorController.pauseFactor) - x;
 
-x = lerp(x, dashX, dashLerp);
-y = lerp(y, dashY, dashLerp);
+x = lerp(x, dashX, dashLerp * timeFactorController.pauseFactor);
+y = lerp(y, dashY, dashLerp * timeFactorController.pauseFactor);
 
 script_execute(collectStuff);
 

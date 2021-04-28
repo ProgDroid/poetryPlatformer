@@ -8,10 +8,10 @@ if (image_index > endFrame) {
 }
 
 if (image_xscale < 1) {
-    image_xscale += 0.07 * timeFactorController.timeFactor * (1 / (zoomFactor));
+    image_xscale += 0.07 * timeFactorController.timeFactor * timeFactorController.pauseFactor * (1 / (zoomFactor));
 }
 
 if (image_yscale < 1) {
-    image_yscale += 0.07 * timeFactorController.timeFactor * (1 / (zoomFactor));
+    image_yscale += 0.07 * timeFactorController.timeFactor * timeFactorController.pauseFactor * (1 / (zoomFactor));
 }
 

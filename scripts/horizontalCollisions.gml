@@ -6,7 +6,7 @@ var originalBboxRight = bbox_right;
 var oldX = x;
 var oldY = y;
 
-x += horizontalSpeed * timeFactorController.timeFactor;
+x += horizontalSpeed * timeFactorController.timeFactor * timeFactorController.pauseFactor;
 
 if (state_name == "walk" && !isOnFloor()) {
     var previousY = y;
@@ -17,8 +17,8 @@ if (state_name == "walk" && !isOnFloor()) {
 
     while (mini <= maxi) {        
         mid = mini + (maxi - mini) div 2;
-        x   = oldX + lengthdir_x(horizontalSpeed * timeFactorController.timeFactor, mid - sweepDownAngleCheck);
-        y   = oldY + lengthdir_y(horizontalSpeed * timeFactorController.timeFactor * sign(horizontalSpeed), mid - sweepDownAngleCheck);
+        x   = oldX + lengthdir_x(horizontalSpeed * timeFactorController.timeFactor * timeFactorController.pauseFactor, mid - sweepDownAngleCheck);
+        y   = oldY + lengthdir_y(horizontalSpeed * timeFactorController.timeFactor * timeFactorController.pauseFactor * sign(horizontalSpeed), mid - sweepDownAngleCheck);
         
         if (!isOnFloor()) {
             if (place_meeting(x, y, objPlatforms)) {

@@ -18,7 +18,7 @@ if (state_new) {
     die  = dashDieScript;
 }
 
-applyTimeFactor(lerp(timeFactorController.timeFactor, 0.05, 0.5 * timeFactorController.timeFactor));
+applyTimeFactor(lerp(timeFactorController.timeFactor, 0.05, 0.5 * timeFactorController.timeFactor * timeFactorController.pauseFactor));
 
 dashTraceLength = lerp(dashTraceLength, DASH_TRACE_LENGTH, 0.15);
 

@@ -28,7 +28,7 @@
             <string>event_inherited();
 
 timeFactor         = 1;
-previousTimeFactor = timeFactor;
+pauseFactor        = 1; // 0 when paused to 0 calculations
 
 </string>
           </argument>
@@ -52,7 +52,7 @@ previousTimeFactor = timeFactor;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (timeFactor == 0) {
+            <string>if (timeFactor == 0 || pauseFactor == 0) {
     with(objCharacter) {
         if (alarm[0]) {
             alarm[0] += 1;

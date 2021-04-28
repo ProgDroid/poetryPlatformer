@@ -8,7 +8,7 @@ if (state_new) {
 
 script_execute(collectStuff);
 
-applyTimeFactor(timeFactorController.timeFactor + (1 - timeFactorController.timeFactor) * 0.5 * timeFactorController.timeFactor);
+applyTimeFactor(timeFactorController.timeFactor + (1 - timeFactorController.timeFactor) * 0.5 * timeFactorController.timeFactor * timeFactorController.pauseFactor);
 
 if (timeFactorController.timeFactor >= 1) {
     applyTimeFactor(1);
