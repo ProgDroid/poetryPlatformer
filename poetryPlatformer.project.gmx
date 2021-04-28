@@ -259,6 +259,7 @@
     <scripts name="inputScripts">
       <script>scripts\checkHeld.gml</script>
       <script>scripts\checkPressed.gml</script>
+      <script>scripts\cleanPressedInputs.gml</script>
     </scripts>
     <scripts name="settingsScripts">
       <script>scripts\changeResolution.gml</script>

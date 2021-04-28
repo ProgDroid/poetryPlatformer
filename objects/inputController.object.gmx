@@ -166,8 +166,6 @@ if (currentInputType == inputmethod.keyboard) {
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -198,13 +196,13 @@ if (!instance_exists(devModeController) || !(devModeController.devConsole)) {
     playerRightHeld    = checkHeld(settingsController.keybinds[? "playerRight"], "greater");
     playerJumpHeld     = checkHeld(settingsController.keybinds[? "jump"], "");
     playerDashHeld     = checkHeld(settingsController.keybinds[? "dash"], "");
-    playerUpPressed    = checkPressed(settingsController.keybinds[? "playerUp"], "less");
-    playerDownPressed  = checkPressed(settingsController.keybinds[? "playerDown"], "greater");
-    playerLeftPressed  = checkPressed(settingsController.keybinds[? "playerLeft"], "less");
-    playerRightPressed = checkPressed(settingsController.keybinds[? "playerRight"], "greater");
-    playerJumpPressed  = checkPressed(settingsController.keybinds[? "jump"], "");
-    playerDashPressed  = checkPressed(settingsController.keybinds[? "dash"], "");
-    playerDashConfirm  = checkPressed(settingsController.keybinds[? "dashConfirm"], "");
+    playerUpPressed    = playerUpPressed || checkPressed(settingsController.keybinds[? "playerUp"], "less");
+    playerDownPressed  = playerDownPressed || checkPressed(settingsController.keybinds[? "playerDown"], "greater");
+    playerLeftPressed  = playerLeftPressed || checkPressed(settingsController.keybinds[? "playerLeft"], "less");
+    playerRightPressed = playerRightPressed || checkPressed(settingsController.keybinds[? "playerRight"], "greater");
+    playerJumpPressed  = playerJumpPressed || checkPressed(settingsController.keybinds[? "jump"], "");
+    playerDashPressed  = playerDashPressed || checkPressed(settingsController.keybinds[? "dash"], "");
+    playerDashConfirm  = playerDashConfirm || checkPressed(settingsController.keybinds[? "dashConfirm"], "");
 
     cameraUp           = checkHeld(settingsController.keybinds[? "cameraUp"], "less");
     cameraDown         = checkHeld(settingsController.keybinds[? "cameraDown"], "greater");
@@ -217,15 +215,15 @@ menuUpHeld       = checkHeld(settingsController.keybinds[? "menuUp"], "less");
 menuDownHeld     = checkHeld(settingsController.keybinds[? "menuDown"], "greater");
 menuLeftHeld     = checkHeld(settingsController.keybinds[? "menuLeft"], "less");
 menuRightHeld    = checkHeld(settingsController.keybinds[? "menuRight"], "greater");
-menuUpPressed    = checkPressed(settingsController.keybinds[? "menuUp"], "less");
-menuDownPressed  = checkPressed(settingsController.keybinds[? "menuDown"], "greater");
-menuLeftPressed  = checkPressed(settingsController.keybinds[? "menuLeft"], "less");
-menuRightPressed = checkPressed(settingsController.keybinds[? "menuRight"], "greater");
-menuAccept       = checkPressed(settingsController.keybinds[? "accept"], "");
-menuBack         = checkPressed(settingsController.keybinds[? "back"], "");
+menuUpPressed    = menuUpPressed || checkPressed(settingsController.keybinds[? "menuUp"], "less");
+menuDownPressed  = menuDownPressed || checkPressed(settingsController.keybinds[? "menuDown"], "greater");
+menuLeftPressed  = menuLeftPressed || checkPressed(settingsController.keybinds[? "menuLeft"], "less");
+menuRightPressed = menuRightPressed || checkPressed(settingsController.keybinds[? "menuRight"], "greater");
+menuAccept       = menuAccept || checkPressed(settingsController.keybinds[? "accept"], "");
+menuBack         = menuBack || checkPressed(settingsController.keybinds[? "back"], "");
 
 // where should this go?
-start            = checkPressed(settingsController.keybinds[? "start"], "");
+start            = start || checkPressed(settingsController.keybinds[? "start"], "");
 
 </string>
           </argument>
