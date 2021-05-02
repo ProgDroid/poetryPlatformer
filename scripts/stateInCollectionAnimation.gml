@@ -3,6 +3,7 @@
 if (state_new) {
     state_new   = false;
     alarm[0]    = room_speed * 3.75;
+    applyTimeFactor(1);
     image_speed = 0;
 
     flashController.dark     = true;
