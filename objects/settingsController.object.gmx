@@ -238,7 +238,7 @@ if (ds_exists(visualSettings, ds_type_map)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>window_center();
+            <string>windowCentre();
 
 </string>
           </argument>

@@ -3,7 +3,7 @@
 if (state_new) {
     state_new      = false;
     dashHeldBuffer = 5;
-    alarm[3]       = -1;
+    offsetVertAlarmIndex = cancelAlarm(offsetVertAlarmIndex, setOffsetVertically);
 
     viewController.offsetVertically = false;
     viewController.zoomIn           = true;
@@ -30,7 +30,7 @@ if (inputController.playerDashConfirm) {
     eventFire(allEvents.dashthrough);
 }
 
-if (dashHeldBuffer <= 0 || state_timer > 300) {
+if (dashHeldBuffer <= 0 || state_timer > TICK_RATE * 5) {
     dashTraceLength = 0;
     stateSwitch("dashCancelled", false);
 

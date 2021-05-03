@@ -1,4 +1,4 @@
 /// endGame
 
-alarm[0] = room_speed;
+createAlarm(id, TICK_RATE, gameEnd);
 

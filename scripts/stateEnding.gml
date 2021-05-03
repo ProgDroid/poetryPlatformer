@@ -4,8 +4,9 @@ if (state_new) {
     state_new    = false;
     sprite_index = playerIdle;
     image_index  = 0;
-    alarm[2]     = -1;
-    alarm[3]     = -1;
+
+    panOutAlarmIndex     = cancelAlarm(panOutAlarmIndex, setPanOut);
+    offsetVertAlarmIndex = cancelAlarm(offsetVertAlarmIndex, setOffsetVertically);
 
     viewController.panOut           = false;
     viewController.offsetVertically = false;

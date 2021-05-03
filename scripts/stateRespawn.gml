@@ -5,7 +5,7 @@ if (state_new) {
     image_speed  = 0;
 }
 
-if (state_timer >= room_speed * customDeltaTime) {
+if (state_timer >= TICK_RATE * customDeltaTime) {
     stateSwitch("idle");
 }
 

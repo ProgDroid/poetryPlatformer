@@ -9,8 +9,8 @@ if (devModeController.devConsole) {
 
     keyboard_lastchar = "";
     
-    devModeController.cursor = "_";
-    devModeController.alarm[0] = room_speed * 0.5;
+    devModeController.cursor   = "_";
+    devModeController.alarm[0] = TICK_RATE * 0.5;
 
     exit;
 }
