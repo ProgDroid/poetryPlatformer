@@ -186,6 +186,7 @@
       <script>scripts\endLevelTrigger.gml</script>
       <script>scripts\scriptFadeOut.gml</script>
       <script>scripts\endGame.gml</script>
+      <script>scripts\scriptGuiFade.gml</script>
     </scripts>
     <scripts name="eventTriggering">
       <script>scripts\eventRegister.gml</script>
@@ -409,8 +410,8 @@
     <room>rooms\ALARM</room>
     <room>rooms\VIEW</room>
     <room>rooms\PLATFORMMAP</room>
-    <room>rooms\GUI</room>
     <room>rooms\EVENTLISTEN</room>
+    <room>rooms\GUI</room>
     <room>rooms\FLASH</room>
     <room>rooms\SHADOW</room>
     <room>rooms\room15</room>
