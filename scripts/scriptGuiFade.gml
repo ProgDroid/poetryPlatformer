@@ -1,0 +1,2 @@
+guiFade = true;
+
