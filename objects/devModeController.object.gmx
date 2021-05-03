@@ -68,6 +68,8 @@ window_set_cursor(cr_default);
 mouseInstanceId   = noone;
 mouseInstanceName = "&lt;undefined&gt;";
 
+drawCustomGui = true;
+
 </string>
           </argument>
         </arguments>
@@ -221,6 +223,10 @@ if (keyboard_check_pressed(vk_f2)) {
     }
 }
 
+if (keyboard_check_pressed(vk_f3)) {
+    drawCustomGui = !drawCustomGui;
+}
+
 </string>
           </argument>
         </arguments>
@@ -272,7 +278,7 @@ if (mouseInstanceId == noone) {
           <argument>
             <kind>1</kind>
             <string>///Draw debug info
-if (!devConsole &amp;&amp; instance_exists(objPlayer)) {
+if (drawCustomGui &amp;&amp; !devConsole &amp;&amp; instance_exists(objPlayer)) {
     draw_set_font(-1);
     draw_set_colour(c_red);
     draw_set_halign(fa_left);
@@ -400,7 +406,7 @@ if (devConsole) {
             <kind>1</kind>
             <string>///Draw camera limits
 
-if (!devConsole) {
+if (drawCustomGui &amp;&amp; !devConsole) {
     var ratio = viewController.cameraLimitsRatio;
 
     for (var i = 1; i * ratio &lt; 1; i++) {
@@ -459,7 +465,7 @@ draw_set_colour(c_white);
             <kind>1</kind>
             <string>///Draw alarm debug info
 
-if (!devConsole &amp;&amp; instance_exists(alarmController)) {
+if (drawCustomGui &amp;&amp; !devConsole &amp;&amp; instance_exists(alarmController)) {
     draw_set_font(-1);
     draw_set_colour(c_red);
     draw_set_halign(fa_left);
