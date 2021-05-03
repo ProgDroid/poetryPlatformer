@@ -15,8 +15,9 @@ if (state_new) {
         }
     }
 
-    alarm[2] = room_speed * 5;
-    alarm[3] = -1;
+    panOutAlarmIndex     = createAlarm(viewController, TICK_RATE * 5, setPanOut);
+    offsetVertAlarmIndex = cancelAlarm(offsetVertAlarmIndex, setOffsetVertically);
+
     viewController.offsetVertically = false;
     viewController.zoomIn           = false;
     flashController.dashDark        = false;

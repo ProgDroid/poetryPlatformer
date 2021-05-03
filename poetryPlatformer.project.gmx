@@ -60,6 +60,7 @@
       <sprite>sprites\spriteBackgroundController</sprite>
       <sprite>sprites\spriteViewController</sprite>
       <sprite>sprites\spriteParticlesController</sprite>
+      <sprite>sprites\spriteAlarmController</sprite>
     </sprites>
     <sprites name="platforms">
       <sprite>sprites\platformA</sprite>
@@ -280,6 +281,23 @@
       <script>scripts\dashDieScript.gml</script>
       <script>scripts\dashCollect.gml</script>
     </scripts>
+    <scripts name="alarmScripts">
+      <script>scripts\processAlarms.gml</script>
+      <script>scripts\createAlarm.gml</script>
+      <script>scripts\cancelAlarm.gml</script>
+      <script>scripts\checkDevmode.gml</script>
+      <script>scripts\refreshPlayerSpeed.gml</script>
+      <script>scripts\setOffsetVertically.gml</script>
+      <script>scripts\gameEnd.gml</script>
+      <script>scripts\addShadow.gml</script>
+      <script>scripts\removeShadow.gml</script>
+      <script>scripts\setPanOut.gml</script>
+      <script>scripts\resetViewFlash.gml</script>
+      <script>scripts\resetView.gml</script>
+      <script>scripts\instanceDestroy.gml</script>
+      <script>scripts\setStateSuckedIn.gml</script>
+      <script>scripts\windowCentre.gml</script>
+    </scripts>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\gaussianBlur.shader</shader>
@@ -311,6 +329,7 @@
       <object>objects\viewController</object>
       <object>objects\platformController</object>
       <object>objects\particlesController</object>
+      <object>objects\alarmController</object>
     </objects>
     <objects name="environments">
       <object>objects\objPlatforms</object>
@@ -387,6 +406,7 @@
     <room>rooms\CHEATCHECK</room>
     <room>rooms\TIMEFACTOR</room>
     <room>rooms\BACKGROUND</room>
+    <room>rooms\ALARM</room>
     <room>rooms\VIEW</room>
     <room>rooms\PLATFORMMAP</room>
     <room>rooms\GUI</room>
@@ -399,7 +419,7 @@
     <room>rooms\room11</room>
     <room>rooms\room4</room>
   </rooms>
-  <constants number="14">
+  <constants number="16">
     <constant name="LERP_AMOUNT">0.025</constant>
     <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
@@ -414,6 +434,8 @@
     <constant name="IMAGESPEEDNOTIME">timeFactorController.pauseFactor * (1 / (room_speed * 0.1))</constant>
     <constant name="COYOTE_TIME">8</constant>
     <constant name="MAXHORIZONTALSPEED">3.75</constant>
+    <constant name="MAX_ALARMS">100</constant>
+    <constant name="TICK_RATE">global._ts_fps</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

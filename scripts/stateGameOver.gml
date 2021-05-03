@@ -9,7 +9,8 @@ if (state_new) {
     image_yscale = 2 * PLAYERSCALE;
     depth        = -101;
 
-    alarm[3]     = -1;
+    offsetVertAlarmIndex = cancelAlarm(offsetVertAlarmIndex, setOffsetVertically);
+
     viewController.offsetVertically = false;
     viewController.yOffset          = 0;
 

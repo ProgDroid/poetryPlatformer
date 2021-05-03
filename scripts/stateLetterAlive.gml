@@ -1,6 +1,6 @@
 if (state_new) {
     state_new = false;
-    alarm[0] = room_speed * 3;
+    createAlarm(id, TICK_RATE * 3, setStateSuckedIn);
 }
 
 if (image_index > endFrame) {
