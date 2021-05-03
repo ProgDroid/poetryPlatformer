@@ -30,8 +30,8 @@ while (!file_text_eof(file)) {
 }
 
 
-var width  = maxLineWidth * 350 / 75;
-var height = (maxLineHeight + 400) * (lineIndex + 1);
+var width  = maxLineWidth * PLATFORM_WIDTH / 75;
+var height = (maxLineHeight + PLATFORM_HEIGHT) * (lineIndex + 1);
 
 var levelRoom = room_add();
 room_set_width(levelRoom, width);
@@ -109,10 +109,10 @@ for (var i = 0; i < array_length_1d(lines); i++) {
         if (char == " " || char == "") {
             var originalX = positionX;
 
-            positionX = originalX + 350 * 0.91;
+            positionX = originalX + PLATFORM_WIDTH * 0.91;
 
             if (previousChar != noone) {
-                positionX = originalX + 350 * 0.5;
+                positionX = originalX + PLATFORM_WIDTH * 0.5;
             }
 
             listIndex += 1;
@@ -148,7 +148,7 @@ for (var i = 0; i < array_length_1d(lines); i++) {
         }
 
         var instanceX = positionX + 50 + platformController.paddingXMap[? char];
-        var instanceY = (((height - 400) / array_length_1d(lines)) * i) + 200 + maxLineHeight + platformController.paddingYMap[? char];
+        var instanceY = (((height - PLATFORM_HEIGHT) / array_length_1d(lines)) * i) + 200 + maxLineHeight + platformController.paddingYMap[? char];
 
         var instance = room_instance_add(levelRoom, instanceX, instanceY, object);
 

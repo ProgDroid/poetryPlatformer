@@ -60,11 +60,11 @@ eventRegister(allEvents.fadeout, id, scriptFadeOut);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (dark &amp;&amp; darkFactor &lt; 1.5) {
+            <string>if (dark &amp;&amp; darkFactor &lt; MAX_DARK_FACTOR) {
     darkFactor += 0.01 * customDeltaTime;
 }
 
-if (dashDark &amp;&amp; dashDarkFactor &lt; 3) {
+if (dashDark &amp;&amp; dashDarkFactor &lt; MAX_DASH_DARK_FACTOR) {
     dashDarkFactor += 0.2 * customDeltaTimeNoTimeFactor;
 } else if (!dashDark &amp;&amp; dashDarkFactor &gt; 0.1) {
     dashDarkFactor -= 0.2 * customDeltaTimeNoTimeFactor;

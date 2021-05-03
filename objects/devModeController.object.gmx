@@ -31,8 +31,8 @@ show_debug_overlay(true);
 
 devConsole = false;
 
-devTextPosition   = display_get_gui_width() * 0.025 * 0.5;
-alarmTextPosition = display_get_gui_width() - (display_get_gui_width() * 0.025 * 0.05) - 500;
+devTextPosition   = display_get_gui_width() * HEALTH_BAR_POSITION_FACTOR * 0.5;
+alarmTextPosition = display_get_gui_width() - (display_get_gui_width() * HEALTH_BAR_POSITION_FACTOR * 0.05) - 500;
 
 enum consoleCommands {
     type,
@@ -44,7 +44,7 @@ rectangleY2    = display_get_gui_height() * 0.25;
 
 history        = ds_list_create();
 historySize    = 0;
-maxHistorySize = 1000;
+maxHistorySize = MAX_CONSOLE_HISTORY_SIZE;
 
 var intro;
 intro[consoleCommands.type] = "welcome";
@@ -61,7 +61,7 @@ ds_list_add(history, intro1);
 historySize += 1;
 
 consoleCommand        = "";
-consoleCommandMaxSize = 100;
+consoleCommandMaxSize = MAX_CONSOLE_COMMAND_LENGTH;
 cursor                = "_";
 
 window_set_cursor(cr_default);
@@ -367,7 +367,7 @@ if (devConsole) {
     draw_set_halign(fa_left);
     draw_set_valign(fa_bottom);
 
-    var loops = min(historySize, 5);
+    var loops = min(historySize, MAX_DISPLAYED_CONSOLE_COMMANDS);
     for (var i = 0; i &lt; loops; i++) {
         var line = history[| historySize - 1 - i];
 
@@ -375,7 +375,7 @@ if (devConsole) {
             draw_set_colour(c_red);
         }
 
-        draw_text(devTextPosition, rectangleY2 * 0.8 * (0.2 * (5 - i)), line[consoleCommands.str]);
+        draw_text(devTextPosition, rectangleY2 * 0.8 * (0.2 * (MAX_DISPLAYED_CONSOLE_COMMANDS - i)), line[consoleCommands.str]);
 
         if (line[consoleCommands.type] == "warning") {
             draw_set_colour(c_white);

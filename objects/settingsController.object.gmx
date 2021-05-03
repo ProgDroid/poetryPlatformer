@@ -107,8 +107,8 @@ if (keybinds == noone) {
     ds_map_add_list(keybinds, "cameraLeft", cameraLeft);
     ds_map_add_list(keybinds, "cameraRight", cameraRight);
 
-    ds_map_add(keybinds, "deadzone", 0.2);
-    ds_map_add(keybinds, "buttonThreshold", 0.1);
+    ds_map_add(keybinds, "deadzone", CONTROLLER_DEADZONE);
+    ds_map_add(keybinds, "buttonThreshold", CONTROLLER_BUTTON_THRESHOLD);
 
     var file = file_text_open_write(working_directory + "settings\keybinds.json");
     file_text_write_string(file, json_encode(keybinds));

@@ -111,7 +111,7 @@ fixed_timestep_register_script(id, stateUpdate);
             <string>texture_set_interpolation(true);
 
 if (state_name != "dead") {
-    d3d_set_fog(true, merge_colour(make_colour_rgb(236, 158, 150), c_white, 0.5), false, true);
+    d3d_set_fog(true, merge_colour(make_colour_rgb(OUTLINE_R, OUTLINE_G, OUTLINE_B), c_white, 0.5), false, true);
 
     draw_sprite_ext(
         sprite_index,image_index,

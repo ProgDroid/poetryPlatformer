@@ -88,16 +88,16 @@ fixed_timestep_register_script(id, stateUpdate);
             <string>///Player Properties
 
 // Movement Properties
-grav               = 0.35;
+grav               = GRAVITY;
 horizontalSpeed    = 0;
 verticalSpeed      = 0;
 maxHorizontalSpeed = MAXHORIZONTALSPEED;
 maxVerticalSpeed   = 8;
-acceleration       = 0.5;
-deceleration       = 0.35;
-slideFactor        = 2;
-airFrictionFactor  = 3;
-airDeceleration    = 0.04;
+acceleration       = ACCELERATION;
+deceleration       = DECELERATION;
+slideFactor        = SLIDE_FACTOR;
+airFrictionFactor  = AIR_FRICTION_FACTOR;
+airDeceleration    = AIR_DECELERATION;
 jumpBuffer         = 0;
 
 facingDir = 0;
@@ -111,8 +111,8 @@ offsetBottom  = bbox_bottom - y;
 offsetLeft    = bbox_left - x;
 offsetRight   = bbox_right - x;
 
-sweepDownAngleCheck = 40;
-sweepUpAngleCheck   = 60;
+sweepDownAngleCheck = SWEEP_DOWN_ANGLE;
+sweepUpAngleCheck   = SWEEP_UP_ANGLE;
 
 image_xscale  = PLAYERSCALE;
 image_yscale  = PLAYERSCALE;
@@ -120,7 +120,7 @@ image_yscale  = PLAYERSCALE;
 drawingScaleX = 1;
 drawingScaleY = 1;
 
-maxDashes       = 1;
+maxDashes       = MAX_DASHES;
 dashes          = maxDashes;
 dashTimer       = -1;
 dashTraceLength = 0;

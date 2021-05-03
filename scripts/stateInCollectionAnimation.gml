@@ -23,7 +23,7 @@ if (state_new) {
 }
 
 // increase value as alarm goes to 0
-var range = (3 - alarmController.alarmTimes[resetViewAlarmIndex] / room_speed) / 3;
+var range = (3 - alarmController.alarmTimes[resetViewAlarmIndex] / TICK_RATE) / 3;
 
 view_xview[0] = random_range(-range, range) + oldViewX;
 view_yview[0] = random_range(-range, range) + oldViewY;
