@@ -3,8 +3,8 @@
 verticalSpeed = -maxVerticalSpeed;
 doubleJump    = noJump;
 image_index   = 0;
-drawingScaleX = 0.75 - 0.05;
-drawingScaleY = 1.35 + 0.05;
+drawingScaleX = JUMP_TRANSFORM_X;
+drawingScaleY = JUMP_TRANSFORM_Y;
 image_speed   = 0;
 
 viewController.offsetVertically = false;

@@ -2,7 +2,7 @@
 
 if (state_new) {
     state_new      = false;
-    dashHeldBuffer = 5;
+    dashHeldBuffer = DASH_HELD_BUFFER;
     offsetVertAlarmIndex = cancelAlarm(offsetVertAlarmIndex, setOffsetVertically);
 
     viewController.offsetVertically = false;

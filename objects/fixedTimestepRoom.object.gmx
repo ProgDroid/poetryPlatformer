@@ -27,8 +27,8 @@
             <kind>1</kind>
             <string>event_inherited();
 
-room_speed = 60;
-fixed_timestep_set_target_fps(60);
+room_speed = BASE_FRAMERATE;
+fixed_timestep_set_target_fps(BASE_FRAMERATE);
 
 </string>
           </argument>

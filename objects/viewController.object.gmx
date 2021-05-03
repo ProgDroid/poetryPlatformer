@@ -27,29 +27,29 @@
             <kind>1</kind>
             <string>event_inherited();
 
-cameraLimitsRatio = 1/3;
+cameraLimitsRatio = CAMERA_LIMITS_RATIO;
 
 // camera update should be at the end of player state processing
 fixed_timestep_register_script(id, cameraUpdate);
 
 panOut       = false;
-panOutRatio  = 1.25;
+panOutRatio  = PAN_OUT_RATIO;
 panOutFactor = 1;
 
 zoomIn        = false;
-zoomInRatio   = 0.95;
+zoomInRatio   = ZOOM_IN_RATIO;
 zoomInFactor  = 1;
 dashOffset    = 0;
-dashMaxOffset = 100;
+dashMaxOffset = MAX_DASH_OFFSET;
 
 offsetVertically = false;
 yOffset          = 0;
-yOffsetMax       = 0.3;
+yOffsetMax       = MAX_Y_OFFSET;
 
 originalWidth  = settingsController.visualSettings[? "width"] div 2;
 originalHeight = settingsController.visualSettings[? "height"] div 2;
 
-viewShiftMax = 250;
+viewShiftMax = MAX_VIEW_SHIFT;
 viewXNoShift = view_xview[0];
 viewYNoShift = view_yview[0];
 xShift       = 0;
