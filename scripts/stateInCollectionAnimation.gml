@@ -6,6 +6,8 @@ if (state_new) {
     createAlarm(flashController, TICK_RATE * 3.75, resetViewFlash);
     resetViewAlarmIndex = createAlarm(id, TICK_RATE * 3.75, resetView);
 
+    delayAlarm(playerSpeedAlarmIndex, TICK_RATE * 3.75, refreshPlayerSpeed);
+
     applyTimeFactor(1);
 
     flashController.dark = true;

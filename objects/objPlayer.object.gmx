@@ -140,9 +140,13 @@ doubleJump      = emptyScript;
 land            = landScript;
 die             = dieScript;
 
-offsetVertAlarmIndex = noone;
-panOutAlarmIndex     = noone;
-resetViewAlarmIndex  = noone;
+offsetVertAlarmIndex  = noone;
+panOutAlarmIndex      = noone;
+resetViewAlarmIndex   = noone;
+playerSpeedAlarmIndex = noone;
+
+oldViewX = 0;
+oldViewY = 0;
 
 </string>
           </argument>

@@ -298,6 +298,7 @@
       <script>scripts\instanceDestroy.gml</script>
       <script>scripts\setStateSuckedIn.gml</script>
       <script>scripts\windowCentre.gml</script>
+      <script>scripts\delayAlarm.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">
