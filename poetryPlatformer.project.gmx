@@ -422,7 +422,7 @@
     <room>rooms\room4</room>
     <room>rooms\TODUPLICATE</room>
   </rooms>
-  <constants number="49">
+  <constants number="50">
     <constant name="LERP_AMOUNT">0.025</constant>
     <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
@@ -472,6 +472,7 @@
     <constant name="SWEEP_DOWN_ANGLE">40</constant>
     <constant name="SWEEP_UP_ANGLE">60</constant>
     <constant name="MAX_DASHES">1</constant>
+    <constant name="MIN_VIEW_HEIGHT">720</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
