@@ -21,12 +21,12 @@ if (!window_get_fullscreen()) {
 
 display_set_gui_size(argument0, argument1);
 
-view_wview[0] = argument0 div 2;
-view_hview[0] = argument1 div 2;
+view_hview[0] = min(argument1, 720);
+view_wview[0] = view_hview[0] * (argument0 / argument1);
 
 if (instance_exists(viewController)) {
-    viewController.originalWidth  = argument0 div 2;
-    viewController.originalHeight = argument1 div 2;
+    viewController.originalHeight = view_hview[0];
+    viewController.originalWidth  = view_wview[0];
 }
 
 view_wport[0] = argument0;
