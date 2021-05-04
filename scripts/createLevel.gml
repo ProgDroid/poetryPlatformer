@@ -33,7 +33,7 @@ while (!file_text_eof(file)) {
 var width  = maxLineWidth * PLATFORM_WIDTH / 75;
 var height = (maxLineHeight + PLATFORM_HEIGHT) * (lineIndex + 1);
 
-var levelRoom = room_add();
+var levelRoom = room_duplicate(TODUPLICATE);
 room_set_width(levelRoom, width);
 room_set_height(levelRoom, height);
 room_set_persistent(levelRoom, false);

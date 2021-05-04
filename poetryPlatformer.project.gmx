@@ -419,6 +419,7 @@
     <room>rooms\testRoom</room>
     <room>rooms\room11</room>
     <room>rooms\room4</room>
+    <room>rooms\TODUPLICATE</room>
   </rooms>
   <constants number="49">
     <constant name="LERP_AMOUNT">0.025</constant>
