@@ -46,7 +46,7 @@ offsetVertically = false;
 yOffset          = 0;
 yOffsetMax       = MAX_Y_OFFSET;
 
-originalHeight = min(settingsController.visualSettings[? "height"], 720);
+originalHeight = min(settingsController.visualSettings[? "height"], MIN_VIEW_HEIGHT);
 originalWidth  = originalHeight * (settingsController.visualSettings[? "width"] / settingsController.visualSettings[? "height"]);
 
 viewShiftMax = MAX_VIEW_SHIFT;

@@ -21,7 +21,7 @@ if (!window_get_fullscreen()) {
 
 display_set_gui_size(argument0, argument1);
 
-view_hview[0] = min(argument1, 720);
+view_hview[0] = min(argument1, MIN_VIEW_HEIGHT);
 view_wview[0] = view_hview[0] * (argument0 / argument1);
 
 if (instance_exists(viewController)) {
