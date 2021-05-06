@@ -33,6 +33,8 @@ if (x > dashX - 5 && x < dashX + 5 &&
     y > dashY - 5 && y < dashY + 5 &&
     (instance == noone || !instance.visible)
 ) {
+    dash            = dashCheck;
+    collectStuff    = collect;
     verticalSpeed   = 0;
     horizontalSpeed = 0;
     applyTimeFactor(1);

@@ -18,10 +18,9 @@ if (state_new) {
 
     viewController.panOut           = false;
     viewController.offsetVertically = false;
-    viewController.zoomIn           = false;
-    flashController.dashDark        = false;
 
     moveHorizontal = walk;
+    doubleJump     = emptyScript;
 }
 
 animations();
@@ -40,6 +39,8 @@ if (horizontalSpeed == 0) {
     stateSwitch("idle");
 }
 
+script_execute(dash);
+
 // no floor
 if (!isOnFloor() && !isSlidingOff()) {
     doubleJump = coyoteJump;
@@ -47,7 +48,11 @@ if (!isOnFloor() && !isSlidingOff()) {
 }
 
 // jump
-if ((inputController.playerJumpPressed || jumpBuffer > 0) && (isOnFloor() || isSlidingOff())) {
+if (
+     dash != inDash &&
+    (inputController.playerJumpPressed || jumpBuffer > 0) &&
+    (isOnFloor() || isSlidingOff())
+) {
     inputController.playerJumpPressed = false;
     verticalSpeed = -maxVerticalSpeed;
     doubleJump    = emptyScript;

@@ -1,4 +1,4 @@
-if (place_meeting(round(x), round(y), objPlayer) && objPlayer.state_name != "dashStart") {
+if (place_meeting(round(x), round(y), objPlayer) && objPlayer.dash != dashScript) {
     eventFire(allEvents.collectiblefound, id);
 
     spawnLetters(id.name);
