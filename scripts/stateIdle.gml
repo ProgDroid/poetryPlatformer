@@ -19,8 +19,8 @@ if (state_new) {
     offsetVertAlarmIndex = cancelAlarm(offsetVertAlarmIndex, setOffsetVertically);
 
     viewController.offsetVertically = false;
-    viewController.zoomIn           = false;
-    flashController.dashDark        = false;
+
+    doubleJump = emptyScript;
 }
 
 animations();
@@ -31,6 +31,8 @@ if (((inputController.playerLeftHeld ^^ inputController.playerRightHeld) && !isA
     stateSwitch("walk");
 }
 
+script_execute(dash);
+
 // platform ran away from under you
 if (!isOnFloor() && !isSlidingOff()) {
     doubleJump = emptyScript;
@@ -38,7 +40,11 @@ if (!isOnFloor() && !isSlidingOff()) {
 }
 
 // regular jump
-if (!(inputController.playerDownPressed || inputController.playerDownHeld) && (inputController.playerJumpPressed || jumpBuffer > 0) && (isOnFloor() || isSlidingOff())) {
+if (
+      dash != inDash &&
+     (inputController.playerJumpPressed || jumpBuffer > 0) &&
+     (isOnFloor() || isSlidingOff())
+) {
     inputController.playerDownPressed = false;
     inputController.playerJumpPressed = false;
     verticalSpeed = -maxVerticalSpeed;

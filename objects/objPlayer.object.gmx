@@ -34,9 +34,7 @@ stateCreate("inCollectionAnimation", stateInCollectionAnimation);
 stateCreate("respawn", stateRespawn);
 stateCreate("gameOver", stateGameOver);
 stateCreate("newGame", stateNewGame);
-stateCreate("dashStart", stateDash);
 stateCreate("dashThrough", stateDashThrough);
-stateCreate("dashCancelled", stateDashCancelled);
 stateCreate("ending", stateEnding);
 
 stateInit("newGame");
@@ -120,16 +118,17 @@ image_yscale  = PLAYERSCALE;
 drawingScaleX = 1;
 drawingScaleY = 1;
 
-maxDashes       = MAX_DASHES;
-dashes          = maxDashes;
-dashTimer       = -1;
-dashTraceLength = 0;
-dashScale       = 0;
-dashAngle       = 0;
-dashSize        = sprite_get_width(spriteDashTrace);
-dashX           = 0;
-dashY           = 0;
-dashLerp        = LERP_AMOUNT;
+maxDashes        = MAX_DASHES;
+dashes           = maxDashes;
+dashTimer        = -1;
+dashTraceLength  = 0;
+dashScale        = 0;
+dashAngle        = 0;
+dashSize         = sprite_get_width(spriteDashTrace);
+dashX            = 0;
+dashY            = 0;
+dashLerp         = LERP_AMOUNT;
+dashPressedTimer = 0;
 
 facingDirection = facingDirScript;
 moveHorizontal  = walk;
@@ -139,6 +138,7 @@ slideAlongWalls = slideOnWall;
 doubleJump      = emptyScript;
 land            = landScript;
 die             = dieScript;
+dash            = dashCheck;
 
 offsetVertAlarmIndex  = noone;
 panOutAlarmIndex      = noone;

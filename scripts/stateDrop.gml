@@ -20,7 +20,6 @@ if (state_new) {
     flashController.dashDark = false;
 
     moveHorizontal = airWalk;
-    collectStuff   = collect;
     land           = landScript;
     die            = dieScript;
 }
@@ -50,25 +49,15 @@ if (state_timer == COYOTE_TIME && doubleJump != noJump) {
     doubleJump = doubleJumpScript;
 }
 
-if (inputController.playerJumpPressed) {
+script_execute(dash);
+
+if (
+    dash != inDash &&
+    inputController.playerJumpPressed
+) {
     inputController.playerJumpPressed = false;
     jumpBuffer = MAXJUMPBUFFER;
     script_execute(doubleJump);
-}
-
-if (inputController.playerDashPressed && dashes > 0) {
-    inputController.playerDashPressed = false;
-    dashTimer = 3;
-}
-
-if (inputController.playerDashHeld) {
-    dashTimer--;
-}
-
-// dash
-if (dashTimer == 0) {
-    dashTimer = -1;
-    stateSwitch("dashStart", false);
 }
 
 script_execute(land);

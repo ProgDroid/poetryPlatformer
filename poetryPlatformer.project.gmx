@@ -219,9 +219,7 @@
       <script>scripts\stateRespawn.gml</script>
       <script>scripts\stateGameOver.gml</script>
       <script>scripts\stateNewGame.gml</script>
-      <script>scripts\stateDash.gml</script>
       <script>scripts\stateDashThrough.gml</script>
-      <script>scripts\stateDashCancelled.gml</script>
       <script>scripts\stateEnding.gml</script>
     </scripts>
     <scripts name="timestepScripts">
@@ -278,9 +276,13 @@
       <script>scripts\landScript.gml</script>
       <script>scripts\dieScript.gml</script>
       <script>scripts\noJump.gml</script>
-      <script>scripts\dashLandScript.gml</script>
       <script>scripts\dashDieScript.gml</script>
       <script>scripts\dashCollect.gml</script>
+      <script>scripts\dashCheck.gml</script>
+      <script>scripts\dashScript.gml</script>
+      <script>scripts\dashCancelledScript.gml</script>
+      <script>scripts\inDash.gml</script>
+      <script>scripts\dashLandScript.gml</script>
     </scripts>
     <scripts name="alarmScripts">
       <script>scripts\processAlarms.gml</script>

@@ -1,4 +1,6 @@
-///dashLandScript
+///@description Land while aiming dash
+/// Ideally it would continue with the aiming dash but lots of issues with the landing
+/// because spaghetti
 
 if (verticalSpeed == 0 && (isOnFloor() || isSlidingOff())) {
     if (hp <= 3) {
@@ -9,14 +11,18 @@ if (verticalSpeed == 0 && (isOnFloor() || isSlidingOff())) {
             maxHorizontalSpeed = MAXHORIZONTALSPEED - 0.66;
         }
     }
+    
+    dashTraceLength = 0;
+    applyTimeFactor(1);
+
+    dash = dashCheck;
+
+    viewController.zoomIn    = false;
+    flashController.dashDark = false;
 
     if (horizontalSpeed != 0 || (inputController.playerLeftHeld ^^ inputController.playerRightHeld)) {
-        dashTraceLength = 0;
-        applyTimeFactor(1);
         stateSwitch("walk");
     } else {
-        dashTraceLength = 0;
-        applyTimeFactor(1);
         stateSwitch("idle");
     }
 }
