@@ -88,18 +88,18 @@ if (keybinds == noone) {
     ds_list_add(cameraRight, ord('L'), noone, gp_axisrh, noone);
 
     dashAimUp    = ds_list_create();
-    ds_list_add(cameraUp, noone, noone, gp_axisrv, noone);
+    ds_list_add(dashAimUp, noone, noone, gp_axisrv, noone);
 
     dashAimDown  = ds_list_create();
-    ds_list_add(cameraDown, noone, noone, gp_axisrv, noone);
+    ds_list_add(dashAimDown, noone, noone, gp_axisrv, noone);
 
     dashAimLeft  = ds_list_create();
-    ds_list_add(cameraLeft, noone, noone, gp_axisrh, noone);
+    ds_list_add(dashAimLeft, noone, noone, gp_axisrh, noone);
 
     dashAimRight = ds_list_create();
-    ds_list_add(cameraRight, noone, noone, gp_axisrh, noone);
+    ds_list_add(dashAimRight, noone, noone, gp_axisrh, noone);
 
-    keybinds    = ds_map_create();
+    keybinds     = ds_map_create();
     ds_map_add_list(keybinds, "playerUp", playerUp);
     ds_map_add_list(keybinds, "playerDown", playerDown);
     ds_map_add_list(keybinds, "playerLeft", playerLeft);

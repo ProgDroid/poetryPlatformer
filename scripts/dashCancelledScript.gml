@@ -12,3 +12,13 @@ if (timeFactorController.timeFactor >= 1) {
     }
 }
 
+if (inputController.playerDashPressed && dashes > 0) {
+    inputController.playerDashPressed = false;
+    dashTimer = 3;
+
+    panOutAlarmIndex      = cancelAlarm(panOutAlarmIndex, setPanOut);
+    viewController.panOut = false;
+
+    dash = dashCheck;
+}
+
