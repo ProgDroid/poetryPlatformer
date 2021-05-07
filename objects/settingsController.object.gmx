@@ -118,6 +118,10 @@ if (keybinds == noone) {
     ds_map_add_list(keybinds, "cameraDown", cameraDown);
     ds_map_add_list(keybinds, "cameraLeft", cameraLeft);
     ds_map_add_list(keybinds, "cameraRight", cameraRight);
+    ds_map_add_list(keybinds, "dashAimUp", dashAimUp);
+    ds_map_add_list(keybinds, "dashAimDown", dashAimDown);
+    ds_map_add_list(keybinds, "dashAimLeft", dashAimLeft);
+    ds_map_add_list(keybinds, "dashAimRight", dashAimRight);
 
     ds_map_add(keybinds, "deadzone", CONTROLLER_DEADZONE);
     ds_map_add(keybinds, "buttonThreshold", CONTROLLER_BUTTON_THRESHOLD);
