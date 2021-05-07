@@ -349,7 +349,7 @@ if (surface_exists(shadowController.surfaceShadows)) {
     surface_reset_target();
 }
 
-if (dashTraceLength &gt; 0 &amp;&amp; state_timer &gt; 1) {
+if (dashTraceLength &gt; 0 &amp;&amp; dashPressedTimer &gt; 1) {
     draw_sprite_ext(spriteDashTrace, 0, x, y, dashScale, 1, dashAngle, c_white, 0.7);
     draw_sprite_ext(
         sprite_index,
