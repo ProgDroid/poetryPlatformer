@@ -33,59 +33,71 @@
 keybinds = loadJson("settings\keybinds.json");
 
 if (keybinds == noone) {
-    playerUp    = ds_list_create();
+    playerUp     = ds_list_create();
     ds_list_add(playerUp, ord('W'), vk_up, gp_padu, gp_axislv);
 
-    playerDown  = ds_list_create();
+    playerDown   = ds_list_create();
     ds_list_add(playerDown, ord('S'), vk_down, gp_padd, gp_axislv);
 
-    playerLeft  = ds_list_create();
+    playerLeft   = ds_list_create();
     ds_list_add(playerLeft, ord('A'), vk_left, gp_padl, gp_axislh);
 
-    playerRight = ds_list_create();
+    playerRight  = ds_list_create();
     ds_list_add(playerRight, ord('D'), vk_right, gp_padr, gp_axislh);
 
-    jump        = ds_list_create();
+    jump         = ds_list_create();
     ds_list_add(jump, vk_space, noone, gp_face1, noone);
 
-    dash        = ds_list_create();
-    ds_list_add(dash, vk_shift, noone, gp_shoulderr, noone);
+    dash         = ds_list_create();
+    ds_list_add(dash, vk_shift, noone, gp_shoulderl, noone);
 
-    dashConfirm = ds_list_create();
-    ds_list_add(dashConfirm, vk_space, noone, gp_face1, noone);
+    dashConfirm  = ds_list_create();
+    ds_list_add(dashConfirm, vk_space, noone, gp_shoulderr, noone);
 
-    start       = ds_list_create();
+    start        = ds_list_create();
     ds_list_add(start, vk_escape, noone, gp_start, noone);
 
-    menuUp      = ds_list_create();
+    menuUp       = ds_list_create();
     ds_list_add(menuUp, ord('W'), vk_up, gp_padu, gp_axislv);
 
-    menuDown    = ds_list_create();
+    menuDown     = ds_list_create();
     ds_list_add(menuDown, ord('S'), vk_down, gp_padd, gp_axislv);
 
-    menuLeft    = ds_list_create();
+    menuLeft     = ds_list_create();
     ds_list_add(menuLeft, ord('A'), vk_left, gp_padl, gp_axislh);
 
-    menuRight   = ds_list_create();
+    menuRight    = ds_list_create();
     ds_list_add(menuRight, ord('D'), vk_right, gp_padr, gp_axislh);
 
-    accept      = ds_list_create();
+    accept       = ds_list_create();
     ds_list_add(accept, vk_space, vk_enter, gp_face1, noone);
 
-    back        = ds_list_create();
+    back         = ds_list_create();
     ds_list_add(back, vk_escape, vk_backspace, gp_face2, noone);
 
-    cameraUp    = ds_list_create();
+    cameraUp     = ds_list_create();
     ds_list_add(cameraUp, ord('I'), noone, gp_axisrv, noone);
 
-    cameraDown  = ds_list_create();
+    cameraDown   = ds_list_create();
     ds_list_add(cameraDown, ord('K'), noone, gp_axisrv, noone);
 
-    cameraLeft  = ds_list_create();
+    cameraLeft   = ds_list_create();
     ds_list_add(cameraLeft, ord('J'), noone, gp_axisrh, noone);
 
-    cameraRight = ds_list_create();
+    cameraRight  = ds_list_create();
     ds_list_add(cameraRight, ord('L'), noone, gp_axisrh, noone);
+
+    dashAimUp    = ds_list_create();
+    ds_list_add(cameraUp, noone, noone, gp_axisrv, noone);
+
+    dashAimDown  = ds_list_create();
+    ds_list_add(cameraDown, noone, noone, gp_axisrv, noone);
+
+    dashAimLeft  = ds_list_create();
+    ds_list_add(cameraLeft, noone, noone, gp_axisrh, noone);
+
+    dashAimRight = ds_list_create();
+    ds_list_add(cameraRight, noone, noone, gp_axisrh, noone);
 
     keybinds    = ds_map_create();
     ds_map_add_list(keybinds, "playerUp", playerUp);
