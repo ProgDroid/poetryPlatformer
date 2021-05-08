@@ -1,7 +1,7 @@
 ///walk
 
 // if holding directional key
-if (inputController.playerLeftHeld ^^ inputController.playerRightHeld && !isAgainstWall(inputController.playerRightHeld - inputController.playerLeftHeld)) {
+if (inputController.playerLeftHeld != 0 ^^ inputController.playerRightHeld != 0 && !isAgainstWall(sign(inputController.playerLeftHeld) + sign(inputController.playerRightHeld))) {
     // check for slide
     var accelerationTmp = acceleration;
 
@@ -19,7 +19,7 @@ if (inputController.playerLeftHeld ^^ inputController.playerRightHeld && !isAgai
     if (sign(horizontalSpeed) != speedSign) {
         horizontalSpeed = 0;
     }
-} else if (isAgainstWall(inputController.playerRightHeld - inputController.playerLeftHeld)) {
+} else if (isAgainstWall(sign(inputController.playerLeftHeld) + sign(inputController.playerRightHeld))) {
     // push
     show_debug_message("pushing");
 }

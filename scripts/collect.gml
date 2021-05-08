@@ -1,6 +1,6 @@
 ///collect
 
-if (place_meeting(x, y, objCollectible)) {
+if (place_meeting(x, y, objCollectible) && dash != dashScript) {
     stateSwitch("inCollectionAnimation");
 }
 

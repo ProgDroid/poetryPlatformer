@@ -295,10 +295,13 @@ if (inputController.start) {
           <argument>
             <kind>1</kind>
             <string>///Dash placement
-if (dashTimer &gt; 0 || dashTraceLength &gt; 0) {
-    var pointDistance = point_distance(x, y, mouse_x, mouse_y);
+if (dash == dashCheck || dash == dashScript) {
+    var pointX = lerp(dashX, dashPointX(), ((0.1 * (inputController.currentInputType == inputmethod.pad)) + (0.4 * (inputController.currentInputType == inputmethod.keyboard))) * customDeltaTimeNoTimeFactor);
+    var pointY = lerp(dashY, dashPointY(), ((0.1 * (inputController.currentInputType == inputmethod.pad)) + (0.4 * (inputController.currentInputType == inputmethod.keyboard))) * customDeltaTimeNoTimeFactor);
+
+    var pointDistance = point_distance(x, y, pointX, pointY);
     dashScale         = min(pointDistance, max(dashTraceLength, 20)) / dashSize;
-    dashAngle         = point_direction(x, y, mouse_x, mouse_y);
+    dashAngle         = point_direction(x, y, pointX, pointY);
     dashX             = x + dashScale * lengthdir_x(dashSize, dashAngle);
     dashY             = y + dashScale * lengthdir_y(dashSize, dashAngle);
 }
@@ -349,7 +352,7 @@ if (surface_exists(shadowController.surfaceShadows)) {
     surface_reset_target();
 }
 
-if (dashTraceLength &gt; 0 &amp;&amp; state_timer &gt; 1) {
+if (dashTraceLength &gt; 0 &amp;&amp; dashPressedTimer &gt; 1) {
     draw_sprite_ext(spriteDashTrace, 0, x, y, dashScale, 1, dashAngle, c_white, 0.7);
     draw_sprite_ext(
         sprite_index,

@@ -32,7 +32,9 @@ if (objPlayer.state_name == "ending") {
     limit = 0.5;
 }
 
-xShift = lerp(xShift, (inputController.cameraRight - inputController.cameraLeft) * viewShiftMax * !GUIController.gameOver * !inputController.playerDashHeld, 0.1);
+var cameraInput = (inputController.cameraLeft != 0 ^^ inputController.cameraRight != 0) * (inputController.cameraLeft + inputController.cameraRight) * !(objPlayer.dash == inDash);
+
+xShift = lerp(xShift, cameraInput * viewShiftMax * !GUIController.gameOver * !inputController.playerDashHeld, 0.1);
 
 var lerpValue = lerp(viewXNoShift, objPlayer.x - limit * view_wview[0], 0.05 + 0.05 * objPlayer.maxHorizontalSpeed * timeFactorController.timeFactor * timeFactorController.pauseFactor) - viewXNoShift;
 
@@ -51,12 +53,14 @@ if (offsetVertically) {
 }
 
 if (zoomIn) {
-    dashOffset = clamp((mouse_y - objPlayer.y) / 3, -dashMaxOffset, dashMaxOffset);
+    dashOffset = clamp((dashPointY() - objPlayer.y) / 3, -dashMaxOffset, dashMaxOffset);
 } else {
     dashOffset = 0;
 }
 
-yShift = lerp(yShift, (inputController.cameraDown - inputController.cameraUp) * viewShiftMax * !GUIController.gameOver * !inputController.playerDashHeld * !offsetVertically, 0.1);
+cameraInput = (inputController.cameraUp != 0 ^^ inputController.cameraDown != 0) * (inputController.cameraUp + inputController.cameraDown) * !(objPlayer.dash == inDash);
+
+yShift = lerp(yShift, cameraInput * viewShiftMax * !GUIController.gameOver * !inputController.playerDashHeld * !offsetVertically, 0.1);
 
 viewYNoShift  = lerp(viewYNoShift, (objPlayer.y - 0.5 * view_hview[0]) + yOffset * view_hview[0] + dashOffset, 0.05 + 0.05 * abs(objPlayer.verticalSpeed) * timeFactorController.timeFactor * timeFactorController.pauseFactor);
 viewYNoShift  = min(viewYNoShift, room_height - view_hview[0] / 1.5);

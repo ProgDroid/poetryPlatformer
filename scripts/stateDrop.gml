@@ -16,8 +16,6 @@ if (state_new) {
     panOutAlarmIndex         = cancelAlarm(panOutAlarmIndex, setPanOut);
     offsetVertAlarmIndex     = createAlarm(viewController, TICK_RATE, setOffsetVertically);
     viewController.panOut    = false;
-    viewController.zoomIn    = false;
-    flashController.dashDark = false;
 
     moveHorizontal = airWalk;
     land           = landScript;

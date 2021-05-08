@@ -20,7 +20,7 @@ if (verticalSpeed == 0 && (isOnFloor() || isSlidingOff())) {
     viewController.zoomIn    = false;
     flashController.dashDark = false;
 
-    if (horizontalSpeed != 0 || (inputController.playerLeftHeld ^^ inputController.playerRightHeld)) {
+    if (horizontalSpeed != 0 || (inputController.playerLeftHeld != 0 ^^ inputController.playerRightHeld != 0)) {
         stateSwitch("walk");
     } else {
         stateSwitch("idle");

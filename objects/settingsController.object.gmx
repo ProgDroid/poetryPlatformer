@@ -27,89 +27,24 @@
             <kind>1</kind>
             <string>///Create binds
 
-// will probably need to save this so think about json encoding
-// possibly an array per action here
-// e.g. jump = [ord('W'), noone, gamepad_axis_value(gamepadConnected, gp_axislv)];
+var defaultKeybinds = ds_map_create();
+createDefaultKeybinds(defaultKeybinds);
+
 keybinds = loadJson("settings\keybinds.json");
 
+var modified = false;
+
 if (keybinds == noone) {
-    playerUp    = ds_list_create();
-    ds_list_add(playerUp, ord('W'), vk_up, gp_padu, gp_axislv);
+    keybinds = ds_map_create();
+    ds_map_copy(keybinds, defaultKeybinds);
+    modified = true;
+} else {
+    modified = validateKeybindsJson(keybinds, defaultKeybinds);
+}
 
-    playerDown  = ds_list_create();
-    ds_list_add(playerDown, ord('S'), vk_down, gp_padd, gp_axislv);
+ds_map_destroy(defaultKeybinds);
 
-    playerLeft  = ds_list_create();
-    ds_list_add(playerLeft, ord('A'), vk_left, gp_padl, gp_axislh);
-
-    playerRight = ds_list_create();
-    ds_list_add(playerRight, ord('D'), vk_right, gp_padr, gp_axislh);
-
-    jump        = ds_list_create();
-    ds_list_add(jump, vk_space, noone, gp_face1, noone);
-
-    dash        = ds_list_create();
-    ds_list_add(dash, vk_shift, noone, gp_shoulderr, noone);
-
-    dashConfirm = ds_list_create();
-    ds_list_add(dashConfirm, vk_space, noone, gp_face1, noone);
-
-    start       = ds_list_create();
-    ds_list_add(start, vk_escape, noone, gp_start, noone);
-
-    menuUp      = ds_list_create();
-    ds_list_add(menuUp, ord('W'), vk_up, gp_padu, gp_axislv);
-
-    menuDown    = ds_list_create();
-    ds_list_add(menuDown, ord('S'), vk_down, gp_padd, gp_axislv);
-
-    menuLeft    = ds_list_create();
-    ds_list_add(menuLeft, ord('A'), vk_left, gp_padl, gp_axislh);
-
-    menuRight   = ds_list_create();
-    ds_list_add(menuRight, ord('D'), vk_right, gp_padr, gp_axislh);
-
-    accept      = ds_list_create();
-    ds_list_add(accept, vk_space, vk_enter, gp_face1, noone);
-
-    back        = ds_list_create();
-    ds_list_add(back, vk_escape, vk_backspace, gp_face2, noone);
-
-    cameraUp    = ds_list_create();
-    ds_list_add(cameraUp, ord('I'), noone, gp_axisrv, noone);
-
-    cameraDown  = ds_list_create();
-    ds_list_add(cameraDown, ord('K'), noone, gp_axisrv, noone);
-
-    cameraLeft  = ds_list_create();
-    ds_list_add(cameraLeft, ord('J'), noone, gp_axisrh, noone);
-
-    cameraRight = ds_list_create();
-    ds_list_add(cameraRight, ord('L'), noone, gp_axisrh, noone);
-
-    keybinds    = ds_map_create();
-    ds_map_add_list(keybinds, "playerUp", playerUp);
-    ds_map_add_list(keybinds, "playerDown", playerDown);
-    ds_map_add_list(keybinds, "playerLeft", playerLeft);
-    ds_map_add_list(keybinds, "playerRight", playerRight);
-    ds_map_add_list(keybinds, "jump", jump);
-    ds_map_add_list(keybinds, "dash", dash);
-    ds_map_add_list(keybinds, "dashConfirm", dashConfirm);
-    ds_map_add_list(keybinds, "start", start);
-    ds_map_add_list(keybinds, "menuUp", menuUp);
-    ds_map_add_list(keybinds, "menuDown", menuDown);
-    ds_map_add_list(keybinds, "menuLeft", menuLeft);
-    ds_map_add_list(keybinds, "menuRight", menuRight);
-    ds_map_add_list(keybinds, "accept", accept);
-    ds_map_add_list(keybinds, "back", back);
-    ds_map_add_list(keybinds, "cameraUp", cameraUp);
-    ds_map_add_list(keybinds, "cameraDown", cameraDown);
-    ds_map_add_list(keybinds, "cameraLeft", cameraLeft);
-    ds_map_add_list(keybinds, "cameraRight", cameraRight);
-
-    ds_map_add(keybinds, "deadzone", CONTROLLER_DEADZONE);
-    ds_map_add(keybinds, "buttonThreshold", CONTROLLER_BUTTON_THRESHOLD);
-
+if (modified) {
     var file = file_text_open_write(working_directory + "settings\keybinds.json");
     file_text_write_string(file, json_encode(keybinds));
     file_text_close(file);
@@ -159,17 +94,25 @@ draw_enable_swf_aa(true);
           <argument>
             <kind>1</kind>
             <string>///Create view values
-visualSettings = loadJson("settings\visualSettings.json")
+
+var defaultVisualSettings = ds_map_create();
+createDefaultVisualSettings(defaultVisualSettings);
+
+visualSettings = loadJson("settings\visualSettings.json");
+
+var modified = false;
 
 if (visualSettings == noone) {
     visualSettings = ds_map_create();
+    ds_map_copy(visualSettings, defaultVisualSettings);
+    modified = true;
+} else {
+    modified = validateVisualSettingsJson(visualSettings, defaultVisualSettings);
+}
 
-    ds_map_add(visualSettings, "width", display_get_width());
-    ds_map_add(visualSettings, "height", display_get_height());
+ds_map_destroy(defaultVisualSettings);
 
-    ds_map_add(visualSettings, "guiScalingX", 1);
-    ds_map_add(visualSettings, "guiScalingY", 1);
-
+if (modified) {
     var file = file_text_open_write(working_directory + "settings\visualSettings.json");
     file_text_write_string(file, json_encode(visualSettings));
     file_text_close(file);
