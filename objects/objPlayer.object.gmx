@@ -296,8 +296,8 @@ if (inputController.start) {
             <kind>1</kind>
             <string>///Dash placement
 if (dash == dashCheck || dash == dashScript) {
-    var pointX = lerp(dashX, dashPointX(), 0.1 * customDeltaTimeNoTimeFactor);
-    var pointY = lerp(dashY, dashPointY(), 0.1 * customDeltaTimeNoTimeFactor);
+    var pointX = lerp(dashX, dashPointX(), ((0.1 * (inputController.currentInputType == inputmethod.pad)) + (0.4 * (inputController.currentInputType == inputmethod.keyboard))) * customDeltaTimeNoTimeFactor);
+    var pointY = lerp(dashY, dashPointY(), ((0.1 * (inputController.currentInputType == inputmethod.pad)) + (0.4 * (inputController.currentInputType == inputmethod.keyboard))) * customDeltaTimeNoTimeFactor);
 
     var pointDistance = point_distance(x, y, pointX, pointY);
     dashScale         = min(pointDistance, max(dashTraceLength, 20)) / dashSize;
