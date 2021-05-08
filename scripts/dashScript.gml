@@ -24,7 +24,7 @@ if (dashHeldBuffer <= 0 || dashPressedTimer > TICK_RATE * 5) {
     dashTraceLength = 0;
     dash            = dashCancelledScript;
     land            = landScript;
-    
+
     viewController.zoomIn    = false;
     flashController.dashDark = false;
 

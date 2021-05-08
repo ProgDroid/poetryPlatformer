@@ -295,9 +295,9 @@ if (inputController.start) {
           <argument>
             <kind>1</kind>
             <string>///Dash placement
-if (dashTimer &gt; 0 || dashTraceLength &gt; 0) {
-    var pointX = dashPointX();
-    var pointY = dashPointY();
+if (dash == dashCheck || dash == dashScript) {
+    var pointX = lerp(dashX, dashPointX(), 0.1 * customDeltaTimeNoTimeFactor);
+    var pointY = lerp(dashY, dashPointY(), 0.1 * customDeltaTimeNoTimeFactor);
 
     var pointDistance = point_distance(x, y, pointX, pointY);
     dashScale         = min(pointDistance, max(dashTraceLength, 20)) / dashSize;
