@@ -267,6 +267,8 @@
     </scripts>
     <scripts name="settingsScripts">
       <script>scripts\changeResolution.gml</script>
+      <script>scripts\validateKeybindsJson.gml</script>
+      <script>scripts\createDefaultKeybinds.gml</script>
     </scripts>
     <scripts name="playerStateSubScripts">
       <script>scripts\facingDirScript.gml</script>
