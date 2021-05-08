@@ -29,10 +29,11 @@
 
 event_inherited();
 
-playerUpHeld       = false;
-playerDownHeld     = false;
-playerLeftHeld     = false;
-playerRightHeld    = false;
+playerUpHeld       = 0;
+playerDownHeld     = 0;
+playerLeftHeld     = 0;
+playerRightHeld    = 0;
+
 playerJumpHeld     = false;
 playerDashHeld     = false;
 playerUpPressed    = false;
@@ -43,10 +44,16 @@ playerJumpPressed  = false;
 playerDashPressed  = false;
 playerDashConfirm  = false;
 
-menuUpHeld         = false;
-menuDownHeld       = false;
-menuLeftHeld       = false;
-menuRightHeld      = false;
+playerDashAimUp    = 0;
+playerDashAimDown  = 0;
+playerDashAimLeft  = 0;
+playerDashAimRight = 0;
+
+menuUpHeld         = 0;
+menuDownHeld       = 0;
+menuLeftHeld       = 0;
+menuRightHeld      = 0;
+
 menuUpPressed      = false;
 menuDownPressed    = false;
 menuLeftPressed    = false;
@@ -56,10 +63,10 @@ menuBack           = false;
 
 start              = false;
 
-cameraUp           = false;
-cameraDown         = false;
-cameraLeft         = false;
-cameraRight        = false;
+cameraUp           = 0;
+cameraDown         = 0;
+cameraLeft         = 0;
+cameraRight        = 0;
 
 enum inputmethod {
     pad,
@@ -189,32 +196,53 @@ if (!instance_exists(settingsController)) {
     exit;
 }
 
-if (!instance_exists(devModeController) || !(devModeController.devConsole)) {
-    playerUpHeld       = checkHeld(settingsController.keybinds[? "playerUp"], "less");
-    playerDownHeld     = checkHeld(settingsController.keybinds[? "playerDown"], "greater");
-    playerLeftHeld     = checkHeld(settingsController.keybinds[? "playerLeft"], "less");
-    playerRightHeld    = checkHeld(settingsController.keybinds[? "playerRight"], "greater");
-    playerJumpHeld     = checkHeld(settingsController.keybinds[? "jump"], "");
-    playerDashHeld     = checkHeld(settingsController.keybinds[? "dash"], "");
-    playerUpPressed    = playerUpPressed || checkPressed(settingsController.keybinds[? "playerUp"], "less");
-    playerDownPressed  = playerDownPressed || checkPressed(settingsController.keybinds[? "playerDown"], "greater");
-    playerLeftPressed  = playerLeftPressed || checkPressed(settingsController.keybinds[? "playerLeft"], "less");
-    playerRightPressed = playerRightPressed || checkPressed(settingsController.keybinds[? "playerRight"], "greater");
-    playerJumpPressed  = playerJumpPressed || checkPressed(settingsController.keybinds[? "jump"], "");
-    playerDashPressed  = playerDashPressed || checkPressed(settingsController.keybinds[? "dash"], "");
-    playerDashConfirm  = playerDashConfirm || checkPressed(settingsController.keybinds[? "dashConfirm"], "");
+playerUpHeld       = min(checkHeld(settingsController.keybinds[? "playerUp"]) * -1, checkAxis(settingsController.keybinds[? "playerUp"], true));
+playerDownHeld     = max(checkHeld(settingsController.keybinds[? "playerDown"]), checkAxis(settingsController.keybinds[? "playerDown"], false));
+playerLeftHeld     = min(checkHeld(settingsController.keybinds[? "playerLeft"]) * -1, checkAxis(settingsController.keybinds[? "playerLeft"], true));
+playerRightHeld    = max(checkHeld(settingsController.keybinds[? "playerRight"]), checkAxis(settingsController.keybinds[? "playerRight"], false));
 
-    cameraUp           = checkHeld(settingsController.keybinds[? "cameraUp"], "less");
-    cameraDown         = checkHeld(settingsController.keybinds[? "cameraDown"], "greater");
-    cameraLeft         = checkHeld(settingsController.keybinds[? "cameraLeft"], "less");
-    cameraRight        = checkHeld(settingsController.keybinds[? "cameraRight"], "greater");
+if (vectorLengthSquared(playerUpHeld + playerDownHeld, playerLeftHeld + playerRightHeld) &lt; (settingsController.keybinds[? "deadzone"] * settingsController.keybinds[? "deadzone"])) {
+    playerUpHeld    = 0;
+    playerDownHeld  = 0;
+    playerLeftHeld  = 0;
+    playerRightHeld = 0;
 }
 
+playerJumpHeld     = checkHeld(settingsController.keybinds[? "jump"]);
+playerDashHeld     = checkHeld(settingsController.keybinds[? "dash"]);
+playerUpPressed    = playerUpPressed || checkPressed(settingsController.keybinds[? "playerUp"], "less");
+playerDownPressed  = playerDownPressed || checkPressed(settingsController.keybinds[? "playerDown"], "greater");
+playerLeftPressed  = playerLeftPressed || checkPressed(settingsController.keybinds[? "playerLeft"], "less");
+playerRightPressed = playerRightPressed || checkPressed(settingsController.keybinds[? "playerRight"], "greater");
+playerJumpPressed  = playerJumpPressed || checkPressed(settingsController.keybinds[? "jump"], "");
+playerDashPressed  = playerDashPressed || checkPressed(settingsController.keybinds[? "dash"], "");
+playerDashConfirm  = playerDashConfirm || checkPressed(settingsController.keybinds[? "dashConfirm"], "");
+
+playerDashAimUp    = min(0, checkAxis(settingsController.keybinds[? "dashAimUp"], true));
+playerDashAimDown  = max(0, checkAxis(settingsController.keybinds[? "dashAimDown"], false));
+playerDashAimLeft  = min(0, checkAxis(settingsController.keybinds[? "dashAimLeft"], true));
+playerDashAimRight = max(0, checkAxis(settingsController.keybinds[? "dashAimRight"], false));
+
+if (vectorLengthSquared(playerDashAimLeft + playerDashAimRight, playerDashAimUp + playerDashAimDown) &lt; (settingsController.keybinds[? "deadzone"] * settingsController.keybinds[? "deadzone"])) {
+    playerDashAimUp    = 0;
+    playerDashAimDown  = 0;
+    playerDashAimLeft  = 0;
+    playerDashAimRight = 0;
+}
+
+playerDashAiming   = playerDashAimUp != 0 || playerDashAimDown != 0 || playerDashAimLeft != 0 || playerDashAimRight != 0;
+
+cameraUp           = min(checkHeld(settingsController.keybinds[? "cameraUp"]) * -1, checkAxis(settingsController.keybinds[? "cameraUp"], true));
+cameraDown         = max(checkHeld(settingsController.keybinds[? "cameraDown"]), checkAxis(settingsController.keybinds[? "cameraDown"], false));
+cameraLeft         = min(checkHeld(settingsController.keybinds[? "cameraLeft"]) * -1, checkAxis(settingsController.keybinds[? "cameraLeft"], true));
+cameraRight        = max(checkHeld(settingsController.keybinds[? "cameraRight"]), checkAxis(settingsController.keybinds[? "cameraRight"], false));
+
 // check if in menu?
-menuUpHeld       = checkHeld(settingsController.keybinds[? "menuUp"], "less");
-menuDownHeld     = checkHeld(settingsController.keybinds[? "menuDown"], "greater");
-menuLeftHeld     = checkHeld(settingsController.keybinds[? "menuLeft"], "less");
-menuRightHeld    = checkHeld(settingsController.keybinds[? "menuRight"], "greater");
+menuUpHeld       = min(checkHeld(settingsController.keybinds[? "menuUp"]) * -1, checkAxis(settingsController.keybinds[? "menuUp"], true));
+menuDownHeld     = max(checkHeld(settingsController.keybinds[? "menuDown"]), checkAxis(settingsController.keybinds[? "menuDown"], false));
+menuLeftHeld     = min(checkHeld(settingsController.keybinds[? "menuLeft"]) * -1, checkAxis(settingsController.keybinds[? "menuLeft"], true));
+menuRightHeld    = max(checkHeld(settingsController.keybinds[? "menuRight"]), checkAxis(settingsController.keybinds[? "menuRight"], false));
+
 menuUpPressed    = menuUpPressed || checkPressed(settingsController.keybinds[? "menuUp"], "less");
 menuDownPressed  = menuDownPressed || checkPressed(settingsController.keybinds[? "menuDown"], "greater");
 menuLeftPressed  = menuLeftPressed || checkPressed(settingsController.keybinds[? "menuLeft"], "less");

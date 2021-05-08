@@ -4,7 +4,10 @@ dashPressedTimer++;
 
 applyTimeFactor(lerp(timeFactorController.timeFactor, 0.05, 0.5 * timeFactorController.timeFactor * timeFactorController.pauseFactor));
 
-dashTraceLength = lerp(dashTraceLength, DASH_TRACE_LENGTH, 0.15);
+var lerpValue  = 0.15 * (inputController.currentInputType == inputmethod.keyboard);
+    lerpValue += 0.05 * (inputController.currentInputType == inputmethod.pad && inputController.playerDashAiming);
+
+dashTraceLength = lerp(dashTraceLength, DASH_TRACE_LENGTH, lerpValue) * !(inputController.currentInputType == inputmethod.pad && !inputController.playerDashAiming);
 
 if (inputController.playerDashConfirm) {
     inputController.playerDashConfirm = false;

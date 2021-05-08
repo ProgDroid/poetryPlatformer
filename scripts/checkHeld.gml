@@ -13,13 +13,19 @@ if (!ds_exists(argument0, ds_type_list)) {
     exit;
 }
 
-var keyHeld = false;
-
 if (inputController.currentInputType == inputmethod.keyboard) {
-    keyHeld = keyboard_check(argument0[| 0]) || keyboard_check(argument0[| 1]);
+    return keyboard_check(argument0[| 0]) || keyboard_check(argument0[| 1]);
 } else if (inputController.currentInputType == inputmethod.pad) {
-    keyHeld = gamepad_button_check(inputController.activePad, argument0[| 2]) || gamepad_button_check(inputController.activePad, argument0[| 3]);
+    var toReturn = false;
+
+    for (var i = 2; i < 4; ++i) {
+        if (argument0[| i] != noone && argument0[| i] < gp_axislh) {
+            toReturn = toReturn || gamepad_button_check(inputController.activePad, argument0[| i]);
+        }
+    }
+
+    return toReturn;
 }
 
-return keyHeld;
+return false;
 

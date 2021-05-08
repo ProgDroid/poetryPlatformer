@@ -296,9 +296,12 @@ if (inputController.start) {
             <kind>1</kind>
             <string>///Dash placement
 if (dashTimer &gt; 0 || dashTraceLength &gt; 0) {
-    var pointDistance = point_distance(x, y, mouse_x, mouse_y);
+    var pointX = dashPointX();
+    var pointY = dashPointY();
+
+    var pointDistance = point_distance(x, y, pointX, pointY);
     dashScale         = min(pointDistance, max(dashTraceLength, 20)) / dashSize;
-    dashAngle         = point_direction(x, y, mouse_x, mouse_y);
+    dashAngle         = point_direction(x, y, pointX, pointY);
     dashX             = x + dashScale * lengthdir_x(dashSize, dashAngle);
     dashY             = y + dashScale * lengthdir_y(dashSize, dashAngle);
 }

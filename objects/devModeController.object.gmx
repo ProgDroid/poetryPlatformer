@@ -327,7 +327,11 @@ if (drawCustomGui &amp;&amp; !devConsole &amp;&amp; instance_exists(objPlayer)) 
     draw_text(devTextPosition + 20 + 20, 752, "jumpPressed: " + string(inputController.playerJumpPressed));
     draw_text(devTextPosition + 20 + 20, 768, "dashPressed: " + string(inputController.playerDashPressed));
     draw_text(devTextPosition + 20 + 20, 784, "dashConfirm: " + string(inputController.playerDashConfirm));
-    draw_text(devTextPosition, 800, "room_speed: " + string(room_speed));
+    draw_text(devTextPosition + 20 + 20, 800, "dashAimUp: " + string(inputController.playerDashAimUp));
+    draw_text(devTextPosition + 20 + 20, 816, "dashAimDown: " + string(inputController.playerDashAimDown));
+    draw_text(devTextPosition + 20 + 20, 832, "dashAimLeft: " + string(inputController.playerDashAimLeft));
+    draw_text(devTextPosition + 20 + 20, 848, "dashAimRight: " + string(inputController.playerDashAimRight));
+    draw_text(devTextPosition, 864, "room_speed: " + string(room_speed));
 
     draw_set_colour(c_white);
 }

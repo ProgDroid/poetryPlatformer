@@ -1,6 +1,6 @@
 ///facingDir
 
-facingDir = inputController.playerRightHeld - inputController.playerLeftHeld;
+facingDir = sign(inputController.playerLeftHeld) + sign(inputController.playerRightHeld);
 
 if (facingDir != 0) {
     lastDir = facingDir;

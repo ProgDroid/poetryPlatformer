@@ -255,11 +255,15 @@
       <script>scripts\refreshImageSpeeds.gml</script>
       <script>scripts\pause.gml</script>
       <script>scripts\unpause.gml</script>
+      <script>scripts\vectorLengthSquared.gml</script>
     </scripts>
     <scripts name="inputScripts">
       <script>scripts\checkHeld.gml</script>
       <script>scripts\checkPressed.gml</script>
       <script>scripts\cleanPressedInputs.gml</script>
+      <script>scripts\checkAxis.gml</script>
+      <script>scripts\dashPointX.gml</script>
+      <script>scripts\dashPointY.gml</script>
     </scripts>
     <scripts name="settingsScripts">
       <script>scripts\changeResolution.gml</script>
