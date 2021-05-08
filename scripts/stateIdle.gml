@@ -45,7 +45,6 @@ if (
      (inputController.playerJumpPressed || jumpBuffer > 0) &&
      (isOnFloor() || isSlidingOff())
 ) {
-    inputController.playerDownPressed = false;
     inputController.playerJumpPressed = false;
     verticalSpeed = -maxVerticalSpeed;
     doubleJump    = emptyScript;

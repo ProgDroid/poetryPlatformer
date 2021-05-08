@@ -320,18 +320,14 @@ if (drawCustomGui &amp;&amp; !devConsole &amp;&amp; instance_exists(objPlayer)) 
     draw_text(devTextPosition + 20 + 20, 640, "rightHeld: " + string(inputController.playerRightHeld));
     draw_text(devTextPosition + 20 + 20, 656, "jumpHeld: " + string(inputController.playerJumpHeld));
     draw_text(devTextPosition + 20 + 20, 672, "dashHeld: " + string(inputController.playerDashHeld));
-    draw_text(devTextPosition + 20 + 20, 688, "upPressed: " + string(inputController.playerUpPressed));
-    draw_text(devTextPosition + 20 + 20, 704, "downPressed: " + string(inputController.playerDownPressed));
-    draw_text(devTextPosition + 20 + 20, 720, "leftPressed: " + string(inputController.playerLeftPressed));
-    draw_text(devTextPosition + 20 + 20, 736, "rightPressed: " + string(inputController.playerRightPressed));
-    draw_text(devTextPosition + 20 + 20, 752, "jumpPressed: " + string(inputController.playerJumpPressed));
-    draw_text(devTextPosition + 20 + 20, 768, "dashPressed: " + string(inputController.playerDashPressed));
-    draw_text(devTextPosition + 20 + 20, 784, "dashConfirm: " + string(inputController.playerDashConfirm));
-    draw_text(devTextPosition + 20 + 20, 800, "dashAimUp: " + string(inputController.playerDashAimUp));
-    draw_text(devTextPosition + 20 + 20, 816, "dashAimDown: " + string(inputController.playerDashAimDown));
-    draw_text(devTextPosition + 20 + 20, 832, "dashAimLeft: " + string(inputController.playerDashAimLeft));
-    draw_text(devTextPosition + 20 + 20, 848, "dashAimRight: " + string(inputController.playerDashAimRight));
-    draw_text(devTextPosition, 864, "room_speed: " + string(room_speed));
+    draw_text(devTextPosition + 20 + 20, 688, "jumpPressed: " + string(inputController.playerJumpPressed));
+    draw_text(devTextPosition + 20 + 20, 704, "dashPressed: " + string(inputController.playerDashPressed));
+    draw_text(devTextPosition + 20 + 20, 720, "dashConfirm: " + string(inputController.playerDashConfirm));
+    draw_text(devTextPosition + 20 + 20, 736, "dashAimUp: " + string(inputController.playerDashAimUp));
+    draw_text(devTextPosition + 20 + 20, 752, "dashAimDown: " + string(inputController.playerDashAimDown));
+    draw_text(devTextPosition + 20 + 20, 768, "dashAimLeft: " + string(inputController.playerDashAimLeft));
+    draw_text(devTextPosition + 20 + 20, 784, "dashAimRight: " + string(inputController.playerDashAimRight));
+    draw_text(devTextPosition, 800, "room_speed: " + string(room_speed));
 
     draw_set_colour(c_white);
 }
