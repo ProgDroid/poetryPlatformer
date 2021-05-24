@@ -27,19 +27,14 @@
             <kind>1</kind>
             <string>event_inherited();
 
-instances[MAX_ALARMS - 1] = noone;
-for (var i = MAX_ALARMS - 2; i &gt;= 0; --i) {
-    instances[i] = noone;
-}
-
+instances[MAX_ALARMS - 1]  = noone;
 alarmTimes[MAX_ALARMS - 1] = noone;
-for (var i = MAX_ALARMS - 2; i &gt;= 0; --i) {
-    alarmTimes[i] = noone;
-}
+scripts[MAX_ALARMS - 1]    = noone;
 
-scripts[MAX_ALARMS - 1] = noone;
 for (var i = MAX_ALARMS - 2; i &gt;= 0; --i) {
-    scripts[i] = noone;
+    instances[i]  = noone;
+    alarmTimes[i] = noone;
+    scripts[i]    = noone;
 }
 
 availableIndices = ds_queue_create();

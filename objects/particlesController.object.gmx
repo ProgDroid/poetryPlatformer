@@ -53,6 +53,7 @@ eventRegister(allEvents.doublejump, id, doubleJumpParticles);
           <argument>
             <kind>1</kind>
             <string>eventUnregister(allEvents.landedon, id);
+eventUnregister(allEvents.doublejump, id);
 
 </string>
           </argument>

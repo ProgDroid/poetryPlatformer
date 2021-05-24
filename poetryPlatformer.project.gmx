@@ -310,6 +310,7 @@
       <script>scripts\setStateSuckedIn.gml</script>
       <script>scripts\windowCentre.gml</script>
       <script>scripts\delayAlarm.gml</script>
+      <script>scripts\cancelAllAlarms.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">
