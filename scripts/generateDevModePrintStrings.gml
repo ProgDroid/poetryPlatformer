@@ -3,7 +3,6 @@
 
 var strings;
 
-strings[45] = "directionChange: " + string(objPlayer.directionChange);
 strings[44] = "room_speed: " + string(room_speed);
 strings[43] = "        dashAimRight: " + string(inputController.playerDashAimRight);
 strings[42] = "        dashAimLeft: " + string(inputController.playerDashAimLeft);
