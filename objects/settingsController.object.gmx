@@ -42,8 +42,6 @@ if (keybinds == noone) {
     modified = validateKeybindsJson(keybinds, defaultKeybinds);
 }
 
-ds_map_destroy(defaultKeybinds);
-
 if (modified) {
     var file = file_text_open_write(working_directory + "settings\keybinds.json");
     file_text_write_string(file, json_encode(keybinds));
@@ -151,8 +149,16 @@ var file = file_text_open_write(working_directory + "settings\keybinds.json");
 file_text_write_string(file, json_encode(keybinds));
 file_text_close(file);
 
+file = file_text_open_write(working_directory + "settings\visualSettings.json");
+file_text_write_string(file, json_encode(visualSettings));
+file_text_close(file);
+
 if (ds_exists(keybinds, ds_type_map)) {
     ds_map_destroy(keybinds);
+}
+
+if (ds_exists(defaultKeybinds, ds_type_map)) {
+    ds_map_destroy(defaultKeybinds);
 }
 
 if (ds_exists(visualSettings, ds_type_map)) {
