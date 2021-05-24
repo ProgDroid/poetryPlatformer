@@ -70,6 +70,8 @@ mouseInstanceName = "&lt;undefined&gt;";
 
 drawCustomGui = true;
 
+devModePrints = generateDevModePrintStrings();
+
 </string>
           </argument>
         </arguments>
@@ -259,6 +261,30 @@ if (mouseInstanceId == noone) {
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Regenerate strings to print
+
+devModePrints = generateDevModePrintStrings();
+
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="8" enumb="64">
       <action>
@@ -283,51 +309,10 @@ if (drawCustomGui &amp;&amp; !devConsole &amp;&amp; instance_exists(objPlayer)) 
     draw_set_colour(c_red);
     draw_set_halign(fa_left);
     draw_set_valign(fa_middle);
-    draw_text(devTextPosition, 64, "State: " + objPlayer.state_name);
-    draw_text(devTextPosition, 80, "FPS: " + string(fps));
-    draw_text(devTextPosition, 96, "Delta Time: " + string(delta_time));
-    draw_text(devTextPosition, 112, "Collectibles: " + dec_to_bin(worldController.collectiblesFound));
-    draw_text(devTextPosition, 128, "target fps: " + string(global._ts_fps));
-    draw_text(devTextPosition, 144, "time factor: " + string(timeFactorController.timeFactor));
-    draw_text(devTextPosition, 160, "sprite: " + sprite_get_name(objPlayer.sprite_index));
-    draw_text(devTextPosition, 192, "horizontal speed: " + string(objPlayer.horizontalSpeed));
-    draw_text(devTextPosition, 208, "facing direction: " + string(objPlayer.facingDir));
-    draw_text(devTextPosition, 224, "drawing scale X: " + string(objPlayer.drawingScaleX));
-    draw_text(devTextPosition, 240, "drawing scale Y: " + string(objPlayer.drawingScaleY));
-    draw_text(devTextPosition, 256, "last dir: " + string(objPlayer.lastDir));
-    draw_text(devTextPosition, 272, "double jumps: " + string(objPlayer.doubleJump == doubleJumpScript));
-    draw_text(devTextPosition, 288, "input type: " + string(inputController.currentInputType));
-    draw_text(devTextPosition, 304, "active pad: " + string(inputController.activePad));
-    draw_text(devTextPosition, 320, "connected pads: " + string(ds_list_size(inputController.connectedPads)));
-    draw_text(devTextPosition, 336, "dashes: " + string(objPlayer.dashes));
-    draw_text(devTextPosition, 352, "maxDashes: " + string(objPlayer.maxDashes));
-    draw_text(devTextPosition, 384, "scripts:");
-    draw_text(devTextPosition + 20, 400, "facingDirection: " + string(script_get_name(objPlayer.facingDirection)));
-    draw_text(devTextPosition + 20, 416, "moveHorizontal: " + string(script_get_name(objPlayer.moveHorizontal)));
-    draw_text(devTextPosition + 20, 432, "collectStuff: " + string(script_get_name(objPlayer.collectStuff)));
-    draw_text(devTextPosition + 20, 448, "moveVertical: " + string(script_get_name(objPlayer.moveVertical)));
-    draw_text(devTextPosition + 20, 464, "slideAlongWalls: " + string(script_get_name(objPlayer.slideAlongWalls)));
-    draw_text(devTextPosition + 20, 480, "doubleJump: " + string(script_get_name(objPlayer.doubleJump)));
-    draw_text(devTextPosition + 20, 496, "land: " + string(script_get_name(objPlayer.land)));
-    draw_text(devTextPosition + 20, 512, "die: " + string(script_get_name(objPlayer.die)));
-    draw_text(devTextPosition + 20, 528, "dash: " + string(script_get_name(objPlayer.dash)));
-    draw_text(devTextPosition, 544, "pause factor: " + string(timeFactorController.pauseFactor));
-    draw_text(devTextPosition, 560, "inputs:");
-    draw_text(devTextPosition + 20, 576, "player:");
-    draw_text(devTextPosition + 20 + 20, 592, "upHeld: " + string(inputController.playerUpHeld));
-    draw_text(devTextPosition + 20 + 20, 608, "downHeld: " + string(inputController.playerDownHeld));
-    draw_text(devTextPosition + 20 + 20, 624, "leftHeld: " + string(inputController.playerLeftHeld));
-    draw_text(devTextPosition + 20 + 20, 640, "rightHeld: " + string(inputController.playerRightHeld));
-    draw_text(devTextPosition + 20 + 20, 656, "jumpHeld: " + string(inputController.playerJumpHeld));
-    draw_text(devTextPosition + 20 + 20, 672, "dashHeld: " + string(inputController.playerDashHeld));
-    draw_text(devTextPosition + 20 + 20, 688, "jumpPressed: " + string(inputController.playerJumpPressed));
-    draw_text(devTextPosition + 20 + 20, 704, "dashPressed: " + string(inputController.playerDashPressed));
-    draw_text(devTextPosition + 20 + 20, 720, "dashConfirm: " + string(inputController.playerDashConfirm));
-    draw_text(devTextPosition + 20 + 20, 736, "dashAimUp: " + string(inputController.playerDashAimUp));
-    draw_text(devTextPosition + 20 + 20, 752, "dashAimDown: " + string(inputController.playerDashAimDown));
-    draw_text(devTextPosition + 20 + 20, 768, "dashAimLeft: " + string(inputController.playerDashAimLeft));
-    draw_text(devTextPosition + 20 + 20, 784, "dashAimRight: " + string(inputController.playerDashAimRight));
-    draw_text(devTextPosition, 800, "room_speed: " + string(room_speed));
+
+    for (var i = array_length_1d(devModePrints) - 1; i &gt;= 0; --i) {
+        draw_text(devTextPosition, 64 + 16 * i, devModePrints[i]);
+    }
 
     draw_set_colour(c_white);
 }
