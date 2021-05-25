@@ -32,4 +32,5 @@ if (!ds_queue_empty(alarmController.availableIndices)) {
     return index;
 }
 
+addConsoleMessage("No available indices!");
 return noone;

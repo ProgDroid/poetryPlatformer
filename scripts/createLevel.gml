@@ -180,12 +180,15 @@ for (var i = 0; i < array_length_1d(lines); i++) {
     }
 }
 
+viewController.viewXNoShift = playerX - viewController.originalWidth div 3;
+viewController.viewYNoShift = playerY - viewController.originalHeight div 2;
+
 room_set_view(
     levelRoom,
     0,
     true,
-    playerX - settingsController.visualSettings[? "width"] div 3,
-    playerY - settingsController.visualSettings[? "height"] div 4,
+    viewController.viewXNoShift,
+    viewController.viewYNoShift,
     viewController.originalWidth,
     viewController.originalHeight,
     0,
