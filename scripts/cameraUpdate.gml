@@ -38,8 +38,8 @@ xShift = lerp(xShift, cameraInput * viewShiftMax * !GUIController.gameOver * !in
 
 var lerpValue = lerp(viewXNoShift, objPlayer.x - limit * view_wview[0], 0.05 + 0.05 * objPlayer.maxHorizontalSpeed * timeFactorController.timeFactor * timeFactorController.pauseFactor) - viewXNoShift;
 
-if (abs(lerpValue) > abs(objPlayer.horizontalSpeed) + 1) {
-    lerpValue = (abs(objPlayer.horizontalSpeed) + 1) * sign(lerpValue) * timeFactorController.timeFactor * timeFactorController.pauseFactor;
+if (abs(lerpValue) > abs(objPlayer.horizontalSpeed) + 2 && objPlayer.state_name != "newGame") {
+    lerpValue = (abs(objPlayer.horizontalSpeed) + 2) * sign(lerpValue) * timeFactorController.timeFactor * timeFactorController.pauseFactor;
 }
 
 viewXNoShift += lerpValue;
