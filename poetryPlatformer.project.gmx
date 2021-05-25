@@ -449,7 +449,7 @@
     <constant name="IMAGESPEEDNOTIME">timeFactorController.pauseFactor * (1 / (room_speed * 0.1))</constant>
     <constant name="COYOTE_TIME">8</constant>
     <constant name="MAXHORIZONTALSPEED">3.75</constant>
-    <constant name="MAX_ALARMS">100</constant>
+    <constant name="MAX_ALARMS">150</constant>
     <constant name="TICK_RATE">global._ts_fps</constant>
     <constant name="PLATFORM_WIDTH">350</constant>
     <constant name="PLATFORM_HEIGHT">400</constant>
