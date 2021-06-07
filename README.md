@@ -4,7 +4,7 @@ A platforming game where you navigate a piece of poetry as the lost dot of an `i
 Some features include:
 - Runtime level generation from [text files](datafiles/levels), with simple markup to define collectible placement and their associated platforms, player spawn point and level end trigger placement
 - Partial controller support
-- Support for different aspect ratios and resolutions
+- Support for different resolutions
 - Variable frame rate support
 - Developer console
 - Custom collisions with angle sweeping (using binary search) to enable walking on curved letters
