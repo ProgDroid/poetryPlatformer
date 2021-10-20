@@ -304,7 +304,7 @@ devModePrints = generateDevModePrintStrings();
           <argument>
             <kind>1</kind>
             <string>///Draw debug info
-if (drawCustomGui &amp;&amp; !devConsole &amp;&amp; instance_exists(objPlayer)) {
+if (drawCustomGui &amp;&amp; !devConsole) {
     draw_set_font(-1);
     draw_set_colour(c_red);
     draw_set_halign(fa_left);
@@ -392,7 +392,7 @@ if (devConsole) {
             <kind>1</kind>
             <string>///Draw camera limits
 
-if (drawCustomGui &amp;&amp; !devConsole) {
+if (drawCustomGui &amp;&amp; !devConsole &amp;&amp; instance_exists(viewController)) {
     var ratio = viewController.cameraLimitsRatio;
 
     for (var i = 1; i * ratio &lt; 1; i++) {
