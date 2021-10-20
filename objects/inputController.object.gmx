@@ -147,7 +147,6 @@ if (currentInputType == inputmethod.keyboard) {
                 if (gamepad_button_check_pressed(slot, j)) {
                     currentInputType = inputmethod.pad;
                     activePad        = slot;
-                    exit;
                 }
             }
         }
