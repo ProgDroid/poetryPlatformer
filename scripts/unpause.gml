@@ -2,5 +2,7 @@
 
 timeFactorController.pauseFactor = 1;
 
+inputController.inputProcess = ingameInput;
+
 refreshImageSpeeds();
 

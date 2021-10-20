@@ -180,6 +180,8 @@ for (var i = 0; i < array_length_1d(lines); i++) {
     }
 }
 
+inputController.inputProcess = ingameInput;
+
 viewController.viewXNoShift = playerX - viewController.originalWidth div 3;
 viewController.viewYNoShift = playerY - viewController.originalHeight div 2;
 

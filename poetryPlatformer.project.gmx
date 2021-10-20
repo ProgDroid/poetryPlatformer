@@ -61,6 +61,7 @@
       <sprite>sprites\spriteViewController</sprite>
       <sprite>sprites\spriteParticlesController</sprite>
       <sprite>sprites\spriteAlarmController</sprite>
+      <sprite>sprites\spriteMenuController</sprite>
     </sprites>
     <sprites name="platforms">
       <sprite>sprites\platformA</sprite>
@@ -265,6 +266,9 @@
       <script>scripts\checkAxis.gml</script>
       <script>scripts\dashPointX.gml</script>
       <script>scripts\dashPointY.gml</script>
+      <script>scripts\menuInput.gml</script>
+      <script>scripts\ingameInput.gml</script>
+      <script>scripts\moveMenuCursor.gml</script>
     </scripts>
     <scripts name="settingsScripts">
       <script>scripts\changeResolution.gml</script>
@@ -344,6 +348,7 @@
       <object>objects\platformController</object>
       <object>objects\particlesController</object>
       <object>objects\alarmController</object>
+      <object>objects\menuController</object>
     </objects>
     <objects name="environments">
       <object>objects\objPlatforms</object>
@@ -420,6 +425,7 @@
     <room>rooms\CHEATCHECK</room>
     <room>rooms\TIMEFACTOR</room>
     <room>rooms\BACKGROUND</room>
+    <room>rooms\MENU</room>
     <room>rooms\ALARM</room>
     <room>rooms\VIEW</room>
     <room>rooms\PLATFORMMAP</room>
@@ -434,7 +440,7 @@
     <room>rooms\room4</room>
     <room>rooms\TODUPLICATE</room>
   </rooms>
-  <constants number="50">
+  <constants number="51">
     <constant name="LERP_AMOUNT">0.025</constant>
     <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
@@ -485,6 +491,7 @@
     <constant name="SWEEP_UP_ANGLE">60</constant>
     <constant name="MAX_DASHES">1</constant>
     <constant name="MIN_VIEW_HEIGHT">720</constant>
+    <constant name="MENU_OPTION_COUNT">3</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
