@@ -1,0 +1,2 @@
+menuController.menuMove = moveMenuCursor;
+

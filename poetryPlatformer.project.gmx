@@ -315,6 +315,7 @@
       <script>scripts\windowCentre.gml</script>
       <script>scripts\delayAlarm.gml</script>
       <script>scripts\cancelAllAlarms.gml</script>
+      <script>scripts\setMenuMove.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -425,8 +426,8 @@
     <room>rooms\CHEATCHECK</room>
     <room>rooms\TIMEFACTOR</room>
     <room>rooms\BACKGROUND</room>
-    <room>rooms\MENU</room>
     <room>rooms\ALARM</room>
+    <room>rooms\MENU</room>
     <room>rooms\VIEW</room>
     <room>rooms\PLATFORMMAP</room>
     <room>rooms\EVENTLISTEN</room>
@@ -440,7 +441,7 @@
     <room>rooms\room4</room>
     <room>rooms\TODUPLICATE</room>
   </rooms>
-  <constants number="51">
+  <constants number="52">
     <constant name="LERP_AMOUNT">0.025</constant>
     <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
@@ -491,6 +492,7 @@
     <constant name="SWEEP_UP_ANGLE">60</constant>
     <constant name="MAX_DASHES">1</constant>
     <constant name="MIN_VIEW_HEIGHT">720</constant>
+    <constant name="MENU_HOLD_DELAY">20</constant>
     <constant name="MENU_OPTION_COUNT">3</constant>
   </constants>
   <help>

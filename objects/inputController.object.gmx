@@ -46,6 +46,11 @@ playerDashAimDown  = 0;
 playerDashAimLeft  = 0;
 playerDashAimRight = 0;
 
+menuUpPressed      = 0;
+menuDownPressed    = 0;
+menuLeftPressed    = 0;
+menuRightPressed   = 0;
+
 menuUpHeld         = 0;
 menuDownHeld       = 0;
 menuLeftHeld       = 0;

@@ -37,31 +37,24 @@ menuOptions[MENU_OPTION_COUNT - 3] = "play";
 //    menuOptions[i] = noone;
 //}
 
+var guiHorizontalCentre = display_get_gui_width() / 2;
+var guiHeight           = display_get_gui_height();
+
+for (var i = MENU_OPTION_COUNT; i &gt; 0; --i) {
+    optionDimensions[i - 1, 1] = i * guiHeight / (MENU_OPTION_COUNT + 1);
+    optionDimensions[i - 1, 0] = guiHorizontalCentre;
+}
+
 currentOption = 0;
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>moveMenuCursor(inputController.menuLeftHeld + inputController.menuRightHeld);
+moveBuffer = 0;
+
+fixed_timestep_register_script(id, moveMenuCursor);
+
+draw_set_font(esteban);
+draw_set_colour(c_black);
+draw_set_halign(fa_middle);
+draw_set_valign(fa_middle);
 
 </string>
           </argument>
@@ -85,14 +78,21 @@ currentOption = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_font(esteban);
-draw_set_colour(c_black);
-draw_set_halign(fa_middle);
-draw_set_valign(fa_middle);
+            <string>draw_rectangle(
+    (display_get_gui_width() * 0.5) - 300,
+    ((currentOption + 1) * display_get_gui_height() / (MENU_OPTION_COUNT + 1)) - 110,
+    (display_get_gui_width() * 0.5) + 300,
+    ((currentOption + 1) * display_get_gui_height() / (MENU_OPTION_COUNT + 1)) + 140,
+    true
+);
 
-show_debug_message("welele");
-
-draw_text(200, 200, menuOptions[currentOption]);
+for (var i = 0; i &lt; MENU_OPTION_COUNT; ++i) {
+    draw_text(
+        display_get_gui_width() * 0.5,
+        (i + 1) * display_get_gui_height() / (MENU_OPTION_COUNT + 1),
+        menuOptions[i]
+    );
+}
 
 </string>
           </argument>
