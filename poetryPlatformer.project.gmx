@@ -67,6 +67,7 @@
       <sprite>sprites\platformA</sprite>
       <sprite>sprites\platformAmpersand</sprite>
       <sprite>sprites\platformAsterisk</sprite>
+      <sprite>sprites\platformAsteriskMenu</sprite>
       <sprite>sprites\platformB</sprite>
       <sprite>sprites\platformBulletPoint</sprite>
       <sprite>sprites\platformC</sprite>
@@ -268,7 +269,6 @@
       <script>scripts\dashPointY.gml</script>
       <script>scripts\menuInput.gml</script>
       <script>scripts\ingameInput.gml</script>
-      <script>scripts\moveMenuCursor.gml</script>
     </scripts>
     <scripts name="settingsScripts">
       <script>scripts\changeResolution.gml</script>
@@ -316,6 +316,10 @@
       <script>scripts\delayAlarm.gml</script>
       <script>scripts\cancelAllAlarms.gml</script>
       <script>scripts\setMenuMove.gml</script>
+    </scripts>
+    <scripts name="menuScripts">
+      <script>scripts\animateMenu.gml</script>
+      <script>scripts\moveMenuCursor.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -441,7 +445,7 @@
     <room>rooms\room4</room>
     <room>rooms\TODUPLICATE</room>
   </rooms>
-  <constants number="52">
+  <constants number="53">
     <constant name="LERP_AMOUNT">0.025</constant>
     <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
@@ -494,6 +498,7 @@
     <constant name="MIN_VIEW_HEIGHT">720</constant>
     <constant name="MENU_HOLD_DELAY">20</constant>
     <constant name="MENU_OPTION_COUNT">3</constant>
+    <constant name="MENU_RADIUS">325</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
