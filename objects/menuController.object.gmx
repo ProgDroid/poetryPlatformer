@@ -30,12 +30,11 @@
 inputController.inputProcess = menuInput;
 
 menuOptions[MENU_OPTION_COUNT - 1] = "exit";
-menuOptions[MENU_OPTION_COUNT - 2] = "settings";
-menuOptions[MENU_OPTION_COUNT - 3] = "play";
-
-//for (var i = MENU_OPTION_COUNT - 1; i &gt;= 0; --i) {
-//    menuOptions[i] = noone;
-//}
+menuOptions[MENU_OPTION_COUNT - 2] = "set";
+menuOptions[MENU_OPTION_COUNT - 3] = "create";
+menuOptions[MENU_OPTION_COUNT - 4] = "read";
+menuOptions[MENU_OPTION_COUNT - 5] = "select";
+menuOptions[MENU_OPTION_COUNT - 6] = "play";
 
 var guiHorizontalCentre = display_get_gui_width() / 2;
 var guiHeight           = display_get_gui_height();
@@ -43,6 +42,9 @@ var guiHeight           = display_get_gui_height();
 for (var i = MENU_OPTION_COUNT; i &gt; 0; --i) {
     optionDimensions[i - 1, 1] = i * guiHeight / (MENU_OPTION_COUNT + 1);
     optionDimensions[i - 1, 0] = guiHorizontalCentre;
+    
+    menuOptionScale[i - 1, 1] = 1 - ((i - 1 + i) % i) * 0.166;
+    menuOptionScale[i - 1, 0] = 1 - ((i - 1 + i) % i) * 0.166;
 }
 
 asteriskAlpha        = 1;
@@ -84,24 +86,6 @@ draw_set_valign(fa_middle);
             <kind>1</kind>
             <string>var ellipseAngle = degtorad(120);
 
-draw_ellipse(
-    (display_get_gui_width() * 0.5) + (cos(ellipseAngle) * MENU_RADIUS) - 100,
-    (display_get_gui_height() * 0.5) + (-sin(ellipseAngle) * MENU_RADIUS) - 35,
-    (display_get_gui_width() * 0.5) + (cos(ellipseAngle) * MENU_RADIUS) + 100,
-    (display_get_gui_height() * 0.5) + (-sin(ellipseAngle) * MENU_RADIUS) + 65,
-    false
-);
-
-for (var i = 0; i &lt; MENU_OPTION_COUNT; ++i) {
-    var angle = degtorad(120 - (i * 60) + asteriskRotation);
-
-    draw_text(
-        (display_get_gui_width() * 0.5) + (cos(angle) * MENU_RADIUS),
-        (display_get_gui_height() * 0.5) + (-sin(angle) * MENU_RADIUS),
-        menuOptions[i]
-    );
-}
-
 draw_sprite_ext(
     platformAsteriskMenu,
     0,
@@ -113,6 +97,32 @@ draw_sprite_ext(
     c_black,
     asteriskAlpha
 );
+
+for (var i = 0; i &lt; MENU_OPTION_COUNT; ++i) {
+    var angle = degtorad(120 - (i * 60) + asteriskRotation);
+
+    if (i == currentOption) {
+        d3d_set_fog(true, merge_colour(make_colour_rgb(OUTLINE_R * 0.7, OUTLINE_G * 0.5, OUTLINE_B * 0.7), c_white, 0.20), false, true);
+            draw_text_transformed(
+                (display_get_gui_width() * 0.5) + (cos(angle) * MENU_RADIUS),
+                (display_get_gui_height() * 0.5) + (-sin(angle) * MENU_RADIUS),
+                menuOptions[i],
+                1.03,
+                1.06,
+                0
+            );
+        d3d_set_fog(false, c_white, false, false);
+    }
+
+    draw_text_transformed(
+        (display_get_gui_width() * 0.5) + (cos(angle) * (MENU_RADIUS - (1 - menuOptionScale[i, 0]) * 150)),
+        (display_get_gui_height() * 0.5) + (-sin(angle) * (MENU_RADIUS - (1 - menuOptionScale[i, 1]) * 150)),
+        menuOptions[i],
+        menuOptionScale[i, 0],
+        menuOptionScale[i, 1],
+        0
+    );
+}
 
 </string>
           </argument>

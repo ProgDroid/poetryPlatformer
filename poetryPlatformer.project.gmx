@@ -497,8 +497,8 @@
     <constant name="MAX_DASHES">1</constant>
     <constant name="MIN_VIEW_HEIGHT">720</constant>
     <constant name="MENU_HOLD_DELAY">20</constant>
-    <constant name="MENU_OPTION_COUNT">3</constant>
-    <constant name="MENU_RADIUS">325</constant>
+    <constant name="MENU_OPTION_COUNT">6</constant>
+    <constant name="MENU_RADIUS">375</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
