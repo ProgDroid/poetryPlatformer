@@ -27,3 +27,8 @@ if (menuController.asteriskRotationGoal = 0) {
     menuController.asteriskRotation = -1 * held * 60;
 }
 
+menuController.underlineHalfLength    = 0;
+menuController.underlineHalfLengthMax = menuController.menuLineLengths[currentOption];
+menuController.underlineLerp          = 0;
+menuController.underlineLerpMax       = 0.1;
+
