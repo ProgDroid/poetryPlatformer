@@ -36,6 +36,13 @@ menuOptions[MENU_OPTION_COUNT - 4] = "read";
 menuOptions[MENU_OPTION_COUNT - 5] = "select";
 menuOptions[MENU_OPTION_COUNT - 6] = "play";
 
+menuActions[MENU_OPTION_COUNT - 1] = menuExit;
+menuActions[MENU_OPTION_COUNT - 2] = menuSet;
+menuActions[MENU_OPTION_COUNT - 3] = menuCreate;
+menuActions[MENU_OPTION_COUNT - 4] = menuRead;
+menuActions[MENU_OPTION_COUNT - 5] = menuSelect;
+menuActions[MENU_OPTION_COUNT - 6] = menuPlay;
+
 var guiHorizontalCentre = display_get_gui_width() / 2;
 var guiHeight           = display_get_gui_height();
 
@@ -54,6 +61,7 @@ asteriskSize         = 1.25;
 currentOption        = 0;
 moveBuffer           = 0;
 
+fixed_timestep_register_script(id, selectMenuOption);
 fixed_timestep_register_script(id, moveMenuCursor);
 fixed_timestep_register_script(id, animateMenu);
 
@@ -61,6 +69,30 @@ draw_set_font(esteban);
 draw_set_colour(c_black);
 draw_set_halign(fa_middle);
 draw_set_valign(fa_middle);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>fixed_timestep_unregister(id);
 
 </string>
           </argument>
@@ -84,9 +116,7 @@ draw_set_valign(fa_middle);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var ellipseAngle = degtorad(120);
-
-draw_sprite_ext(
+            <string>draw_sprite_ext(
     platformAsteriskMenu,
     0,
     display_get_gui_width() * 0.5,
@@ -102,16 +132,17 @@ for (var i = 0; i &lt; MENU_OPTION_COUNT; ++i) {
     var angle = degtorad(120 - (i * 60) + asteriskRotation);
 
     if (i == currentOption) {
-        d3d_set_fog(true, merge_colour(make_colour_rgb(OUTLINE_R * 0.7, OUTLINE_G * 0.5, OUTLINE_B * 0.7), c_white, 0.20), false, true);
-            draw_text_transformed(
-                (display_get_gui_width() * 0.5) + (cos(angle) * MENU_RADIUS),
-                (display_get_gui_height() * 0.5) + (-sin(angle) * MENU_RADIUS),
-                menuOptions[i],
-                1.03,
-                1.06,
-                0
-            );
-        d3d_set_fog(false, c_white, false, false);
+        draw_set_blend_mode(bm_subtract);
+        draw_ellipse_colour(
+            (display_get_gui_width() * 0.5) + (cos(angle) * MENU_RADIUS) - 150,
+            (display_get_gui_height() * 0.5) + (-sin(angle) * MENU_RADIUS) - 55,
+            (display_get_gui_width() * 0.5) + (cos(angle) * MENU_RADIUS) + 150,
+            (display_get_gui_height() * 0.5) + (-sin(angle) * MENU_RADIUS) + 90,
+            make_colour_rgb(255 - MENU_HIGHLIGHT_R, 255 - MENU_HIGHLIGHT_G, 255 - MENU_HIGHLIGHT_B),
+            c_black,
+            false
+        );
+        draw_set_blend_mode(bm_normal);
     }
 
     draw_text_transformed(

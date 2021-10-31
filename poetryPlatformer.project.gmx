@@ -320,6 +320,13 @@
     <scripts name="menuScripts">
       <script>scripts\animateMenu.gml</script>
       <script>scripts\moveMenuCursor.gml</script>
+      <script>scripts\selectMenuOption.gml</script>
+      <script>scripts\menuPlay.gml</script>
+      <script>scripts\menuSelect.gml</script>
+      <script>scripts\menuRead.gml</script>
+      <script>scripts\menuCreate.gml</script>
+      <script>scripts\menuSet.gml</script>
+      <script>scripts\menuExit.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -445,7 +452,7 @@
     <room>rooms\room4</room>
     <room>rooms\TODUPLICATE</room>
   </rooms>
-  <constants number="53">
+  <constants number="56">
     <constant name="LERP_AMOUNT">0.025</constant>
     <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
@@ -499,6 +506,9 @@
     <constant name="MENU_HOLD_DELAY">20</constant>
     <constant name="MENU_OPTION_COUNT">6</constant>
     <constant name="MENU_RADIUS">375</constant>
+    <constant name="MENU_HIGHLIGHT_R">236</constant>
+    <constant name="MENU_HIGHLIGHT_G">158</constant>
+    <constant name="MENU_HIGHLIGHT_B">150</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
