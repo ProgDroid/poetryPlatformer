@@ -28,6 +28,7 @@
             <string>event_inherited();
 
 inputController.inputProcess = emptyScript;
+inputController.nextInputProcess = menuInput;
 
 menuOptions[MENU_OPTION_COUNT - 1] = "exit";
 menuOptions[MENU_OPTION_COUNT - 2] = "set";
