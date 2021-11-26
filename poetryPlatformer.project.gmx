@@ -327,6 +327,25 @@
       <script>scripts\menuCreate.gml</script>
       <script>scripts\menuSet.gml</script>
       <script>scripts\menuExit.gml</script>
+      <scripts name="menuAnimationScripts">
+        <script>scripts\mainMenuAnimation.gml</script>
+        <script>scripts\menuFadeIn.gml</script>
+        <script>scripts\menuFadeOut.gml</script>
+      </scripts>
+      <scripts name="menuGuiScripts">
+        <script>scripts\mainMenuGUI.gml</script>
+        <script>scripts\menuJokeGUI.gml</script>
+      </scripts>
+    </scripts>
+    <scripts name="animationScripts">
+      <script>scripts\easeInOutQuad.gml</script>
+      <script>scripts\smoothStep.gml</script>
+      <script>scripts\easeOutQuad.gml</script>
+      <script>scripts\easeInOutSine.gml</script>
+      <script>scripts\easeInOutCirc.gml</script>
+      <script>scripts\easeInOutExpo.gml</script>
+      <script>scripts\easeInOutQuint.gml</script>
+      <script>scripts\easeInOutCubic.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -452,7 +471,7 @@
     <room>rooms\room4</room>
     <room>rooms\TODUPLICATE</room>
   </rooms>
-  <constants number="56">
+  <constants number="61">
     <constant name="LERP_AMOUNT">0.025</constant>
     <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
@@ -509,6 +528,11 @@
     <constant name="MENU_HIGHLIGHT_R">236</constant>
     <constant name="MENU_HIGHLIGHT_G">158</constant>
     <constant name="MENU_HIGHLIGHT_B">150</constant>
+    <constant name="ASTERISK_SIZE">1.25</constant>
+    <constant name="UNDERLINE_ANIM_DURATION">3.5 * 60</constant>
+    <constant name="UNDERLINE_ANIMATIONS_COUNT">8</constant>
+    <constant name="UNDERLINE_ANIMATION_DEFAULT">easeInOutCubic</constant>
+    <constant name="MENU_FADE_STEP">0.025</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

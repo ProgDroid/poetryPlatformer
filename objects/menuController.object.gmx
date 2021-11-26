@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>event_inherited();
 
-inputController.inputProcess = menuInput;
+inputController.inputProcess = emptyScript;
 
 menuOptions[MENU_OPTION_COUNT - 1] = "exit";
 menuOptions[MENU_OPTION_COUNT - 2] = "set";
@@ -61,16 +61,23 @@ for (var i = MENU_OPTION_COUNT; i &gt; 0; --i) {
     menuOptionScale[i - 1, 0] = 1 - ((i - 1 + i) % i) * 0.166;
 }
 
+menuAlpha              = -0.2;
 asteriskAlpha          = 1;
 asteriskRotation       = 0;
 asteriskRotationGoal   = 0;
-asteriskSize           = 1.25;
+asteriskSize           = ASTERISK_SIZE;
 currentOption          = 0;
 moveBuffer             = 0;
 underlineHalfLength    = 0;
 underlineHalfLengthMax = menuLineLengths[currentOption];
-underlineLerp          = 0;
-underlineLerpMax       = 0.1;
+underlineAnimTime      = 0;
+underlineAnimDuration  = UNDERLINE_ANIM_DURATION;
+underlineAnimation     = UNDERLINE_ANIMATION_DEFAULT;
+
+menuAnimation     = menuFadeIn;
+menuAnimationNext = mainMenuAnimation;
+menuGUI           = mainMenuGUI;
+menuGUINext       = emptyScript;
 
 fixed_timestep_register_script(id, selectMenuOption);
 fixed_timestep_register_script(id, moveMenuCursor);
@@ -127,40 +134,12 @@ draw_set_valign(fa_middle);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_ext(
-    platformAsteriskMenu,
-    0,
-    display_get_gui_width() * 0.5,
-    display_get_gui_height() * 0.5,
-    asteriskSize,
-    asteriskSize,
-    asteriskRotation,
-    c_black,
-    asteriskAlpha
-);
+            <string>
+draw_set_alpha(menuController.menuAlpha);
 
-for (var i = 0; i &lt; MENU_OPTION_COUNT; ++i) {
-    var angle = degtorad(120 - (i * 60) + asteriskRotation);
+script_execute(menuGUI);
 
-    if (i == currentOption) {
-        draw_line_width(
-            (display_get_gui_width() * 0.5) + (cos(angle) * MENU_RADIUS) - menuController.underlineHalfLength,
-            (display_get_gui_height() * 0.5) + (-sin(angle) * MENU_RADIUS) + 65,
-            (display_get_gui_width() * 0.5) + (cos(angle) * MENU_RADIUS) + menuController.underlineHalfLength - 1,
-            (display_get_gui_height() * 0.5) + (-sin(angle) * MENU_RADIUS) + 65,
-            5
-        );
-    }
-
-    draw_text_transformed(
-        (display_get_gui_width() * 0.5) + (cos(angle) * (MENU_RADIUS - (1 - menuOptionScale[i, 0]) * 150)),
-        (display_get_gui_height() * 0.5) + (-sin(angle) * (MENU_RADIUS - (1 - menuOptionScale[i, 1]) * 150)),
-        menuOptions[i],
-        menuOptionScale[i, 0],
-        menuOptionScale[i, 1],
-        0
-    );
-}
+draw_set_alpha(1);
 
 </string>
           </argument>

@@ -3,6 +3,7 @@
 
 var strings;
 
+strings[50] = "underline animation: ";
 strings[49] = "room_speed: " + string(room_speed);
 strings[48] = "        menuRightHeld: " + string(inputController.menuRightHeld);
 strings[47] = "        menuLeftHeld: " + string(inputController.menuLeftHeld);
@@ -78,6 +79,10 @@ if (instance_exists(objPlayer)) {
 
 if (instance_exists(worldController)) {
     strings[3] += dec_to_bin(worldController.collectiblesFound);
+}
+
+if (instance_exists(menuController)) {
+    strings[50] += script_get_name(menuController.underlineAnimation);
 }
 
 return strings;
