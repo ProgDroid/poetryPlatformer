@@ -1,8 +1,6 @@
 /// menuExit
 
-menuController.menuAnimation     = menuFadeOut;
-menuController.menuGUINext       = menuJokeGUI;
-inputController.nextInputProcess = emptyScript;
+menuTransition(menuFadeOut, menuJokeGUI, emptyScript, 0);
 
 //game_end();
 

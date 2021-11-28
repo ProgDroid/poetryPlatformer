@@ -15,12 +15,15 @@ draw_sprite_ext(
 for (var i = 0; i < MENU_OPTION_COUNT; ++i) {
     var angle = degtorad(120 - (i * 60) + asteriskRotation);
 
+    var lineBaseX = (display_get_gui_width() * 0.5) + (cos(angle) * MENU_RADIUS);
+    var lineY     = (display_get_gui_height() * 0.5) + (-sin(angle) * MENU_RADIUS) + 65;
+
     if (i == currentOption) {
         draw_line_width(
-            (display_get_gui_width() * 0.5) + (cos(angle) * MENU_RADIUS) - menuController.underlineHalfLength,
-            (display_get_gui_height() * 0.5) + (-sin(angle) * MENU_RADIUS) + 65,
-            (display_get_gui_width() * 0.5) + (cos(angle) * MENU_RADIUS) + menuController.underlineHalfLength,
-            (display_get_gui_height() * 0.5) + (-sin(angle) * MENU_RADIUS) + 65,
+            lineBaseX - menuController.underlineHalfLength,
+            lineY,
+            lineBaseX + menuController.underlineHalfLength,
+            lineY,
             5
         );
     }

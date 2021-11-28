@@ -69,6 +69,7 @@ asteriskRotationGoal   = 0;
 asteriskSize           = ASTERISK_SIZE;
 currentOption          = 0;
 moveBuffer             = 0;
+nextOption             = 0;
 underlineHalfLength    = 0;
 underlineHalfLengthMax = menuLineLengths[currentOption];
 underlineAnimTime      = 0;
@@ -88,6 +89,16 @@ draw_set_font(esteban);
 draw_set_colour(c_black);
 draw_set_halign(fa_middle);
 draw_set_valign(fa_middle);
+
+settingsMenuOptions[SETTINGS_MENU_LIST_LENGTH - 1] = "graphics";
+settingsMenuOptions[SETTINGS_MENU_LIST_LENGTH - 2] = "gameplay";
+settingsMenuOptions[SETTINGS_MENU_LIST_LENGTH - 3] = "controls";
+
+settingsMenuActions[SETTINGS_MENU_LIST_LENGTH - 1] = menuGraphics;
+settingsMenuActions[SETTINGS_MENU_LIST_LENGTH - 2] = menuGameplay;
+settingsMenuActions[SETTINGS_MENU_LIST_LENGTH - 3] = menuControls;
+
+menuListXOffset = MENU_LIST_X_OFFSET;
 
 </string>
           </argument>
