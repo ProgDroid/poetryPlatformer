@@ -27,9 +27,6 @@
             <kind>1</kind>
             <string>event_inherited();
 
-inputController.inputProcess = emptyScript;
-inputController.nextInputProcess = menuInput;
-
 menuOptions[MENU_OPTION_COUNT - 1] = "exit";
 menuOptions[MENU_OPTION_COUNT - 2] = "set";
 menuOptions[MENU_OPTION_COUNT - 3] = "create";
@@ -37,19 +34,19 @@ menuOptions[MENU_OPTION_COUNT - 4] = "read";
 menuOptions[MENU_OPTION_COUNT - 5] = "select";
 menuOptions[MENU_OPTION_COUNT - 6] = "play";
 
-menuActions[MENU_OPTION_COUNT - 1] = menuExit;
-menuActions[MENU_OPTION_COUNT - 2] = menuSet;
-menuActions[MENU_OPTION_COUNT - 3] = menuCreate;
-menuActions[MENU_OPTION_COUNT - 4] = menuRead;
-menuActions[MENU_OPTION_COUNT - 5] = menuSelect;
-menuActions[MENU_OPTION_COUNT - 6] = menuPlay;
+mainMenuActions[MENU_OPTION_COUNT - 1] = menuExit;
+mainMenuActions[MENU_OPTION_COUNT - 2] = menuSet;
+mainMenuActions[MENU_OPTION_COUNT - 3] = menuCreate;
+mainMenuActions[MENU_OPTION_COUNT - 4] = menuRead;
+mainMenuActions[MENU_OPTION_COUNT - 5] = menuSelect;
+mainMenuActions[MENU_OPTION_COUNT - 6] = menuPlay;
 
-menuLineLengths[MENU_OPTION_COUNT - 1] = 142;
-menuLineLengths[MENU_OPTION_COUNT - 2] = 110;
-menuLineLengths[MENU_OPTION_COUNT - 3] = 220;
-menuLineLengths[MENU_OPTION_COUNT - 4] = 167;
-menuLineLengths[MENU_OPTION_COUNT - 5] = 210;
-menuLineLengths[MENU_OPTION_COUNT - 6] = 160;
+mainMenuLineLengths[MENU_OPTION_COUNT - 1] = 142;
+mainMenuLineLengths[MENU_OPTION_COUNT - 2] = 110;
+mainMenuLineLengths[MENU_OPTION_COUNT - 3] = 220;
+mainMenuLineLengths[MENU_OPTION_COUNT - 4] = 167;
+mainMenuLineLengths[MENU_OPTION_COUNT - 5] = 210;
+mainMenuLineLengths[MENU_OPTION_COUNT - 6] = 160;
 
 var guiHorizontalCentre = display_get_gui_width() / 2;
 var guiHeight           = display_get_gui_height();
@@ -71,7 +68,7 @@ currentOption          = 0;
 moveBuffer             = 0;
 nextOption             = 0;
 underlineHalfLength    = 0;
-underlineHalfLengthMax = menuLineLengths[currentOption];
+underlineHalfLengthMax = mainMenuLineLengths[currentOption];
 underlineAnimTime      = 0;
 underlineAnimDuration  = UNDERLINE_ANIM_DURATION;
 underlineAnimation     = UNDERLINE_ANIMATION_DEFAULT;
@@ -98,7 +95,16 @@ settingsMenuActions[SETTINGS_MENU_LIST_LENGTH - 1] = menuGraphics;
 settingsMenuActions[SETTINGS_MENU_LIST_LENGTH - 2] = menuGameplay;
 settingsMenuActions[SETTINGS_MENU_LIST_LENGTH - 3] = menuControls;
 
+settingsMenuLineLengths[SETTINGS_MENU_LIST_LENGTH - 1] = 313;
+settingsMenuLineLengths[SETTINGS_MENU_LIST_LENGTH - 2] = 355;
+settingsMenuLineLengths[SETTINGS_MENU_LIST_LENGTH - 3] = 295;
+
+menuActions     = mainMenuActions;
+menuLineLengths = mainMenuLineLengths;
 menuListXOffset = MENU_LIST_X_OFFSET;
+menuMove        = emptyScript;
+menuOptionCount = MENU_OPTION_COUNT;
+nextMenuMove    = moveMenuAsterisk;
 
 </string>
           </argument>

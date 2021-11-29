@@ -6,6 +6,6 @@ if (menuController.menuAlpha >= 1) {
     menuController.menuAlpha     = 1;
     menuController.menuAnimation = menuController.menuAnimationNext;
     menuController.currentOption = menuController.nextOption;
-    inputController.inputProcess = inputController.nextInputProcess;
+    menuController.menuMove      = menuController.nextMenuMove;
 }
 

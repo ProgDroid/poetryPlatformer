@@ -77,7 +77,6 @@ connectedPads    = ds_list_create();
 activePad        = noone;
 
 inputProcess     = menuInput;
-nextInputProcess = menuInput;
 
 </string>
           </argument>

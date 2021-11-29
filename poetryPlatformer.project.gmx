@@ -259,6 +259,7 @@
       <script>scripts\pause.gml</script>
       <script>scripts\unpause.gml</script>
       <script>scripts\vectorLengthSquared.gml</script>
+      <script>scripts\incrementAndWrapMenuOption.gml</script>
     </scripts>
     <scripts name="inputScripts">
       <script>scripts\checkHeld.gml</script>
@@ -315,7 +316,6 @@
       <script>scripts\windowCentre.gml</script>
       <script>scripts\delayAlarm.gml</script>
       <script>scripts\cancelAllAlarms.gml</script>
-      <script>scripts\setMenuMove.gml</script>
     </scripts>
     <scripts name="menuScripts">
       <script>scripts\animateMenu.gml</script>
@@ -329,10 +329,13 @@
       <script>scripts\menuGameplay.gml</script>
       <script>scripts\menuTransition.gml</script>
       <script>scripts\menuControls.gml</script>
+      <script>scripts\handleOptionMove.gml</script>
+      <script>scripts\handleUnderlineAnimation.gml</script>
       <scripts name="menuAnimationScripts">
         <script>scripts\mainMenuAnimation.gml</script>
         <script>scripts\menuFadeIn.gml</script>
         <script>scripts\menuFadeOut.gml</script>
+        <script>scripts\settingsMenuAnimation.gml</script>
       </scripts>
       <scripts name="menuGuiScripts">
         <script>scripts\mainMenuGUI.gml</script>
@@ -341,6 +344,7 @@
       </scripts>
       <scripts name="menuInputScripts">
         <script>scripts\moveMenuCursor.gml</script>
+        <script>scripts\moveMenuAsterisk.gml</script>
         <script>scripts\moveMenuList.gml</script>
         <script>scripts\selectMenuOption.gml</script>
       </scripts>

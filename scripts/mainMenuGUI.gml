@@ -18,7 +18,7 @@ for (var i = 0; i < MENU_OPTION_COUNT; ++i) {
     var lineBaseX = (display_get_gui_width() * 0.5) + (cos(angle) * MENU_RADIUS);
     var lineY     = (display_get_gui_height() * 0.5) + (-sin(angle) * MENU_RADIUS) + 65;
 
-    if (i == currentOption) {
+    if (i == menuController.currentOption) {
         draw_line_width(
             lineBaseX - menuController.underlineHalfLength,
             lineY,

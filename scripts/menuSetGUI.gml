@@ -6,7 +6,7 @@ for (var i = 0; i < SETTINGS_MENU_LIST_LENGTH; ++i) {
     var baseX = (display_get_gui_width() * 0.5) + menuController.menuListXOffset;
     var baseY = (display_get_gui_height() * 0.5) + yOffset;
 
-    if (i == currentOption) {
+    if (i == menuController.currentOption) {
         draw_line_width(
             baseX - menuController.underlineHalfLength,
             baseY + 65,
