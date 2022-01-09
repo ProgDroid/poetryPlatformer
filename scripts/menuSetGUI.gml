@@ -1,7 +1,7 @@
 /// menuSetGUI
 
-for (var i = 0; i < SETTINGS_MENU_LIST_LENGTH; ++i) {
-    var yOffset = (i - floor(SETTINGS_MENU_LIST_LENGTH * 0.5)) * MENU_LIST_Y_OFFSET;
+for (var i = 0; i < menuController.menuOptionCount; ++i) {
+    var yOffset = (i - floor(menuController.menuOptionCount * 0.5)) * MENU_LIST_Y_OFFSET;
 
     var baseX = (display_get_gui_width() * 0.5) + menuController.menuListXOffset;
     var baseY = (display_get_gui_height() * 0.5) + yOffset;
@@ -19,7 +19,7 @@ for (var i = 0; i < SETTINGS_MENU_LIST_LENGTH; ++i) {
     draw_text_transformed(
         baseX,
         baseY,
-        settingsMenuOptions[i],
+        menuController.typingArray[i],
         1,
         1,
         0

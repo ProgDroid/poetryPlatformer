@@ -27,12 +27,12 @@
             <kind>1</kind>
             <string>event_inherited();
 
-menuOptions[MENU_OPTION_COUNT - 1] = "exit";
-menuOptions[MENU_OPTION_COUNT - 2] = "set";
-menuOptions[MENU_OPTION_COUNT - 3] = "create";
-menuOptions[MENU_OPTION_COUNT - 4] = "read";
-menuOptions[MENU_OPTION_COUNT - 5] = "select";
-menuOptions[MENU_OPTION_COUNT - 6] = "play";
+mainMenuOptions[MENU_OPTION_COUNT - 1] = "exit";
+mainMenuOptions[MENU_OPTION_COUNT - 2] = "set";
+mainMenuOptions[MENU_OPTION_COUNT - 3] = "create";
+mainMenuOptions[MENU_OPTION_COUNT - 4] = "read";
+mainMenuOptions[MENU_OPTION_COUNT - 5] = "select";
+mainMenuOptions[MENU_OPTION_COUNT - 6] = "play";
 
 mainMenuActions[MENU_OPTION_COUNT - 1] = menuExit;
 mainMenuActions[MENU_OPTION_COUNT - 2] = menuSet;
@@ -99,12 +99,20 @@ settingsMenuLineLengths[SETTINGS_MENU_LIST_LENGTH - 1] = 313;
 settingsMenuLineLengths[SETTINGS_MENU_LIST_LENGTH - 2] = 355;
 settingsMenuLineLengths[SETTINGS_MENU_LIST_LENGTH - 3] = 295;
 
-menuActions     = mainMenuActions;
-menuLineLengths = mainMenuLineLengths;
-menuListXOffset = MENU_LIST_X_OFFSET;
-menuMove        = emptyScript;
-menuOptionCount = MENU_OPTION_COUNT;
-nextMenuMove    = moveMenuAsterisk;
+menuActions      = mainMenuActions;
+menuLineLengths  = mainMenuLineLengths;
+menuListXOffset  = MENU_LIST_X_OFFSET;
+menuMove         = emptyScript;
+menuGUIOptions   = [];
+array_copy(menuGUIOptions, 0, mainMenuOptions, 0, array_length_1d(mainMenuOptions));
+menuOptionCount  = MENU_OPTION_COUNT;
+nextMenuMove     = moveMenuAsterisk;
+nextMenuOptions  = [];
+offsetFromCentre = 1;
+typingBuffer     = 40;
+typingProgress   = 1;
+typingArray      = [];
+array_copy(typingArray, 0, menuGUIOptions, 0, array_length_1d(menuGUIOptions));
 
 </string>
           </argument>

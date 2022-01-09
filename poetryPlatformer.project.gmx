@@ -336,6 +336,8 @@
         <script>scripts\menuFadeIn.gml</script>
         <script>scripts\menuFadeOut.gml</script>
         <script>scripts\settingsMenuAnimation.gml</script>
+        <script>scripts\mainMenuSpinOut.gml</script>
+        <script>scripts\menuTypingAnimation.gml</script>
       </scripts>
       <scripts name="menuGuiScripts">
         <script>scripts\mainMenuGUI.gml</script>
@@ -483,7 +485,7 @@
     <room>rooms\room4</room>
     <room>rooms\TODUPLICATE</room>
   </rooms>
-  <constants number="61">
+  <constants number="62">
     <constant name="LERP_AMOUNT">0.025</constant>
     <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
@@ -545,6 +547,7 @@
     <constant name="SETTINGS_MENU_LIST_LENGTH">3</constant>
     <constant name="MENU_LIST_Y_OFFSET">200</constant>
     <constant name="MENU_LIST_X_OFFSET">0</constant>
+    <constant name="MENU_TYPING_BUFFER">5</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

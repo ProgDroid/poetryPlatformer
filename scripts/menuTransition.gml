@@ -1,6 +1,6 @@
-/// menuTransition(menuAnimation, menuAnimationNext, menuGUINext, nextMenuMove, nextOption, menuActions, menuOptionCount, menuLineLengths)
+/// menuTransition(menuAnimation, menuAnimationNext, menuGUINext, nextMenuMove, nextOption, menuActions, menuGUIOptions, menuOptionCount, menuLineLengths)
 
-if (argument_count < 8) {
+if (argument_count < 9) {
     addConsoleMessage("warning", "Bad argument count on menuTransition: " + string(argument_count));
     exit;
 }
@@ -11,8 +11,9 @@ menuController.menuGUINext       = argument2;
 menuController.nextMenuMove      = argument3;
 menuController.nextOption        = argument4;
 menuController.menuActions       = argument5;
-menuController.menuOptionCount   = argument6;
-menuController.menuLineLengths   = argument7;
+menuController.nextMenuOptions   = argument6;
+menuController.menuOptionCount   = argument7;
+menuController.menuLineLengths   = argument8;
 
 menuController.menuMove               = emptyScript;
 menuController.moveBuffer             = 0;
