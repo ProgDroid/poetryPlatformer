@@ -1,7 +1,5 @@
 /// moveMenuList
 
-show_debug_message(string(inputController.menuDownHeld));
-
 var held = inputController.menuUpHeld + inputController.menuDownHeld;
 
 if (held == 0) {

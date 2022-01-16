@@ -22,9 +22,10 @@ for (i = 0; i < loops; ++i) {
 }
 
 if (!typed) {
+    menuController.menuCursorAction = selectMenuOption;
+    menuController.menuMove         = menuController.nextMenuMove;
     menuController.menuAnimation    = menuController.menuAnimationNext;
     menuController.currentOption    = menuController.nextOption;
-    menuController.menuMove         = menuController.nextMenuMove;
     menuController.offsetFromCentre = 1;
     exit;
 }

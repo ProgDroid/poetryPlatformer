@@ -15,6 +15,7 @@ menuController.nextMenuOptions   = argument6;
 menuController.menuOptionCount   = argument7;
 menuController.menuLineLengths   = argument8;
 
+menuController.menuCursorAction       = emptyScript;
 menuController.menuMove               = emptyScript;
 menuController.moveBuffer             = 0;
 menuController.underlineAnimTime      = 0;

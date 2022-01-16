@@ -319,18 +319,11 @@
     </scripts>
     <scripts name="menuScripts">
       <script>scripts\animateMenu.gml</script>
-      <script>scripts\menuPlay.gml</script>
-      <script>scripts\menuSelect.gml</script>
-      <script>scripts\menuRead.gml</script>
-      <script>scripts\menuCreate.gml</script>
-      <script>scripts\menuSet.gml</script>
-      <script>scripts\menuExit.gml</script>
-      <script>scripts\menuGraphics.gml</script>
-      <script>scripts\menuGameplay.gml</script>
       <script>scripts\menuTransition.gml</script>
-      <script>scripts\menuControls.gml</script>
       <script>scripts\handleOptionMove.gml</script>
+      <script>scripts\handleSubMenuAnimation.gml</script>
       <script>scripts\handleUnderlineAnimation.gml</script>
+      <script>scripts\createSubMenu.gml</script>
       <scripts name="menuAnimationScripts">
         <script>scripts\mainMenuAnimation.gml</script>
         <script>scripts\menuFadeIn.gml</script>
@@ -345,10 +338,22 @@
         <script>scripts\menuSetGUI.gml</script>
       </scripts>
       <scripts name="menuInputScripts">
+        <script>scripts\menuCursorActionScript.gml</script>
         <script>scripts\moveMenuCursor.gml</script>
         <script>scripts\moveMenuAsterisk.gml</script>
         <script>scripts\moveMenuList.gml</script>
         <script>scripts\selectMenuOption.gml</script>
+      </scripts>
+      <scripts name="menuActionScripts">
+        <script>scripts\menuPlay.gml</script>
+        <script>scripts\menuSelect.gml</script>
+        <script>scripts\menuRead.gml</script>
+        <script>scripts\menuCreate.gml</script>
+        <script>scripts\menuSet.gml</script>
+        <script>scripts\menuExit.gml</script>
+        <script>scripts\menuControls.gml</script>
+        <script>scripts\menuGameplay.gml</script>
+        <script>scripts\menuGraphics.gml</script>
       </scripts>
     </scripts>
     <scripts name="animationScripts">
@@ -485,7 +490,7 @@
     <room>rooms\room4</room>
     <room>rooms\TODUPLICATE</room>
   </rooms>
-  <constants number="62">
+  <constants number="65">
     <constant name="LERP_AMOUNT">0.025</constant>
     <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
@@ -548,6 +553,9 @@
     <constant name="MENU_LIST_Y_OFFSET">200</constant>
     <constant name="MENU_LIST_X_OFFSET">0</constant>
     <constant name="MENU_TYPING_BUFFER">5</constant>
+    <constant name="SUB_MENU_OFFSET">1 / 3</constant>
+    <constant name="MENU_LIST_ANIM_DURATION">1 * 60</constant>
+    <constant name="TYPING_BUFFER">40</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

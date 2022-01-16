@@ -1,4 +1,6 @@
 /// settingsMenuAnimation
 
+handleSubMenuAnimation();
+
 handleUnderlineAnimation();
 
