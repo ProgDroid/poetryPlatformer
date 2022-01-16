@@ -99,19 +99,19 @@ settingsMenuLineLengths[SETTINGS_MENU_LIST_LENGTH - 1] = 313;
 settingsMenuLineLengths[SETTINGS_MENU_LIST_LENGTH - 2] = 355;
 settingsMenuLineLengths[SETTINGS_MENU_LIST_LENGTH - 3] = 295;
 
-menuActions      = mainMenuActions;
-menuLineLengths  = mainMenuLineLengths;
-menuListXOffset  = MENU_LIST_X_OFFSET;
-menuMove         = emptyScript;
-menuGUIOptions   = [];
+menuActions        = mainMenuActions;
+menuLineLengths    = mainMenuLineLengths;
+menuListXOffset    = MENU_LIST_X_OFFSET;
+menuMove           = emptyScript;
+menuGUIOptions[0]  = "";
 array_copy(menuGUIOptions, 0, mainMenuOptions, 0, array_length_1d(mainMenuOptions));
-menuOptionCount  = MENU_OPTION_COUNT;
-nextMenuMove     = moveMenuAsterisk;
-nextMenuOptions  = [];
-offsetFromCentre = 1;
-typingBuffer     = 40;
-typingProgress   = 1;
-typingArray      = [];
+menuOptionCount    = MENU_OPTION_COUNT;
+nextMenuMove       = moveMenuAsterisk;
+nextMenuOptions[0] = "";
+offsetFromCentre   = 1;
+typingBuffer       = 40;
+typingProgress     = 1;
+typingArray[0]     = "";
 array_copy(typingArray, 0, menuGUIOptions, 0, array_length_1d(menuGUIOptions));
 
 </string>
