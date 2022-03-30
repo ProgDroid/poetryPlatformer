@@ -12,6 +12,8 @@ draw_sprite_ext(
     asteriskAlpha * menuController.menuAlpha
 );
 
+var options = getMenuOptions();
+
 for (var i = 0; i < menuController.menuOptionCount; ++i) {
     var angle = degtorad(120 - (i * 60) + asteriskRotation);
 
@@ -28,12 +30,14 @@ for (var i = 0; i < menuController.menuOptionCount; ++i) {
         );
     }
 
+    // TODO does this need to be using "currentMenu" if it's known which menu it's in?
+
     draw_text_transformed(
-        (display_get_gui_width() * 0.5) + (cos(angle) * (MENU_RADIUS - (1 - menuController.menuOptionScale[i, 0]) * 150) * menuController.offsetFromCentre),
-        (display_get_gui_height() * 0.5) + (-sin(angle) * (MENU_RADIUS - (1 - menuController.menuOptionScale[i, 1]) * 150) * menuController.offsetFromCentre),
-        menuController.menuGUIOptions[i],
-        menuController.menuOptionScale[i, 0],
-        menuController.menuOptionScale[i, 1],
+        (display_get_gui_width() * 0.5) + (cos(angle) * (MENU_RADIUS - (1 - menuController.mainMenuOptionScale[i, 0]) * 150) * menuController.offsetFromCentre),
+        (display_get_gui_height() * 0.5) + (-sin(angle) * (MENU_RADIUS - (1 - menuController.mainMenuOptionScale[i, 1]) * 150) * menuController.offsetFromCentre),
+        options[| i],
+        menuController.mainMenuOptionScale[i, 0],
+        menuController.mainMenuOptionScale[i, 1],
         0
     );
 }

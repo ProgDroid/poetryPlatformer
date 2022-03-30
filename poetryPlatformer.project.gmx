@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="3" name="datafiles">
-    <datafiles number="3" name="levels">
+  <datafiles number="4" name="datafiles">
+    <datafiles number="4" name="levels">
       <datafile>
         <name>thatSweetButterfly.txt</name>
         <exists>-1</exists>
@@ -23,6 +23,23 @@
         <filename>thatSweetButterfly.txt</filename>
       </datafile>
     </datafiles>
+    <datafile>
+      <name>menus.json</name>
+      <exists>-1</exists>
+      <size>0</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>menus.json</filename>
+    </datafile>
   </datafiles>
   <NewExtensions/>
   <sounds name="sound"/>
@@ -324,6 +341,10 @@
       <script>scripts\handleSubMenuAnimation.gml</script>
       <script>scripts\handleUnderlineAnimation.gml</script>
       <script>scripts\createSubMenu.gml</script>
+      <script>scripts\newMenu.gml</script>
+      <script>scripts\getMenuOptions.gml</script>
+      <script>scripts\getMenuActions.gml</script>
+      <script>scripts\getMenuLineLengths.gml</script>
       <scripts name="menuAnimationScripts">
         <script>scripts\mainMenuAnimation.gml</script>
         <script>scripts\menuFadeIn.gml</script>

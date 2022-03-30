@@ -27,26 +27,12 @@
             <kind>1</kind>
             <string>event_inherited();
 
-mainMenuOptions[MENU_OPTION_COUNT - 1] = "exit";
-mainMenuOptions[MENU_OPTION_COUNT - 2] = "set";
-mainMenuOptions[MENU_OPTION_COUNT - 3] = "create";
-mainMenuOptions[MENU_OPTION_COUNT - 4] = "read";
-mainMenuOptions[MENU_OPTION_COUNT - 5] = "select";
-mainMenuOptions[MENU_OPTION_COUNT - 6] = "play";
+menus = loadJson(working_directory + "\menus.json");
 
-mainMenuActions[MENU_OPTION_COUNT - 1] = menuExit;
-mainMenuActions[MENU_OPTION_COUNT - 2] = menuSet;
-mainMenuActions[MENU_OPTION_COUNT - 3] = menuCreate;
-mainMenuActions[MENU_OPTION_COUNT - 4] = menuRead;
-mainMenuActions[MENU_OPTION_COUNT - 5] = menuSelect;
-mainMenuActions[MENU_OPTION_COUNT - 6] = menuPlay;
+currentMenu = "main";
+previousMenus = ds_stack_create();
 
-mainMenuLineLengths[MENU_OPTION_COUNT - 1] = 142;
-mainMenuLineLengths[MENU_OPTION_COUNT - 2] = 110;
-mainMenuLineLengths[MENU_OPTION_COUNT - 3] = 220;
-mainMenuLineLengths[MENU_OPTION_COUNT - 4] = 167;
-mainMenuLineLengths[MENU_OPTION_COUNT - 5] = 210;
-mainMenuLineLengths[MENU_OPTION_COUNT - 6] = 160;
+var lengths = getMenuLineLengths();
 
 var guiHorizontalCentre = display_get_gui_width() / 2;
 var guiHeight           = display_get_gui_height();
@@ -55,8 +41,8 @@ for (var i = MENU_OPTION_COUNT; i &gt; 0; --i) {
     optionDimensions[i - 1, 1] = i * guiHeight / (MENU_OPTION_COUNT + 1);
     optionDimensions[i - 1, 0] = guiHorizontalCentre;
     
-    menuOptionScale[i - 1, 1] = 1 - ((i - 1 + i) % i) * 0.166;
-    menuOptionScale[i - 1, 0] = 1 - ((i - 1 + i) % i) * 0.166;
+    mainMenuOptionScale[i - 1, 1] = 1 - ((i - 1 + i) % i) * 0.166;
+    mainMenuOptionScale[i - 1, 0] = 1 - ((i - 1 + i) % i) * 0.166;
 }
 
 menuAlpha              = -0.2;
@@ -68,7 +54,7 @@ currentOption          = 0;
 moveBuffer             = 0;
 nextOption             = 0;
 underlineHalfLength    = 0;
-underlineHalfLengthMax = mainMenuLineLengths[currentOption];
+underlineHalfLengthMax = lengths[| currentOption];
 underlineAnimTime      = 0;
 underlineAnimDuration  = UNDERLINE_ANIM_DURATION;
 underlineAnimation     = UNDERLINE_ANIMATION_DEFAULT;
@@ -99,16 +85,13 @@ settingsMenuLineLengths[SETTINGS_MENU_LIST_LENGTH - 1] = 313;
 settingsMenuLineLengths[SETTINGS_MENU_LIST_LENGTH - 2] = 355;
 settingsMenuLineLengths[SETTINGS_MENU_LIST_LENGTH - 3] = 295;
 
-menuActions          = mainMenuActions;
 menuCursorAction     = emptyScript;
-menuLineLengths      = mainMenuLineLengths;
 menuListAnimTime     = 0;
 menuListAnimDuration = MENU_LIST_ANIM_DURATION;
 menuListXOffset      = MENU_LIST_X_OFFSET;
 menuListXGoal        = MENU_LIST_X_OFFSET;
 menuMove             = emptyScript;
 menuGUIOptions[0]    = "";
-array_copy(menuGUIOptions, 0, mainMenuOptions, 0, array_length_1d(mainMenuOptions));
 menuOptionCount      = MENU_OPTION_COUNT;
 nextMenuMove         = moveMenuAsterisk;
 nextMenuOptions[0]   = "";
@@ -116,7 +99,6 @@ offsetFromCentre     = 1;
 typingBuffer         = TYPING_BUFFER;
 typingProgress       = 1;
 typingArray[0]       = "";
-array_copy(typingArray, 0, menuGUIOptions, 0, array_length_1d(menuGUIOptions));
 
 </string>
           </argument>
@@ -141,6 +123,14 @@ array_copy(typingArray, 0, menuGUIOptions, 0, array_length_1d(menuGUIOptions));
           <argument>
             <kind>1</kind>
             <string>fixed_timestep_unregister(id);
+
+if (ds_exists(menus, ds_type_map)) {
+    ds_map_destroy(menus);
+}
+
+if (ds_exists(previousMenus, ds_type_stack)) {
+    ds_stack_destroy(previousMenus);
+}
 
 </string>
           </argument>

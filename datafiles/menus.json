@@ -1,0 +1,45 @@
+{
+    "main": {
+        "options": [
+            "play",
+            "select",
+            "read",
+            "create",
+            "set",
+            "exit"
+        ],
+        "actions": [
+            "menuPlay",
+            "menuSelect",
+            "menuRead",
+            "menuCreate",
+            "menuSet",
+            "menuExit"
+        ],
+        "lineLengths": [
+            160,
+            210,
+            167,
+            220,
+            110,
+            142
+        ]
+    },
+    "settings": {
+        "options": [
+            "controls",
+            "gameplay",
+            "graphics"
+        ],
+        "actions": [
+            "menuControls",
+            "menuGameplay",
+            "menuGraphics"
+        ],
+        "lineLengths": [
+            295,
+            355,
+            313
+        ]
+    }
+}

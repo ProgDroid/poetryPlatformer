@@ -8,8 +8,10 @@ if (argument_count != 1) {
 menuController.currentOption = incrementAndWrapMenuOption(argument0);
 menuController.moveBuffer    = MENU_HOLD_DELAY;
 
+var lengths = getMenuLineLengths();
+
 menuController.underlineHalfLength    = 0;
-menuController.underlineHalfLengthMax = menuController.menuLineLengths[menuController.currentOption];
+menuController.underlineHalfLengthMax = lengths[| menuController.currentOption];
 menuController.underlineAnimTime      = 0;
 menuController.underlineAnimDuration  = UNDERLINE_ANIM_DURATION;
 

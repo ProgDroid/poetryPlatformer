@@ -1,6 +1,8 @@
 /// selectMenuOption
 
 if (inputController.menuAccept) {
-    script_execute(menuController.menuActions[menuController.currentOption]);
+    var menuActionList = getMenuActions();
+
+    script_execute(asset_get_index(menuActionList[| menuController.currentOption]));
 }
 

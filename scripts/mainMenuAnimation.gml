@@ -11,8 +11,8 @@ menuController.asteriskRotation = rotation;
 
 for (var i = MENU_OPTION_COUNT - 1; i >= 0; --i) {
     for (var j = 1; j >= 0; --j) {
-        menuController.menuOptionScale[i, j] = lerp(
-            menuOptionScale[i, j],
+        menuController.mainMenuOptionScale[i, j] = lerp(
+            mainMenuOptionScale[i, j],
             1 - ((i - menuController.currentOption + MENU_OPTION_COUNT) % MENU_OPTION_COUNT) * 0.166,
             0.3
         );
