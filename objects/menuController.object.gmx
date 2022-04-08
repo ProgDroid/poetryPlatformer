@@ -27,42 +27,47 @@
             <kind>1</kind>
             <string>event_inherited();
 
+// ? how to handle sub menus in the data?
 menus = loadJson(working_directory + "\menus.json");
 
-currentMenu = "main";
-previousMenus = ds_stack_create();
+currentMenu             = MENU_HANDLE_MAIN;
+previousMenus           = ds_stack_create();
+currentOption           = 0;
+previousSelectedOptions = ds_stack_create();
+nextMenu                = noone;
+
+var options       = getMenuOptions();
+var optionsLength = ds_list_size(options);
 
 var lengths = getMenuLineLengths();
 
 var guiHorizontalCentre = display_get_gui_width() / 2;
 var guiHeight           = display_get_gui_height();
 
-for (var i = MENU_OPTION_COUNT; i &gt; 0; --i) {
-    optionDimensions[i - 1, 1] = i * guiHeight / (MENU_OPTION_COUNT + 1);
+for (var i = optionsLength; i &gt; 0; --i) {
+    optionDimensions[i - 1, 1] = i * guiHeight / (optionsLength + 1);
     optionDimensions[i - 1, 0] = guiHorizontalCentre;
     
     mainMenuOptionScale[i - 1, 1] = 1 - ((i - 1 + i) % i) * 0.166;
     mainMenuOptionScale[i - 1, 0] = 1 - ((i - 1 + i) % i) * 0.166;
 }
 
+menuController.menuGUI = asset_get_index(getMenuDraw());
+
+var transitions = getMenuTransitions();
+script_execute(transitionIn(transitions[? TRANSITION_HANDLE_IN]));
+
 menuAlpha              = -0.2;
 asteriskAlpha          = 1;
 asteriskRotation       = 0;
 asteriskRotationGoal   = 0;
 asteriskSize           = ASTERISK_SIZE;
-currentOption          = 0;
 moveBuffer             = 0;
-nextOption             = 0;
 underlineHalfLength    = 0;
 underlineHalfLengthMax = lengths[| currentOption];
 underlineAnimTime      = 0;
 underlineAnimDuration  = UNDERLINE_ANIM_DURATION;
 underlineAnimation     = UNDERLINE_ANIMATION_DEFAULT;
-
-menuAnimation     = menuFadeIn;
-menuAnimationNext = mainMenuAnimation;
-menuGUI           = mainMenuGUI;
-menuGUINext       = emptyScript;
 
 fixed_timestep_register_script(id, menuCursorActionScript);
 fixed_timestep_register_script(id, moveMenuCursor);
@@ -73,28 +78,12 @@ draw_set_colour(c_black);
 draw_set_halign(fa_middle);
 draw_set_valign(fa_middle);
 
-settingsMenuOptions[SETTINGS_MENU_LIST_LENGTH - 1] = "graphics";
-settingsMenuOptions[SETTINGS_MENU_LIST_LENGTH - 2] = "gameplay";
-settingsMenuOptions[SETTINGS_MENU_LIST_LENGTH - 3] = "controls";
-
-settingsMenuActions[SETTINGS_MENU_LIST_LENGTH - 1] = menuGraphics;
-settingsMenuActions[SETTINGS_MENU_LIST_LENGTH - 2] = menuGameplay;
-settingsMenuActions[SETTINGS_MENU_LIST_LENGTH - 3] = menuControls;
-
-settingsMenuLineLengths[SETTINGS_MENU_LIST_LENGTH - 1] = 313;
-settingsMenuLineLengths[SETTINGS_MENU_LIST_LENGTH - 2] = 355;
-settingsMenuLineLengths[SETTINGS_MENU_LIST_LENGTH - 3] = 295;
-
-menuCursorAction     = emptyScript;
+menuCursorAction     = emptyScript; // ? needed?
 menuListAnimTime     = 0;
-menuListAnimDuration = MENU_LIST_ANIM_DURATION;
+menuListAnimDuration = MENU_LIST_ANIM_DURATION; // ? needed?
 menuListXOffset      = MENU_LIST_X_OFFSET;
 menuListXGoal        = MENU_LIST_X_OFFSET;
-menuMove             = emptyScript;
-menuGUIOptions[0]    = "";
-menuOptionCount      = MENU_OPTION_COUNT;
-nextMenuMove         = moveMenuAsterisk;
-nextMenuOptions[0]   = "";
+menuOptionCount      = optionsLength;
 offsetFromCentre     = 1;
 typingBuffer         = TYPING_BUFFER;
 typingProgress       = 1;
@@ -130,6 +119,10 @@ if (ds_exists(menus, ds_type_map)) {
 
 if (ds_exists(previousMenus, ds_type_stack)) {
     ds_stack_destroy(previousMenus);
+}
+
+if (ds_exists(previousSelectedOptions, ds_type_stack)) {
+    ds_stack_destroy(previousSelectedOptions);
 }
 
 </string>

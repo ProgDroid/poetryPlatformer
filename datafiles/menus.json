@@ -23,7 +23,15 @@
             220,
             110,
             142
-        ]
+        ],
+        "transitions": {
+            "transitionIn": "fadeIn",
+            "transitionOut": "spinOut",
+            "transitionBack": "spinIn"
+        },
+        "animation": "mainMenuAnimation",
+        "draw": "mainMenuGUI",
+        "move": "moveMenuAsterisk"
     },
     "settings": {
         "options": [
@@ -40,6 +48,14 @@
             295,
             355,
             313
-        ]
+        ],
+        "transitions": {
+            "transitionIn": "typeIn",
+            "transitionOut": "shiftOut",
+            "transitionBack": "shiftIn"
+        },
+        "animation": "settingsMenuAnimation",
+        "draw": "menuSetGUI",
+        "move": "moveMenuList"
     }
 }

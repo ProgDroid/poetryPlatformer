@@ -1,0 +1,4 @@
+/// spinOut()
+
+menuTransition(mainMenuSpinOut);
+

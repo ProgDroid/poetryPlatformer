@@ -1,4 +1,4 @@
-/// menuTypingAnimation
+/// menuTypeIn()
 
 if (menuController.typingBuffer > 0) {
     menuController.typingBuffer -= 1;
@@ -9,24 +9,23 @@ var letterCount = menuController.typingProgress;
 var loops       = menuController.menuOptionCount;
 var typed       = false;
 
+var options = getMenuOptions();
+
 for (i = 0; i < loops; ++i) {
-    var length = string_length(menuController.menuGUIOptions[i]);
+    var length = string_length(options[| i]);
     if (letterCount > length) {
         letterCount -= length;
         continue;
     }
 
     typed = true;
-    menuController.typingArray[i] = string_copy(menuController.menuGUIOptions[i], 1, letterCount);
+    menuController.typingArray[i] = string_copy(options[| i], 1, letterCount);
     break;
 }
 
 if (!typed) {
-    menuController.menuCursorAction = selectMenuOption;
-    menuController.menuMove         = menuController.nextMenuMove;
-    menuController.menuAnimation    = menuController.menuAnimationNext;
-    menuController.currentOption    = menuController.nextOption;
     menuController.offsetFromCentre = 1;
+    transitionInEnd();
     exit;
 }
 

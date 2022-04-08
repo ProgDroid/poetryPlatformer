@@ -345,13 +345,17 @@
       <script>scripts\getMenuOptions.gml</script>
       <script>scripts\getMenuActions.gml</script>
       <script>scripts\getMenuLineLengths.gml</script>
+      <script>scripts\getMenuTransitions.gml</script>
+      <script>scripts\getMenuAnimation.gml</script>
+      <script>scripts\getMenuDraw.gml</script>
+      <script>scripts\getMenuMove.gml</script>
       <scripts name="menuAnimationScripts">
         <script>scripts\mainMenuAnimation.gml</script>
         <script>scripts\menuFadeIn.gml</script>
         <script>scripts\menuFadeOut.gml</script>
         <script>scripts\settingsMenuAnimation.gml</script>
         <script>scripts\mainMenuSpinOut.gml</script>
-        <script>scripts\menuTypingAnimation.gml</script>
+        <script>scripts\menuTypeIn.gml</script>
       </scripts>
       <scripts name="menuGuiScripts">
         <script>scripts\mainMenuGUI.gml</script>
@@ -375,6 +379,18 @@
         <script>scripts\menuControls.gml</script>
         <script>scripts\menuGameplay.gml</script>
         <script>scripts\menuGraphics.gml</script>
+      </scripts>
+      <scripts name="menuTransitionScripts">
+        <script>scripts\fadeIn.gml</script>
+        <script>scripts\fadeOutTransition.gml</script>
+        <script>scripts\spinIn.gml</script>
+        <script>scripts\spinOut.gml</script>
+        <script>scripts\transitionIn.gml</script>
+        <script>scripts\transitionOut.gml</script>
+        <script>scripts\transitionInEnd.gml</script>
+        <script>scripts\typeIn.gml</script>
+        <script>scripts\shiftIn.gml</script>
+        <script>scripts\shiftOut.gml</script>
       </scripts>
     </scripts>
     <scripts name="animationScripts">
@@ -511,7 +527,7 @@
     <room>rooms\room4</room>
     <room>rooms\TODUPLICATE</room>
   </rooms>
-  <constants number="65">
+  <constants number="68">
     <constant name="LERP_AMOUNT">0.025</constant>
     <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
@@ -563,20 +579,23 @@
     <constant name="MAX_DASHES">1</constant>
     <constant name="MIN_VIEW_HEIGHT">720</constant>
     <constant name="MENU_HOLD_DELAY">20</constant>
-    <constant name="MENU_OPTION_COUNT">6</constant>
     <constant name="MENU_RADIUS">375</constant>
     <constant name="ASTERISK_SIZE">1.25</constant>
     <constant name="UNDERLINE_ANIM_DURATION">3.5 * 60</constant>
     <constant name="UNDERLINE_ANIMATIONS_COUNT">8</constant>
     <constant name="UNDERLINE_ANIMATION_DEFAULT">easeInOutCubic</constant>
     <constant name="MENU_FADE_STEP">0.025</constant>
-    <constant name="SETTINGS_MENU_LIST_LENGTH">3</constant>
     <constant name="MENU_LIST_Y_OFFSET">200</constant>
     <constant name="MENU_LIST_X_OFFSET">0</constant>
     <constant name="MENU_TYPING_BUFFER">5</constant>
     <constant name="SUB_MENU_OFFSET">1 / 3</constant>
     <constant name="MENU_LIST_ANIM_DURATION">1 * 60</constant>
     <constant name="TYPING_BUFFER">40</constant>
+    <constant name="MENU_HANDLE_MAIN">"main"</constant>
+    <constant name="MENU_HANDLE_SET">"settings"</constant>
+    <constant name="TRANSITION_HANDLE_IN">"transitionIn"</constant>
+    <constant name="TRANSITION_HANDLE_OUT">"transitionOut"</constant>
+    <constant name="TRANSITION_HANDLE_BACK">"transitionBack"</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
