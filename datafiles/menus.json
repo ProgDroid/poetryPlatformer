@@ -57,5 +57,24 @@
         "animation": "settingsMenuAnimation",
         "draw": "menuSetGUI",
         "move": "moveMenuList"
+    },
+    "controls": {
+        "options": [
+            "testing",
+            "controls",
+            "menu",
+            "oh",
+            "yeah"
+        ],
+        "actions": [],
+        "lineLengths": [],
+        "transitions": {
+            "transitionIn": "fadeIn",
+            "transitionOut": "",
+            "transitionBack": ""
+        },
+        "animation": "controlsMenuAnimation",
+        "draw": "menuControlsGUI",
+        "move": "moveMenuList"
     }
 }

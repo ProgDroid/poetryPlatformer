@@ -13,5 +13,4 @@ var lengths = getMenuLineLengths();
 menuController.underlineHalfLength    = 0;
 menuController.underlineHalfLengthMax = lengths[| menuController.currentOption];
 menuController.underlineAnimTime      = 0;
-menuController.underlineAnimDuration  = UNDERLINE_ANIM_DURATION;
 

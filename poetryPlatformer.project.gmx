@@ -340,7 +340,6 @@
       <script>scripts\handleOptionMove.gml</script>
       <script>scripts\handleSubMenuAnimation.gml</script>
       <script>scripts\handleUnderlineAnimation.gml</script>
-      <script>scripts\createSubMenu.gml</script>
       <script>scripts\newMenu.gml</script>
       <script>scripts\getMenuOptions.gml</script>
       <script>scripts\getMenuActions.gml</script>
@@ -349,6 +348,8 @@
       <script>scripts\getMenuAnimation.gml</script>
       <script>scripts\getMenuDraw.gml</script>
       <script>scripts\getMenuMove.gml</script>
+      <script>scripts\getPreviousMenuOptions.gml</script>
+      <script>scripts\getPreviousMenuLineLengths.gml</script>
       <scripts name="menuAnimationScripts">
         <script>scripts\mainMenuAnimation.gml</script>
         <script>scripts\menuFadeIn.gml</script>
@@ -356,11 +357,14 @@
         <script>scripts\settingsMenuAnimation.gml</script>
         <script>scripts\mainMenuSpinOut.gml</script>
         <script>scripts\menuTypeIn.gml</script>
+        <script>scripts\menuShiftOut.gml</script>
+        <script>scripts\controlsMenuAnimation.gml</script>
       </scripts>
       <scripts name="menuGuiScripts">
         <script>scripts\mainMenuGUI.gml</script>
         <script>scripts\menuJokeGUI.gml</script>
         <script>scripts\menuSetGUI.gml</script>
+        <script>scripts\menuControlsGUI.gml</script>
       </scripts>
       <scripts name="menuInputScripts">
         <script>scripts\menuCursorActionScript.gml</script>
@@ -527,7 +531,7 @@
     <room>rooms\room4</room>
     <room>rooms\TODUPLICATE</room>
   </rooms>
-  <constants number="68">
+  <constants number="70">
     <constant name="LERP_AMOUNT">0.025</constant>
     <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
@@ -593,9 +597,11 @@
     <constant name="TYPING_BUFFER">40</constant>
     <constant name="MENU_HANDLE_MAIN">"main"</constant>
     <constant name="MENU_HANDLE_SET">"settings"</constant>
+    <constant name="MENU_HANDLE_CONTROLS">"controls"</constant>
     <constant name="TRANSITION_HANDLE_IN">"transitionIn"</constant>
     <constant name="TRANSITION_HANDLE_OUT">"transitionOut"</constant>
     <constant name="TRANSITION_HANDLE_BACK">"transitionBack"</constant>
+    <constant name="MENU_FADED_ALPHA">0.4</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

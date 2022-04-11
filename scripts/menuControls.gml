@@ -1,6 +1,4 @@
 /// menuControls
 
-// TODO this should use transitions
-
-createSubMenu();
+transitionOut(MENU_HANDLE_CONTROLS);
 

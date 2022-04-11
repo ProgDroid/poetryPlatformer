@@ -28,6 +28,7 @@
             <string>event_inherited();
 
 // ? how to handle sub menus in the data?
+// TODO need to define transition back out?
 menus = loadJson(working_directory + "\menus.json");
 
 currentMenu             = MENU_HANDLE_MAIN;
@@ -58,6 +59,7 @@ var transitions = getMenuTransitions();
 script_execute(transitionIn(transitions[? TRANSITION_HANDLE_IN]));
 
 menuAlpha              = -0.2;
+previousMenuAlpha      = 1;
 asteriskAlpha          = 1;
 asteriskRotation       = 0;
 asteriskRotationGoal   = 0;
@@ -80,7 +82,7 @@ draw_set_valign(fa_middle);
 
 menuCursorAction     = emptyScript; // ? needed?
 menuListAnimTime     = 0;
-menuListAnimDuration = MENU_LIST_ANIM_DURATION; // ? needed?
+menuListAnimDuration = MENU_LIST_ANIM_DURATION;
 menuListXOffset      = MENU_LIST_X_OFFSET;
 menuListXGoal        = MENU_LIST_X_OFFSET;
 menuOptionCount      = optionsLength;
