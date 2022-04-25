@@ -91,6 +91,30 @@ typingBuffer         = TYPING_BUFFER;
 typingProgress       = 1;
 typingArray[0]       = "";
 
+keyMap = ds_map_create();
+
+keyMap[? vk_up]        = "up";
+keyMap[? gp_padu]      = "dpad up";
+keyMap[? gp_axislv]    = "lStickV";
+keyMap[? vk_down]      = "down";
+keyMap[? gp_padd]      = "dpad down";
+keyMap[? vk_left]      = "left";
+keyMap[? gp_padl]      = "dpad left";
+keyMap[? gp_axislh]    = "lStickH";
+keyMap[? vk_right]     = "right";
+keyMap[? gp_padr]      = "dpad right";
+keyMap[? vk_space]     = "space";
+keyMap[? gp_face1]     = "X butt";
+keyMap[? vk_shift]     = "shift";
+keyMap[? gp_shoulderl] = "L1";
+keyMap[? gp_shoulderr] = "R1";
+keyMap[? vk_escape]    = "ESC";
+keyMap[? gp_start]     = "start";
+keyMap[? vk_enter]     = "enter";
+keyMap[? gp_face2]     = "O butt";
+keyMap[? gp_axisrv]    = "rStickV";
+keyMap[? gp_axisrh]    = "rStickH";
+
 </string>
           </argument>
         </arguments>
@@ -125,6 +149,10 @@ if (ds_exists(previousMenus, ds_type_stack)) {
 
 if (ds_exists(previousSelectedOptions, ds_type_stack)) {
     ds_stack_destroy(previousSelectedOptions);
+}
+
+if (ds_exists(keyMap, ds_type_map)) {
+    ds_map_destroy(keyMap);
 }
 
 </string>

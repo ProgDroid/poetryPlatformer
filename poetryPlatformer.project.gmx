@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="4" name="datafiles">
-    <datafiles number="4" name="levels">
+  <datafiles number="5" name="datafiles">
+    <datafiles number="5" name="levels">
       <datafile>
         <name>thatSweetButterfly.txt</name>
         <exists>-1</exists>
@@ -277,6 +277,8 @@
       <script>scripts\unpause.gml</script>
       <script>scripts\vectorLengthSquared.gml</script>
       <script>scripts\incrementAndWrapMenuOption.gml</script>
+      <script>scripts\getControlsHandleFromOption.gml</script>
+      <script>scripts\keyToString.gml</script>
     </scripts>
     <scripts name="inputScripts">
       <script>scripts\checkHeld.gml</script>

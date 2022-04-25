@@ -60,11 +60,9 @@
     },
     "controls": {
         "options": [
-            "testing",
-            "controls",
-            "menu",
-            "oh",
-            "yeah"
+            "jump",
+            "dash",
+            "accept"
         ],
         "actions": [],
         "lineLengths": [],
