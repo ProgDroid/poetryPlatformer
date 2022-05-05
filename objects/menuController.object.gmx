@@ -55,8 +55,7 @@ for (var i = optionsLength; i &gt; 0; --i) {
 
 menuController.menuGUI = asset_get_index(getMenuDraw());
 
-var transitions = getMenuTransitions();
-script_execute(transitionIn(transitions[? TRANSITION_HANDLE_IN]));
+transitionIn(TRANSITION_HANDLE_IN);
 
 menuAlpha              = -0.2;
 previousMenuAlpha      = 1;
@@ -114,6 +113,13 @@ keyMap[? vk_enter]     = "enter";
 keyMap[? gp_face2]     = "O butt";
 keyMap[? gp_axisrv]    = "rStickV";
 keyMap[? gp_axisrh]    = "rStickH";
+
+enum transitionDirection {
+    up   = 0,
+    down = 1,
+}
+
+menuTransitionDirection = noone;
 
 </string>
           </argument>

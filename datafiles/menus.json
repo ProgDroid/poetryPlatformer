@@ -27,7 +27,8 @@
         "transitions": {
             "transitionIn": "fadeIn",
             "transitionOut": "spinOut",
-            "transitionBack": "spinIn"
+            "transitionBackIn": "spinIn",
+            "transitionBackOut": "emptyScript"
         },
         "animation": "mainMenuAnimation",
         "draw": "mainMenuGUI",
@@ -52,7 +53,8 @@
         "transitions": {
             "transitionIn": "typeIn",
             "transitionOut": "shiftOut",
-            "transitionBack": "shiftIn"
+            "transitionBackIn": "shiftIn",
+            "transitionBackOut": "fadeOutTransition"
         },
         "animation": "settingsMenuAnimation",
         "draw": "menuSetGUI",
@@ -68,8 +70,9 @@
         "lineLengths": [],
         "transitions": {
             "transitionIn": "fadeIn",
-            "transitionOut": "",
-            "transitionBack": ""
+            "transitionOut": "emptyScript",
+            "transitionBackIn": "emptyScript",
+            "transitionBackOut": "fadeOutTransition"
         },
         "animation": "controlsMenuAnimation",
         "draw": "menuControlsGUI",

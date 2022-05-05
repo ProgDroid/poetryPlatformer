@@ -1,4 +1,4 @@
 /// menuSet
 
-transitionOut(MENU_HANDLE_SET);
+transitionOut(TRANSITION_HANDLE_OUT, transitionDirection.down, MENU_HANDLE_SET);
 

@@ -1,4 +1,4 @@
 /// spinIn()
 
-// menuTransition(menuSpinIn);
+menuTransition(menuFadeIn);
 
