@@ -7,7 +7,9 @@ menuController.underlineAnimTime    = 0;
 menuController.underlineHalfLength  = 0;
 
 if (menuController.menuAlpha <= 0) {
-    menuController.menuAlpha = 1;
+    menuController.spinInOffset   = menuController.offsetFromCentre;
+    menuController.spinInRotation = menuController.asteriskRotation;
+    menuController.menuAlpha      = 1;
 
     newMenu(menuController.nextMenu);
 }

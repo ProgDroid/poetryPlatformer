@@ -363,6 +363,7 @@
         <script>scripts\menuShiftIn.gml</script>
         <script>scripts\menuShiftOut.gml</script>
         <script>scripts\controlsMenuAnimation.gml</script>
+        <script>scripts\mainMenuSpinIn.gml</script>
       </scripts>
       <scripts name="menuGuiScripts">
         <script>scripts\mainMenuGUI.gml</script>

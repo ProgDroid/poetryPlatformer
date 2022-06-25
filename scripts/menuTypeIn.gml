@@ -25,6 +25,8 @@ for (i = 0; i < loops; ++i) {
 
 if (!typed) {
     menuController.offsetFromCentre = 1;
+    menuController.typingBuffer     = TYPING_BUFFER;
+    menuController.typingProgress   = 0;
     transitionInEnd();
     exit;
 }
