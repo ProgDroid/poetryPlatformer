@@ -24,6 +24,8 @@ if (menuController.menuTransitionDirection == transitionDirection.up) {
 menuController.currentMenu            = menu;
 menuController.nextMenu               = noone;
 menuController.currentOption          = option;
+menuController.underlineAnimTime      = 0;
+menuController.underlineHalfLength    = 0;
 
 var lengths = getMenuLineLengths();
 menuController.underlineHalfLengthMax = lengths[| menuController.currentOption];
