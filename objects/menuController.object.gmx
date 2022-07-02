@@ -28,7 +28,6 @@
             <string>event_inherited();
 
 // ? how to handle sub menus in the data?
-// TODO need to define transition back out?
 menus = loadJson(working_directory + "\menus.json");
 
 currentMenu             = MENU_HANDLE_MAIN;

@@ -30,8 +30,6 @@ for (var i = 0; i < menuController.menuOptionCount; ++i) {
         );
     }
 
-    // TODO does this need to be using "currentMenu" if it's known which menu it's in?
-
     draw_text_transformed(
         (display_get_gui_width() * 0.5) + (cos(angle) * (MENU_RADIUS - (1 - menuController.mainMenuOptionScale[i, 0]) * 150) * menuController.offsetFromCentre),
         (display_get_gui_height() * 0.5) + (-sin(angle) * (MENU_RADIUS - (1 - menuController.mainMenuOptionScale[i, 1]) * 150) * menuController.offsetFromCentre),
