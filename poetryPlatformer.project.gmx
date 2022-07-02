@@ -279,6 +279,7 @@
       <script>scripts\incrementAndWrapMenuOption.gml</script>
       <script>scripts\getControlsHandleFromOption.gml</script>
       <script>scripts\keyToString.gml</script>
+      <script>scripts\getGraphicsOptionValue.gml</script>
     </scripts>
     <scripts name="inputScripts">
       <script>scripts\checkHeld.gml</script>
@@ -364,12 +365,15 @@
         <script>scripts\menuShiftOut.gml</script>
         <script>scripts\controlsMenuAnimation.gml</script>
         <script>scripts\mainMenuSpinIn.gml</script>
+        <script>scripts\graphicsMenuAnimation.gml</script>
+        <script>scripts\gameFadeOut.gml</script>
       </scripts>
       <scripts name="menuGuiScripts">
         <script>scripts\mainMenuGUI.gml</script>
         <script>scripts\menuJokeGUI.gml</script>
         <script>scripts\menuSetGUI.gml</script>
         <script>scripts\menuControlsGUI.gml</script>
+        <script>scripts\menuGraphicsGUI.gml</script>
       </scripts>
       <scripts name="menuInputScripts">
         <script>scripts\menuCursorActionScript.gml</script>
@@ -536,7 +540,7 @@
     <room>rooms\room4</room>
     <room>rooms\TODUPLICATE</room>
   </rooms>
-  <constants number="71">
+  <constants number="75">
     <constant name="LERP_AMOUNT">0.025</constant>
     <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
@@ -603,11 +607,15 @@
     <constant name="MENU_HANDLE_MAIN">"main"</constant>
     <constant name="MENU_HANDLE_SET">"settings"</constant>
     <constant name="MENU_HANDLE_CONTROLS">"controls"</constant>
+    <constant name="MENU_HANDLE_GAMEPLAY">"gameplay"</constant>
+    <constant name="MENU_HANDLE_GRAPHICS">"graphics"</constant>
+    <constant name="MENU_HANDLE_EXIT">"exit"</constant>
     <constant name="TRANSITION_HANDLE_IN">"transitionIn"</constant>
     <constant name="TRANSITION_HANDLE_OUT">"transitionOut"</constant>
     <constant name="TRANSITION_HANDLE_BACK_IN">"transitionBackIn"</constant>
     <constant name="TRANSITION_HANDLE_BACK_OUT">"transitionBackOut"</constant>
     <constant name="MENU_FADED_ALPHA">0.4</constant>
+    <constant name="MENU_EXIT_FADE_SPEED">2.5</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

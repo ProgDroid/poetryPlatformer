@@ -17,3 +17,5 @@ ds_map_add(argument0, "height", display_get_height());
 ds_map_add(argument0, "guiScalingX", 1);
 ds_map_add(argument0, "guiScalingY", 1);
 
+ds_map_add(argument0, "framerate", 60);
+
