@@ -77,5 +77,55 @@
         "animation": "controlsMenuAnimation",
         "draw": "menuControlsGUI",
         "move": "moveMenuList"
+    },
+    "gameplay": {
+        "options": [
+            "not",
+            "sure",
+            "yet"
+        ],
+        "actions": [],
+        "lineLengths": [],
+        "transitions": {
+            "transitionIn": "fadeIn",
+            "transitionOut": "emptyScript",
+            "transitionBackIn": "emptyScript",
+            "transitionBackOut": "fadeOutTransition"
+        },
+        "animation": "gameplayMenuAnimation",
+        "draw": "menuGameplayGUI",
+        "move": "moveMenuList"
+    },
+    "graphics": {
+        "options": [
+            "framerate",
+            "resolution",
+            "ui scaling"
+        ],
+        "actions": [],
+        "lineLengths": [],
+        "transitions": {
+            "transitionIn": "fadeIn",
+            "transitionOut": "emptyScript",
+            "transitionBackIn": "emptyScript",
+            "transitionBackOut": "fadeOutTransition"
+        },
+        "animation": "graphicsMenuAnimation",
+        "draw": "menuGraphicsGUI",
+        "move": "moveMenuList"
+    },
+    "exit": {
+        "options": [],
+        "actions": [],
+        "lineLengths": [],
+        "transitions": {
+            "transitionIn": "exitGame",
+            "transitionOut": "emptyScript",
+            "transitionBackIn": "emptyScript",
+            "transitionBackOut": "emptyScript"
+        },
+        "animation": "emptyScript",
+        "draw": "emptyScript",
+        "move": "emptyScript"
     }
 }
