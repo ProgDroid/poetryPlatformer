@@ -207,6 +207,7 @@
       <script>scripts\scriptFadeOut.gml</script>
       <script>scripts\endGame.gml</script>
       <script>scripts\scriptGuiFade.gml</script>
+      <script>scripts\setMenuFlashSpeed.gml</script>
     </scripts>
     <scripts name="eventTriggering">
       <script>scripts\eventRegister.gml</script>
@@ -404,6 +405,7 @@
         <script>scripts\typeIn.gml</script>
         <script>scripts\shiftIn.gml</script>
         <script>scripts\shiftOut.gml</script>
+        <script>scripts\exitGame.gml</script>
       </scripts>
     </scripts>
     <scripts name="animationScripts">
@@ -526,12 +528,12 @@
     <room>rooms\TIMEFACTOR</room>
     <room>rooms\BACKGROUND</room>
     <room>rooms\ALARM</room>
+    <room>rooms\EVENTLISTEN</room>
+    <room>rooms\FLASH</room>
     <room>rooms\MENU</room>
     <room>rooms\VIEW</room>
     <room>rooms\PLATFORMMAP</room>
-    <room>rooms\EVENTLISTEN</room>
     <room>rooms\GUI</room>
-    <room>rooms\FLASH</room>
     <room>rooms\SHADOW</room>
     <room>rooms\room15</room>
     <room>rooms\WORLD</room>

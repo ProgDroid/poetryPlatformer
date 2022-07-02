@@ -1,6 +1,4 @@
 /// menuExit
 
-// menuTransition(menuFadeOut, noone, menuJokeGUI, emptyScript, 0, noone, noone, 0, noone);
-
-game_end();
+transitionOut(TRANSITION_HANDLE_OUT, transitionDirection.down, MENU_HANDLE_EXIT);
 

@@ -122,6 +122,9 @@ enum transitionDirection {
 
 menuTransitionDirection = noone;
 
+eventRegister(allEvents.fadeout, id, setMenuFlashSpeed);
+eventRegister(allEvents.theend, id, endGame);
+
 </string>
           </argument>
         </arguments>
@@ -161,6 +164,9 @@ if (ds_exists(previousSelectedOptions, ds_type_stack)) {
 if (ds_exists(keyMap, ds_type_map)) {
     ds_map_destroy(keyMap);
 }
+
+eventUnregister(allEvents.fadeout, id);
+eventUnregister(allEvents.theend, id);
 
 </string>
           </argument>
