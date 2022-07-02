@@ -124,6 +124,7 @@ menuTransitionDirection = noone;
 
 eventRegister(allEvents.fadeout, id, setMenuFlashSpeed);
 eventRegister(allEvents.theend, id, endGame);
+eventRegister(allEvents.fadefromwhite, id, scriptStartGame);
 
 </string>
           </argument>
@@ -167,6 +168,7 @@ if (ds_exists(keyMap, ds_type_map)) {
 
 eventUnregister(allEvents.fadeout, id);
 eventUnregister(allEvents.theend, id);
+eventUnregister(allEvents.fadefromwhite, id);
 
 </string>
           </argument>

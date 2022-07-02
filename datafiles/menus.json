@@ -34,6 +34,20 @@
         "draw": "mainMenuGUI",
         "move": "moveMenuAsterisk"
     },
+    "play": {
+        "options": [],
+        "actions": [],
+        "lineLengths": [],
+        "transitions": {
+            "transitionIn": "startGame",
+            "transitionOut": "emptyScript",
+            "transitionBackIn": "emptyScript",
+            "transitionBackOut": "emptyScript"
+        },
+        "animation": "emptyScript",
+        "draw": "emptyScript",
+        "move": "emptyScript"
+    },
     "settings": {
         "options": [
             "controls",

@@ -208,6 +208,10 @@
       <script>scripts\endGame.gml</script>
       <script>scripts\scriptGuiFade.gml</script>
       <script>scripts\setMenuFlashSpeed.gml</script>
+      <script>scripts\scriptFadeToWhite.gml</script>
+      <script>scripts\scriptFadeFromWhite.gml</script>
+      <script>scripts\scriptFadeWhiteEnd.gml</script>
+      <script>scripts\scriptStartGame.gml</script>
     </scripts>
     <scripts name="eventTriggering">
       <script>scripts\eventRegister.gml</script>
@@ -368,6 +372,7 @@
         <script>scripts\mainMenuSpinIn.gml</script>
         <script>scripts\graphicsMenuAnimation.gml</script>
         <script>scripts\gameFadeOut.gml</script>
+        <script>scripts\gamePlay.gml</script>
       </scripts>
       <scripts name="menuGuiScripts">
         <script>scripts\mainMenuGUI.gml</script>
@@ -406,6 +411,7 @@
         <script>scripts\shiftIn.gml</script>
         <script>scripts\shiftOut.gml</script>
         <script>scripts\exitGame.gml</script>
+        <script>scripts\startGame.gml</script>
       </scripts>
     </scripts>
     <scripts name="animationScripts">
@@ -542,7 +548,7 @@
     <room>rooms\room4</room>
     <room>rooms\TODUPLICATE</room>
   </rooms>
-  <constants number="75">
+  <constants number="76">
     <constant name="LERP_AMOUNT">0.025</constant>
     <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
@@ -612,6 +618,7 @@
     <constant name="MENU_HANDLE_GAMEPLAY">"gameplay"</constant>
     <constant name="MENU_HANDLE_GRAPHICS">"graphics"</constant>
     <constant name="MENU_HANDLE_EXIT">"exit"</constant>
+    <constant name="MENU_HANDLE_PLAY">"play"</constant>
     <constant name="TRANSITION_HANDLE_IN">"transitionIn"</constant>
     <constant name="TRANSITION_HANDLE_OUT">"transitionOut"</constant>
     <constant name="TRANSITION_HANDLE_BACK_IN">"transitionBackIn"</constant>
