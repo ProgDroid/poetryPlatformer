@@ -40,8 +40,8 @@
         "lineLengths": [],
         "transitions": {
             "transitionIn": "startGame",
-            "transitionOut": "emptyScript",
-            "transitionBackIn": "emptyScript",
+            "transitionOut": "pauseGame",
+            "transitionBackIn": "resumeGame",
             "transitionBackOut": "emptyScript"
         },
         "animation": "emptyScript",
@@ -141,5 +141,31 @@
         "animation": "emptyScript",
         "draw": "emptyScript",
         "move": "emptyScript"
+    },
+    "pause": {
+        "options": [
+            "resume",
+            "menu",
+            "exit"
+        ],
+        "actions": [
+            "menuPauseResume",
+            "menuPauseMenu",
+            "menuPauseExit"
+        ],
+        "lineLengths": [
+            260,
+            220,
+            142
+        ],
+        "transitions": {
+            "transitionIn": "typeIn",
+            "transitionOut": "backToMenu",
+            "transitionBackIn": "typeIn",
+            "transitionBackOut": "fadeOutTransition"
+        },
+        "animation": "pauseMenuAnimation",
+        "draw": "menuPauseGUI",
+        "move": "moveMenuList"
     }
 }
