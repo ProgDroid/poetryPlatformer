@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>controller</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -126,6 +126,8 @@ eventRegister(allEvents.fadeout, id, setMenuFlashSpeed);
 eventRegister(allEvents.theend, id, endGame);
 eventRegister(allEvents.fadefromwhite, id, scriptStartGame);
 
+menuOn = true;
+
 </string>
           </argument>
         </arguments>
@@ -192,12 +194,13 @@ eventUnregister(allEvents.fadefromwhite, id);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-draw_set_alpha(menuController.menuAlpha);
+            <string>if (menuOn) {
+    draw_set_alpha(menuController.menuAlpha);
 
-script_execute(menuGUI);
+    script_execute(menuGUI);
 
-draw_set_alpha(1);
+    draw_set_alpha(1);
+}
 
 </string>
           </argument>

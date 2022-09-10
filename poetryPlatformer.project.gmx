@@ -79,6 +79,7 @@
       <sprite>sprites\spriteParticlesController</sprite>
       <sprite>sprites\spriteAlarmController</sprite>
       <sprite>sprites\spriteMenuController</sprite>
+      <sprite>sprites\spriteRoomController</sprite>
     </sprites>
     <sprites name="platforms">
       <sprite>sprites\platformA</sprite>
@@ -212,6 +213,7 @@
       <script>scripts\scriptFadeFromWhite.gml</script>
       <script>scripts\scriptFadeWhiteEnd.gml</script>
       <script>scripts\scriptStartGame.gml</script>
+      <script>scripts\scriptBackToMenu.gml</script>
     </scripts>
     <scripts name="eventTriggering">
       <script>scripts\eventRegister.gml</script>
@@ -373,6 +375,7 @@
         <script>scripts\graphicsMenuAnimation.gml</script>
         <script>scripts\gameFadeOut.gml</script>
         <script>scripts\gamePlay.gml</script>
+        <script>scripts\pauseMenuAnimation.gml</script>
       </scripts>
       <scripts name="menuGuiScripts">
         <script>scripts\mainMenuGUI.gml</script>
@@ -380,6 +383,7 @@
         <script>scripts\menuSetGUI.gml</script>
         <script>scripts\menuControlsGUI.gml</script>
         <script>scripts\menuGraphicsGUI.gml</script>
+        <script>scripts\menuPauseGUI.gml</script>
       </scripts>
       <scripts name="menuInputScripts">
         <script>scripts\menuCursorActionScript.gml</script>
@@ -398,6 +402,9 @@
         <script>scripts\menuControls.gml</script>
         <script>scripts\menuGameplay.gml</script>
         <script>scripts\menuGraphics.gml</script>
+        <script>scripts\menuPauseResume.gml</script>
+        <script>scripts\menuPauseMenu.gml</script>
+        <script>scripts\menuPauseExit.gml</script>
       </scripts>
       <scripts name="menuTransitionScripts">
         <script>scripts\fadeIn.gml</script>
@@ -412,6 +419,12 @@
         <script>scripts\shiftOut.gml</script>
         <script>scripts\exitGame.gml</script>
         <script>scripts\startGame.gml</script>
+        <script>scripts\backToMenu.gml</script>
+        <script>scripts\pauseGame.gml</script>
+        <script>scripts\resumeGame.gml</script>
+      </scripts>
+      <scripts name="menuHelperGUIScripts">
+        <script>scripts\drawTypedMenuList.gml</script>
       </scripts>
     </scripts>
     <scripts name="animationScripts">
@@ -457,6 +470,7 @@
       <object>objects\particlesController</object>
       <object>objects\alarmController</object>
       <object>objects\menuController</object>
+      <object>objects\roomController</object>
     </objects>
     <objects name="environments">
       <object>objects\objPlatforms</object>
@@ -548,7 +562,7 @@
     <room>rooms\room4</room>
     <room>rooms\TODUPLICATE</room>
   </rooms>
-  <constants number="76">
+  <constants number="77">
     <constant name="LERP_AMOUNT">0.025</constant>
     <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
@@ -619,6 +633,7 @@
     <constant name="MENU_HANDLE_GRAPHICS">"graphics"</constant>
     <constant name="MENU_HANDLE_EXIT">"exit"</constant>
     <constant name="MENU_HANDLE_PLAY">"play"</constant>
+    <constant name="MENU_HANDLE_PAUSE">"pause"</constant>
     <constant name="TRANSITION_HANDLE_IN">"transitionIn"</constant>
     <constant name="TRANSITION_HANDLE_OUT">"transitionOut"</constant>
     <constant name="TRANSITION_HANDLE_BACK_IN">"transitionBackIn"</constant>

@@ -5,3 +5,6 @@ menuController.menuCursorAction        = selectMenuOption;
 menuController.menuMove                = asset_get_index(getMenuMove());
 menuController.menuTransitionDirection = noone;
 
+inputController.startAction    = inputController.startActionOld;
+inputController.startActionOld = emptyScript;
+

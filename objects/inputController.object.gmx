@@ -77,6 +77,8 @@ connectedPads    = ds_list_create();
 activePad        = noone;
 
 inputProcess     = menuInput;
+startAction      = emptyScript;
+startActionOld   = emptyScript;
 
 </string>
           </argument>
@@ -201,8 +203,7 @@ script_execute(inputProcess);
 start = start || checkPressed(settingsController.keybinds[? "start"]);
 
 if (start) {
-    start = false
-    game_end();
+    script_execute(startAction);
 }
 
 </string>

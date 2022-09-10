@@ -19,6 +19,11 @@ if (menuController.menuTransitionDirection == transitionDirection.up) {
 
     ds_stack_push(menuController.previousMenus, menuController.currentMenu);
     ds_stack_push(menuController.previousSelectedOptions, menuController.currentOption);
+
+    if (menu == MENU_HANDLE_MAIN) {
+        ds_stack_clear(menuController.previousMenus);
+        ds_stack_clear(menuController.previousSelectedOptions);
+    }
 }
 
 menuController.currentMenu            = menu;
