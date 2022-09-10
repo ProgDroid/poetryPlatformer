@@ -116,7 +116,7 @@ if (active) {
 }
 
 if (fadeOut &amp;&amp; fadeFactor &lt; 255) {
-    fadeFactor += fadeSpeed * customDeltaTime;
+    fadeFactor += fadeSpeed * customDeltaTimeNoTimeFactor;
     fadeFactor = min(fadeFactor, 255);
 }
 

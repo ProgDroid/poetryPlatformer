@@ -14,7 +14,7 @@ if (state_new) {
     }
 
     panOutAlarmIndex         = cancelAlarm(panOutAlarmIndex, setPanOut);
-    offsetVertAlarmIndex     = createAlarm(viewController, TICK_RATE, setOffsetVertically);
+    offsetVertAlarmIndex     = createAlarm(viewController, TICK_RATE, setOffsetVertically, false);
     viewController.panOut    = false;
 
     moveHorizontal = airWalk;

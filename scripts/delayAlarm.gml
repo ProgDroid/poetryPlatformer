@@ -13,7 +13,7 @@ if (!is_real(argument0)) {
     exit;
 }
 
-if (!is_real(argument1) || argument1 < 0) {
+if (!is_real(argument1) || argument1 < 1) {
     addConsoleMessage("warning", "Bad argument on cancelAlarm. Expected <id, time, script>, got <id, " + string(typeof(argument1)) + ", script>");
     exit;
 }
@@ -27,5 +27,5 @@ if (argument0 == noone || alarmController.scripts[argument0] != argument2) {
     exit;
 }
 
-alarmController.alarmTimes[argument0] += abs(argument1); // prevent negative time trickery, create another script to hasten alarm
+alarmController.alarmTimes[argument0] += abs(argument1); // TODO create another script to hasten alarm
 
