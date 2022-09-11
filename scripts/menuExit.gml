@@ -1,4 +1,4 @@
 /// menuExit
 
-transitionOut(TRANSITION_HANDLE_OUT, transitionDirection.down, MENU_HANDLE_EXIT);
+menuConfirmation(TRANSITION_HANDLE_OUT, MENU_HANDLE_EXIT, "are you sure?");
 

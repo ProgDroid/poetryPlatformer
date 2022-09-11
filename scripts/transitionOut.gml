@@ -5,7 +5,6 @@ if (argument_count != 3) {
     exit;
 }
 
-inputController.startActionOld = inputController.startAction;
 inputController.startAction    = emptyScript;
 
 menuController.nextMenu                = argument2;

@@ -128,6 +128,10 @@ eventRegister(allEvents.fadefromwhite, id, scriptStartGame);
 
 menuOn = true;
 
+confirmationHandle = noone;
+confirmationText   = "";
+confirmationAlpha  = 0;
+
 </string>
           </argument>
         </arguments>

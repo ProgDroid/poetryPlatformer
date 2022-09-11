@@ -348,6 +348,7 @@
     <scripts name="menuScripts">
       <script>scripts\animateMenu.gml</script>
       <script>scripts\menuTransition.gml</script>
+      <script>scripts\menuConfirmation.gml</script>
       <script>scripts\handleOptionMove.gml</script>
       <script>scripts\handleSubMenuAnimation.gml</script>
       <script>scripts\handleUnderlineAnimation.gml</script>
@@ -362,6 +363,7 @@
       <script>scripts\getMenuMove.gml</script>
       <script>scripts\getPreviousMenuOptions.gml</script>
       <script>scripts\getPreviousMenuLineLengths.gml</script>
+      <script>scripts\getMenuStartAction.gml</script>
       <scripts name="menuAnimationScripts">
         <script>scripts\mainMenuAnimation.gml</script>
         <script>scripts\menuFadeIn.gml</script>
@@ -377,6 +379,8 @@
         <script>scripts\gameFadeOut.gml</script>
         <script>scripts\gamePlay.gml</script>
         <script>scripts\pauseMenuAnimation.gml</script>
+        <script>scripts\confirmationMenuAnimation.gml</script>
+        <script>scripts\menuConfirmationTypeIn.gml</script>
       </scripts>
       <scripts name="menuGuiScripts">
         <script>scripts\mainMenuGUI.gml</script>
@@ -385,6 +389,7 @@
         <script>scripts\menuControlsGUI.gml</script>
         <script>scripts\menuGraphicsGUI.gml</script>
         <script>scripts\menuPauseGUI.gml</script>
+        <script>scripts\confirmationMenuGUI.gml</script>
       </scripts>
       <scripts name="menuInputScripts">
         <script>scripts\menuCursorActionScript.gml</script>
@@ -392,6 +397,7 @@
         <script>scripts\moveMenuAsterisk.gml</script>
         <script>scripts\moveMenuList.gml</script>
         <script>scripts\selectMenuOption.gml</script>
+        <script>scripts\moveMenuHorizontalList.gml</script>
       </scripts>
       <scripts name="menuActionScripts">
         <script>scripts\menuPlay.gml</script>
@@ -406,6 +412,8 @@
         <script>scripts\menuPauseResume.gml</script>
         <script>scripts\menuPauseMenu.gml</script>
         <script>scripts\menuPauseExit.gml</script>
+        <script>scripts\menuConfirm.gml</script>
+        <script>scripts\menuCancelConfirmation.gml</script>
       </scripts>
       <scripts name="menuTransitionScripts">
         <script>scripts\fadeIn.gml</script>
@@ -423,9 +431,11 @@
         <script>scripts\backToMenu.gml</script>
         <script>scripts\pauseGame.gml</script>
         <script>scripts\resumeGame.gml</script>
+        <script>scripts\confirmationTypeIn.gml</script>
       </scripts>
       <scripts name="menuHelperGUIScripts">
         <script>scripts\drawTypedMenuList.gml</script>
+        <script>scripts\drawTypedMenuListHorizontal.gml</script>
       </scripts>
     </scripts>
     <scripts name="animationScripts">
@@ -563,7 +573,7 @@
     <room>rooms\room4</room>
     <room>rooms\TODUPLICATE</room>
   </rooms>
-  <constants number="77">
+  <constants number="78">
     <constant name="LERP_AMOUNT">0.025</constant>
     <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
@@ -635,6 +645,7 @@
     <constant name="MENU_HANDLE_EXIT">"exit"</constant>
     <constant name="MENU_HANDLE_PLAY">"play"</constant>
     <constant name="MENU_HANDLE_PAUSE">"pause"</constant>
+    <constant name="MENU_HANDLE_CONFIRMATION">"confirmation"</constant>
     <constant name="TRANSITION_HANDLE_IN">"transitionIn"</constant>
     <constant name="TRANSITION_HANDLE_OUT">"transitionOut"</constant>
     <constant name="TRANSITION_HANDLE_BACK_IN">"transitionBackIn"</constant>

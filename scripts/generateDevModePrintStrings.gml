@@ -3,6 +3,7 @@
 
 var strings;
 
+strings[56] = "current option: ";
 strings[55] = "current room: ";
 strings[54] = "current menu GUI: ";
 strings[53] = "typing array start: ";
@@ -87,6 +88,7 @@ if (instance_exists(worldController)) {
 }
 
 if (instance_exists(menuController)) {
+    strings[56] += string(menuController.currentOption);
     strings[54] += string(script_get_name(menuController.menuGUI));
     strings[53] += string(menuController.typingArray[0]);
     strings[52] += string(menuController.menuOn);

@@ -7,7 +7,6 @@ postProcessingController.blur = true;
 menuController.menuOn = true;
 
 inputController.inputProcess = menuInput;
-inputController.startAction  = unpause;
 
 refreshImageSpeeds();
 
