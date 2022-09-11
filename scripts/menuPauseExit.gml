@@ -11,5 +11,4 @@ timeFactorController.timeFactor  = 0;
 
 transitionOut(TRANSITION_HANDLE_BACK_OUT, transitionDirection.down, MENU_HANDLE_EXIT);
 
-// TODO do some fading when going back to menu
 // TODO reset camera when going into game
