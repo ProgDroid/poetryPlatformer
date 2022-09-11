@@ -44,7 +44,10 @@ enum allEvents {
     fadetowhite,
     fadefromwhite,
     fadewhiteend,
-    menufaded
+    menufaded,
+    paused,
+    unpaused,
+    unpausedend
 }
 
 </string>

@@ -7,6 +7,7 @@ timeFactorController.pauseFactor = 1;
 timeFactorController.timeFactor  = 0;
 
 eventFire(allEvents.fadeout);
+eventFire(allEvents.unpaused);
 
 menuTransition(gameFadeOut);
 

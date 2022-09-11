@@ -215,6 +215,9 @@
       <script>scripts\scriptFadeWhiteEnd.gml</script>
       <script>scripts\scriptStartGame.gml</script>
       <script>scripts\scriptBackToMenu.gml</script>
+      <script>scripts\scriptPauseWhiteBackground.gml</script>
+      <script>scripts\scriptUnpauseWhiteBackground.gml</script>
+      <script>scripts\scriptUnpauseEndWhiteBackground.gml</script>
     </scripts>
     <scripts name="eventTriggering">
       <script>scripts\eventRegister.gml</script>
@@ -573,7 +576,7 @@
     <room>rooms\room4</room>
     <room>rooms\TODUPLICATE</room>
   </rooms>
-  <constants number="78">
+  <constants number="79">
     <constant name="LERP_AMOUNT">0.025</constant>
     <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
@@ -583,6 +586,7 @@
     <constant name="PLAYERSCALE">0.6</constant>
     <constant name="PLATFORMSCALE">0.7</constant>
     <constant name="customDeltaTime">timeFactorController.pauseFactor * timeFactorController.timeFactor * (delta_time / ((1 / 60) * 1000000))</constant>
+    <constant name="customDeltaTimeNoFactor">(delta_time / ((1 / 60) * 1000000))</constant>
     <constant name="customDeltaTimeNoTimeFactor">timeFactorController.pauseFactor * (delta_time / ((1 / 60) * 1000000))</constant>
     <constant name="IMAGESPEED">timeFactorController.pauseFactor * timeFactorController.timeFactor * (1 / (room_speed * 0.1))</constant>
     <constant name="IMAGESPEEDNOTIME">timeFactorController.pauseFactor * (1 / (room_speed * 0.1))</constant>

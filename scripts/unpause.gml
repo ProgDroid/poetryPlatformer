@@ -12,5 +12,7 @@ inputController.startAction  = pause;
 
 refreshImageSpeeds();
 
+eventFire(allEvents.unpaused);
+
 transitionOut(TRANSITION_HANDLE_BACK_OUT, transitionDirection.up, MENU_HANDLE_PLAY);
 
