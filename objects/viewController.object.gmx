@@ -27,33 +27,34 @@
             <kind>1</kind>
             <string>event_inherited();
 
-cameraLimitsRatio = CAMERA_LIMITS_RATIO;
-
 // camera update should be at the end of player state processing
 fixed_timestep_register_script(id, cameraUpdate);
 
-panOut       = false;
-panOutRatio  = PAN_OUT_RATIO;
-panOutFactor = 1;
+resetCamera();
 
-zoomIn        = false;
-zoomInRatio   = ZOOM_IN_RATIO;
-zoomInFactor  = 1;
-dashOffset    = 0;
-dashMaxOffset = MAX_DASH_OFFSET;
-
-offsetVertically = false;
-yOffset          = 0;
-yOffsetMax       = MAX_Y_OFFSET;
-
-originalHeight = min(settingsController.visualSettings[? "height"], MIN_VIEW_HEIGHT);
-originalWidth  = originalHeight * (settingsController.visualSettings[? "width"] / settingsController.visualSettings[? "height"]);
-
-viewShiftMax = MAX_VIEW_SHIFT;
-viewXNoShift = view_xview[0];
-viewYNoShift = view_yview[0];
-xShift       = 0;
-yShift       = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>fixed_timestep_unregister(id);
 
 </string>
           </argument>

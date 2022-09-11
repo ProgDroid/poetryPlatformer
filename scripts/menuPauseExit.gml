@@ -10,5 +10,3 @@ timeFactorController.pauseFactor = 1;
 timeFactorController.timeFactor  = 0;
 
 transitionOut(TRANSITION_HANDLE_BACK_OUT, transitionDirection.down, MENU_HANDLE_EXIT);
-
-// TODO reset camera when going into game

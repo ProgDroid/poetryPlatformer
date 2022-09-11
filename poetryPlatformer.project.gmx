@@ -176,6 +176,7 @@
   <scripts name="scripts">
     <scripts name="cameraScripts">
       <script>scripts\cameraUpdate.gml</script>
+      <script>scripts\resetCamera.gml</script>
     </scripts>
     <scripts name="collectibleStates">
       <script>scripts\stateCollectibleAlive.gml</script>
