@@ -27,5 +27,5 @@ if (argument0 == noone || alarmController.scripts[argument0] != argument2) {
     exit;
 }
 
-alarmController.alarmTimes[argument0] += abs(argument1); // TODO create another script to hasten alarm
+alarmController.alarmTimes[argument0] += abs(argument1);
 

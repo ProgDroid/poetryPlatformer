@@ -27,7 +27,6 @@
             <kind>1</kind>
             <string>event_inherited();
 
-// ? how to handle sub menus in the data?
 menus = loadJson(working_directory + "\menus.json");
 
 currentMenu             = MENU_HANDLE_MAIN;
@@ -78,7 +77,7 @@ draw_set_colour(c_black);
 draw_set_halign(fa_middle);
 draw_set_valign(fa_middle);
 
-menuCursorAction     = emptyScript; // ? needed?
+menuCursorAction     = emptyScript;
 menuListAnimTime     = 0;
 menuListAnimDuration = MENU_LIST_ANIM_DURATION;
 menuListXOffset      = MENU_LIST_X_OFFSET;

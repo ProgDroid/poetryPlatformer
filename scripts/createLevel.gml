@@ -136,7 +136,6 @@ for (var i = 0; i < array_length_1d(lines); i++) {
             continue;
         }
 
-        // how I miss ternary...
         var object = platformController.platformMap[? char];
 
         if (levelEnd) {

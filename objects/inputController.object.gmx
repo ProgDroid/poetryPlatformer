@@ -198,7 +198,6 @@ if (!instance_exists(settingsController)) {
 
 script_execute(inputProcess);
 
-// TODO where should this go?
 start = start || checkPressed(settingsController.keybinds[? "start"]);
 
 if (start) {
