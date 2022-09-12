@@ -439,6 +439,8 @@
       <scripts name="menuHelperGUIScripts">
         <script>scripts\drawTypedMenuList.gml</script>
         <script>scripts\drawTypedMenuListHorizontal.gml</script>
+        <script>scripts\drawPreviousMenu.gml</script>
+        <script>scripts\drawSubMenuOptions.gml</script>
       </scripts>
     </scripts>
     <scripts name="animationScripts">
