@@ -34,6 +34,7 @@ previousMenus           = ds_stack_create();
 currentOption           = 0;
 previousSelectedOptions = ds_stack_create();
 nextMenu                = noone;
+menuMove                = emptyScript;
 
 var options       = getMenuOptions();
 var optionsLength = ds_list_size(options);

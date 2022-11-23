@@ -125,7 +125,11 @@
             "resolution",
             "ui scaling"
         ],
-        "actions": [],
+        "actions": [
+            "menuFramerateInput",
+            "menuResolutionPick",
+            "menuUiScaling"
+        ],
         "lineLengths": [
             0,
             0,

@@ -417,6 +417,9 @@
         <script>scripts\menuPauseExit.gml</script>
         <script>scripts\menuConfirm.gml</script>
         <script>scripts\menuCancelConfirmation.gml</script>
+        <script>scripts\menuFramerateInput.gml</script>
+        <script>scripts\menuResolutionPick.gml</script>
+        <script>scripts\menuUiScaling.gml</script>
       </scripts>
       <scripts name="menuTransitionScripts">
         <script>scripts\fadeIn.gml</script>
