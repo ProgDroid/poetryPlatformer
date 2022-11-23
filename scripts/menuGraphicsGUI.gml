@@ -3,8 +3,9 @@
 drawPreviousMenu();
 
 var currentOptions = getMenuOptions();
+var lineLengths    = getMenuLineLengths();
 
-drawSubMenuOptions(currentOptions);
+drawSubMenuOptions(currentOptions, lineLengths);
 
 draw_set_halign(fa_center);
 

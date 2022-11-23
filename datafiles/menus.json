@@ -84,7 +84,11 @@
             "accept"
         ],
         "actions": [],
-        "lineLengths": [],
+        "lineLengths": [
+            0,
+            0,
+            0
+        ],
         "transitions": {
             "transitionIn": "fadeIn",
             "transitionOut": "emptyScript",
@@ -122,7 +126,11 @@
             "ui scaling"
         ],
         "actions": [],
-        "lineLengths": [],
+        "lineLengths": [
+            0,
+            0,
+            420
+        ],
         "transitions": {
             "transitionIn": "fadeIn",
             "transitionOut": "emptyScript",
