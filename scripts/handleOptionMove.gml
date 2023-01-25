@@ -13,5 +13,3 @@ var lengths = getMenuLineLengths();
 menuController.underlineHalfLength    = 0;
 menuController.underlineHalfLengthMax = lengths[| menuController.currentOption];
 menuController.underlineAnimTime      = 0;
-
-// TODO improve game-back-to-menu animation (level displays freaky for a frame before moving to menu)

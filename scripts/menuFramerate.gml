@@ -1,4 +1,4 @@
-/// menuFramerateInput()
+/// menuFramerate()
 
 // TODO allow side input (go right to increase, go left to decrease)
 // TODO custom "framerate" object (probably just a function to increase and decrease)
