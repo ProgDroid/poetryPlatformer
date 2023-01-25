@@ -1,6 +1,17 @@
 /// menuFramerate()
 
-// TODO allow side input (go right to increase, go left to decrease)
-// TODO custom "framerate" object (probably just a function to increase and decrease)
+menuController.subMenuSelected  = menuController.currentOption;
+menuController.menuMove         = moveSubMenuOptionLeftRight;
+menuController.menuCursorAction = selectSubMenuOptionValue;
+menuController.subMenuInputMove = incrementFramerate;
+
+var currentOptions   = getMenuOptions();
+var currentFramerate = real(getGraphicsOptionValue(currentOptions[| menuController.currentOption]));
+
+menuController.subMenuInput = currentFramerate;
+
+menuController.subMenuArrowLeft  = framerateAboveMin(currentFramerate);
+menuController.subMenuArrowRight = framerateBelowMax(currentFramerate);
+
 // TODO work out how to get available resolutions from display
 

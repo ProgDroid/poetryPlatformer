@@ -132,6 +132,12 @@ confirmationHandle = noone;
 confirmationText   = "";
 confirmationAlpha  = 0;
 
+subMenuSelected   = -1;
+subMenuArrowLeft  = false;
+subMenuArrowRight = false;
+subMenuInput      = noone;
+subMenuInputMove  = emptyScript;
+
 </string>
           </argument>
         </arguments>

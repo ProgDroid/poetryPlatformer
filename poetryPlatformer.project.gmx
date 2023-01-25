@@ -291,6 +291,10 @@
       <script>scripts\getControlsHandleFromOption.gml</script>
       <script>scripts\keyToString.gml</script>
       <script>scripts\getGraphicsOptionValue.gml</script>
+      <script>scripts\saveSetting.gml</script>
+      <script>scripts\validateFramerate.gml</script>
+      <script>scripts\framerateAboveMin.gml</script>
+      <script>scripts\framerateBelowMax.gml</script>
     </scripts>
     <scripts name="inputScripts">
       <script>scripts\checkHeld.gml</script>
@@ -401,6 +405,9 @@
         <script>scripts\moveMenuList.gml</script>
         <script>scripts\selectMenuOption.gml</script>
         <script>scripts\moveMenuHorizontalList.gml</script>
+        <script>scripts\selectSubMenuOptionValue.gml</script>
+        <script>scripts\moveSubMenuOptionLeftRight.gml</script>
+        <script>scripts\incrementFramerate.gml</script>
       </scripts>
       <scripts name="menuActionScripts">
         <script>scripts\menuPlay.gml</script>
@@ -581,7 +588,7 @@
     <room>rooms\room4</room>
     <room>rooms\TODUPLICATE</room>
   </rooms>
-  <constants number="79">
+  <constants number="83">
     <constant name="LERP_AMOUNT">0.025</constant>
     <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
@@ -661,6 +668,10 @@
     <constant name="TRANSITION_HANDLE_BACK_OUT">"transitionBackOut"</constant>
     <constant name="MENU_FADED_ALPHA">0.4</constant>
     <constant name="MENU_EXIT_FADE_SPEED">2.5</constant>
+    <constant name="MENU_SETTING_HANDLE_FRAMERATE">"framerate"</constant>
+    <constant name="MENU_SETTING_HANDLE_RESOLUTION">"resolution"</constant>
+    <constant name="SETTING_FRAMERATE_MIN">30</constant>
+    <constant name="SETTING_FRAMERATE_MAX">300</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
