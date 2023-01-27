@@ -27,7 +27,8 @@
             <kind>1</kind>
             <string>event_inherited();
 
-menus = loadJson(working_directory + "\menus.json");
+menus       = loadJson(working_directory + "\menus.json");
+resolutions = loadJson(working_directory + "\resolution.json");
 
 currentMenu             = MENU_HANDLE_MAIN;
 previousMenus           = ds_stack_create();

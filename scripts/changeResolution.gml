@@ -34,5 +34,7 @@ view_hport[0] = argument1;
 
 surface_resize(application_surface, argument0, argument1);
 
-GUIController.alarm[0] = 1;
+if (instance_exists(GUIController)) {
+    GUIController.alarm[0] = 1;
+}
 

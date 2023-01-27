@@ -13,5 +13,3 @@ menuController.subMenuInput = currentFramerate;
 menuController.subMenuArrowLeft  = framerateAboveMin(currentFramerate);
 menuController.subMenuArrowRight = framerateBelowMax(currentFramerate);
 
-// TODO work out how to get available resolutions from display
-

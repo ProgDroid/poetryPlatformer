@@ -13,5 +13,17 @@ if (settingHandle == MENU_SETTING_HANDLE_FRAMERATE && validateFramerate(value)) 
     room_speed = value;
 }
 
+if (argument0 == MENU_SETTING_HANDLE_RESOLUTION) {
+    var xPosition = string_pos("x", value);
+
+    var resX = real(string_copy(value, 1, xPosition - 1));
+    var resY = real(string_copy(value, xPosition + 1, string_length(value) - xPosition));
+
+    if (validateResolution(resX, resY)) {
+        changeResolution(resX, resY);
+    }
+
+}
+
 addConsoleMessage("warning", "Tried to save unknown settings");
 
