@@ -9,4 +9,5 @@ menuController.menuAnimation          = argument0;
 menuController.menuCursorAction       = emptyScript;
 menuController.menuMove               = emptyScript;
 menuController.moveBuffer             = 0;
+menuController.subMenuInputSpeedup    = 1;
 
