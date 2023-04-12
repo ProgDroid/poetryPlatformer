@@ -325,6 +325,9 @@
       <script>scripts\dashPointY.gml</script>
       <script>scripts\menuInput.gml</script>
       <script>scripts\ingameInput.gml</script>
+      <script>scripts\isUsingKeyboard.gml</script>
+      <script>scripts\isUsingGamepad.gml</script>
+      <script>scripts\getLastPressed.gml</script>
     </scripts>
     <scripts name="settingsScripts">
       <script>scripts\changeResolution.gml</script>
@@ -429,6 +432,8 @@
         <script>scripts\moveSubMenuOptionLeftRight.gml</script>
         <script>scripts\incrementFramerate.gml</script>
         <script>scripts\cycleResolutions.gml</script>
+        <script>scripts\acceptNewKeybind.gml</script>
+        <script>scripts\quitSubMenu.gml</script>
       </scripts>
       <scripts name="menuActionScripts">
         <script>scripts\menuPlay.gml</script>
@@ -448,6 +453,7 @@
         <script>scripts\menuFramerate.gml</script>
         <script>scripts\menuResolution.gml</script>
         <script>scripts\menuUiScaling.gml</script>
+        <script>scripts\menuSetKey.gml</script>
       </scripts>
       <scripts name="menuTransitionScripts">
         <script>scripts\fadeIn.gml</script>

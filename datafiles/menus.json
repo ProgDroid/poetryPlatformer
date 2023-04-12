@@ -83,7 +83,11 @@
             "dash",
             "accept"
         ],
-        "actions": [],
+        "actions": [
+            "menuSetKey",
+            "menuSetKey",
+            "menuSetKey"
+        ],
         "lineLengths": [
             0,
             0,

@@ -22,3 +22,8 @@ menuController.moveBuffer   = MENU_HOLD_DELAY;
 
 menuController.subMenuArrowLeft  = hasLowerResolution(newResolution);
 menuController.subMenuArrowRight = hasHigherResolution(newResolution);
+
+// TODO set UI scaling
+// TODO set keybinds
+// TODO make menus work for different resolutions
+// TODO show keybinds based on device
