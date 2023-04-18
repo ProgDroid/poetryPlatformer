@@ -9,6 +9,8 @@ drawSubMenuOptions(currentOptions, lineLengths);
 
 draw_set_halign(fa_center);
 
+var baseBind = getBaseBind();
+
 for (var i = 0; i < menuController.menuOptionCount; ++i) {
     var yOffset = (i - floor(menuController.menuOptionCount * 0.5)) * MENU_LIST_Y_OFFSET;
 
@@ -19,7 +21,7 @@ for (var i = 0; i < menuController.menuOptionCount; ++i) {
     draw_text_transformed(
         baseX1,
         baseY,
-        getControlsHandleFromOption(currentOptions[| i], 0),
+        getControlsHandleFromOption(currentOptions[| i], baseBind),
         0.4,
         0.4,
         0
@@ -28,7 +30,7 @@ for (var i = 0; i < menuController.menuOptionCount; ++i) {
     draw_text_transformed(
         baseX2,
         baseY,
-        getControlsHandleFromOption(currentOptions[| i], 1),
+        getControlsHandleFromOption(currentOptions[| i], baseBind + 1),
         0.4,
         0.4,
         0
