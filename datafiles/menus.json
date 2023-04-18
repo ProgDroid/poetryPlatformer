@@ -89,9 +89,9 @@
             "menuSetKey"
         ],
         "lineLengths": [
-            0,
-            0,
-            0
+            235,
+            220,
+            285
         ],
         "transitions": {
             "transitionIn": "fadeIn",
@@ -101,7 +101,7 @@
         },
         "animation": "controlsMenuAnimation",
         "draw": "menuControlsGUI",
-        "move": "moveMenuList",
+        "move": "moveMenuKeybindsList",
         "startAction": "emptyScript"
     },
     "gameplay": {

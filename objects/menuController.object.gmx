@@ -33,6 +33,7 @@ resolutions = loadJson(working_directory + "\resolution.json");
 currentMenu             = MENU_HANDLE_MAIN;
 previousMenus           = ds_stack_create();
 currentOption           = 0;
+currentBind             = 0;
 previousSelectedOptions = ds_stack_create();
 nextMenu                = noone;
 menuMove                = emptyScript;
@@ -115,6 +116,7 @@ keyMap[? vk_enter]     = "enter";
 keyMap[? gp_face2]     = "O butt";
 keyMap[? gp_axisrv]    = "rStickV";
 keyMap[? gp_axisrh]    = "rStickH";
+keyMap[? ord('R')]     = "r";
 
 enum transitionDirection {
     up   = 0,

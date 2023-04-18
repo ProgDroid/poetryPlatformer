@@ -1,34 +1,33 @@
 /// acceptNewKeybind()
 
-var notAllowedKeys = [
-    vk_escape,
-    mb_left,
-    gp_axislh,
-    gp_axislv,
-    gp_axisrh,
-    gp_axisrv
-];
+var notAllowedKeys;
+notAllowedKeys[5] = gp_axisrv;
+notAllowedKeys[4] = gp_axisrh;
+notAllowedKeys[3] = gp_axislv;
+notAllowedKeys[2] = gp_axislh;
+notAllowedKeys[1] = mb_left;
+notAllowedKeys[0] = vk_escape;
 
 var lastKey = getLastPressed();
 
 if (lastKey == noone) {
-    return;
+    exit;
 }
 
 if (lastKey == vk_escape) {
     quitSubMenu();
-    return;
+    exit;
 }
 
 for (var i = 0; i < array_length_1d(notAllowedKeys); ++i) {
     if (notAllowedKeys[i] == lastKey) {
         quitSubMenu();
-        return;
+        exit;
     }
 }
 
-// TODO set keybind here
-
-// TODO quitSubMenu exits the whole submenu, not just setting the key
+var currentOptions = getMenuOptions();
+var currentOption  = currentOptions[| menuController.currentOption];
+setKeybind(currentOption, lastKey, menuController.currentBind);
 quitSubMenu();
 

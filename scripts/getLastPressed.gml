@@ -26,7 +26,9 @@ if (inputController.currentInputType == inputmethod.pad) {
     }
     
     return noone;
-} else if (
+}
+
+if (
     inputController.currentInputType == inputmethod.keyboard &&
     (
         mouse_check_button_pressed(mb_any) ||
@@ -35,4 +37,6 @@ if (inputController.currentInputType == inputmethod.pad) {
 ) {
     return keyboard_lastkey;
 }
+
+return noone;
 

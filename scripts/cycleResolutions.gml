@@ -24,6 +24,10 @@ menuController.subMenuArrowLeft  = hasLowerResolution(newResolution);
 menuController.subMenuArrowRight = hasHigherResolution(newResolution);
 
 // TODO set UI scaling
-// TODO set keybinds
+// TODO add confirmation when changing settings if you want to save settings
+// ? this will require taking a snapshot of how they were when entering the menu
+// ? then reverting to that if cancel
+// ? and saving to disk if confirmed
+
 // TODO make menus work for different resolutions
-// TODO show keybinds based on device
+// TODO check why controller doesn't work anymore

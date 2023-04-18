@@ -33,5 +33,20 @@ for (var i = 0; i < menuController.menuOptionCount; ++i) {
         0.4,
         0
     );
+
+    var lineBaseX = baseX1;
+    if (menuController.currentBind == 1) {
+        lineBaseX = baseX2;
+    }
+
+    if (i == menuController.currentOption) {
+        draw_line_width(
+            lineBaseX - 20,
+            baseY + 40,
+            lineBaseX + 20,
+            baseY + 40,
+            5
+        );
+    }
 }
 
