@@ -424,6 +424,7 @@
         <script>scripts\menuGraphicsGUI.gml</script>
         <script>scripts\menuPauseGUI.gml</script>
         <script>scripts\confirmationMenuGUI.gml</script>
+        <script>scripts\pressKeyYouWantToSet.gml</script>
       </scripts>
       <scripts name="menuInputScripts">
         <script>scripts\menuCursorActionScript.gml</script>
