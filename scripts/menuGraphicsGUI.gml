@@ -40,4 +40,14 @@ for (var i = 0; i < menuController.menuOptionCount; ++i) {
         0.4,
         0
     );
+
+    if (i == menuController.currentOption && text != "") {
+        draw_line_width(
+            baseX - 20,
+            baseY + 40,
+            baseX + 20,
+            baseY + 40,
+            5
+        );
+    }
 }

@@ -317,6 +317,7 @@
       <script>scripts\validateResolution.gml</script>
       <script>scripts\incrementAndWrapMenuBind.gml</script>
       <script>scripts\getBaseBind.gml</script>
+      <script>scripts\isRunningFromIde.gml</script>
     </scripts>
     <scripts name="inputScripts">
       <script>scripts\checkHeld.gml</script>

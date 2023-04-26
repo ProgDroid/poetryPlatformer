@@ -1,5 +1,9 @@
 ///@description Check if devmode has been activated
 
+if (!isRunningFromIde()) {
+    exit;
+}
+
 var stringLength = string_length(keyboard_string);
 
 if (stringLength >= 7) { // length of "devmode"
