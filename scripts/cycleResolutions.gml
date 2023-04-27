@@ -31,6 +31,4 @@ menuController.subMenuArrowRight = hasHigherResolution(newResolution);
 
 // TODO make menus work for different resolutions
 // TODO check why controller doesn't work anymore
-// TODO standardise underline between controls and graphics menu
 // ? is it worth animating "press key to set" prompt?
-// ? is it worth animating underlines in controls/graphics menus?

@@ -79,7 +79,7 @@ subMenuValueUnderlineHalfLength    = 0;
 subMenuValueUnderlineHalfLengthMax = UNDERLINE_SUB_MENU_VALUE_MAX;
 subMenuValueUnderlineAnimTime      = 0;
 subMenuValueUnderlineAnimDuration  = UNDERLINE_ANIM_DURATION_SUB_MENU_VALUE;
-subMenuValueUnderlineAnimation     = UNDERLINE_ANIMATION_DEFAULT;
+subMenuValueUnderlineAnimation     = easeInCubicEaseOutSine;
 
 fixed_timestep_register_script(id, menuCursorActionScript);
 fixed_timestep_register_script(id, moveMenuCursor);

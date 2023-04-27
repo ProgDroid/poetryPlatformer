@@ -497,6 +497,8 @@
       <script>scripts\easeInOutExpo.gml</script>
       <script>scripts\easeInOutQuint.gml</script>
       <script>scripts\easeInOutCubic.gml</script>
+      <script>scripts\easeInCubic.gml</script>
+      <script>scripts\easeInCubicEaseOutSine.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -709,7 +711,7 @@
     <constant name="SETTING_FRAMERATE_MAX">300</constant>
     <constant name="TOTAL_KEYBINDS">2</constant>
     <constant name="UNDERLINE_SUB_MENU_VALUE_MAX">20</constant>
-    <constant name="UNDERLINE_ANIM_DURATION_SUB_MENU_VALUE">UNDERLINE_ANIM_DURATION * 0.75</constant>
+    <constant name="UNDERLINE_ANIM_DURATION_SUB_MENU_VALUE">UNDERLINE_ANIM_DURATION * 0.42</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
