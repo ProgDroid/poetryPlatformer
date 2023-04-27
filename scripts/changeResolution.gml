@@ -11,6 +11,11 @@ if (!is_real(argument0) || !is_real(argument1)) {
     exit;
 }
 
+if (!validateResolution(argument0, argument1)) {
+    addConsoleMessage("warning", "Tried setting invalid resolution");
+    exit;
+}
+
 settingsController.visualSettings[? "width"]  = argument0;
 settingsController.visualSettings[? "height"] = argument1;
 

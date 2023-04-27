@@ -318,6 +318,7 @@
       <script>scripts\incrementAndWrapMenuBind.gml</script>
       <script>scripts\getBaseBind.gml</script>
       <script>scripts\isRunningFromIde.gml</script>
+      <script>scripts\validateUiScaling.gml</script>
     </scripts>
     <scripts name="inputScripts">
       <script>scripts\checkHeld.gml</script>
@@ -339,6 +340,7 @@
       <script>scripts\createDefaultKeybinds.gml</script>
       <script>scripts\createDefaultVisualSettings.gml</script>
       <script>scripts\validateVisualSettingsJson.gml</script>
+      <script>scripts\setUiScaling.gml</script>
     </scripts>
     <scripts name="playerStateSubScripts">
       <script>scripts\facingDirScript.gml</script>
@@ -427,6 +429,8 @@
         <script>scripts\menuPauseGUI.gml</script>
         <script>scripts\confirmationMenuGUI.gml</script>
         <script>scripts\pressKeyYouWantToSet.gml</script>
+        <script>scripts\uiScalingGui.gml</script>
+        <script>scripts\drawPressToCancelPrompt.gml</script>
       </scripts>
       <scripts name="menuInputScripts">
         <script>scripts\menuCursorActionScript.gml</script>
@@ -442,24 +446,8 @@
         <script>scripts\acceptNewKeybind.gml</script>
         <script>scripts\quitSubMenu.gml</script>
         <script>scripts\moveMenuKeybindsList.gml</script>
-        <scripts name="menuTransitionScripts">
-          <script>scripts\fadeIn.gml</script>
-          <script>scripts\fadeOutTransition.gml</script>
-          <script>scripts\spinIn.gml</script>
-          <script>scripts\spinOut.gml</script>
-          <script>scripts\transitionIn.gml</script>
-          <script>scripts\transitionOut.gml</script>
-          <script>scripts\transitionInEnd.gml</script>
-          <script>scripts\typeIn.gml</script>
-          <script>scripts\shiftIn.gml</script>
-          <script>scripts\shiftOut.gml</script>
-          <script>scripts\exitGame.gml</script>
-          <script>scripts\startGame.gml</script>
-          <script>scripts\backToMenu.gml</script>
-          <script>scripts\pauseGame.gml</script>
-          <script>scripts\resumeGame.gml</script>
-          <script>scripts\confirmationTypeIn.gml</script>
-        </scripts>
+        <script>scripts\selectUiScaling.gml</script>
+        <script>scripts\moveUiScaling.gml</script>
       </scripts>
       <scripts name="menuActionScripts">
         <script>scripts\menuPlay.gml</script>
@@ -486,6 +474,24 @@
         <script>scripts\drawTypedMenuListHorizontal.gml</script>
         <script>scripts\drawPreviousMenu.gml</script>
         <script>scripts\drawSubMenuOptions.gml</script>
+      </scripts>
+      <scripts name="menuTransitionScripts">
+        <script>scripts\fadeIn.gml</script>
+        <script>scripts\fadeOutTransition.gml</script>
+        <script>scripts\spinIn.gml</script>
+        <script>scripts\spinOut.gml</script>
+        <script>scripts\transitionIn.gml</script>
+        <script>scripts\transitionOut.gml</script>
+        <script>scripts\transitionInEnd.gml</script>
+        <script>scripts\typeIn.gml</script>
+        <script>scripts\shiftIn.gml</script>
+        <script>scripts\shiftOut.gml</script>
+        <script>scripts\exitGame.gml</script>
+        <script>scripts\startGame.gml</script>
+        <script>scripts\backToMenu.gml</script>
+        <script>scripts\pauseGame.gml</script>
+        <script>scripts\resumeGame.gml</script>
+        <script>scripts\confirmationTypeIn.gml</script>
       </scripts>
     </scripts>
     <scripts name="animationScripts">
@@ -625,7 +631,7 @@
     <room>rooms\room4</room>
     <room>rooms\TODUPLICATE</room>
   </rooms>
-  <constants number="86">
+  <constants number="91">
     <constant name="LERP_AMOUNT">0.025</constant>
     <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
@@ -707,11 +713,16 @@
     <constant name="MENU_EXIT_FADE_SPEED">2.5</constant>
     <constant name="MENU_SETTING_HANDLE_FRAMERATE">"framerate"</constant>
     <constant name="MENU_SETTING_HANDLE_RESOLUTION">"resolution"</constant>
+    <constant name="MENU_SETTING_HANDLE_UI_SCALING">"ui scaling"</constant>
     <constant name="SETTING_FRAMERATE_MIN">30</constant>
     <constant name="SETTING_FRAMERATE_MAX">300</constant>
     <constant name="TOTAL_KEYBINDS">2</constant>
     <constant name="UNDERLINE_SUB_MENU_VALUE_MAX">20</constant>
     <constant name="UNDERLINE_ANIM_DURATION_SUB_MENU_VALUE">UNDERLINE_ANIM_DURATION * 0.42</constant>
+    <constant name="SETTING_UI_SCALING_MIN">0.5</constant>
+    <constant name="SETTING_UI_SCALING_MAX">1</constant>
+    <constant name="MENU_UI_SCALING_HOLD_DELAY">MENU_HOLD_DELAY * 0.075</constant>
+    <constant name="MENU_UI_SCALING_STEP">0.005</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

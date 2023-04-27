@@ -23,7 +23,7 @@ menuController.moveBuffer   = MENU_HOLD_DELAY;
 menuController.subMenuArrowLeft  = hasLowerResolution(newResolution);
 menuController.subMenuArrowRight = hasHigherResolution(newResolution);
 
-// TODO set UI scaling
+// TODO fix UI scaling corner missing
 // TODO add confirmation when changing settings if you want to save settings
 // ? this will require taking a snapshot of how they were when entering the menu
 // ? then reverting to that if cancel
@@ -31,4 +31,4 @@ menuController.subMenuArrowRight = hasHigherResolution(newResolution);
 
 // TODO make menus work for different resolutions
 // TODO check why controller doesn't work anymore
-// ? is it worth animating "press key to set" prompt?
+// TODO is it worth animating "press key to set" prompt?
