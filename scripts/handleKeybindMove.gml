@@ -5,11 +5,12 @@ if (argument_count != 1) {
     exit;
 }
 
+if (argument0 == 0) {
+    exit;
+}
+
 menuController.currentBind = incrementAndWrapMenuBind(argument0);
 menuController.moveBuffer  = MENU_HOLD_DELAY;
 
-var lengths = getMenuLineLengths();
-
-menuController.underlineHalfLength    = 0;
-menuController.underlineHalfLengthMax = lengths[| menuController.currentOption];
-menuController.underlineAnimTime      = 0;
+menuController.subMenuValueUnderlineHalfLength    = 0;
+menuController.subMenuValueUnderlineAnimTime      = 0;

@@ -43,9 +43,9 @@ for (var i = 0; i < menuController.menuOptionCount; ++i) {
 
     if (i == menuController.currentOption && text != "") {
         draw_line_width(
-            baseX - 20,
+            baseX - menuController.subMenuValueUnderlineHalfLength,
             baseY + 40,
-            baseX + 20,
+            baseX + menuController.subMenuValueUnderlineHalfLength,
             baseY + 40,
             5
         );

@@ -13,21 +13,20 @@ for (var i = 0; i < menuController.menuOptionCount; ++i) {
 
     var baseX = display_get_gui_width() * 0.5;
     var baseY = (display_get_gui_height() * 0.5) + yOffset;
-
-    var lineX = baseX + lineLengths[| i];
-
-    if (lineX == baseX) {
-        lineX = display_get_gui_width() * 0.875;
-    }
+    var lineX = baseX + lineLengths[| i] - 20;
 
     if (i == menuController.currentOption) {
+        draw_set_halign(fa_center);
+
         draw_line_width(
-            baseX - 20,
+            lineX - menuController.subMenuUnderlineHalfLength,
             baseY + 40,
-            lineX,
+            lineX + menuController.subMenuUnderlineHalfLength,
             baseY + 40,
             5
         );
+
+        draw_set_halign(fa_left);
     }
 
     draw_text_transformed(

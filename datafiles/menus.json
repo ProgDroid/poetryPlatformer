@@ -89,9 +89,9 @@
             "menuSetKey"
         ],
         "lineLengths": [
-            235,
-            220,
-            285
+            128,
+            120,
+            152
         ],
         "transitions": {
             "transitionIn": "fadeIn",
@@ -135,9 +135,9 @@
             "menuUiScaling"
         ],
         "lineLengths": [
-            435,
-            445,
-            420
+            228,
+            232,
+            220
         ],
         "transitions": {
             "transitionIn": "fadeIn",

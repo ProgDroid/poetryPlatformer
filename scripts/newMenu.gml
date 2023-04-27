@@ -35,6 +35,13 @@ menuController.underlineHalfLength    = 0;
 var lengths = getMenuLineLengths();
 menuController.underlineHalfLengthMax = lengths[| menuController.currentOption];
 
+menuController.subMenuUnderlineHalfLength    = 0;
+menuController.subMenuUnderlineHalfLengthMax = lengths[| menuController.currentOption];
+menuController.subMenuUnderlineAnimTime      = 0;
+
+menuController.subMenuValueUnderlineHalfLength    = 0;
+menuController.subMenuValueUnderlineAnimTime      = 0;
+
 var options = getMenuOptions();
 menuController.menuOptionCount = ds_list_size(options);
 

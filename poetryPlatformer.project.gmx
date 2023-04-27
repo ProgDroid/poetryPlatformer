@@ -416,6 +416,7 @@
         <script>scripts\pauseMenuAnimation.gml</script>
         <script>scripts\confirmationMenuAnimation.gml</script>
         <script>scripts\menuConfirmationTypeIn.gml</script>
+        <script>scripts\handleSubMenuUnderlineAnimation.gml</script>
       </scripts>
       <scripts name="menuGuiScripts">
         <script>scripts\mainMenuGUI.gml</script>
@@ -441,6 +442,24 @@
         <script>scripts\acceptNewKeybind.gml</script>
         <script>scripts\quitSubMenu.gml</script>
         <script>scripts\moveMenuKeybindsList.gml</script>
+        <scripts name="menuTransitionScripts">
+          <script>scripts\fadeIn.gml</script>
+          <script>scripts\fadeOutTransition.gml</script>
+          <script>scripts\spinIn.gml</script>
+          <script>scripts\spinOut.gml</script>
+          <script>scripts\transitionIn.gml</script>
+          <script>scripts\transitionOut.gml</script>
+          <script>scripts\transitionInEnd.gml</script>
+          <script>scripts\typeIn.gml</script>
+          <script>scripts\shiftIn.gml</script>
+          <script>scripts\shiftOut.gml</script>
+          <script>scripts\exitGame.gml</script>
+          <script>scripts\startGame.gml</script>
+          <script>scripts\backToMenu.gml</script>
+          <script>scripts\pauseGame.gml</script>
+          <script>scripts\resumeGame.gml</script>
+          <script>scripts\confirmationTypeIn.gml</script>
+        </scripts>
       </scripts>
       <scripts name="menuActionScripts">
         <script>scripts\menuPlay.gml</script>
@@ -461,24 +480,6 @@
         <script>scripts\menuResolution.gml</script>
         <script>scripts\menuUiScaling.gml</script>
         <script>scripts\menuSetKey.gml</script>
-      </scripts>
-      <scripts name="menuTransitionScripts">
-        <script>scripts\fadeIn.gml</script>
-        <script>scripts\fadeOutTransition.gml</script>
-        <script>scripts\spinIn.gml</script>
-        <script>scripts\spinOut.gml</script>
-        <script>scripts\transitionIn.gml</script>
-        <script>scripts\transitionOut.gml</script>
-        <script>scripts\transitionInEnd.gml</script>
-        <script>scripts\typeIn.gml</script>
-        <script>scripts\shiftIn.gml</script>
-        <script>scripts\shiftOut.gml</script>
-        <script>scripts\exitGame.gml</script>
-        <script>scripts\startGame.gml</script>
-        <script>scripts\backToMenu.gml</script>
-        <script>scripts\pauseGame.gml</script>
-        <script>scripts\resumeGame.gml</script>
-        <script>scripts\confirmationTypeIn.gml</script>
       </scripts>
       <scripts name="menuHelperGUIScripts">
         <script>scripts\drawTypedMenuList.gml</script>
@@ -622,7 +623,7 @@
     <room>rooms\room4</room>
     <room>rooms\TODUPLICATE</room>
   </rooms>
-  <constants number="84">
+  <constants number="86">
     <constant name="LERP_AMOUNT">0.025</constant>
     <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
@@ -707,6 +708,8 @@
     <constant name="SETTING_FRAMERATE_MIN">30</constant>
     <constant name="SETTING_FRAMERATE_MAX">300</constant>
     <constant name="TOTAL_KEYBINDS">2</constant>
+    <constant name="UNDERLINE_SUB_MENU_VALUE_MAX">20</constant>
+    <constant name="UNDERLINE_ANIM_DURATION_SUB_MENU_VALUE">UNDERLINE_ANIM_DURATION * 0.75</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
