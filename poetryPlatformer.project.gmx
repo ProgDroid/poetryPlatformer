@@ -319,6 +319,8 @@
       <script>scripts\getBaseBind.gml</script>
       <script>scripts\isRunningFromIde.gml</script>
       <script>scripts\validateUiScaling.gml</script>
+      <script>scripts\getSettingsMap.gml</script>
+      <script>scripts\getChangedSettingHash.gml</script>
     </scripts>
     <scripts name="inputScripts">
       <script>scripts\checkHeld.gml</script>
@@ -341,6 +343,10 @@
       <script>scripts\createDefaultVisualSettings.gml</script>
       <script>scripts\validateVisualSettingsJson.gml</script>
       <script>scripts\setUiScaling.gml</script>
+      <script>scripts\backupSetting.gml</script>
+      <script>scripts\revertSettings.gml</script>
+      <script>scripts\saveSettingsToDisk.gml</script>
+      <script>scripts\saveAllSettingsToDisk.gml</script>
     </scripts>
     <scripts name="playerStateSubScripts">
       <script>scripts\facingDirScript.gml</script>
@@ -419,6 +425,7 @@
         <script>scripts\confirmationMenuAnimation.gml</script>
         <script>scripts\menuConfirmationTypeIn.gml</script>
         <script>scripts\handleSubMenuUnderlineAnimation.gml</script>
+        <script>scripts\menuTypeInConfirmationTypingArray.gml</script>
       </scripts>
       <scripts name="menuGuiScripts">
         <script>scripts\mainMenuGUI.gml</script>
@@ -474,6 +481,7 @@
         <script>scripts\drawTypedMenuListHorizontal.gml</script>
         <script>scripts\drawPreviousMenu.gml</script>
         <script>scripts\drawSubMenuOptions.gml</script>
+        <script>scripts\drawTypedConfirmationMenuListHorizontal.gml</script>
       </scripts>
       <scripts name="menuTransitionScripts">
         <script>scripts\fadeIn.gml</script>
@@ -631,7 +639,7 @@
     <room>rooms\room4</room>
     <room>rooms\TODUPLICATE</room>
   </rooms>
-  <constants number="92">
+  <constants number="97">
     <constant name="LERP_AMOUNT">0.025</constant>
     <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
@@ -724,6 +732,11 @@
     <constant name="MENU_UI_SCALING_HOLD_DELAY">MENU_HOLD_DELAY * 0.075</constant>
     <constant name="MENU_UI_SCALING_STEP">0.005</constant>
     <constant name="ANIMATION_INDEX_MAX">13</constant>
+    <constant name="CHANGED_SETTING_INDEX_ORIGINAL_VALUE">2</constant>
+    <constant name="CHANGED_SETTING_INDEX_HANDLE">1</constant>
+    <constant name="CHANGED_SETTING_INDEX_TYPE">0</constant>
+    <constant name="SETTINGS_FILE_VISUAL">"settings\visualSettings.json"</constant>
+    <constant name="SETTINGS_FILE_KEYBINDS">"settings\keybinds.json"</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

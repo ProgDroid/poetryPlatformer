@@ -33,5 +33,7 @@ for (var i = 0; i < 4; ++i) {
     ds_list_add(newBindList, bind);
 }
 
+backupSetting("keybinds", argument0);
+
 ds_map_replace_list(settingsController.keybinds, argument0, newBindList);
 

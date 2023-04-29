@@ -9,11 +9,16 @@ var settingHandle = argument0;
 var value         = argument1;
 
 if (settingHandle == MENU_SETTING_HANDLE_FRAMERATE && validateFramerate(value)) {
+    backupSetting("visual", "framerate");
+
     settingsController.visualSettings[? "framerate"] = value;
     room_speed = value;
 }
 
 if (settingHandle == MENU_SETTING_HANDLE_RESOLUTION) {
+    backupSetting("visual", "width");
+    backupSetting("visual", "height");
+
     var xPosition = string_pos("x", value);
 
     var resX = real(string_copy(value, 1, xPosition - 1));
@@ -23,6 +28,9 @@ if (settingHandle == MENU_SETTING_HANDLE_RESOLUTION) {
 }
 
 if (settingHandle == MENU_SETTING_HANDLE_UI_SCALING) {
+    backupSetting("visual", "guiScalingX");
+    backupSetting("visual", "guiScalingY");
+
     var uiScalingX = value[0];
     var uiScalingY = value[1];
 

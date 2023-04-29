@@ -23,12 +23,9 @@ menuController.moveBuffer   = MENU_HOLD_DELAY;
 menuController.subMenuArrowLeft  = hasLowerResolution(newResolution);
 menuController.subMenuArrowRight = hasHigherResolution(newResolution);
 
-// TODO fix UI scaling corner missing
-// TODO add confirmation when changing settings if you want to save settings
-// ? this will require taking a snapshot of how they were when entering the menu
-// ? then reverting to that if cancel
-// ? and saving to disk if confirmed
-
+// TODO fix cancelling confirmation when exiting game from pause menu
+// TODO add confirmation when going from pause to main menu
+// TODO add settings menu to pause menu
 // TODO make menus work for different resolutions
 // TODO check why controller doesn't work anymore
 // TODO is it worth animating "press key to set" prompt?

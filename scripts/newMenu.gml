@@ -9,6 +9,11 @@ var handle = "";
 var menu   = argument0;
 var option = 0;
 
+if (menuController.currentMenu == MENU_HANDLE_CONFIRMATION && ds_stack_top(menuController.previousMenus) != MENU_HANDLE_MAIN) {
+    var _ = ds_stack_pop(menuController.previousMenus);
+    _     = ds_stack_pop(menuController.previousSelectedOptions);
+}
+
 if (menuController.menuTransitionDirection == transitionDirection.up) {
     handle = TRANSITION_HANDLE_BACK_IN;
 
@@ -17,8 +22,10 @@ if (menuController.menuTransitionDirection == transitionDirection.up) {
 } else if (menuController.menuTransitionDirection == transitionDirection.down) {
     handle = TRANSITION_HANDLE_IN;
 
-    ds_stack_push(menuController.previousMenus, menuController.currentMenu);
-    ds_stack_push(menuController.previousSelectedOptions, menuController.currentOption);
+    if (menuController.currentMenu != MENU_HANDLE_CONFIRMATION) {
+        ds_stack_push(menuController.previousMenus, menuController.currentMenu);
+        ds_stack_push(menuController.previousSelectedOptions, menuController.currentOption);
+    }
 
     if (menu == MENU_HANDLE_MAIN) {
         ds_stack_clear(menuController.previousMenus);
@@ -31,6 +38,7 @@ menuController.nextMenu               = noone;
 menuController.currentOption          = option;
 menuController.underlineAnimTime      = 0;
 menuController.underlineHalfLength    = 0;
+menuController.currentBind            = 0;
 
 var lengths = getMenuLineLengths();
 menuController.underlineHalfLengthMax = lengths[| menuController.currentOption];

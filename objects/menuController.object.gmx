@@ -90,18 +90,19 @@ draw_set_colour(c_black);
 draw_set_halign(fa_middle);
 draw_set_valign(fa_middle);
 
-menuCursorAction     = emptyScript;
-menuListAnimTime     = 0;
-menuListAnimDuration = MENU_LIST_ANIM_DURATION;
-menuListXOffset      = MENU_LIST_X_OFFSET;
-menuListXGoal        = MENU_LIST_X_OFFSET;
-menuOptionCount      = optionsLength;
-offsetFromCentre     = 1;
-spinInOffset         = 1;
-spinInRotation       = 0;
-typingBuffer         = TYPING_BUFFER;
-typingProgress       = 1;
-typingArray[0]       = "";
+menuCursorAction           = emptyScript;
+menuListAnimTime           = 0;
+menuListAnimDuration       = MENU_LIST_ANIM_DURATION;
+menuListXOffset            = MENU_LIST_X_OFFSET;
+menuListXGoal              = MENU_LIST_X_OFFSET;
+menuOptionCount            = optionsLength;
+offsetFromCentre           = 1;
+spinInOffset               = 1;
+spinInRotation             = 0;
+typingBuffer               = TYPING_BUFFER;
+typingProgress             = 1;
+typingArray[0]             = "";
+typingArrayConfirmation[0] = "";
 
 keyMap = ds_map_create();
 
@@ -155,6 +156,9 @@ subMenuInputSpeedup = 1;
 uiScalingX              = settingsController.visualSettings[? "guiScalingX"];
 uiScalingY              = settingsController.visualSettings[? "guiScalingY"];
 uiScalingAnimationIndex = 0;
+
+menuConfirmationDirectionCancel  = noone;
+menuConfirmationDirectionConfirm = noone;
 
 </string>
           </argument>
