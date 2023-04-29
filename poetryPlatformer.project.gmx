@@ -631,7 +631,7 @@
     <room>rooms\room4</room>
     <room>rooms\TODUPLICATE</room>
   </rooms>
-  <constants number="91">
+  <constants number="92">
     <constant name="LERP_AMOUNT">0.025</constant>
     <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
@@ -723,6 +723,7 @@
     <constant name="SETTING_UI_SCALING_MAX">1</constant>
     <constant name="MENU_UI_SCALING_HOLD_DELAY">MENU_HOLD_DELAY * 0.075</constant>
     <constant name="MENU_UI_SCALING_STEP">0.005</constant>
+    <constant name="ANIMATION_INDEX_MAX">13</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

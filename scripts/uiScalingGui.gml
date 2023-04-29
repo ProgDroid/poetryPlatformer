@@ -78,3 +78,22 @@ draw_line_width(
 
 drawPressToCancelPrompt();
 
+if (uiScalingAnimationIndex >= ANIMATION_INDEX_MAX) {
+    uiScalingAnimationIndex = 0;
+}
+
+var healthbarPosition = xTotal * HEALTH_BAR_POSITION_FACTOR;
+var offsetX           = x1;
+var offsetY           = y1;
+
+for (var i = 0; i < MAXCOLLECTIBLES; ++i) {
+    char = string_char_at("alive", i + 1);
+    
+    d3d_set_fog(true, merge_colour(make_colour_rgb(OUTLINE_R, OUTLINE_G, OUTLINE_B), c_white, 0.5), false, true);
+        draw_sprite_ext(letter, (ord(char) - ord('a')) * 13 + uiScalingAnimationIndex, healthbarPosition + offsetX + i * 22, 40 + offsetY, 0.80, 0.80, 0, c_white, 1);
+    d3d_set_fog(false, c_white, false, false);
+
+    draw_sprite_ext(letter, (ord(char) - ord('a')) * 13 + uiScalingAnimationIndex, healthbarPosition + offsetX + i * 22, 40 + offsetY, 0.75, 0.75, 0, c_white, 1);
+}
+
+uiScalingAnimationIndex += IMAGESPEED;

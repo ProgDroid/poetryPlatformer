@@ -152,8 +152,9 @@ subMenuInput        = noone;
 subMenuInputMove    = emptyScript;
 subMenuInputSpeedup = 1;
 
-uiScalingX = settingsController.visualSettings[? "guiScalingX"];
-uiScalingY = settingsController.visualSettings[? "guiScalingY"];
+uiScalingX              = settingsController.visualSettings[? "guiScalingX"];
+uiScalingY              = settingsController.visualSettings[? "guiScalingY"];
+uiScalingAnimationIndex = 0;
 
 </string>
           </argument>
