@@ -28,4 +28,9 @@ menuController.subMenuArrowRight = hasHigherResolution(newResolution);
 // TODO add settings menu to pause menu
 // TODO make menus work for different resolutions
 // TODO check why controller doesn't work anymore
+//   it works when I export but it works really weird and it breaks the menus
 // TODO is it worth animating "press key to set" prompt?
+// TODO add gameplay options
+//   dash mode toggle/hold
+// TODO disable resolution setting when fullscreen
+// TODO workout issues with changing to windowed then fullscreen

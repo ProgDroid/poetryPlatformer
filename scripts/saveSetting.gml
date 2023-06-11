@@ -37,5 +37,12 @@ if (settingHandle == MENU_SETTING_HANDLE_UI_SCALING) {
     setUiScaling(uiScalingX, uiScalingY);
 }
 
+if (settingHandle == MENU_SETTING_HANDLE_DISPLAY_MODE) {
+    backupSetting("visual", "displayMode");
+
+    settingsController.visualSettings[? "displayMode"] = value;
+    window_set_fullscreen(value == displayMode.fullscreen);
+}
+
 addConsoleMessage("warning", "Tried to save unknown settings");
 

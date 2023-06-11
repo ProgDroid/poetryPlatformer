@@ -43,9 +43,7 @@ if (keybinds == noone) {
 }
 
 if (modified) {
-    var file = file_text_open_write(working_directory + "settings\keybinds.json");
-    file_text_write_string(file, json_encode(keybinds));
-    file_text_close(file);
+    saveSettingsToDisk(SETTINGS_FILE_KEYBINDS, json_encode(keybinds));
 }
 
 </string>
@@ -93,6 +91,11 @@ draw_enable_swf_aa(true);
             <kind>1</kind>
             <string>///Create view values
 
+enum displayMode {
+    windowed,
+    fullscreen
+}
+
 var defaultVisualSettings = ds_map_create();
 createDefaultVisualSettings(defaultVisualSettings);
 
@@ -111,11 +114,12 @@ if (visualSettings == noone) {
 ds_map_destroy(defaultVisualSettings);
 
 if (modified) {
-    saveSettingsToDisk("visual", json_encode(visualSettings));
+    saveSettingsToDisk(SETTINGS_FILE_VISUAL, json_encode(visualSettings));
 }
 
 window_set_size(display_get_width(), display_get_height());
 surface_resize(application_surface, display_get_width(), display_get_height());
+window_set_fullscreen(visualSettings[? "displayMode"]);
 
 alarm[0] = 1;
 

@@ -16,4 +16,8 @@ if (argument0 == MENU_SETTING_HANDLE_RESOLUTION) {
     return string(resX) + "x" + string(resY);
 }
 
+if (argument0 == MENU_SETTING_HANDLE_DISPLAY_MODE) {
+    return displayModeToString(settingsController.visualSettings[? "displayMode"]);
+}
+
 return "";

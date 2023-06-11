@@ -126,16 +126,19 @@
     "graphics": {
         "options": [
             "framerate",
+            "display mode",
             "resolution",
             "ui scaling"
         ],
         "actions": [
             "menuFramerate",
+            "menuDisplayMode",
             "menuResolution",
             "menuUiScaling"
         ],
         "lineLengths": [
             228,
+            302,
             232,
             220
         ],

@@ -321,6 +321,12 @@
       <script>scripts\validateUiScaling.gml</script>
       <script>scripts\getSettingsMap.gml</script>
       <script>scripts\getChangedSettingHash.gml</script>
+      <script>scripts\hasLowerDisplayMode.gml</script>
+      <script>scripts\hasHigherDisplayMode.gml</script>
+      <script>scripts\getLowestDisplayMode.gml</script>
+      <script>scripts\getHighestDisplayMode.gml</script>
+      <script>scripts\displayModeToString.gml</script>
+      <script>scripts\stringToDisplayMode.gml</script>
     </scripts>
     <scripts name="inputScripts">
       <script>scripts\checkHeld.gml</script>
@@ -455,6 +461,7 @@
         <script>scripts\moveMenuKeybindsList.gml</script>
         <script>scripts\selectUiScaling.gml</script>
         <script>scripts\moveUiScaling.gml</script>
+        <script>scripts\cycleDisplayMode.gml</script>
       </scripts>
       <scripts name="menuActionScripts">
         <script>scripts\menuPlay.gml</script>
@@ -475,6 +482,7 @@
         <script>scripts\menuResolution.gml</script>
         <script>scripts\menuUiScaling.gml</script>
         <script>scripts\menuSetKey.gml</script>
+        <script>scripts\menuDisplayMode.gml</script>
       </scripts>
       <scripts name="menuHelperGUIScripts">
         <script>scripts\drawTypedMenuList.gml</script>
@@ -639,7 +647,7 @@
     <room>rooms\room4</room>
     <room>rooms\TODUPLICATE</room>
   </rooms>
-  <constants number="97">
+  <constants number="98">
     <constant name="LERP_AMOUNT">0.025</constant>
     <constant name="DASH_TRACE_LENGTH">300</constant>
     <constant name="BASE_HEIGHT">1080</constant>
@@ -722,6 +730,7 @@
     <constant name="MENU_SETTING_HANDLE_FRAMERATE">"framerate"</constant>
     <constant name="MENU_SETTING_HANDLE_RESOLUTION">"resolution"</constant>
     <constant name="MENU_SETTING_HANDLE_UI_SCALING">"ui scaling"</constant>
+    <constant name="MENU_SETTING_HANDLE_DISPLAY_MODE">"display mode"</constant>
     <constant name="SETTING_FRAMERATE_MIN">30</constant>
     <constant name="SETTING_FRAMERATE_MAX">300</constant>
     <constant name="TOTAL_KEYBINDS">2</constant>
