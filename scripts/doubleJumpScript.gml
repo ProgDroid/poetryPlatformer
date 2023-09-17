@@ -9,7 +9,7 @@ image_speed   = 0;
 
 viewController.offsetVertically = false;
 cancelAlarm(offsetVertAlarmIndex, setOffsetVertically);
-offsetVertAlarmIndex            = createAlarm(viewController, TICK_RATE, setOffsetVertically);
+offsetVertAlarmIndex            = createAlarm(viewController, TICK_RATE, setOffsetVertically, false);
 
 eventFire(allEvents.doublejump);
 

@@ -40,7 +40,14 @@ enum allEvents {
     dashthrough,
     gameending,
     fadeout,
-    theend
+    theend,
+    fadetowhite,
+    fadefromwhite,
+    fadewhiteend,
+    menufaded,
+    paused,
+    unpaused,
+    unpausedend
 }
 
 </string>

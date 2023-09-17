@@ -8,7 +8,7 @@ if (timeFactorController.timeFactor >= 1) {
     die  = dieScript;
 
     if (state_name == "idle") {
-        panOutAlarmIndex = createAlarm(viewController, TICK_RATE * 5, setPanOut);
+        panOutAlarmIndex = createAlarm(viewController, TICK_RATE * 5, setPanOut, false);
     }
 }
 

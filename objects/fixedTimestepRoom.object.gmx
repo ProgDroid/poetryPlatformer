@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>event_inherited();
 
-room_speed = BASE_FRAMERATE;
+room_speed = settingsController.visualSettings[? "framerate"];
 fixed_timestep_set_target_fps(BASE_FRAMERATE);
 
 </string>

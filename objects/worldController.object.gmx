@@ -34,8 +34,13 @@ var loops = array_length_1d(platformController.collectibleIndices);
 for (var i = 0; i &lt; loops; i++) {
     if (platformController.collectibleIndices[i] == true) {
         var instance     = instance_find(objPlatforms, i);
+
+        if (instance == noone) {
+            continue;
+        }
+
         instance.visible = false;
-        
+
         var innerLoops   = array_length_1d(platformController.collectibleMap);
 
         for (var j = 0; j &lt; innerLoops; j++) {

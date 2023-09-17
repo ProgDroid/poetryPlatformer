@@ -265,35 +265,6 @@ eventUnregister(allEvents.playerfell, id);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Movement
-
-// end game
-// move to menuController
-if (inputController.start) {
-    inputController.start = false
-    game_end();
-}
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>///Dash placement
 if (dash == dashCheck || dash == dashScript) {
     var pointX = lerp(dashX, dashPointX(), ((0.1 * (inputController.currentInputType == inputmethod.pad)) + (0.4 * (inputController.currentInputType == inputmethod.keyboard))) * customDeltaTimeNoTimeFactor);

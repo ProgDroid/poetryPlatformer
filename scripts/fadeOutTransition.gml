@@ -1,0 +1,4 @@
+/// fadeOut()
+
+menuTransition(menuFadeOut);
+

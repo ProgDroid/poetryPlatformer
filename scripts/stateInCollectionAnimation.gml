@@ -3,8 +3,8 @@
 if (state_new) {
     state_new = false;
 
-    createAlarm(flashController, TICK_RATE * 3.75, resetViewFlash);
-    resetViewAlarmIndex = createAlarm(id, TICK_RATE * 3.75, resetView);
+    createAlarm(flashController, TICK_RATE * 3.75, resetViewFlash, false);
+    resetViewAlarmIndex = createAlarm(id, TICK_RATE * 3.75, resetView, false);
 
     delayAlarm(playerSpeedAlarmIndex, TICK_RATE * 3.75, refreshPlayerSpeed);
 

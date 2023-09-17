@@ -136,7 +136,6 @@ for (var i = 0; i < array_length_1d(lines); i++) {
             continue;
         }
 
-        // how I miss ternary...
         var object = platformController.platformMap[? char];
 
         if (levelEnd) {
@@ -179,6 +178,8 @@ for (var i = 0; i < array_length_1d(lines); i++) {
         previousChar = char;
     }
 }
+
+inputController.inputProcess = ingameInput;
 
 viewController.viewXNoShift = playerX - viewController.originalWidth div 3;
 viewController.viewYNoShift = playerY - viewController.originalHeight div 2;

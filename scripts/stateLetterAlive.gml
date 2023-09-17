@@ -1,6 +1,6 @@
 if (state_new) {
     state_new = false;
-    createAlarm(id, TICK_RATE * 3, setStateSuckedIn);
+    createAlarm(id, TICK_RATE * 3, setStateSuckedIn, false);
 }
 
 if (image_index > endFrame) {

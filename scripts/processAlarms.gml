@@ -5,7 +5,12 @@ for (var i = MAX_ALARMS - 1; i >= 0; --i) {
         continue;
     }
 
-    alarmTimes[i] = max(0, alarmTimes[i] - (timeFactorController.timeFactor * timeFactorController.pauseFactor * 1));
+    var factor = timeFactorController.timeFactor * timeFactorController.pauseFactor * 1;
+    if (timeFactorOverride[i] == true) {
+        var factor = 1;
+    }
+
+    alarmTimes[i] = max(0, alarmTimes[i] - factor);
 
     if (alarmTimes[i] == 0) {
         var instance  = instances[i];

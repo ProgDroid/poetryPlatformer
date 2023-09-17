@@ -1,4 +1,4 @@
 /// endGame
 
-createAlarm(id, TICK_RATE, gameEnd);
+createAlarm(id, TICK_RATE, gameEnd, true);
 

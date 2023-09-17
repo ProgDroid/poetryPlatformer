@@ -26,6 +26,8 @@ if (argument[0] == "help") {
     commands += ", view <width> <height>";
     commands += ", showView";
     commands += ", fps <1234>";
+    commands += ", pause";
+    commands += ", unpause";
     addConsoleMessage("info", "Available commands are: " + commands);
 }
 
@@ -201,5 +203,17 @@ if (string_pos("fps", argument[0]) == 1) {
     room_speed = fpsValue;
 
     toggleDevConsole();
+}
+
+if (argument[0] == "pause") {
+    toggleDevConsole();
+
+    pause();
+}
+
+if (argument[0] == "unpause") {
+    toggleDevConsole();
+
+    unpause();
 }
 

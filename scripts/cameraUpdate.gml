@@ -1,7 +1,7 @@
 ///@description Update the camera
 
 // yikes
-if (objPlayer.state_name = "inCollectionAnimation") {
+if (!instance_exists(objPlayer) || objPlayer.state_name = "inCollectionAnimation") {
     exit;
 }
 

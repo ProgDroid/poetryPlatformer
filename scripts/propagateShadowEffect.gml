@@ -15,7 +15,7 @@ for (var i = selfIndex + 1; i < loops; i++) {
 
     var instance = instance_find(objPlatforms, i);
     cancelAlarm(instance.shadowAlarms[1 - argument0], instance.shadowScripts[1 - argument0]);
-    instance.shadowAlarms[argument0] = createAlarm(instance, TICK_RATE * 0.2 * abs(i - selfIndex), instance.shadowScripts[argument0]);
+    instance.shadowAlarms[argument0] = createAlarm(instance, TICK_RATE * 0.2 * abs(i - selfIndex), instance.shadowScripts[argument0], false);
 }
 
 for (var i = selfIndex - 1; i >= 0; i--) {
@@ -25,6 +25,6 @@ for (var i = selfIndex - 1; i >= 0; i--) {
     
     var instance = instance_find(objPlatforms, i);
     cancelAlarm(instance.shadowAlarms[1 - argument0], instance.shadowScripts[1 - argument0]);
-    instance.shadowAlarms[argument0] = createAlarm(instance, TICK_RATE * 0.2 * abs(i - selfIndex), instance.shadowScripts[argument0]);
+    instance.shadowAlarms[argument0] = createAlarm(instance, TICK_RATE * 0.2 * abs(i - selfIndex), instance.shadowScripts[argument0], false);
 }
 
