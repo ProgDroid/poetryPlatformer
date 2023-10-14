@@ -14,7 +14,12 @@ draw_sprite_ext(
 
 var options = getMenuOptions();
 
+var defaultAlpha = true;
+var originalAlpha = draw_get_alpha();
+
 for (var i = 0; i < menuController.menuOptionCount; ++i) {
+    defaultAlpha = dimDisabledOption(options[| i], defaultAlpha, originalAlpha);
+
     var angle = degtorad(120 - (i * 60) + asteriskRotation);
 
     var lineBaseX = (display_get_gui_width() * 0.5) + (cos(angle) * MENU_RADIUS);
@@ -40,3 +45,7 @@ for (var i = 0; i < menuController.menuOptionCount; ++i) {
     );
 }
 
+if (defaultAlpha == false) {
+    draw_set_alpha(originalAlpha);
+    defaultAlpha = true;
+}

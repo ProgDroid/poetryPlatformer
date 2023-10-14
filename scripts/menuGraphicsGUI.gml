@@ -9,7 +9,12 @@ drawSubMenuOptions(currentOptions, lineLengths);
 
 draw_set_halign(fa_center);
 
+var defaultAlpha = true;
+var originalAlpha = draw_get_alpha();
+
 for (var i = 0; i < menuController.menuOptionCount; ++i) {
+    defaultAlpha = dimDisabledOption(currentOptions[| i], defaultAlpha, originalAlpha);
+
     var yOffset = (i - floor(menuController.menuOptionCount * 0.5)) * MENU_LIST_Y_OFFSET;
 
     var baseX = display_get_gui_width() * 0.75;
@@ -50,4 +55,9 @@ for (var i = 0; i < menuController.menuOptionCount; ++i) {
             5
         );
     }
+}
+
+if (defaultAlpha == false) {
+    draw_set_alpha(originalAlpha);
+    defaultAlpha = true;
 }

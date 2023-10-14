@@ -18,14 +18,19 @@ for (var i = 0; i < mapSize; ++i) {
     var handle      = changedSetting[CHANGED_SETTING_INDEX_HANDLE];
     var value       = changedSetting[CHANGED_SETTING_INDEX_ORIGINAL_VALUE];
 
-    var settingsMap = getSettingsMap(settingType);
+    if (settingType == "keybinds") {
+        var settingsMap = getSettingsMap(settingType);
 
-    if (settingsMap == noone) {
-        addConsoleMessage("warning", "Tried to use unknown settings type to revertSettings");
-        exit;
+        if (settingsMap == noone) {
+            addConsoleMessage("warning", "Tried to use unknown settings type to revertSettings");
+            exit;
+        }
+
+        settingsMap[? handle] = value;
+        continue;
     }
 
-    settingsMap[? handle] = value;
+    saveSetting(handle, value, false);
 }
 
 ds_map_clear(settingsController.changedSettings);

@@ -32,5 +32,5 @@ menuController.subMenuArrowRight = hasHigherResolution(newResolution);
 // TODO is it worth animating "press key to set" prompt?
 // TODO add gameplay options
 //   dash mode toggle/hold
-// TODO disable resolution setting when fullscreen
 // TODO workout issues with changing to windowed then fullscreen
+// TODO check if I have to manually set resolution to display resolution when enabling fullscreen

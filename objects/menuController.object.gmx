@@ -160,6 +160,13 @@ uiScalingAnimationIndex = 0;
 menuConfirmationDirectionCancel  = noone;
 menuConfirmationDirectionConfirm = noone;
 
+menuDisabledEntries = array_create(0);
+
+if (settingsController.visualSettings[? "displayMode"] == displayMode.fullscreen) {
+    menuDisabledEntries[0] = MENU_SETTING_HANDLE_RESOLUTION;
+    menuDisabledEntries[1] = "dummy_for_testing";
+}
+
 </string>
           </argument>
         </arguments>

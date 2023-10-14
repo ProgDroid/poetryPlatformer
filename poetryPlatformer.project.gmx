@@ -413,6 +413,8 @@
       <script>scripts\getPreviousMenuOptions.gml</script>
       <script>scripts\getPreviousMenuLineLengths.gml</script>
       <script>scripts\getMenuStartAction.gml</script>
+      <script>scripts\disableSetting.gml</script>
+      <script>scripts\enableSetting.gml</script>
       <scripts name="menuAnimationScripts">
         <script>scripts\mainMenuAnimation.gml</script>
         <script>scripts\menuFadeIn.gml</script>
@@ -490,6 +492,7 @@
         <script>scripts\drawPreviousMenu.gml</script>
         <script>scripts\drawSubMenuOptions.gml</script>
         <script>scripts\drawTypedConfirmationMenuListHorizontal.gml</script>
+        <script>scripts\dimDisabledOption.gml</script>
       </scripts>
       <scripts name="menuTransitionScripts">
         <script>scripts\fadeIn.gml</script>

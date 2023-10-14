@@ -3,7 +3,7 @@
 if (inputController.menuAccept && menuController.subMenuInput != noone) {
     var currentOptions = getMenuOptions();
 
-    saveSetting(currentOptions[| menuController.subMenuSelected], menuController.subMenuInput);
+    saveSetting(currentOptions[| menuController.subMenuSelected], menuController.subMenuInput, true);
 
     quitSubMenu();
 

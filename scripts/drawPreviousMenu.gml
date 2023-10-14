@@ -7,7 +7,12 @@ var lineLengths = getPreviousMenuLineLengths();
 
 draw_set_alpha(menuController.previousMenuAlpha);
 
+var defaultAlpha = true;
+var originalAlpha = draw_get_alpha();
+
 for (var i = 0; i < count; ++i) {
+    defaultAlpha = dimDisabledOption(options[| i], defaultAlpha, originalAlpha);
+
     var yOffset = (i - floor(count * 0.5)) * MENU_LIST_Y_OFFSET;
 
     var baseX = (display_get_gui_width() * 0.5) + menuController.menuListXGoal;
@@ -31,6 +36,11 @@ for (var i = 0; i < count; ++i) {
         1,
         0
     );
+}
+
+if (defaultAlpha == false) {
+    draw_set_alpha(originalAlpha);
+    defaultAlpha = true;
 }
 
 draw_set_alpha(menuController.menuAlpha);
