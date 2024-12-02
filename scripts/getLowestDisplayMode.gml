@@ -1,0 +1,4 @@
+/// getLowestDisplayMode()
+
+return displayMode.windowed;
+

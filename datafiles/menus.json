@@ -1,0 +1,222 @@
+{
+    "main": {
+        "options": [
+            "play",
+            "select",
+            "read",
+            "create",
+            "set",
+            "exit"
+        ],
+        "actions": [
+            "menuPlay",
+            "menuSelect",
+            "menuRead",
+            "menuCreate",
+            "menuSet",
+            "menuExit"
+        ],
+        "lineLengths": [
+            160,
+            210,
+            167,
+            220,
+            110,
+            142
+        ],
+        "transitions": {
+            "transitionIn": "fadeIn",
+            "transitionOut": "spinOut",
+            "transitionBackIn": "spinIn",
+            "transitionBackOut": "emptyScript"
+        },
+        "animation": "mainMenuAnimation",
+        "draw": "mainMenuGUI",
+        "move": "moveMenuAsterisk",
+        "startAction": "emptyScript"
+    },
+    "play": {
+        "options": [],
+        "actions": [],
+        "lineLengths": [],
+        "transitions": {
+            "transitionIn": "startGame",
+            "transitionOut": "pauseGame",
+            "transitionBackIn": "resumeGame",
+            "transitionBackOut": "emptyScript"
+        },
+        "animation": "emptyScript",
+        "draw": "emptyScript",
+        "move": "emptyScript",
+        "startAction": "pause"
+    },
+    "settings": {
+        "options": [
+            "controls",
+            "gameplay",
+            "graphics"
+        ],
+        "actions": [
+            "menuControls",
+            "menuGameplay",
+            "menuGraphics"
+        ],
+        "lineLengths": [
+            295,
+            355,
+            313
+        ],
+        "transitions": {
+            "transitionIn": "typeIn",
+            "transitionOut": "shiftOut",
+            "transitionBackIn": "shiftIn",
+            "transitionBackOut": "fadeOutTransition"
+        },
+        "animation": "settingsMenuAnimation",
+        "draw": "menuSetGUI",
+        "move": "moveMenuList",
+        "startAction": "emptyScript"
+    },
+    "controls": {
+        "options": [
+            "jump",
+            "dash",
+            "accept"
+        ],
+        "actions": [
+            "menuSetKey",
+            "menuSetKey",
+            "menuSetKey"
+        ],
+        "lineLengths": [
+            128,
+            120,
+            152
+        ],
+        "transitions": {
+            "transitionIn": "fadeIn",
+            "transitionOut": "emptyScript",
+            "transitionBackIn": "emptyScript",
+            "transitionBackOut": "fadeOutTransition"
+        },
+        "animation": "controlsMenuAnimation",
+        "draw": "menuControlsGUI",
+        "move": "moveMenuKeybindsList",
+        "startAction": "emptyScript"
+    },
+    "gameplay": {
+        "options": [
+            "not",
+            "sure",
+            "yet"
+        ],
+        "actions": [],
+        "lineLengths": [],
+        "transitions": {
+            "transitionIn": "fadeIn",
+            "transitionOut": "emptyScript",
+            "transitionBackIn": "emptyScript",
+            "transitionBackOut": "fadeOutTransition"
+        },
+        "animation": "gameplayMenuAnimation",
+        "draw": "menuGameplayGUI",
+        "move": "moveMenuList",
+        "startAction": "emptyScript"
+    },
+    "graphics": {
+        "options": [
+            "framerate",
+            "display mode",
+            "resolution",
+            "ui scaling"
+        ],
+        "actions": [
+            "menuFramerate",
+            "menuDisplayMode",
+            "menuResolution",
+            "menuUiScaling"
+        ],
+        "lineLengths": [
+            228,
+            302,
+            232,
+            220
+        ],
+        "transitions": {
+            "transitionIn": "fadeIn",
+            "transitionOut": "emptyScript",
+            "transitionBackIn": "emptyScript",
+            "transitionBackOut": "fadeOutTransition"
+        },
+        "animation": "graphicsMenuAnimation",
+        "draw": "menuGraphicsGUI",
+        "move": "moveMenuList",
+        "startAction": "emptyScript"
+    },
+    "exit": {
+        "options": [],
+        "actions": [],
+        "lineLengths": [],
+        "transitions": {
+            "transitionIn": "exitGame",
+            "transitionOut": "emptyScript",
+            "transitionBackIn": "emptyScript",
+            "transitionBackOut": "emptyScript"
+        },
+        "animation": "emptyScript",
+        "draw": "emptyScript",
+        "move": "emptyScript",
+        "startAction": "emptyScript"
+    },
+    "pause": {
+        "options": [
+            "resume",
+            "menu",
+            "exit"
+        ],
+        "actions": [
+            "menuPauseResume",
+            "menuPauseMenu",
+            "menuPauseExit"
+        ],
+        "lineLengths": [
+            270,
+            220,
+            142
+        ],
+        "transitions": {
+            "transitionIn": "typeIn",
+            "transitionOut": "backToMenu",
+            "transitionBackIn": "typeIn",
+            "transitionBackOut": "fadeOutTransition"
+        },
+        "animation": "pauseMenuAnimation",
+        "draw": "menuPauseGUI",
+        "move": "moveMenuList",
+        "startAction": "unpause"
+    },
+    "confirmation": {
+        "options": [
+            "no",
+            "yes"
+        ],
+        "actions": [
+            "menuCancelConfirmation",
+            "menuConfirm"
+        ],
+        "lineLengths": [
+            80,
+            100
+        ],
+        "transitions": {
+            "transitionIn": "confirmationTypeIn",
+            "transitionOut": "fadeOutTransition",
+            "transitionBackIn": "emptyScript",
+            "transitionBackOut": "fadeOutTransition"
+        },
+        "animation": "confirmationMenuAnimation",
+        "draw": "confirmationMenuGUI",
+        "move": "moveMenuHorizontalList",
+        "startAction": "emptyScript"
+    }
+}

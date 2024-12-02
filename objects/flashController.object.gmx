@@ -27,16 +27,60 @@
             <kind>1</kind>
             <string>event_inherited();
 
-active         = false;
-alpha          = 1;
-dark           = false;
-darkFactor     = 0.1;
-dashDark       = false;
-dashDarkFactor = 0.1;
-fadeOut        = false;
-fadeFactor     = 0;
+active          = false;
+alpha           = 1;
+dark            = false;
+darkFactor      = 0.1;
+dashDark        = false;
+dashDarkFactor  = 0.1;
+fadeOut         = false;
+fadeFactor      = 0;
+fadeSpeed       = 1;
+fadeFactorWhite = 0;
+fadeToWhite     = false;
+fadeFromWhite   = false;
+paused          = false;
+unpaused        = false;
 
 eventRegister(allEvents.fadeout, id, scriptFadeOut);
+eventRegister(allEvents.fadetowhite, id, scriptFadeToWhite);
+eventRegister(allEvents.fadefromwhite, id, scriptFadeFromWhite);
+eventRegister(allEvents.fadewhiteend, id, scriptFadeWhiteEnd);
+eventRegister(allEvents.paused, id, scriptPauseWhiteBackground);
+eventRegister(allEvents.unpaused, id, scriptUnpauseWhiteBackground);
+eventRegister(allEvents.unpausedend, id, scriptUnpauseEndWhiteBackground);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Event Unregister
+
+eventUnregister(allEvents.fadeout, id);
+eventUnregister(allEvents.fadetowhite, id);
+eventUnregister(allEvents.fadefromwhite, id);
+eventUnregister(allEvents.fadewhiteend, id);
+eventUnregister(allEvents.paused, id);
+eventUnregister(allEvents.unpaused, id);
+eventUnregister(allEvents.unpausedend, id);
 
 </string>
           </argument>
@@ -80,12 +124,34 @@ if (active) {
 }
 
 if (fadeOut &amp;&amp; fadeFactor &lt; 255) {
-    fadeFactor += 1 * customDeltaTime;
+    fadeFactor += fadeSpeed * customDeltaTimeNoTimeFactor;
     fadeFactor = min(fadeFactor, 255);
 }
 
-if (round(fadeFactor) == 254) {
+if (fadeOut &amp;&amp; round(fadeFactor) &gt;= 254) {
     eventFire(allEvents.theend);
+}
+
+if ((fadeToWhite || paused) &amp;&amp; fadeFactorWhite &lt; 255) {
+    fadeFactorWhite += (2 + (3 * paused)) * customDeltaTimeNoFactor;
+    fadeFactorWhite = min(fadeFactorWhite, 255);
+}
+
+if (fadeToWhite &amp;&amp; round(fadeFactorWhite) &gt;= 254) {
+    eventFire(allEvents.fadefromwhite);
+}
+
+if ((fadeFromWhite || unpaused) &amp;&amp; fadeFactorWhite &gt; 0) {
+    fadeFactorWhite -= (2 + (3 * unpaused)) * customDeltaTimeNoFactor;
+    fadeFactorWhite = max(fadeFactorWhite, 0);
+}
+
+if (fadeFromWhite &amp;&amp; round(fadeFactorWhite) &lt;= 1) {
+    eventFire(allEvents.fadewhiteend);
+}
+
+if (unpaused &amp;&amp; round(fadeFactorWhite) &lt;= 1) {
+    eventFire(allEvents.unpausedend);
 }
 
 </string>
@@ -136,7 +202,14 @@ if (active) {
 if (fadeOut) {
     draw_set_blend_mode(bm_subtract);
     draw_set_colour(make_colour_rgb(fadeFactor, fadeFactor, fadeFactor));
-    draw_rectangle(view_xview[0], view_yview[0], view_xview[0] + view_wview[0], view_yview[0] + view_hview[0], false);
+    draw_rectangle(view_xview[0], view_yview[0], view_xview[0] + display_get_gui_width(), view_yview[0] + display_get_gui_height(), false);
+    draw_set_blend_mode(bm_normal);
+}
+
+if (fadeToWhite || fadeFromWhite || paused || unpaused) {
+    draw_set_blend_mode(bm_add);
+    draw_set_colour(make_colour_rgb(fadeFactorWhite, fadeFactorWhite, fadeFactorWhite));
+    draw_rectangle(view_xview[0], view_yview[0], view_xview[0] + display_get_gui_width(), view_yview[0] + display_get_gui_height(), false);
     draw_set_blend_mode(bm_normal);
 }
 

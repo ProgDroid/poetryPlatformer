@@ -109,7 +109,7 @@ eventRegister(allEvents.fadeout, id, scriptGuiFade);
             <string>///Draw Health, State
 
 if (!gameOver &amp;&amp; instance_exists(objPlayer)) {
-    if (animationIndex &gt;= 13) {
+    if (animationIndex &gt;= ANIMATION_INDEX_MAX) {
         animationIndex = 0;
     }
 

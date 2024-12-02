@@ -1,0 +1,4 @@
+/// getHighestDisplayMode()
+
+return displayMode.fullscreen;
+

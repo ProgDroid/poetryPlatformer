@@ -20,9 +20,10 @@ if (argument0 == noone || alarmController.scripts[argument0] != argument1) {
     return noone;
 }
 
-alarmController.instances[argument0]  = noone;
-alarmController.alarmTimes[argument0] = noone;
-alarmController.scripts[argument0]    = noone;
+alarmController.instances[argument0]          = noone;
+alarmController.alarmTimes[argument0]         = noone;
+alarmController.scripts[argument0]            = noone;
+alarmController.timeFactorOverride[argument0] = noone;
 
 ds_queue_enqueue(alarmController.availableIndices, argument0);
 
