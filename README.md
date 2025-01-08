@@ -18,9 +18,9 @@ For more about the future of this project, check out the [project board](https:/
 
 ## GIFs and Screenshots
 ### Collectible Pickup
-![Collectible Pickup](https://thumbs.gfycat.com/AromaticDopeyDutchshepherddog-size_restricted.gif)
+![Collectible Pickup]([https://thumbs.gfycat.com/AromaticDopeyDutchshepherddog-size_restricted.gif](https://web.archive.org/web/20230823111441if_/https://thumbs.gfycat.com/AromaticDopeyDutchshepherddog-size_restricted.gif))
 ### Level Ending
-![Level Ending](https://thumbs.gfycat.com/FoolhardyPotableHerald-size_restricted.gif)
+![Level Ending]([https://thumbs.gfycat.com/FoolhardyPotableHerald-size_restricted.gif](https://web.archive.org/web/20230828082948if_/https://thumbs.gfycat.com/FoolhardyPotableHerald-size_restricted.gif))
 ### Developer Console
 ![Dev Console](https://user-images.githubusercontent.com/18398887/106155337-76152880-6178-11eb-93ea-c6335835e2e3.png)
 
